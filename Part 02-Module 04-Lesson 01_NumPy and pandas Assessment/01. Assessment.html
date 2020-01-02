@@ -1,0 +1,236 @@
+<!-- udacimak v1.2.0 -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Assessment</title>
+  <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../assets/css/plyr.css">
+  <link rel="stylesheet" href="../assets/css/katex.min.css">
+  <link rel="stylesheet" href="../assets/css/jquery.mCustomScrollbar.min.css">
+  <link rel="stylesheet" href="../assets/css/styles.css">
+  <link rel="shortcut icon" type="image/png" href="../assets/img/udacimak.png" />
+</head>
+
+<body>
+  <div class="wrapper">
+    <nav id="sidebar">
+  <div class="sidebar-header">
+    <h3>NumPy and pandas Assessment</h3>
+  </div>
+
+  <ul class="sidebar-list list-unstyled CTAs">
+    <li>
+      <a href="../index.html" class="article">Back to Home</a>
+    </li>
+  </ul>
+
+  <ul class="sidebar-list list-unstyled components">
+    <li class="">
+      <a href="01. Assessment.html">01. Assessment</a>
+    </li>
+  </ul>
+
+  <ul class="sidebar-list list-unstyled CTAs">
+    <li>
+      <a href="../index.html" class="article">Back to Home</a>
+    </li>
+  </ul>
+</nav>
+
+    <div id="content">
+      <header class="container-fluild header">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <div class="align-items-middle">
+                <button type="button" id="sidebarCollapse" class="btn btn-toggle-sidebar">
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                </button>
+
+                <h1 style="display: inline-block">01. Assessment</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main class="container">
+        <div class="row">
+          <div class="col-12">
+            <div class="ud-atom">
+  <h3></h3>
+  <div>
+  <form>
+    <fieldset>
+      <legend><p>How would you select the last 100 rows of a 2-dimensional NumPy array 'X'?</p></legend>
+    </fieldset>
+
+      <div>
+        <input type="radio" value="a1515735765801" name="502319" id="a1515735765801">
+        <label for="a1515735765801"><p>X[100:,]</p></label>
+      </div>
+      <div>
+        <input type="radio" value="a1515735775109" name="502319" id="a1515735775109">
+        <label for="a1515735775109"><p>X[:100,]</p></label>
+      </div>
+      <div>
+        <input type="radio" value="a1515735775671" name="502319" id="a1515735775671">
+        <label for="a1515735775671"><p>X[,-100:]</p></label>
+      </div>
+      <div>
+        <input type="radio" value="a1515735796006" name="502319" id="a1515735796006">
+        <label for="a1515735796006"><p>X[-100:,]</p></label>
+      </div>
+  </form>
+
+  <details>
+    <summary><strong>SOLUTION:</strong></summary>
+    X[-100:,]
+  </details>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <form>
+    <fieldset>
+      <legend><p>Given a Pandas dataframe 'df' with columns 'gender' and 'age', how would you compute the average age for each gender?</p></legend>
+    </fieldset>
+
+      <div>
+        <input type="radio" value="a1515735826990" name="502320" id="a1515735826990">
+        <label for="a1515735826990"><p>df['age'].mean().groupby('gender')</p></label>
+      </div>
+      <div>
+        <input type="radio" value="a1515735836768" name="502320" id="a1515735836768">
+        <label for="a1515735836768"><p>df['age'].mean(groupby='gender')</p></label>
+      </div>
+      <div>
+        <input type="radio" value="a1515735837214" name="502320" id="a1515735837214">
+        <label for="a1515735837214"><p>df.groupby('gender')['age'].mean()</p></label>
+      </div>
+      <div>
+        <input type="radio" value="a1515735837690" name="502320" id="a1515735837690">
+        <label for="a1515735837690"><p>df.groupby('gender').mean('age')</p></label>
+      </div>
+  </form>
+
+  <details>
+    <summary><strong>SOLUTION:</strong></summary>
+    df.groupby('gender')['age'].mean()
+  </details>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <form>
+    <fieldset>
+      <legend><p>Which of the following commands would you use to visualize the distribution of 'height' values in a Pandas dataframe 'df'?</p></legend>
+    </fieldset>
+
+      <div>
+        <input type="radio" value="a1515735988264" name="502321" id="a1515735988264">
+        <label for="a1515735988264"><p>df['height'].plot()</p></label>
+      </div>
+      <div>
+        <input type="radio" value="a1515735999512" name="502321" id="a1515735999512">
+        <label for="a1515735999512"><p>df['height'].plot(kind='line')</p></label>
+      </div>
+      <div>
+        <input type="radio" value="a1515735999946" name="502321" id="a1515735999946">
+        <label for="a1515735999946"><p>df['height'].plot(kind='scatter')</p></label>
+      </div>
+      <div>
+        <input type="radio" value="a1515736000410" name="502321" id="a1515736000410">
+        <label for="a1515736000410"><p>df['height'].plot(kind='box')</p></label>
+      </div>
+  </form>
+
+  <details>
+    <summary><strong>SOLUTION:</strong></summary>
+    df['height'].plot(kind='box')
+  </details>
+</div>
+
+</div>
+<div class="divider"></div>
+          </div>
+        </div>
+      </main>
+
+      <footer class="footer">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <p class="text-center">
+                <a href="https://github.com/udacimak/udacimak#readme" target="_blank">udacimak v1.2.0</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </div>
+
+
+  <script src="../assets/js/jquery-3.3.1.min.js"></script>
+  <script src="../assets/js/plyr.polyfilled.min.js"></script>
+  <script src="../assets/js/bootstrap.min.js"></script>
+  <script src="../assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+  <script src="../assets/js/katex.min.js"></script>
+  <script>
+    // Initialize Plyr video players
+    const players = Array.from(document.querySelectorAll('video')).map(p => new Plyr(p));
+
+    // render math equations
+    let elMath = document.getElementsByClassName('mathquill');
+    for (let i = 0, len = elMath.length; i < len; i += 1) {
+      const el = elMath[i];
+
+      katex.render(el.textContent, el, {
+        throwOnError: false
+      });
+    }
+
+    // this hack will make sure Bootstrap tabs work when using Handlebars
+    if ($('#question-tabs').length && $('#user-answer-tabs').length) {
+      $("#question-tabs a.nav-link").on('click', function () {
+        $("#question-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+      $("#user-answer-tabs a.nav-link").on('click', function () {
+        $("#user-answer-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    } else {
+      $("a.nav-link").on('click', function () {
+        $(".tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    }
+
+    // side bar events
+    $(document).ready(function () {
+      $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+      });
+
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar, #content').toggleClass('active');
+        $('.collapse.in').toggleClass('in');
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+      });
+    });
+  </script>
+</body>
+
+</html>
