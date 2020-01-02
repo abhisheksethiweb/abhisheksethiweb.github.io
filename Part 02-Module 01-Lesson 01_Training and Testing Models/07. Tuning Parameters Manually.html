@@ -1,0 +1,378 @@
+<!-- udacimak v1.2.0 -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Tuning Parameters Manually</title>
+  <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../assets/css/plyr.css">
+  <link rel="stylesheet" href="../assets/css/katex.min.css">
+  <link rel="stylesheet" href="../assets/css/jquery.mCustomScrollbar.min.css">
+  <link rel="stylesheet" href="../assets/css/styles.css">
+  <link rel="shortcut icon" type="image/png" href="../assets/img/udacimak.png" />
+</head>
+
+<body>
+  <div class="wrapper">
+    <nav id="sidebar">
+  <div class="sidebar-header">
+    <h3>Training and Testing Models</h3>
+  </div>
+
+  <ul class="sidebar-list list-unstyled CTAs">
+    <li>
+      <a href="../index.html" class="article">Back to Home</a>
+    </li>
+  </ul>
+
+  <ul class="sidebar-list list-unstyled components">
+    <li class="">
+      <a href="01. Intro.html">01. Intro</a>
+    </li>
+    <li class="">
+      <a href="02. Outline.html">02. Outline</a>
+    </li>
+    <li class="">
+      <a href="03. Stats Refresher.html">03. Stats Refresher</a>
+    </li>
+    <li class="">
+      <a href="04. Loading data into Pandas.html">04. Loading data into Pandas</a>
+    </li>
+    <li class="">
+      <a href="05. NumPy Arrays.html">05. NumPy Arrays</a>
+    </li>
+    <li class="">
+      <a href="06. Training models in sklearn.html">06. Training models in sklearn</a>
+    </li>
+    <li class="">
+      <a href="07. Tuning Parameters Manually.html">07. Tuning Parameters Manually</a>
+    </li>
+    <li class="">
+      <a href="08. Tuning Parameters Automatically.html">08. Tuning Parameters Automatically</a>
+    </li>
+    <li class="">
+      <a href="09. Testing your models.html">09. Testing your models</a>
+    </li>
+    <li class="">
+      <a href="10. Quiz Testing in sklearn.html">10. Quiz: Testing in sklearn</a>
+    </li>
+  </ul>
+
+  <ul class="sidebar-list list-unstyled CTAs">
+    <li>
+      <a href="../index.html" class="article">Back to Home</a>
+    </li>
+  </ul>
+</nav>
+
+    <div id="content">
+      <header class="container-fluild header">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <div class="align-items-middle">
+                <button type="button" id="sidebarCollapse" class="btn btn-toggle-sidebar">
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                </button>
+
+                <h1 style="display: inline-block">07. Tuning Parameters Manually</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main class="container">
+        <div class="row">
+          <div class="col-12">
+            <div class="ud-atom">
+  <h3></h3>
+  <div>
+  <h1 id="tuning-parameters">Tuning Parameters</h1>
+<p>So it looks like 2 out of 3 algorithms worked well last time, right? This are the graphs you probably got:</p>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <figure class="figure">
+    <img src="img/curves.png" alt="" class="img img-fluid">
+    <figcaption class="figure-caption">
+      
+    </figcaption>
+  </figure>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <p>It seems that Logistic Regression didn't do so well, as it's a linear algorithm. Decision Trees managed to bound the data well (question: Why does the area bounded by a decision tree look like that?), and the SVM also did pretty well. Now, let's try a slightly harder dataset, as follows:</p>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <figure class="figure">
+    <img src="img/eggsdata.png" alt="" class="img img-fluid">
+    <figcaption class="figure-caption">
+      
+    </figcaption>
+  </figure>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <p>Let's try to fit this data with an SVM Classifier, as follows:</p>
+<pre><code> &gt;&gt;&gt; classifier = SVC()
+ &gt;&gt;&gt; classifier.fit(X,y)</code></pre>
+<p>If we do this, it will fail (you'll have the chance to try below). However, it seems that maybe we're not exploring all the power of an SVM Classifier. For starters, are we using the right kernel? We can use, for example, a polynomial kernel of degree 2, as follows:</p>
+<pre><code>&gt;&gt;&gt; classifier = SVC(kernel = 'poly', degree = 2)</code></pre>
+<p>Let's try it ourselves, let's play with some of these parameters. We'll learn more about these later, but here are some values you can play with. (For now, we can use them as a black box, but they'll be discussed in detail during the <strong>Supervised Learning</strong> Section of this nanodegree.)</p>
+<ul>
+<li><strong>kernel</strong> (string): 'linear', 'poly', 'rbf'.</li>
+<li><strong>degree</strong> (integer): This is the degree of the polynomial kernel, if that's the kernel you picked (goes with poly kernel).</li>
+<li><strong>gamma</strong> (float): The gamma parameter (goes with rbf kernel).</li>
+<li><strong>C</strong> (float): The C parameter.</li>
+</ul>
+<p>In the quiz below, you can play with these parameters. Try to tune them in such a way that they bound the desired area! In order to see the boundaries that your model created, click on <code>Test Run</code>.</p>
+<p><em><strong>Note:</strong> The quiz is not graded. But if you want to see a solution that works, look at the <code>solutions.py</code> tab. The point of this quiz is not to learn about the parameters, but to see that in general, it's not easy to tune them manually. Soon we'll learn some methods to tune them automatically in order to train better models.</em></p>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+
+  <h4>Start Quiz:</h4>
+  <div>
+  <div class="nav nav-tabs nav-fill" role="tablist" id="question-tabs">
+    <a href="#339722-quiz-py" class="nav-item nav-link  active show" id="tab-339722-quiz-py" data-toggle="tab" role="tab"
+      aria-controls="339722-quiz-py" aria-selected="true">quiz.py</a>
+    <a href="#339722-data-csv" class="nav-item nav-link " id="tab-339722-data-csv" data-toggle="tab" role="tab"
+      aria-controls="339722-data-csv" aria-selected="false">data.csv</a>
+    <a href="#339722-solution-py" class="nav-item nav-link " id="tab-339722-solution-py" data-toggle="tab" role="tab"
+      aria-controls="339722-solution-py" aria-selected="false">solution.py</a>
+  </div>
+
+  <div class="tab-content" style="padding: 20px 0;" id="question-tab-contents">
+    <div class="tab-pane  active show" id="339722-quiz-py" aria-labelledby="tab-339722-quiz-py" role="tabpanel">
+      <pre><code></code>import pandas
+import numpy
+
+# Read the data
+data &#x3D; pandas.read_csv(&#x27;data.csv&#x27;)
+
+# Split the data into X and y
+X &#x3D; numpy.array(data[[&#x27;x1&#x27;, &#x27;x2&#x27;]])
+y &#x3D; numpy.array(data[&#x27;y&#x27;])
+
+# Import the SVM Classifier
+from sklearn.svm import SVC
+
+# TODO: Define your classifier.
+# Play with different values for these, from the options above.
+# Hit &#x27;Test Run&#x27; to see how the classifier fit your data.
+# Once you can correctly classify all the points, hit &#x27;Submit&#x27;.
+classifier &#x3D; SVC(kernel &#x3D; None, degree &#x3D; None, gamma &#x3D; None, C &#x3D; None)
+
+# Fit the classifier
+classifier.fit(X,y)</code></pre>
+    </div>
+    <div class="tab-pane " id="339722-data-csv" aria-labelledby="tab-339722-data-csv" role="tabpanel">
+      <pre><code></code>x1,x2,y
+0.24539,0.81725,0
+0.21774,0.76462,0
+0.20161,0.69737,0
+0.20161,0.58041,0
+0.2477,0.49561,0
+0.32834,0.44883,0
+0.39516,0.48099,0
+0.39286,0.57164,0
+0.33525,0.62135,0
+0.33986,0.71199,0
+0.34447,0.81433,0
+0.28226,0.82602,0
+0.26613,0.75,0
+0.26613,0.63596,0
+0.32604,0.54825,0
+0.28917,0.65643,0
+0.80069,0.71491,0
+0.80069,0.64181,0
+0.80069,0.50146,0
+0.79839,0.36988,0
+0.73157,0.25,0
+0.63249,0.18275,0
+0.60023,0.27047,0
+0.66014,0.34649,0
+0.70161,0.42251,0
+0.70853,0.53947,0
+0.71544,0.63304,0
+0.74309,0.72076,0
+0.75,0.63596,0
+0.75,0.46345,0
+0.72235,0.35526,0
+0.66935,0.28509,0
+0.20622,0.94298,1
+0.26613,0.8962,1
+0.38134,0.8962,1
+0.42051,0.94591,1
+0.49885,0.86404,1
+0.31452,0.93421,1
+0.53111,0.72076,1
+0.45276,0.74415,1
+0.53571,0.6038,1
+0.60484,0.71491,1
+0.60945,0.58333,1
+0.51267,0.47807,1
+0.50806,0.59211,1
+0.46198,0.30556,1
+0.5288,0.41082,1
+0.38594,0.35819,1
+0.31682,0.31433,1
+0.29608,0.20906,1
+0.36982,0.27632,1
+0.42972,0.18275,1
+0.51498,0.10965,1
+0.53111,0.20906,1
+0.59793,0.095029,1
+0.73848,0.086257,1
+0.83065,0.18275,1
+0.8629,0.10965,1
+0.88364,0.27924,1
+0.93433,0.30848,1
+0.93433,0.19444,1
+0.92512,0.43421,1
+0.87903,0.43421,1
+0.87903,0.58626,1
+0.9182,0.71491,1
+0.85138,0.8348,1
+0.85599,0.94006,1
+0.70853,0.94298,1
+0.70853,0.87281,1
+0.59793,0.93129,1
+0.61175,0.83187,1
+0.78226,0.82895,1
+0.78917,0.8962,1
+0.90668,0.89912,1
+0.14862,0.92251,1
+0.15092,0.85819,1
+0.097926,0.85819,1
+0.079493,0.91374,1
+0.079493,0.77632,1
+0.10945,0.79678,1
+0.12327,0.67982,1
+0.077189,0.6886,1
+0.081797,0.58626,1
+0.14862,0.58041,1
+0.14862,0.5307,1
+0.14171,0.41959,1
+0.08871,0.49269,1
+0.095622,0.36696,1
+0.24539,0.3962,1
+0.1947,0.29678,1
+0.16935,0.22368,1
+0.15553,0.13596,1
+0.23848,0.12427,1
+0.33065,0.12427,1
+0.095622,0.2617,1
+0.091014,0.20322,1
+</code></pre>
+    </div>
+    <div class="tab-pane " id="339722-solution-py" aria-labelledby="tab-339722-solution-py" role="tabpanel">
+      <pre><code></code># The kernel that works best here is rbf, with large values of gamma.
+# For example, this one:
+
+classifier &#x3D; SVC(kernel &#x3D; &#x27;rbf&#x27;, gamma &#x3D; 200)
+</code></pre>
+    </div>
+  </div>
+</div>
+
+
+
+</div>
+
+
+</div>
+<div class="divider"></div>
+          </div>
+        </div>
+      </main>
+
+      <footer class="footer">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <p class="text-center">
+                <a href="https://github.com/udacimak/udacimak#readme" target="_blank">udacimak v1.2.0</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </div>
+
+
+  <script src="../assets/js/jquery-3.3.1.min.js"></script>
+  <script src="../assets/js/plyr.polyfilled.min.js"></script>
+  <script src="../assets/js/bootstrap.min.js"></script>
+  <script src="../assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+  <script src="../assets/js/katex.min.js"></script>
+  <script>
+    // Initialize Plyr video players
+    const players = Array.from(document.querySelectorAll('video')).map(p => new Plyr(p));
+
+    // render math equations
+    let elMath = document.getElementsByClassName('mathquill');
+    for (let i = 0, len = elMath.length; i < len; i += 1) {
+      const el = elMath[i];
+
+      katex.render(el.textContent, el, {
+        throwOnError: false
+      });
+    }
+
+    // this hack will make sure Bootstrap tabs work when using Handlebars
+    if ($('#question-tabs').length && $('#user-answer-tabs').length) {
+      $("#question-tabs a.nav-link").on('click', function () {
+        $("#question-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+      $("#user-answer-tabs a.nav-link").on('click', function () {
+        $("#user-answer-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    } else {
+      $("a.nav-link").on('click', function () {
+        $(".tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    }
+
+    // side bar events
+    $(document).ready(function () {
+      $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+      });
+
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar, #content').toggleClass('active');
+        $('.collapse.in').toggleClass('in');
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+      });
+    });
+  </script>
+</body>
+
+</html>

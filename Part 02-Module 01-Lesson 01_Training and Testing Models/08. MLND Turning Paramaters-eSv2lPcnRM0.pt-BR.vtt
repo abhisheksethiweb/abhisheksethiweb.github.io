@@ -1,0 +1,39 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.234 --> 00:00:04.001
+Nós vimos como treinar
+diferentes modelos
+
+00:00:04.033 --> 00:00:07.234
+e como ajustar parâmetros
+para treinar melhor os modelos.
+
+00:00:07.267 --> 00:00:09.901
+Quanto mais dados
+e mais complexo eles forem,
+
+00:00:09.934 --> 00:00:12.634
+escolher o algoritmo
+e os parâmetros corretos
+
+00:00:12.667 --> 00:00:14.167
+pode ser bem difícil.
+
+00:00:14.200 --> 00:00:18.067
+Há muitas técnicas que ajudam
+nestas decisões.
+
+00:00:18.100 --> 00:00:20.534
+É isso que aprenderemos
+no resto da seção:
+
+00:00:20.567 --> 00:00:23.968
+como treinar, testar,
+avaliar e validar modelos
+
+00:00:24.000 --> 00:00:26.334
+para tomar as melhores
+decisões com os dados.
+

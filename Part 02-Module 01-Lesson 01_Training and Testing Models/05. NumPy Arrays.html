@@ -1,0 +1,372 @@
+<!-- udacimak v1.2.0 -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>NumPy Arrays</title>
+  <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../assets/css/plyr.css">
+  <link rel="stylesheet" href="../assets/css/katex.min.css">
+  <link rel="stylesheet" href="../assets/css/jquery.mCustomScrollbar.min.css">
+  <link rel="stylesheet" href="../assets/css/styles.css">
+  <link rel="shortcut icon" type="image/png" href="../assets/img/udacimak.png" />
+</head>
+
+<body>
+  <div class="wrapper">
+    <nav id="sidebar">
+  <div class="sidebar-header">
+    <h3>Training and Testing Models</h3>
+  </div>
+
+  <ul class="sidebar-list list-unstyled CTAs">
+    <li>
+      <a href="../index.html" class="article">Back to Home</a>
+    </li>
+  </ul>
+
+  <ul class="sidebar-list list-unstyled components">
+    <li class="">
+      <a href="01. Intro.html">01. Intro</a>
+    </li>
+    <li class="">
+      <a href="02. Outline.html">02. Outline</a>
+    </li>
+    <li class="">
+      <a href="03. Stats Refresher.html">03. Stats Refresher</a>
+    </li>
+    <li class="">
+      <a href="04. Loading data into Pandas.html">04. Loading data into Pandas</a>
+    </li>
+    <li class="">
+      <a href="05. NumPy Arrays.html">05. NumPy Arrays</a>
+    </li>
+    <li class="">
+      <a href="06. Training models in sklearn.html">06. Training models in sklearn</a>
+    </li>
+    <li class="">
+      <a href="07. Tuning Parameters Manually.html">07. Tuning Parameters Manually</a>
+    </li>
+    <li class="">
+      <a href="08. Tuning Parameters Automatically.html">08. Tuning Parameters Automatically</a>
+    </li>
+    <li class="">
+      <a href="09. Testing your models.html">09. Testing your models</a>
+    </li>
+    <li class="">
+      <a href="10. Quiz Testing in sklearn.html">10. Quiz: Testing in sklearn</a>
+    </li>
+  </ul>
+
+  <ul class="sidebar-list list-unstyled CTAs">
+    <li>
+      <a href="../index.html" class="article">Back to Home</a>
+    </li>
+  </ul>
+</nav>
+
+    <div id="content">
+      <header class="container-fluild header">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <div class="align-items-middle">
+                <button type="button" id="sidebarCollapse" class="btn btn-toggle-sidebar">
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                </button>
+
+                <h1 style="display: inline-block">05. NumPy Arrays</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main class="container">
+        <div class="row">
+          <div class="col-12">
+            <div class="ud-atom">
+  <h3></h3>
+  <div>
+  <h1 id="numpy-arrays">NumPy Arrays</h1>
+<p>Now that we've loaded the data in Pandas, we need to split the input and output into numpy arrays, in order to apply the classifiers in scikit learn. This is done in the following way: Say we have a pandas dataframe called <code>df</code>, like the following, with four columns labeled <code>A</code>, <code>B</code>, <code>C</code>, <code>D</code>:</p>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <figure class="figure">
+    <img src="img/dataframe.png" alt="" class="img img-fluid">
+    <figcaption class="figure-caption">
+      
+    </figcaption>
+  </figure>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <p>If we want to extract column <code>A</code>, we do the following:</p>
+<pre><code>&gt;&gt; df['A']
+    0    1
+    1    5
+    2    9
+    Name: A, dtype: int64</code></pre>
+<p>Now, if we want to extract more columns, we just need to specify them, as follows:</p>
+<pre><code>&gt;&gt; df[['B', 'D']]</code></pre>
+<p>And the result is the following DataFrame:</p>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <figure class="figure">
+    <img src="img/smalldf.png" alt="" class="img img-fluid">
+    <figcaption class="figure-caption">
+      
+    </figcaption>
+  </figure>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <p>And finally, we turn these pandas DataFrames into NumPy arrays. The command for turning a DataFrame <code>df</code> into a NumPy array is very simple:</p>
+<pre><code>&gt;&gt; numpy.array(df)</code></pre>
+<p>Now, try it yourself! Working with the same dataframe that we loaded in pandas previously, split it into the features <code>X</code>, and the labels <code>y</code>, and turn them into NumPy arrays.</p>
+<p><em><strong>Note:</strong> The capitalization may look strange, as <code>X</code> is capitalized whereas <code>y</code> is lowercase, but this is standard notation, as <code>X</code> represents a matrix of (maybe) several columns, and <code>y</code> a single column vector.</em></p>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+
+  <h4>Start Quiz:</h4>
+  <div>
+  <div class="nav nav-tabs nav-fill" role="tablist" id="question-tabs">
+    <a href="#338015-quiz-py" class="nav-item nav-link  active show" id="tab-338015-quiz-py" data-toggle="tab" role="tab"
+      aria-controls="338015-quiz-py" aria-selected="true">quiz.py</a>
+    <a href="#338015-data-csv" class="nav-item nav-link " id="tab-338015-data-csv" data-toggle="tab" role="tab"
+      aria-controls="338015-data-csv" aria-selected="false">data.csv</a>
+    <a href="#338015-solution-py" class="nav-item nav-link " id="tab-338015-solution-py" data-toggle="tab" role="tab"
+      aria-controls="338015-solution-py" aria-selected="false">solution.py</a>
+  </div>
+
+  <div class="tab-content" style="padding: 20px 0;" id="question-tab-contents">
+    <div class="tab-pane  active show" id="338015-quiz-py" aria-labelledby="tab-338015-quiz-py" role="tabpanel">
+      <pre><code></code>import pandas as pd
+import numpy as np
+
+data &#x3D; pd.read_csv(&quot;data.csv&quot;)
+
+# TODO: Separate the features and the labels into arrays called X and y
+
+X &#x3D; None
+y &#x3D; None</code></pre>
+    </div>
+    <div class="tab-pane " id="338015-data-csv" aria-labelledby="tab-338015-data-csv" role="tabpanel">
+      <pre><code></code>x1,x2,y
+0.78051,-0.063669,0
+0.28774,0.29139,0
+0.40714,0.17878,0
+0.2923,0.4217,0
+0.50922,0.35256,0
+0.27785,0.10802,0
+0.27527,0.33223,0
+0.43999,0.31245,0
+0.33557,0.42984,0
+0.23448,0.24986,0
+0.0084492,0.13658,0
+0.12419,0.33595,0
+0.25644,0.42624,0
+0.4591,0.40426,0
+0.44547,0.45117,0
+0.42218,0.20118,0
+0.49563,0.21445,0
+0.30848,0.24306,0
+0.39707,0.44438,0
+0.32945,0.39217,0
+0.40739,0.40271,0
+0.3106,0.50702,0
+0.49638,0.45384,0
+0.10073,0.32053,0
+0.69907,0.37307,0
+0.29767,0.69648,0
+0.15099,0.57341,0
+0.16427,0.27759,0
+0.33259,0.055964,0
+0.53741,0.28637,0
+0.19503,0.36879,0
+0.40278,0.035148,0
+0.21296,0.55169,0
+0.48447,0.56991,0
+0.25476,0.34596,0
+0.21726,0.28641,0
+0.67078,0.46538,0
+0.3815,0.4622,0
+0.53838,0.32774,0
+0.4849,0.26071,0
+0.37095,0.38809,0
+0.54527,0.63911,0
+0.32149,0.12007,0
+0.42216,0.61666,0
+0.10194,0.060408,0
+0.15254,0.2168,1
+0.45558,0.43769,1
+0.28488,0.52142,1
+0.27633,0.21264,1
+0.39748,0.31902,1
+0.5533,1,0
+0.44274,0.59205,0
+0.85176,0.6612,0
+0.60436,0.86605,0
+0.68243,0.48301,0
+1,0.76815,1
+0.72989,0.8107,1
+0.67377,0.77975,1
+0.78761,0.58177,1
+0.71442,0.7668,1
+0.49379,0.54226,1
+0.78974,0.74233,1
+0.67905,0.60921,1
+0.6642,0.72519,1
+0.79396,0.56789,1
+0.70758,0.76022,1
+0.59421,0.61857,1
+0.49364,0.56224,1
+0.77707,0.35025,1
+0.79785,0.76921,1
+0.70876,0.96764,1
+0.69176,0.60865,1
+0.66408,0.92075,1
+0.65973,0.66666,1
+0.64574,0.56845,1
+0.89639,0.7085,1
+0.85476,0.63167,1
+0.62091,0.80424,1
+0.79057,0.56108,1
+0.58935,0.71582,1
+0.56846,0.7406,1
+0.65912,0.71548,1
+0.70938,0.74041,1
+0.59154,0.62927,1
+0.45829,0.4641,1
+0.79982,0.74847,1
+0.60974,0.54757,1
+0.68127,0.86985,1
+0.76694,0.64736,1
+0.69048,0.83058,1
+0.68122,0.96541,1
+0.73229,0.64245,1
+0.76145,0.60138,1
+0.58985,0.86955,1
+0.73145,0.74516,1
+0.77029,0.7014,1
+0.73156,0.71782,1
+0.44556,0.57991,1
+0.85275,0.85987,1
+0.51912,0.62359,1
+</code></pre>
+    </div>
+    <div class="tab-pane " id="338015-solution-py" aria-labelledby="tab-338015-solution-py" role="tabpanel">
+      <pre><code></code>import pandas as pd
+import numpy as np
+
+data &#x3D; pd.read_csv(&quot;data.csv&quot;)
+
+# TODO: Separate the features and the labels into arrays called X and y
+
+X &#x3D; np.array(data[[&#x27;x1&#x27;, &#x27;x2&#x27;]])
+y &#x3D; np.array(data[&#x27;y&#x27;])</code></pre>
+    </div>
+  </div>
+</div>
+
+
+
+</div>
+
+
+</div>
+<div class="divider"></div>
+          </div>
+        </div>
+      </main>
+
+      <footer class="footer">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <p class="text-center">
+                <a href="https://github.com/udacimak/udacimak#readme" target="_blank">udacimak v1.2.0</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </div>
+
+
+  <script src="../assets/js/jquery-3.3.1.min.js"></script>
+  <script src="../assets/js/plyr.polyfilled.min.js"></script>
+  <script src="../assets/js/bootstrap.min.js"></script>
+  <script src="../assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+  <script src="../assets/js/katex.min.js"></script>
+  <script>
+    // Initialize Plyr video players
+    const players = Array.from(document.querySelectorAll('video')).map(p => new Plyr(p));
+
+    // render math equations
+    let elMath = document.getElementsByClassName('mathquill');
+    for (let i = 0, len = elMath.length; i < len; i += 1) {
+      const el = elMath[i];
+
+      katex.render(el.textContent, el, {
+        throwOnError: false
+      });
+    }
+
+    // this hack will make sure Bootstrap tabs work when using Handlebars
+    if ($('#question-tabs').length && $('#user-answer-tabs').length) {
+      $("#question-tabs a.nav-link").on('click', function () {
+        $("#question-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+      $("#user-answer-tabs a.nav-link").on('click', function () {
+        $("#user-answer-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    } else {
+      $("a.nav-link").on('click', function () {
+        $(".tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    }
+
+    // side bar events
+    $(document).ready(function () {
+      $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+      });
+
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar, #content').toggleClass('active');
+        $('.collapse.in').toggleClass('in');
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+      });
+    });
+  </script>
+</body>
+
+</html>

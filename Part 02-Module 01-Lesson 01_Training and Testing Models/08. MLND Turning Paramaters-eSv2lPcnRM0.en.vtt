@@ -1,0 +1,31 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:03.512
+In this section, we learn about how to train different models in
+
+00:00:03.512 --> 00:00:07.109
+a scale learn and how to play with parameters in order to train our model better.
+
+00:00:07.110 --> 00:00:09.894
+As you can imagine, as the data gets bigger and more complicated,
+
+00:00:09.894 --> 00:00:11.744
+this process of picking the right algorithm
+
+00:00:11.744 --> 00:00:14.174
+and the right parameters can get pretty tedious.
+
+00:00:14.175 --> 00:00:18.344
+In fact, there are many techniques that we can use to help us with these decisions.
+
+00:00:18.344 --> 00:00:20.445
+This is what we learn in the rest of this section.
+
+00:00:20.445 --> 00:00:23.115
+How to train, test, evaluate,
+
+00:00:23.114 --> 00:00:26.289
+and validate models in order to make the best decisions with our data.
+
