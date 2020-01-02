@@ -1,0 +1,356 @@
+<!-- udacimak v1.2.0 -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Predicting Boston Housing Prices</title>
+  <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../assets/css/plyr.css">
+  <link rel="stylesheet" href="../assets/css/katex.min.css">
+  <link rel="stylesheet" href="../assets/css/jquery.mCustomScrollbar.min.css">
+  <link rel="stylesheet" href="../assets/css/styles.css">
+  <link rel="shortcut icon" type="image/png" href="../assets/img/udacimak.png" />
+</head>
+
+<body>
+  <div class="wrapper">
+    <nav id="sidebar">
+  <div class="sidebar-header">
+    <h3>Predicting Boston Housing Prices</h3>
+  </div>
+
+  <ul class="sidebar-list list-unstyled CTAs">
+    <li>
+      <a href="../index.html" class="article">Back to Home</a>
+    </li>
+  </ul>
+
+  <ul class="sidebar-list list-unstyled components">
+    <li class="">
+      <a href="01. Project Overview.html">01. Project Overview</a>
+    </li>
+    <li class="">
+      <a href="02. Starting the project.html">02. Starting the project</a>
+    </li>
+    <li class="">
+      <a href="03. Submitting the project.html">03. Submitting the project</a>
+    </li>
+    <li class="">
+      <a href="04. Uploading to Workspace.html">04. Uploading to Workspace</a>
+    </li>
+    <li class="">
+      <a href="05. Project Workspace.html">05. Project Workspace</a>
+    </li>
+    <li class="">
+      <a href="Project Description - Predicting Boston Housing Prices.html">Project Description - Predicting Boston Housing Prices</a>
+    </li>
+    <li class="">
+      <a href="Project Rubric - Predicting Boston Housing Prices.html">Project Rubric - Predicting Boston Housing Prices</a>
+    </li>
+  </ul>
+
+  <ul class="sidebar-list list-unstyled CTAs">
+    <li>
+      <a href="../index.html" class="article">Back to Home</a>
+    </li>
+  </ul>
+</nav>
+
+    <div id="content">
+      <header class="container-fluild header">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <div class="align-items-middle">
+                <button type="button" id="sidebarCollapse" class="btn btn-toggle-sidebar">
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                </button>
+
+                <h1 style="display: inline-block">Predicting Boston Housing Prices</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main class="container">
+        <div class="row">
+          <div class="col-12">
+            
+      <div>
+        <h2><p>Data Exploration</p></h2>
+        <table class="table table-bordered table-hover">
+          <thead>
+            <tr class="thead-dark">
+              <th>Criteria</th>
+              <th>Meet Specification</th>
+            </tr>
+          </thead>
+          
+    <tbody>
+      
+      <tr scope="row">
+        <td>
+          <p>Statistical Analysis</p>
+        </td>
+        <td>
+          <p>All requested statistics for the Boston Housing dataset are accurately calculated. Student correctly leverages NumPy functionality to obtain these results.</p>
+        </td>
+      </tr>
+    
+      <tr scope="row">
+        <td>
+          <p><strong>Question 1</strong>:  <br />
+Feature Observation</p>
+        </td>
+        <td>
+          <p>Student correctly justifies how each feature correlates with an increase or decrease in the target variable. </p>
+        </td>
+      </tr>
+    
+    </tbody>
+  
+        </table>
+
+      </div>
+    
+      <div>
+        <h2><p>Developing a Model</p></h2>
+        <table class="table table-bordered table-hover">
+          <thead>
+            <tr class="thead-dark">
+              <th>Criteria</th>
+              <th>Meet Specification</th>
+            </tr>
+          </thead>
+          
+    <tbody>
+      
+      <tr scope="row">
+        <td>
+          <p><strong>Question 2:</strong>  <br />
+Goodness of Fit</p>
+        </td>
+        <td>
+          <p>Student correctly identifies whether the hypothetical model successfully captures the variation of the target variable based on the model’s R^2 score.  <br />
+The performance metric is correctly implemented in code.</p>
+        </td>
+      </tr>
+    
+      <tr scope="row">
+        <td>
+          <p><strong>Question 3</strong>:  <br />
+Training and Testing</p>
+        </td>
+        <td>
+          <p>Student provides a valid reason for why a dataset is split into training and testing subsets for a model. Training and testing split is correctly implemented in code.</p>
+        </td>
+      </tr>
+    
+    </tbody>
+  
+        </table>
+
+      </div>
+    
+      <div>
+        <h2><p>Analyzing Model Performance</p></h2>
+        <table class="table table-bordered table-hover">
+          <thead>
+            <tr class="thead-dark">
+              <th>Criteria</th>
+              <th>Meet Specification</th>
+            </tr>
+          </thead>
+          
+    <tbody>
+      
+      <tr scope="row">
+        <td>
+          <p><strong>Question 4</strong>:  <br />
+Learning the Data</p>
+        </td>
+        <td>
+          <p>Student correctly identifies the trend of both the training and testing curves from the graph as more training points are added. Discussion is made as to whether additional training points would benefit the model.</p>
+        </td>
+      </tr>
+    
+      <tr scope="row">
+        <td>
+          <p><strong>Question 5:</strong>  <br />
+Bias-Variance Tradeoff</p>
+        </td>
+        <td>
+          <p>Student correctly identifies whether the model at a max depth of 1 and a max depth of 10 suffer from either high bias or high variance, with justification using the complexity curves graph.</p>
+        </td>
+      </tr>
+    
+      <tr scope="row">
+        <td>
+          <p><strong>Question 6</strong>:  <br />
+Best-Guess Optimal Model</p>
+        </td>
+        <td>
+          <p>Student picks a best-guess optimal model with reasonable justification using the model complexity graph.</p>
+        </td>
+      </tr>
+    
+    </tbody>
+  
+        </table>
+
+      </div>
+    
+      <div>
+        <h2><p>Evaluating Model Performance</p></h2>
+        <table class="table table-bordered table-hover">
+          <thead>
+            <tr class="thead-dark">
+              <th>Criteria</th>
+              <th>Meet Specification</th>
+            </tr>
+          </thead>
+          
+    <tbody>
+      
+      <tr scope="row">
+        <td>
+          <p><strong>Question 7</strong>:  <br />
+Grid Search</p>
+        </td>
+        <td>
+          <p>Student correctly describes the grid search technique and how it can be applied to a learning algorithm.</p>
+        </td>
+      </tr>
+    
+      <tr scope="row">
+        <td>
+          <p><strong>Question 8</strong>:  <br />
+Cross-Validation</p>
+        </td>
+        <td>
+          <p>Student correctly describes the k-fold cross-validation technique and discusses the benefits of its application when used with grid search when optimizing a model.</p>
+        </td>
+      </tr>
+    
+      <tr scope="row">
+        <td>
+          <p>Fitting a Model</p>
+        </td>
+        <td>
+          <p>Student correctly implements the <code>fit_model</code> function in code.</p>
+        </td>
+      </tr>
+    
+      <tr scope="row">
+        <td>
+          <p><strong>Question 9</strong>:  <br />
+Optimal Model</p>
+        </td>
+        <td>
+          <p>Student reports the optimal model and compares this model to the one they chose earlier.</p>
+        </td>
+      </tr>
+    
+      <tr scope="row">
+        <td>
+          <p><strong>Question 10</strong>:  <br />
+Predicting Selling Prices</p>
+        </td>
+        <td>
+          <p>Student reports the predicted selling price for the three clients listed in the provided table. Discussion is made for each of the three predictions as to whether these prices are reasonable given the data and the earlier calculated descriptive statistics.</p>
+        </td>
+      </tr>
+    
+      <tr scope="row">
+        <td>
+          <p><strong>Question 11</strong>:  <br />
+Applicability</p>
+        </td>
+        <td>
+          <p>Student thoroughly discusses whether the model should or should not be used in a real-world setting.</p>
+        </td>
+      </tr>
+    
+    </tbody>
+  
+        </table>
+
+      </div>
+    
+          </div>
+        </div>
+      </main>
+
+      <footer class="footer">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <p class="text-center">
+                <a href="https://github.com/udacimak/udacimak#readme" target="_blank">udacimak v1.2.0</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </div>
+
+
+  <script src="../assets/js/jquery-3.3.1.min.js"></script>
+  <script src="../assets/js/plyr.polyfilled.min.js"></script>
+  <script src="../assets/js/bootstrap.min.js"></script>
+  <script src="../assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+  <script src="../assets/js/katex.min.js"></script>
+  <script>
+    // Initialize Plyr video players
+    const players = Array.from(document.querySelectorAll('video')).map(p => new Plyr(p));
+
+    // render math equations
+    let elMath = document.getElementsByClassName('mathquill');
+    for (let i = 0, len = elMath.length; i < len; i += 1) {
+      const el = elMath[i];
+
+      katex.render(el.textContent, el, {
+        throwOnError: false
+      });
+    }
+
+    // this hack will make sure Bootstrap tabs work when using Handlebars
+    if ($('#question-tabs').length && $('#user-answer-tabs').length) {
+      $("#question-tabs a.nav-link").on('click', function () {
+        $("#question-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+      $("#user-answer-tabs a.nav-link").on('click', function () {
+        $("#user-answer-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    } else {
+      $("a.nav-link").on('click', function () {
+        $(".tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    }
+
+    // side bar events
+    $(document).ready(function () {
+      $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+      });
+
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar, #content').toggleClass('active');
+        $('.collapse.in').toggleClass('in');
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+      });
+    });
+  </script>
+</body>
+
+</html>
