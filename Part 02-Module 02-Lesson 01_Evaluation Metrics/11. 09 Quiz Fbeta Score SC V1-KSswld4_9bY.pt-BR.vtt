@@ -1,0 +1,192 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.312 --> 00:00:02.062
+Agora que aprendemos
+sobre o F1 Score,
+
+00:00:02.095 --> 00:00:04.557
+vamos explorar
+algo um pouco mais geral.
+
+00:00:04.590 --> 00:00:05.821
+O conceito é o seguinte:
+
+00:00:05.854 --> 00:00:08.966
+se temos a precisão aqui
+e a revocação aqui,
+
+00:00:08.999 --> 00:00:11.628
+o F1 Score fica ali pelo meio.
+
+00:00:11.661 --> 00:00:13.701
+Consideramos ambas
+igualmente importantes.
+
+00:00:13.734 --> 00:00:17.718
+Se uma for menor, ele sinaliza,
+mas as trata igualmente.
+
+00:00:17.751 --> 00:00:21.270
+Se o nosso modelo se importar mais
+com precisão do que com revocação,
+
+00:00:21.303 --> 00:00:23.998
+precisamos de algo
+mais inclinado para a precisão.
+
+00:00:24.031 --> 00:00:27.476
+Digamos
+que seja um F0,5 Score.
+
+00:00:27.509 --> 00:00:30.501
+Vamos chamá-lo de beta.
+Beta é 0,5.
+
+00:00:30.534 --> 00:00:33.733
+Quanto menor o beta,
+mais perto ficamos da precisão.
+
+00:00:33.766 --> 00:00:37.033
+Se quisermos que o modelo
+se importe mais com a revocação,
+
+00:00:37.067 --> 00:00:39.667
+escolhemos um beta maior,
+algo como um 2,
+
+00:00:39.700 --> 00:00:41.699
+então a nossa métrica
+torna-se F2.
+
+00:00:41.732 --> 00:00:43.661
+Se você gosta de fórmulas,
+aqui estão elas.
+
+00:00:43.694 --> 00:00:47.621
+Lembre-se que o F1 Score é
+duas vezes a precisão e a revocação
+
+00:00:47.654 --> 00:00:49.933
+dividido
+pela precisão+revocação.
+
+00:00:49.966 --> 00:00:52.773
+Na fórmula do beta,
+é só adicionar um beta aqui
+
+00:00:52.806 --> 00:00:56.133
+para inclinar a fórmula
+para um lado ou outro,
+
+00:00:56.167 --> 00:00:59.077
+dependendo do quão
+menor ou maior é o beta.
+
+00:00:59.110 --> 00:01:03.896
+Vejamos: qual beta devemos usar
+no exemplo do cartão de crédito?
+
+00:01:04.332 --> 00:01:07.341
+Primeiro, eu diria que este modelo
+deve ser de alta revocação,
+
+00:01:07.374 --> 00:01:09.558
+já que precisamos identificar
+todas as fraude,
+
+00:01:09.591 --> 00:01:13.293
+mas tudo bem se identificarmos
+ou investigarmos um caso genuíno.
+
+00:01:13.326 --> 00:01:15.244
+Seria algo em torno de F10.
+
+00:01:15.277 --> 00:01:17.236
+Mas talvez sacrifiquemos
+muita precisão
+
+00:01:17.269 --> 00:01:20.205
+e vamos acidentalmente enviar
+muitas notificações aos clientes
+
+00:01:20.238 --> 00:01:24.062
+sobre notificações que não são
+fraudes, e eles vão se irritar.
+
+00:01:24.095 --> 00:01:26.270
+Então podemos ficar
+com, digamos, F2.
+
+00:01:26.303 --> 00:01:29.316
+Mas talvez seja melhor focar
+mais na revocação,
+
+00:01:29.349 --> 00:01:32.117
+porque não queremos perder
+muitas fraudes,
+
+00:01:32.150 --> 00:01:34.662
+então aumentamos
+para cerca de F5.
+
+00:01:34.695 --> 00:01:36.228
+Não é uma ciência exata.
+
+00:01:36.261 --> 00:01:39.477
+Encontrar um bom valor
+para beta requer muita intuição
+
+00:01:39.510 --> 00:01:42.052
+sobre os seus dados
+e muitas tentativas.
+
+00:01:42.085 --> 00:01:44.325
+Vamos testar o nosso conhecimento
+com um quiz.
+
+00:01:44.358 --> 00:01:47.005
+Vamos analisar
+três possíveis modelos.
+
+00:01:47.038 --> 00:01:49.173
+No primeiro, somos da NASA
+e temos um modelo
+
+00:01:49.206 --> 00:01:52.581
+para detectar mal funcionamento
+em partes de uma nave.
+
+00:01:52.614 --> 00:01:55.109
+No segundo, temos um sistema
+que recomenda vídeos
+
+00:01:55.142 --> 00:01:58.629
+e um modelo para enviar notificações
+para os celulares de usuários
+
+00:01:58.662 --> 00:02:01.149
+sobre novos vídeos
+que eles talvez gostem.
+
+00:02:01.182 --> 00:02:03.621
+No terceiro, temos uma loja,
+e temos um modelo
+
+00:02:03.654 --> 00:02:07.101
+para enviar amostras grátis
+para potenciais clientes.
+
+00:02:07.134 --> 00:02:10.613
+Digamos que um deles
+tema um F-beta Score de F1,
+
+00:02:10.646 --> 00:02:14.614
+o outro é F0,5
+e o outro é F2.
+
+00:02:14.647 --> 00:02:18.036
+Qual é qual?
+Responda abaixo.
+

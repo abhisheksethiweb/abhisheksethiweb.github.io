@@ -1,0 +1,448 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.174 --> 00:00:02.733
+Nós veremos outra técnica
+para avaliar um modelo,
+
+00:00:02.767 --> 00:00:05.433
+a Curva de Característica
+de Operação do Receptor,
+
+00:00:05.467 --> 00:00:09.067
+ou curva ROC,
+que funciona assim:
+
+00:00:09.100 --> 00:00:11.333
+considere estes dados
+em uma dimensão,
+
+00:00:11.367 --> 00:00:14.067
+os pontos vermelhos
+e azuis estão em uma linha,
+
+00:00:14.100 --> 00:00:16.633
+e nós queremos encontrar
+a divisão correta.
+
+00:00:16.667 --> 00:00:21.400
+Nós poderíamos dividir aqui,
+aqui ou aqui.
+
+00:00:21.433 --> 00:00:24.833
+Isso seria uma boa divisão,
+que chamamos de "boa divisão".
+
+00:00:24.867 --> 00:00:26.967
+Agora temos estes dados
+
+00:00:27.000 --> 00:00:30.367
+que podem ser separados
+facilmente aqui.
+
+00:00:30.400 --> 00:00:32.400
+Esta será
+a "divisão perfeita".
+
+00:00:32.433 --> 00:00:35.300
+Por fim,
+temos estes dados aleatórios,
+
+00:00:35.333 --> 00:00:37.233
+não dá muito para dividir.
+
+00:00:37.267 --> 00:00:42.333
+Qualquer lugar nos dará
+metade de cada cor.
+
+00:00:42.367 --> 00:00:45.333
+Esta será uma "má divisão"
+ou uma "divisão aleatória".
+
+00:00:45.367 --> 00:00:48.100
+Agora nós precisamos
+de uma métrica ou um valor
+
+00:00:48.133 --> 00:00:50.133
+que seja alto
+para a divisão perfeita,
+
+00:00:50.167 --> 00:00:51.667
+médio para a divisão boa
+
+00:00:51.700 --> 00:00:53.417
+e baixo para a divisão
+aleatória.
+
+00:00:53.451 --> 00:00:56.400
+A divisão perfeita
+teria escore igual a 1,
+
+00:00:56.433 --> 00:00:59.000
+a boa teria algo como 0,8
+
+00:00:59.033 --> 00:01:02.000
+e a aleatória, 0,5.
+
+00:01:02.033 --> 00:01:04.733
+É aqui que a curva ROC
+nos ajudará.
+
+00:01:04.767 --> 00:01:07.767
+Vamos construir os números.
+Vamos ver os dados bons
+
+00:01:07.800 --> 00:01:10.033
+e dividir aqui.
+
+00:01:10.067 --> 00:01:12.033
+Vamos calcular
+duas proporções,
+
+00:01:12.067 --> 00:01:13.933
+e a primeira é a positiva
+verdadeira.
+
+00:01:13.967 --> 00:01:17.000
+De todos os pontos
+rotulados,
+
+00:01:17.033 --> 00:01:19.733
+quantos nós classificamos
+de forma correta?
+
+00:01:19.767 --> 00:01:21.933
+É a quantidade de positivos
+verdadeiros
+
+00:01:21.967 --> 00:01:25.767
+dividido por todos os pontos
+rotulados como positivos.
+
+00:01:25.800 --> 00:01:27.667
+Vejamos quantos são.
+
+00:01:27.700 --> 00:01:30.267
+Existem sete pontos
+rotulados como positivos,
+
+00:01:30.300 --> 00:01:33.300
+e seis deles foram rotulados
+corretamente.
+
+00:01:33.333 --> 00:01:35.967
+A proporção será
+igual a 6 de 7
+
+00:01:36.000 --> 00:01:39.400
+ou 0,857.
+
+00:01:39.433 --> 00:01:41.833
+Vejamos os falsos positivos.
+
+00:01:41.867 --> 00:01:44.600
+De todos
+os pontos negativos,
+
+00:01:44.633 --> 00:01:49.067
+quantos o modelo pensou
+que fossem positivos?
+
+00:01:49.100 --> 00:01:53.233
+Dos sete pontos
+rotulados como negativos,
+
+00:01:53.267 --> 00:01:55.833
+o modelo pensou que dois deles
+fossem positivos.
+
+00:01:55.867 --> 00:01:59.233
+A proporção de falso
+positivo é igual a 2 de 7
+
+00:01:59.267 --> 00:02:02.433
+ou 0,286.
+
+00:02:02.467 --> 00:02:05.167
+Vamos nos lembrar
+destes dois números.
+
+00:02:05.200 --> 00:02:08.233
+Nós moveremos o limite
+
+00:02:08.267 --> 00:02:10.933
+para calcular
+os mesmo pares de números.
+
+00:02:10.967 --> 00:02:12.900
+Vamos separar aqui.
+
+00:02:12.933 --> 00:02:15.400
+Qual é a proporção
+de positivos verdadeiros?
+
+00:02:15.433 --> 00:02:17.800
+O modelo vê tudo
+como sendo positivo,
+
+00:02:17.833 --> 00:02:20.567
+então todos os positivos
+são verdadeiros,
+
+00:02:20.600 --> 00:02:23.767
+e a proporção será
+igual a 7 dividido por 7,
+
+00:02:23.800 --> 00:02:25.333
+que é igual a 1.
+
+00:02:25.367 --> 00:02:27.033
+Para os falsos positivos,
+
+00:02:27.067 --> 00:02:29.600
+como o modelo acha
+que tudo é positivo,
+
+00:02:29.633 --> 00:02:31.967
+todos os negativos
+são falsos positivos,
+
+00:02:32.000 --> 00:02:33.967
+e a proporção
+de falsos positivos
+
+00:02:34.000 --> 00:02:36.500
+é, novamente, igual
+a 7 dividido por 7,
+
+00:02:36.533 --> 00:02:37.833
+que é igual a 1.
+
+00:02:37.867 --> 00:02:41.933
+Vamos nos lembrar
+destes valores 1, 1.
+
+00:02:41.967 --> 00:02:44.867
+Vamos ao outro extremo
+e colocar a barra aqui.
+
+00:02:44.900 --> 00:02:47.933
+Vejamos qual é a proporção
+de positivos verdadeiros.
+
+00:02:47.967 --> 00:02:53.267
+Aqui nada é positivo,
+e a proporção é igual a 0
+
+00:02:53.300 --> 00:02:55.733
+dividido por 7,
+que é igual a 0.
+
+00:02:55.767 --> 00:02:59.667
+A proporção de falsos positivos,
+como nada é positivo
+
+00:02:59.700 --> 00:03:01.500
+e não existem
+falsos positivos,
+
+00:03:01.533 --> 00:03:03.467
+a proporção é 0 sobre 7,
+
+00:03:03.500 --> 00:03:05.300
+que também é 0.
+
+00:03:05.333 --> 00:03:07.667
+Vamos nos lembrar
+destes dois números.
+
+00:03:07.700 --> 00:03:10.000
+Não importa
+como sejam os dados,
+
+00:03:10.033 --> 00:03:15.400
+os dois extremos
+sempre serão 1, 1 e 0, 0.
+
+00:03:15.433 --> 00:03:20.067
+Nós podemos fazer as divisões
+possíveis e gravar os valores.
+
+00:03:20.100 --> 00:03:22.467
+Estes são alguns que nós
+calculamos.
+
+00:03:22.500 --> 00:03:24.133
+Agora a mágica acontece,
+
+00:03:24.167 --> 00:03:27.500
+nós colocamos os números
+no plano e temos uma curva.
+
+00:03:27.533 --> 00:03:29.667
+Nós calculamos a área
+abaixo da curva
+
+00:03:29.700 --> 00:03:31.967
+e temos 0,8.
+
+00:03:32.000 --> 00:03:34.867
+Isso não é preciso,
+mas é muito próximo.
+
+00:03:34.900 --> 00:03:37.433
+Você pode calcular
+para ver o que consegue.
+
+00:03:37.467 --> 00:03:39.933
+Façamos o mesmo
+para a divisão perfeita.
+
+00:03:39.967 --> 00:03:41.833
+Estas são as proporções.
+
+00:03:41.867 --> 00:03:46.233
+Perceba que a proporção
+do lado vermelho é igual a 1,
+
+00:03:46.267 --> 00:03:49.033
+pois os números positivos
+foram tidos como positivos.
+
+00:03:49.067 --> 00:03:51.100
+Da mesma forma, do lado azul,
+
+00:03:51.133 --> 00:03:53.833
+os números negativos
+foram tidos como negativos,
+
+00:03:53.867 --> 00:03:56.300
+então os falsos positivos
+são iguais a 0.
+
+00:03:56.333 --> 00:03:58.767
+Em especial, no ponto
+de divisão perfeita,
+
+00:03:58.800 --> 00:04:00.433
+temos 0, 1.
+
+00:04:00.467 --> 00:04:04.200
+Quando colocarmos os números,
+a curva formará um quadrado
+
+00:04:04.233 --> 00:04:07.000
+que tem área igual a 1.
+
+00:04:07.033 --> 00:04:10.367
+A área abaixo da curva
+da divisão perfeita
+
+00:04:10.400 --> 00:04:12.033
+é igual a 1.
+
+00:04:12.067 --> 00:04:14.200
+Façamos o mesmo
+para a divisão aleatória.
+
+00:04:14.233 --> 00:04:17.100
+Você pode tentar fazer,
+mas, como toda divisão
+
+00:04:17.133 --> 00:04:20.000
+fornece metade em azul
+e metade em vermelho,
+
+00:04:20.033 --> 00:04:22.667
+cada par de números
+ficará perto um do outro
+
+00:04:22.700 --> 00:04:27.900
+e a curva será quase
+uma diagonal entre 0, 0 e 1, 1.
+
+00:04:27.933 --> 00:04:29.667
+Se o modelo for aleatório,
+
+00:04:29.700 --> 00:04:33.700
+a área abaixo da curva
+será igual a 0,5.
+
+00:04:33.733 --> 00:04:36.291
+Para resumir, nós temos
+três cenários possíveis:
+
+00:04:36.325 --> 00:04:38.851
+dados aleatórios,
+que são difíceis de se dividir,
+
+00:04:38.884 --> 00:04:42.300
+dados bons, que podemos
+dividir com alguns erros,
+
+00:04:42.333 --> 00:04:44.167
+e dados perfeitamente
+divididos,
+
+00:04:44.200 --> 00:04:46.333
+que dividimos sem erros.
+
+00:04:46.367 --> 00:04:48.100
+Cada um é associado
+a uma curva,
+
+00:04:48.133 --> 00:04:51.233
+e a área abaixo da curva
+é igual a 0,5
+
+00:04:51.267 --> 00:04:52.633
+para o modelo aleatório,
+
+00:04:52.667 --> 00:04:55.067
+próximo de 1,
+para o bom modelo,
+
+00:04:55.100 --> 00:04:56.633
+como 0,8,
+
+00:04:56.667 --> 00:04:59.000
+e igual a 1
+para o modelo perfeito.
+
+00:04:59.033 --> 00:05:03.867
+Se a área abaixo da curva
+for próxima do 1,
+
+00:05:03.900 --> 00:05:05.767
+melhor será o modelo.
+
+00:05:05.800 --> 00:05:07.633
+Eis a pergunta:
+
+00:05:07.667 --> 00:05:11.300
+a área abaixo da curva
+pode ser menor do que 0,5?
+
+00:05:12.067 --> 00:05:15.167
+Na verdade, pode,
+ela pode chegar a zero.
+
+00:05:15.200 --> 00:05:18.533
+Como seria o modelo se a área
+abaixo da curva fosse zero?
+
+00:05:18.567 --> 00:05:20.425
+Ele pareceria
+de trás para frente,
+
+00:05:20.458 --> 00:05:22.475
+com mais pontos azuis
+na área vermelha,
+
+00:05:22.509 --> 00:05:24.042
+e mais vermelhos na área azul.
+
+00:05:24.075 --> 00:05:25.710
+Inverter os dados pode ajudar.
+
