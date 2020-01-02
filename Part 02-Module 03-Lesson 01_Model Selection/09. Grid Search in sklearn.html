@@ -1,0 +1,206 @@
+<!-- udacimak v1.2.0 -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Grid Search in sklearn</title>
+  <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../assets/css/plyr.css">
+  <link rel="stylesheet" href="../assets/css/katex.min.css">
+  <link rel="stylesheet" href="../assets/css/jquery.mCustomScrollbar.min.css">
+  <link rel="stylesheet" href="../assets/css/styles.css">
+  <link rel="shortcut icon" type="image/png" href="../assets/img/udacimak.png" />
+</head>
+
+<body>
+  <div class="wrapper">
+    <nav id="sidebar">
+  <div class="sidebar-header">
+    <h3>Model Selection</h3>
+  </div>
+
+  <ul class="sidebar-list list-unstyled CTAs">
+    <li>
+      <a href="../index.html" class="article">Back to Home</a>
+    </li>
+  </ul>
+
+  <ul class="sidebar-list list-unstyled components">
+    <li class="">
+      <a href="01. Types of Errors.html">01. Types of Errors</a>
+    </li>
+    <li class="">
+      <a href="02. Model Complexity Graph.html">02. Model Complexity Graph</a>
+    </li>
+    <li class="">
+      <a href="03. Cross Validation.html">03. Cross Validation</a>
+    </li>
+    <li class="">
+      <a href="04. K-Fold Cross Validation.html">04. K-Fold Cross Validation</a>
+    </li>
+    <li class="">
+      <a href="05. Learning Curves.html">05. Learning Curves</a>
+    </li>
+    <li class="">
+      <a href="06. Detecting Overfitting and Underfitting with Learning Curves.html">06. Detecting Overfitting and Underfitting with Learning Curves</a>
+    </li>
+    <li class="">
+      <a href="07. Solution Detecting Overfitting and Underfitting.html">07. Solution: Detecting Overfitting and Underfitting</a>
+    </li>
+    <li class="">
+      <a href="08. Grid Search.html">08. Grid Search</a>
+    </li>
+    <li class="">
+      <a href="09. Grid Search in sklearn.html">09. Grid Search in sklearn</a>
+    </li>
+    <li class="">
+      <a href="10. Grid Search Lab.html">10. Grid Search Lab</a>
+    </li>
+    <li class="">
+      <a href="11. [Solution] Grid Search Lab.html">11. [Solution] Grid Search Lab</a>
+    </li>
+    <li class="">
+      <a href="12. Summary.html">12. Summary</a>
+    </li>
+    <li class="">
+      <a href="13. Outro.html">13. Outro</a>
+    </li>
+  </ul>
+
+  <ul class="sidebar-list list-unstyled CTAs">
+    <li>
+      <a href="../index.html" class="article">Back to Home</a>
+    </li>
+  </ul>
+</nav>
+
+    <div id="content">
+      <header class="container-fluild header">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <div class="align-items-middle">
+                <button type="button" id="sidebarCollapse" class="btn btn-toggle-sidebar">
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                </button>
+
+                <h1 style="display: inline-block">09. Grid Search in sklearn</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main class="container">
+        <div class="row">
+          <div class="col-12">
+            <div class="ud-atom">
+  <h3></h3>
+  <div>
+  <h1 id="grid-search-in-sklearn">Grid Search in sklearn</h1>
+<p>Grid Search in sklearn is very simple. We'll illustrate it with an example. Let's say we'd like to train a support vector machine, and we'd like to decide between the following parameters:</p>
+<ul>
+<li>kernel: <code>poly</code> or <code>rbf</code>.</li>
+<li>C: 0.1, 1, or 10.</li>
+</ul>
+<p>(<em><strong>Note:</strong> These parameters can be used as a black box now, but we'll see them in detail in the <strong>Supervised Learning Section</strong> of the nanodegree.</em>)</p>
+<p>The steps are the following:</p>
+<h3 id="1-import-gridsearchcv">1. Import GridSearchCV</h3>
+<pre><code>from sklearn.model_selection import GridSearchCV</code></pre>
+<h3 id="2-select-the-parameters">2. Select the parameters:</h3>
+<p>Here we pick what are the parameters we want to choose from, and form a dictionary. In this dictionary, the keys will be the names of the parameters, and the values will be the lists of possible values for each parameter.</p>
+<pre><code>parameters = {'kernel':['poly', 'rbf'],'C':[0.1, 1, 10]}</code></pre>
+<h3 id="3-create-a-scorer">3. Create a scorer.</h3>
+<p>We need to decide what metric we'll use to score each of the candidate models. In here, we'll use F1 Score.</p>
+<pre><code>from sklearn.metrics import make_scorer
+from sklearn.metrics import f1_score
+scorer = make_scorer(f1_score)</code></pre>
+<h3 id="4-create-a-gridsearch-object-with-the-parameters-and-the-scorer-use-this-object-to-fit-the-data">4. Create a GridSearch Object with the parameters, and the scorer. Use this object to fit the data.</h3>
+<pre><code># Create the object.
+grid_obj = GridSearchCV(clf, parameters, scoring=scorer)
+# Fit the data
+grid_fit = grid_obj.fit(X, y)</code></pre>
+<h3 id="5-get-the-best-estimator">5. Get the best estimator.</h3>
+<pre><code>best_clf = grid_fit.best_estimator_</code></pre>
+<p>Now you can use this estimator <code>best_clf</code> to make the predictions.</p>
+<p>In the next page, you'll find a lab where you can use GridSearchCV to optimize a decision tree model.</p>
+</div>
+
+</div>
+<div class="divider"></div>
+          </div>
+        </div>
+      </main>
+
+      <footer class="footer">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <p class="text-center">
+                <a href="https://github.com/udacimak/udacimak#readme" target="_blank">udacimak v1.2.0</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </div>
+
+
+  <script src="../assets/js/jquery-3.3.1.min.js"></script>
+  <script src="../assets/js/plyr.polyfilled.min.js"></script>
+  <script src="../assets/js/bootstrap.min.js"></script>
+  <script src="../assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+  <script src="../assets/js/katex.min.js"></script>
+  <script>
+    // Initialize Plyr video players
+    const players = Array.from(document.querySelectorAll('video')).map(p => new Plyr(p));
+
+    // render math equations
+    let elMath = document.getElementsByClassName('mathquill');
+    for (let i = 0, len = elMath.length; i < len; i += 1) {
+      const el = elMath[i];
+
+      katex.render(el.textContent, el, {
+        throwOnError: false
+      });
+    }
+
+    // this hack will make sure Bootstrap tabs work when using Handlebars
+    if ($('#question-tabs').length && $('#user-answer-tabs').length) {
+      $("#question-tabs a.nav-link").on('click', function () {
+        $("#question-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+      $("#user-answer-tabs a.nav-link").on('click', function () {
+        $("#user-answer-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    } else {
+      $("a.nav-link").on('click', function () {
+        $(".tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    }
+
+    // side bar events
+    $(document).ready(function () {
+      $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+      });
+
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar, #content').toggleClass('active');
+        $('.collapse.in').toggleClass('in');
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+      });
+    });
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,87 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.399 --> 00:00:02.954
+Resumindo, é assim que vejo
+o aprendizado de máquina.
+
+00:00:02.987 --> 00:00:06.489
+Temos um problema a resolver,
+representado por esse carro quebrado
+
+00:00:06.522 --> 00:00:08.334
+e temos ferramentas
+para consertá-lo,
+
+00:00:08.367 --> 00:00:10.741
+que são os algoritmos
+do aprendizado de máquina.
+
+00:00:10.774 --> 00:00:13.140
+Finalmente, temos alguns
+instrumentos de medida,
+
+00:00:13.173 --> 00:00:16.160
+que usamos para medir
+a performance de cada ferramenta.
+
+00:00:16.193 --> 00:00:19.210
+E então escolhemos a melhor
+ferramenta para consertar o carro.
+
+00:00:19.243 --> 00:00:22.059
+Especificamente, no aprendizado
+de máquina há um problema
+
+00:00:22.092 --> 00:00:24.369
+que é algum
+dado que precisamos classificar.
+
+00:00:24.402 --> 00:00:27.087
+Você também tem vários algoritmos,
+como redes neurais,
+
+00:00:27.120 --> 00:00:30.016
+regressão logística,
+regressão polinomial como VMs,
+
+00:00:30.049 --> 00:00:32.354
+árvores de decisão,
+florestas aleatórias etc.,
+
+00:00:32.387 --> 00:00:35.765
+e temos várias métricas como
+modelos de gráficos de complexidade,
+
+00:00:35.798 --> 00:00:40.759
+acurácia, precisão, revocação e
+F1 score, curva de aprendizado etc.
+
+00:00:40.792 --> 00:00:44.649
+O que você faz é usá-las
+para testar seus modelos,
+
+00:00:44.682 --> 00:00:46.922
+ver como estão indo,
+escolher o melhor
+
+00:00:46.955 --> 00:00:49.434
+e usá-lo
+para modelar seus dados.
+
+00:00:49.467 --> 00:00:51.405
+Então quando há
+um novo ponto,
+
+00:00:51.438 --> 00:00:54.465
+você pode prever o rótulo
+baseado nesse modelo.
+
+00:00:54.498 --> 00:00:55.665
+É isso.
+
+00:00:55.698 --> 00:00:58.540
+E é assim que se testa,
+avalia e valida modelos.
+
