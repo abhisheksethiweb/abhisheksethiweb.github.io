@@ -1,0 +1,309 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.000 --> 00:00:04.100
+Para responder esta pergunta,
+olhemos atentamente para os dados.
+
+00:00:04.133 --> 00:00:06.901
+Parece que os pontos
+vermelhos e verdes
+
+00:00:06.934 --> 00:00:09.868
+são bem separados
+por uma reta.
+
+00:00:09.901 --> 00:00:11.100
+Aqui está ela.
+
+00:00:11.133 --> 00:00:14.200
+Vemos que a maioria
+dos pontos acima são verdes,
+
+00:00:14.234 --> 00:00:18.767
+e a maioria dos pontos abaixo,
+são vermelhos, com algumas exceções.
+
+00:00:18.801 --> 00:00:20.868
+A reta será nosso modelo
+
+00:00:20.901 --> 00:00:24.567
+e, de agora em diante, sempre
+que recebermos um aluno novo
+
+00:00:24.601 --> 00:00:27.767
+checamos suas notas
+e colocamos no gráfico.
+
+00:00:27.801 --> 00:00:29.534
+Se forem
+para cima da linha,
+
+00:00:29.567 --> 00:00:31.701
+podemos prever
+que serão aceitos.
+
+00:00:31.734 --> 00:00:35.501
+E se forem para baixo,
+podemos prever que serão rejeitados.
+
+00:00:35.534 --> 00:00:37.667
+Como o aluno 3
+veio para cá,
+
+00:00:37.701 --> 00:00:42.834
+e o ponto com coordenadas 7 e 6
+está acima da linha,
+
+00:00:42.868 --> 00:00:46.267
+concluímos
+que ele será aceito.
+
+00:00:46.300 --> 00:00:49.868
+Então, se disseram "sim",
+a resposta está correta.
+
+00:00:49.901 --> 00:00:53.200
+Este método é conhecido
+como Regressão Logística.
+
+00:00:53.234 --> 00:00:55.033
+Agora a pergunta é:
+
+00:00:55.067 --> 00:00:59.033
+como encontramos esta reta
+que melhor separa os dados?
+
+00:00:59.067 --> 00:01:02.234
+Vamos a um exemplo simples.
+Como traçamos a reta
+
+00:01:02.267 --> 00:01:05.767
+que melhor separa
+os pontos verdes dos vermelhos?
+
+00:01:05.801 --> 00:01:08.701
+De novo, um computador
+não pode fazer no olho.
+
+00:01:08.734 --> 00:01:12.400
+Podemos começar por desenhar
+uma reta aleatória como esta.
+
+00:01:12.434 --> 00:01:14.701
+Dada esta linha,
+vamos aleatoriamente dizer
+
+00:01:14.734 --> 00:01:17.701
+que rotulamos a região
+acima da linha de verde,
+
+00:01:17.734 --> 00:01:20.400
+e a região abaixo da linha
+como vermelha.
+
+00:01:20.434 --> 00:01:22.634
+Então,
+como com a regressão linear,
+
+00:01:22.667 --> 00:01:26.100
+primeiro tentamos ver
+como essa primeira reta é ruim.
+
+00:01:26.133 --> 00:01:29.634
+Uma simples medida disso,
+é o número de erros.
+
+00:01:29.667 --> 00:01:33.267
+Isto é, o número de pontos
+erroneamente classificados.
+
+00:01:33.300 --> 00:01:38.067
+Esta reta classificou errado
+dois pontos, um vermelho e um verde.
+
+00:01:38.100 --> 00:01:40.734
+Então vamos dizer
+que ela tem dois erros.
+
+00:01:40.767 --> 00:01:43.100
+De novo,
+como com a regressão linear,
+
+00:01:43.133 --> 00:01:46.901
+vamos mover a linha, tentando
+minimizar o número de erros,
+
+00:01:46.934 --> 00:01:49.400
+usando
+a descida do gradiente.
+
+00:01:49.434 --> 00:01:51.701
+Movendo-a um pouco
+nessa direção,
+
+00:01:51.734 --> 00:01:55.300
+começamos a classificar
+corretamente um dos pontos,
+
+00:01:55.334 --> 00:01:58.501
+diminuindo
+o número de erros para 1.
+
+00:01:58.534 --> 00:02:02.234
+Movendo ainda mais,
+fazemos o mesmo com o outro ponto,
+
+00:02:02.267 --> 00:02:05.601
+diminuindo
+o número de erros para 0.
+
+00:02:05.634 --> 00:02:09.434
+Para utilizar corretamente
+o método da descida do gradiente,
+
+00:02:09.467 --> 00:02:12.767
+o número de erros não é
+o que precisamos minimizar.
+
+00:02:12.801 --> 00:02:15.734
+Ao invés, algo que capta
+o número de erros,
+
+00:02:15.767 --> 00:02:18.234
+chamado de
+função de perda logaritmica.
+
+00:02:18.267 --> 00:02:20.601
+Vamos estudar isso
+com mais detalhes.
+
+00:02:20.634 --> 00:02:24.033
+Nossos 6 pontos de novo,
+4 corretamente classificados,
+
+00:02:24.067 --> 00:02:25.567
+2 vermelhos e 2 verdes,
+
+00:02:25.601 --> 00:02:29.667
+e 2 classificados incorretamente,
+um vermelho e um verde.
+
+00:02:29.701 --> 00:02:32.334
+A função de erro
+atribuirá uma pena grande
+
+00:02:32.367 --> 00:02:35.200
+para os 2 pontos
+classificados incorretamente
+
+00:02:35.234 --> 00:02:38.901
+e uma pena pequena aos 4
+corretamente classificados.
+
+00:02:38.934 --> 00:02:42.400
+Vamos aprender a fórmula
+para a função de erro na aula.
+
+00:02:42.434 --> 00:02:46.100
+Agora obtemos a função de erro,
+adicionando todos os erros
+
+00:02:46.133 --> 00:02:47.868
+dos pontos correspondentes.
+
+00:02:47.901 --> 00:02:51.400
+Obteremos um número grande,
+já que os 2 pontos errados
+
+00:02:51.434 --> 00:02:53.934
+acrescentam muito
+para a função de erro.
+
+00:02:53.968 --> 00:02:58.834
+Agora a ideia é balançar a reta
+para minimizar este erro.
+
+00:02:58.868 --> 00:03:00.801
+Movendo-a nesta direção,
+
+00:03:00.834 --> 00:03:05.400
+vemos que alguns erros diminuem
+e alguns aumentam ligeiramente.
+
+00:03:05.434 --> 00:03:08.834
+Mas, em geral, considerando a soma,
+a soma fica menor,
+
+00:03:08.868 --> 00:03:11.567
+pois classificamos corretamente
+os 2 pontos
+
+00:03:11.601 --> 00:03:13.801
+classificados
+incorretamente antes.
+
+00:03:13.834 --> 00:03:18.000
+Assim, o objetivo deste processo
+é achar o melhor ajuste de linha,
+
+00:03:18.033 --> 00:03:20.834
+minimizando
+a função de erro.
+
+00:03:20.868 --> 00:03:23.367
+E como minimizamos
+a função de erro?
+
+00:03:23.400 --> 00:03:25.968
+De novo,
+com descida do gradiente.
+
+00:03:26.000 --> 00:03:29.834
+Mais uma vez, aqui estamos
+no cume do Monte Errorest.
+
+00:03:29.868 --> 00:03:32.267
+Estamos bem alto,
+nosso erro é grande.
+
+00:03:32.300 --> 00:03:36.234
+Podem ver como a altura é a soma
+das áreas verdes e vermelhas.
+
+00:03:36.267 --> 00:03:40.067
+Exploramos ao redor para ver
+que direção nos faz descer mais
+
+00:03:40.100 --> 00:03:43.467
+ou, equivalentemente,
+em que direção moveremos a reta
+
+00:03:43.501 --> 00:03:46.100
+para reduzir mais o erro.
+
+00:03:46.133 --> 00:03:48.601
+E decidimos dar um passo
+nessa direção.
+
+00:03:48.634 --> 00:03:51.467
+Agora, classificamos errado
+só um dos pontos.
+
+00:03:51.501 --> 00:03:55.234
+Isso diminui a nossa função,
+trazendo-nos mais para baixo.
+
+00:03:55.267 --> 00:03:59.701
+E repetimos. Damos um passo
+na direção que reduz mais a seta.
+
+00:03:59.734 --> 00:04:02.300
+E estamos
+na parte inferior da montanha,
+
+00:04:02.334 --> 00:04:05.801
+pois reduzimos o erro
+a seu mínimo valor possível.
+

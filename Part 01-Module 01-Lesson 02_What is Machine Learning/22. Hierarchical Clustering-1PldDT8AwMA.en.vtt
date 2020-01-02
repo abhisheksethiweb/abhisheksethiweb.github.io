@@ -1,0 +1,104 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.690 --> 00:00:04.590
+Here's a way to group the houses which
+doesn't require us to specify the number
+
+00:00:04.590 --> 00:00:05.790
+of clusters beforehand.
+
+00:00:07.140 --> 00:00:10.010
+Let's say the houses
+are arranged like this.
+
+00:00:10.010 --> 00:00:12.000
+It would make sense
+to say the following,
+
+00:00:12.000 --> 00:00:17.180
+if two houses are close they should
+be served by the same pizza parlor.
+
+00:00:17.180 --> 00:00:21.000
+So going by this philosophy
+let's try to group the houses.
+
+00:00:21.000 --> 00:00:24.520
+Let's look at which houses
+are the closest to each other.
+
+00:00:24.520 --> 00:00:27.160
+It's these two over here,
+so we group those two.
+
+00:00:28.450 --> 00:00:31.730
+Now, which are the next
+two closest houses?
+
+00:00:31.730 --> 00:00:35.170
+It's these two over here,
+so we group them.
+
+00:00:35.170 --> 00:00:40.419
+The next two closest houses are these
+two, so we group them and we keep going.
+
+00:00:40.419 --> 00:00:42.970
+The next two closest houses are here and
+
+00:00:42.970 --> 00:00:47.330
+now something funny happens because
+one house is already grouped.
+
+00:00:47.330 --> 00:00:51.900
+What we do, is we join the clusters
+containing each of the houses.
+
+00:00:51.900 --> 00:00:55.030
+The next two clusters are here,
+so we join the respective groups.
+
+00:00:56.220 --> 00:00:59.280
+The next two are here,
+so we joined our groups.
+
+00:00:59.280 --> 00:01:02.550
+And now the next two closest
+houses are these two over here.
+
+00:01:02.550 --> 00:01:03.800
+But that's already too far.
+
+00:01:03.800 --> 00:01:05.140
+So let's stop there.
+
+00:01:05.140 --> 00:01:08.920
+What we did here is we picked
+a distance to begin with and said,
+
+00:01:08.920 --> 00:01:15.050
+whenever the two closest houses are this
+distance apart we'll stop the algorithm.
+
+00:01:15.050 --> 00:01:19.160
+That will control how far we
+want the clusters to be apart.
+
+00:01:19.160 --> 00:01:22.630
+This algorithm is known as
+hierarchical clustering.
+
+00:01:22.630 --> 00:01:25.600
+So we can see that hierarchical
+clustering is useful
+
+00:01:25.600 --> 00:01:27.790
+when we may not know
+the number of clusters, but
+
+00:01:27.790 --> 00:01:30.490
+we have an idea about how
+far we want them to be.
+

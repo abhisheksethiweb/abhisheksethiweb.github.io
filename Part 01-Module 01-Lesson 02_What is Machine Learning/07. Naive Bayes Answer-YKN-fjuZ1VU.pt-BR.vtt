@@ -1,0 +1,93 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.267 --> 00:00:04.067
+Vemos que, dos 25 e-mails
+com a palavra "barato",
+
+00:00:04.100 --> 00:00:08.200
+20 são spam, enquanto
+cinco não são.
+
+00:00:08.234 --> 00:00:11.467
+Isso forma uma divisão
+de 80 e 20,
+
+00:00:11.501 --> 00:00:15.100
+então a resposta
+correta e 80%.
+
+00:00:15.133 --> 00:00:17.267
+Se você disse 80%,
+você estava certo.
+
+00:00:17.300 --> 00:00:20.868
+Ao analisar os dados,
+nós temos uma regra:
+
+00:00:20.901 --> 00:00:23.167
+"se um e-mail contém
+a palavra "barato",
+
+00:00:23.200 --> 00:00:27.801
+a probabilidade de ele ser
+um spam é de 80%.
+
+00:00:27.834 --> 00:00:31.434
+Nós associamos este recurso
+com a probabilidade de 80%
+
+00:00:31.467 --> 00:00:33.968
+e utilizamos isso
+para identificar mensagens
+
+00:00:34.000 --> 00:00:36.300
+como spam ou não.
+
+00:00:36.334 --> 00:00:40.067
+Nós podemos ver outros recursos
+para associar a probabilidade.
+
+00:00:40.100 --> 00:00:42.868
+Podemos ver os e-mails
+com erros de grafia
+
+00:00:42.901 --> 00:00:46.934
+e perceber que a probabilidade
+de ele ser um spam
+
+00:00:46.968 --> 00:00:48.434
+é de 70%.
+
+00:00:48.467 --> 00:00:51.200
+Podemos ver os e-mails
+que não possuem título
+
+00:00:51.234 --> 00:00:55.133
+e notar que a probabilidade
+de serem spam é de 95%.
+
+00:00:55.167 --> 00:00:57.534
+Nós podemos continuar
+procurando recursos
+
+00:00:57.567 --> 00:01:00.701
+para prever se um e-mail
+é spam ou não.
+
+00:01:00.734 --> 00:01:02.567
+Quando novos
+e-mails chegarem,
+
+00:01:02.601 --> 00:01:04.701
+nós combinamos os recursos
+para adivinhar
+
+00:01:04.734 --> 00:01:06.400
+se eles são spam ou não.
+
+00:01:06.434 --> 00:01:10.334
+Este algoritmo é conhecido
+como Naive Bayes.
+

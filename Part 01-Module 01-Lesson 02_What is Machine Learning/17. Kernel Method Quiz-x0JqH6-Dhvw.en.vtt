@@ -1,0 +1,137 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.340 --> 00:00:03.550
+Okay, now we're going to learn
+another very powerful method to split
+
+00:00:03.550 --> 00:00:04.340
+points in the plane.
+
+00:00:05.340 --> 00:00:08.290
+So let's say we have thee four
+points arranged like this and
+
+00:00:08.290 --> 00:00:09.760
+we want to split them.
+
+00:00:09.760 --> 00:00:12.840
+It seems again that
+a line won't do the job
+
+00:00:12.840 --> 00:00:16.460
+since they're already over the line and
+the red ones are on the sides.
+
+00:00:16.460 --> 00:00:19.100
+So we need to think outside the box.
+
+00:00:19.100 --> 00:00:23.590
+One way to think out of the box is to
+use a curve like this to split them.
+
+00:00:23.590 --> 00:00:26.440
+Another one is to actually
+think outside the plane.
+
+00:00:26.440 --> 00:00:29.170
+And think of the points as lying
+in three dimensional space.
+
+00:00:30.450 --> 00:00:33.080
+Here are the four points over the plane.
+
+00:00:33.080 --> 00:00:37.040
+We add an extra axis,
+the z axis for the third dimension.
+
+00:00:38.390 --> 00:00:41.700
+And if we can find a way to
+lift the two green points,
+
+00:00:41.700 --> 00:00:43.940
+then we'd be able to
+separate them with a plane.
+
+00:00:45.350 --> 00:00:48.710
+So what seems like the better solution,
+to think within the plane and
+
+00:00:48.710 --> 00:00:51.220
+separate the points with a curve?
+
+00:00:51.220 --> 00:00:54.400
+Or to think of the points in space,
+and separate them with a plane?
+
+00:00:55.610 --> 00:00:58.572
+Well, it turns out that these two
+are actually the same method.
+
+00:00:58.572 --> 00:01:02.475
+Don't worry if it seems confusing,
+we'll see it in more detail later.
+
+00:01:02.475 --> 00:01:04.665
+This method is called the Kernel Trick,
+and
+
+00:01:04.665 --> 00:01:06.965
+it's very well used in
+support vector machines.
+
+00:01:08.345 --> 00:01:12.820
+Okay, so let's study one of them in more
+detail, let's study the curve trick.
+
+00:01:12.820 --> 00:01:15.610
+First, let's start by putting
+coordinates on the points.
+
+00:01:15.610 --> 00:01:18.310
+So this one is (0,3).
+
+00:01:18.310 --> 00:01:20.130
+This one is (1,2).
+
+00:01:20.130 --> 00:01:21.220
+This one is (2,1).
+
+00:01:21.220 --> 00:01:23.202
+And this one is (3,0).
+
+00:01:23.202 --> 00:01:27.750
+And what we need is a way to separate
+the green points from the red points.
+
+00:01:27.750 --> 00:01:31.890
+So if the points coordinates are (x,y),
+maybe we need an equation
+
+00:01:31.890 --> 00:01:35.160
+on the variables x and
+y that gives us large values for
+
+00:01:35.160 --> 00:01:40.130
+the green points and small values for
+the red points, or vice versa.
+
+00:01:40.130 --> 00:01:42.861
+So which of the following equations
+could come to our rescue?
+
+00:01:42.861 --> 00:01:44.647
+[BLANK_AUDIO]
+
+00:01:44.647 --> 00:01:50.110
+The sum of the two coordinates x + y,
+the product of the coordinates,
+
+00:01:50.110 --> 00:01:54.830
+xy or the first coordinates squared,
+x squared.
+
+00:01:54.830 --> 00:01:56.240
+Submit your answer below.
+

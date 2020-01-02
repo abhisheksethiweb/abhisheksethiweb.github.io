@@ -1,0 +1,493 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.000 --> 00:00:04.534
+Observemos melhor este modelo
+para aceitar ou rejeitar alunos.
+
+00:00:04.567 --> 00:00:09.667
+Digamos que o aluno 4
+tem 9 no teste, mas 1 nas notas.
+
+00:00:09.701 --> 00:00:15.234
+Ele é aceito segundo o modelo,
+pois está aqui, acima da linha.
+
+00:00:15.267 --> 00:00:19.567
+Mas isso parece errado, suas notas
+são muito baixas para ser aceito.
+
+00:00:19.601 --> 00:00:21.801
+Talvez seja
+simplista demais pensar
+
+00:00:21.834 --> 00:00:25.367
+que os dados podem ser separados
+por só uma reta, certo?
+
+00:00:25.400 --> 00:00:28.100
+Talvez os dados reais
+devam ser mais assim,
+
+00:00:28.133 --> 00:00:33.501
+onde alunos com uma pontuação
+ou notas baixas não sejam aceitos.
+
+00:00:33.534 --> 00:00:36.501
+Parece que uma reta
+não funcionará mais.
+
+00:00:36.534 --> 00:00:38.934
+O que vem
+depois de uma reta?
+
+00:00:38.968 --> 00:00:40.434
+Talvez um círculo?
+
+00:00:40.467 --> 00:00:41.767
+Poderia funcionar.
+
+00:00:41.801 --> 00:00:44.667
+Talvez duas retas?
+Poderia funcionar também.
+
+00:00:44.701 --> 00:00:47.634
+Vamos com as duas linhas.
+
+00:00:47.667 --> 00:00:49.267
+Como as encontramos?
+
+00:00:49.300 --> 00:00:51.234
+Podemos usar
+a descida do gradiente
+
+00:00:51.267 --> 00:00:54.968
+para minimizar uma função de perda
+logarítmica como a de antes.
+
+00:00:55.000 --> 00:00:57.434
+Isto é chamado
+de rede neural.
+
+00:00:57.467 --> 00:01:00.234
+Por que é chamado assim?
+
+00:01:00.267 --> 00:01:02.968
+Digamos que temos
+em computador muito lento
+
+00:01:03.000 --> 00:01:05.701
+que só faz uma coisa
+de cada vez.
+
+00:01:05.734 --> 00:01:08.901
+Não é fácil perguntar:
+este ponto está na região
+
+00:01:08.934 --> 00:01:11.367
+delimitada
+por essas duas retas?
+
+00:01:11.400 --> 00:01:15.100
+Temos que dividir
+em perguntas separadas.
+
+00:01:15.133 --> 00:01:19.000
+A primeira pergunta é:
+o ponto está sobre a linha azul?
+
+00:01:19.033 --> 00:01:23.467
+Vamos responder com base
+nos 4 pontos negros no gráfico.
+
+00:01:23.501 --> 00:01:26.434
+Para esses 4 pontos,
+as respostas são:
+
+00:01:26.467 --> 00:01:30.367
+sim, sim, não e não.
+
+00:01:30.400 --> 00:01:34.434
+A segunda pergunta é:
+o ponto está sobre a linha laranja?
+
+00:01:34.467 --> 00:01:37.501
+E vemos que para os 4 pontos
+as respostas são:
+
+00:01:37.534 --> 00:01:41.200
+não, sim, não e sim.
+
+00:01:41.234 --> 00:01:44.734
+A 3ª pergunta pegará
+as duas respostas anteriores
+
+00:01:44.767 --> 00:01:46.067
+e as combinará.
+
+00:01:46.100 --> 00:01:47.868
+Assim, a 3ª pergunta é:
+
+00:01:47.901 --> 00:01:52.601
+as respostas às perguntas 1 e 2
+são ambas "sim"?
+
+00:01:52.634 --> 00:01:55.000
+E vemos
+que para estes 4 pontos,
+
+00:01:55.033 --> 00:01:59.934
+as respostas foram:
+não, sim, não e sim.
+
+00:01:59.968 --> 00:02:05.200
+São todas "não", exceto
+para a que está na área verde.
+
+00:02:05.234 --> 00:02:08.567
+Agora representemos
+cada pergunta como um pequeno nó.
+
+00:02:08.601 --> 00:02:11.934
+A 1ª pergunta é:
+o ponto está sobre a linha azul?
+
+00:02:11.968 --> 00:02:15.767
+Temos um nó com a área
+e dois nós de entrada,
+
+00:02:15.801 --> 00:02:18.267
+a pontuação do teste
+e as notas.
+
+00:02:18.300 --> 00:02:21.767
+Por exemplo, temos um aluno
+cujo resultado do teste é 1
+
+00:02:21.801 --> 00:02:24.267
+e as notas, 8.
+
+00:02:24.300 --> 00:02:29.367
+O nó desenha o ponto e verifica se
+o ponto está em cima da linha preta
+
+00:02:29.400 --> 00:02:32.968
+e retorna a resposta,
+sim ou não.
+
+00:02:33.000 --> 00:02:34.734
+A 2ª pergunta é parecida.
+
+00:02:34.767 --> 00:02:36.367
+Entramos os resultados,
+
+00:02:36.400 --> 00:02:40.968
+e o nó correspondente desenha o ponto
+e retornará um "sim" ou um "não",
+
+00:02:41.000 --> 00:02:46.000
+dependendo de o ponto ficar
+em cima da linha laranja ou não.
+
+00:02:46.033 --> 00:02:50.033
+A 3ª pergunta: as respostas
+às perguntas 1 e 2 são ambas "sim"?
+
+00:02:50.067 --> 00:02:54.434
+As entradas serão as respostas
+às 2 perguntas anteriores,
+
+00:02:54.467 --> 00:02:59.501
+dizer "sim" se as duas forem "sim",
+e "não" caso contrário.
+
+00:02:59.534 --> 00:03:02.701
+Isto é conhecido em Lógica
+como o operador AND.
+
+00:03:02.734 --> 00:03:06.767
+Aqui, a mágica acontece.
+Juntando os nós das 3 perguntas,
+
+00:03:06.801 --> 00:03:09.400
+temos uma rede neural.
+
+00:03:09.434 --> 00:03:11.868
+Limpando um pouco,
+temos o seguinte:
+
+00:03:11.901 --> 00:03:15.067
+A 1ª coluna é onde entramos
+com a nota do teste.
+
+00:03:15.100 --> 00:03:18.601
+Na 2ª coluna, verificamos
+se o ponto com as coordenadas
+
+00:03:18.634 --> 00:03:22.834
+correspondentes ao teste e às notas
+está em cima de cada reta.
+
+00:03:22.868 --> 00:03:27.167
+E a 3ª camada, onde olhamos para
+as respostas das camadas anteriores
+
+00:03:27.200 --> 00:03:30.667
+e as juntamos
+com o operador AND.
+
+00:03:30.701 --> 00:03:33.300
+Nossa rede neural
+ficará assim.
+
+00:03:33.334 --> 00:03:37.033
+Podem pensar:
+"Há algo meio suspeito aqui."
+
+00:03:37.067 --> 00:03:41.067
+Os dois primeiros "nãos" parecem
+pegar valores e ver se o ponto
+
+00:03:41.100 --> 00:03:43.567
+está acima ou abaixo
+de uma certa reta,
+
+00:03:43.601 --> 00:03:46.534
+enquanto o 3º nó
+recebe apenas "sim" ou "não"
+
+00:03:46.567 --> 00:03:48.934
+e retorna "sim" ou "não".
+
+00:03:48.968 --> 00:03:53.501
+É possível ver o 3º nó
+como um dos dois primeiros?
+
+00:03:53.534 --> 00:03:54.801
+A resposta é sim.
+
+00:03:54.834 --> 00:03:57.934
+Então vamos ver o operador AND
+com mais detalhes.
+
+00:03:57.968 --> 00:04:01.934
+Vamos fazer uma tabela
+do que entra e do que sai.
+
+00:04:01.968 --> 00:04:06.367
+No operador AND, se entrarmos
+um "sim" e um "sim", temos um "sim".
+
+00:04:06.400 --> 00:04:10.033
+Se entrarmos um "sim" e um "não",
+temos um "não".
+
+00:04:10.067 --> 00:04:13.601
+Se entrarmos
+um "não" e um "sim", temos um "não".
+
+00:04:13.634 --> 00:04:17.701
+E se entrarmos um "não" e um "não",
+temos um "não".
+
+00:04:17.734 --> 00:04:21.267
+Podemos pensar em um "sim" como 1,
+e em um "não" como 0.
+
+00:04:21.300 --> 00:04:24.868
+Nesse caso, a nossa tabela
+se torna esta outra.
+
+00:04:24.901 --> 00:04:29.033
+Agora veja este operador
+onde entramos valor 0 e 1
+
+00:04:29.067 --> 00:04:32.133
+e vemos se o ponto
+correspondente com as coordenadas
+
+00:04:32.167 --> 00:04:34.033
+está acima
+ou abaixo da linha.
+
+00:04:34.067 --> 00:04:37.033
+Se olharmos para o ponto
+com coordenadas (1,1),
+
+00:04:37.067 --> 00:04:41.300
+vemos que este ponto está acima
+da linha na área verde ou positiva.
+
+00:04:41.334 --> 00:04:42.501
+Então, temos um 1.
+
+00:04:42.534 --> 00:04:45.534
+Se olharmos para o ponto
+com coordenadas (1,0),
+
+00:04:45.567 --> 00:04:49.234
+vemos que está sob a linha
+na região vermelha ou negativa.
+
+00:04:49.267 --> 00:04:51.000
+Então, temos um 0.
+
+00:04:51.033 --> 00:04:54.200
+Do mesmo modo, para o ponto
+com coordenadas (0,1),
+
+00:04:54.234 --> 00:04:58.067
+este ponto está abaixo da linha,
+então temos um 0.
+
+00:04:58.100 --> 00:05:02.834
+Finalmente, o ponto com coordenadas
+(0,0) está abaixo da linha também.
+
+00:05:02.868 --> 00:05:04.934
+A reposta é 0, de novo.
+
+00:05:04.968 --> 00:05:08.000
+Esta é nossa
+rede neural final.
+
+00:05:08.033 --> 00:05:12.033
+À esquerda, temos a chamada
+camada de entrada onde, neste caso,
+
+00:05:12.067 --> 00:05:15.834
+estamos entrando com
+os resultados do teste e as notas.
+
+00:05:15.868 --> 00:05:20.167
+Aqui temos um caso em que o resultado
+do teste é 1 e as notas, 8.
+
+00:05:20.200 --> 00:05:23.734
+Isto vai para uma camada
+intermediária, a camada oculta,
+
+00:05:23.767 --> 00:05:26.367
+que vai nos ajudar
+com nossos cálculos.
+
+00:05:26.400 --> 00:05:28.501
+Aqui, vemos que o 1 e o 8
+
+00:05:28.534 --> 00:05:31.234
+se tornam o ponto
+com as coordenadas (1,8)
+
+00:05:31.267 --> 00:05:34.100
+nos dois gráficos
+na camada seguinte.
+
+00:05:34.133 --> 00:05:38.367
+No nó superior, o ponto (1,8)
+está na área verde ou positiva,
+
+00:05:38.400 --> 00:05:41.300
+então o nó superior
+emite um "sim".
+
+00:05:41.334 --> 00:05:45.501
+No nó inferior, o ponto (1,8)
+está na região vermelha ou negativa,
+
+00:05:45.534 --> 00:05:48.200
+então o nó inferior
+emite um "não".
+
+00:05:48.234 --> 00:05:51.601
+Vamos lembrar que um "sim"
+é representado por um 1
+
+00:05:51.634 --> 00:05:54.868
+e um "não", por um 0.
+
+00:05:54.901 --> 00:05:57.234
+A próxima camada,
+a camada de saída,
+
+00:05:57.267 --> 00:06:01.701
+pega os valores que saem da camada
+do meio, principalmente o 1 e o 0,
+
+00:06:01.734 --> 00:06:06.133
+e localiza o ponto
+com coordenadas (1,0).
+
+00:06:06.167 --> 00:06:10.367
+Este ponto está na região vermelha,
+ou negativa, do nó final.
+
+00:06:10.400 --> 00:06:13.167
+Então a saída aqui
+é um "não".
+
+00:06:13.200 --> 00:06:15.567
+A rede neural
+recebeu estas entradas.
+
+00:06:15.601 --> 00:06:19.467
+O resultado do teste = 1,
+e as notas = 8,
+
+00:06:19.501 --> 00:06:22.634
+e emitiu um "não".
+
+00:06:22.667 --> 00:06:27.567
+Esta é uma rede neural simples, mas
+veem como colocar mais nós no meio
+
+00:06:27.601 --> 00:06:29.267
+ou até mais camadas de nós
+
+00:06:29.300 --> 00:06:33.367
+ajuda a mapear áreas mais complexas
+no plano, ou em 3 dimensões,
+
+00:06:33.400 --> 00:06:35.400
+ou espaços
+de dimensões maiores.
+
+00:06:35.434 --> 00:06:38.968
+Redes neurais são um algoritmo
+de aprendizagem de máquina poderoso
+
+00:06:39.000 --> 00:06:42.467
+usado em muitos projetos modernos:
+reconhecimento facial,
+
+00:06:42.501 --> 00:06:46.801
+reconhecimento de voz, xadrez,
+e carros auto-dirigíveis.
+
+00:06:46.834 --> 00:06:48.400
+Chamamos de rede neural,
+
+00:06:48.434 --> 00:06:51.334
+porque esses nós parecem
+neurônios no cérebro.
+
+00:06:51.367 --> 00:06:54.901
+Um neurônio tem como entrada
+a saída de outros neurônios
+
+00:06:54.934 --> 00:06:56.801
+na forma
+de impulsos nervosos,
+
+00:06:56.834 --> 00:06:59.834
+e decide disparar
+um impulso nervoso ou não.
+
+00:06:59.868 --> 00:07:03.601
+Neste caso, o neurônio toma
+como entrada a saída de outros
+
+00:07:03.634 --> 00:07:08.133
+em forma de números, e decide
+devolver um 1 ou um 0.
+

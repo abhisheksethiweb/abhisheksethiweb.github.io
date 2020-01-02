@@ -1,0 +1,71 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.340 --> 00:00:03.420
+So you can think of
+Logistic Regression as a ninja,
+
+00:00:03.420 --> 00:00:08.150
+who will look at your data and
+cut it in half, based on the labels.
+
+00:00:08.150 --> 00:00:12.840
+And we can think of a Support Vector
+Machine, as a slightly pickier ninja
+
+00:00:12.840 --> 00:00:16.230
+who will carefully look at
+the points on the boundary and
+
+00:00:16.230 --> 00:00:18.720
+make the cut based on those.
+
+00:00:18.720 --> 00:00:22.661
+And in the same fashion, we can think of
+a Neural Network as a team of ninjas,
+
+00:00:22.661 --> 00:00:27.440
+who will look at your data and
+cut it into regions based on the labels.
+
+00:00:27.440 --> 00:00:30.500
+And we can think of
+the Kernel Trick as another ninja,
+
+00:00:30.500 --> 00:00:34.410
+who's slightly confused trying to
+split some apples and oranges.
+
+00:00:34.410 --> 00:00:36.140
+Suddenly, she comes
+up with a great idea,
+
+00:00:36.140 --> 00:00:40.060
+the idea consists of
+moving the apples up and
+
+00:00:40.060 --> 00:00:44.400
+the oranges down and then successfully
+cutting a line through between them.
+
+00:00:45.580 --> 00:00:47.410
+Now here's an exercise for you.
+
+00:00:47.410 --> 00:00:50.320
+How would you solve the XOR problem?
+
+00:00:50.320 --> 00:00:53.220
+That is,
+which of the algorithms we learned
+
+00:00:53.220 --> 00:00:56.400
+would you use to separate
+these four points?
+
+00:00:56.400 --> 00:00:57.870
+There's more than one solution.
+
+00:00:57.870 --> 00:00:58.370
+Give it a try.
+

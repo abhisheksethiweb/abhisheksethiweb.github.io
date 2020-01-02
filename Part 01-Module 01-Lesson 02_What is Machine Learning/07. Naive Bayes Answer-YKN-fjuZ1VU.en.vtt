@@ -1,0 +1,80 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.410 --> 00:00:03.620
+So we can see that out of the 25
+e-mails with the word, cheap,
+
+00:00:03.620 --> 00:00:07.210
+20 of them are spam,
+while 5 of them are not.
+
+00:00:08.300 --> 00:00:14.412
+This forms an 80, 20 split,
+so the correct answer is 80%.
+
+00:00:14.412 --> 00:00:17.360
+If you said 80, you were correct.
+
+00:00:17.360 --> 00:00:19.175
+So from analyzing this data,
+we can conclude a rule.
+
+00:00:19.175 --> 00:00:23.290
+The rule says,
+if an e-mail contains the word, cheap,
+
+00:00:23.290 --> 00:00:27.600
+then the probability of that
+e-mail being spam is 80%.
+
+00:00:27.600 --> 00:00:30.820
+We then associate this feature
+with the probability, 80%,
+
+00:00:30.820 --> 00:00:35.320
+and we will use it to flag future
+messages as spam or not spam.
+
+00:00:36.400 --> 00:00:37.830
+We can also look at other features and
+
+00:00:37.830 --> 00:00:40.370
+try to find their
+associated probability.
+
+00:00:40.370 --> 00:00:43.830
+Let's say we look at e-mails containing
+a spelling mistake and realize that
+
+00:00:43.830 --> 00:00:47.720
+the probability of an e-mail containing
+a spelling mistake being spam is 70%.
+
+00:00:47.720 --> 00:00:51.530
+And let's say we look at e-mails
+that are missing a title, and
+
+00:00:51.530 --> 00:00:54.890
+the probability of those
+being spam is 95%.
+
+00:00:54.890 --> 00:00:56.210
+And we can keep going,
+
+00:00:56.210 --> 00:00:59.559
+finding different features that will
+predict if an e-mail is spam or not.
+
+00:01:00.860 --> 00:01:02.610
+So, now, when future e-mails come,
+
+00:01:02.610 --> 00:01:06.730
+we can combine these features to
+guess if they are spam or not.
+
+00:01:06.730 --> 00:01:09.810
+This algorithm is know as
+the Naive Bayes Algorithm.
+

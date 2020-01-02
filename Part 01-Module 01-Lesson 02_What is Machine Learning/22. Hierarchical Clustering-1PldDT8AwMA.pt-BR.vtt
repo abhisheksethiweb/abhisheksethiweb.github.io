@@ -1,0 +1,107 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.467 --> 00:00:02.300
+Esta é uma forma
+de agrupamento
+
+00:00:02.334 --> 00:00:06.234
+que não requer uma especificação
+do número de agrupamentos.
+
+00:00:07.000 --> 00:00:09.901
+Digamos que as casas
+estejam assim.
+
+00:00:09.934 --> 00:00:13.634
+Faria sentido dizer o seguinte:
+se duas casas estão próximas,
+
+00:00:13.667 --> 00:00:17.033
+elas devem ser servidas
+pela mesma pizzaria.
+
+00:00:17.067 --> 00:00:20.801
+Pensando assim, vamos tentar
+agrupar as casas.
+
+00:00:20.834 --> 00:00:24.300
+Vejamos quais casas estão
+mais perto umas das outras.
+
+00:00:24.334 --> 00:00:28.133
+Estas duas aqui.
+Nós as agrupamos.
+
+00:00:28.167 --> 00:00:31.567
+Quais são as outras duas
+mais próximas?
+
+00:00:31.601 --> 00:00:35.133
+Estas duas aqui.
+Nós as agrupamos.
+
+00:00:35.167 --> 00:00:39.367
+As duas outras são estas,
+então nós as agrupamos.
+
+00:00:39.400 --> 00:00:42.801
+Nós continuamos.
+As outras duas são estas,
+
+00:00:42.834 --> 00:00:47.067
+e algo curioso ocorre,
+pois uma casa já esta agrupada.
+
+00:00:47.100 --> 00:00:51.801
+Nós unimos os agrupamentos
+de cada uma das casas.
+
+00:00:51.834 --> 00:00:56.033
+As duas outras são estas,
+então nós unimos os grupos.
+
+00:00:56.067 --> 00:00:59.200
+As duas próximas estão aqui,
+então nós unimos os grupos.
+
+00:00:59.234 --> 00:01:02.300
+As duas casas próximas
+estão aqui,
+
+00:01:02.334 --> 00:01:05.133
+mas isso já está muito longe,
+então vamos parar.
+
+00:01:05.167 --> 00:01:08.834
+Nós escolhemos uma distância
+para começarmos e dizemos:
+
+00:01:08.868 --> 00:01:10.901
+"sempre que as casas
+mais próximas
+
+00:01:10.934 --> 00:01:14.801
+estiverem nesta distância,
+nós paramos o algoritmo."
+
+00:01:14.834 --> 00:01:19.000
+Isso controlará a distância
+entre os agrupamentos.
+
+00:01:19.033 --> 00:01:22.534
+Este algoritmo é conhecido
+como agrupamento hierárquico.
+
+00:01:22.567 --> 00:01:25.501
+Nós vemos que ele é útil
+
+00:01:25.534 --> 00:01:27.601
+quando não sabemos quantos
+agrupamentos,
+
+00:01:27.634 --> 00:01:30.901
+mas sabemos a distância
+entre eles.
+

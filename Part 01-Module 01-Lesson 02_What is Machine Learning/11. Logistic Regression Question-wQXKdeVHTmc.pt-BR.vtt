@@ -1,0 +1,108 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.000 --> 00:00:02.701
+Digamos que somos o escritório
+de admissão de uma universidade
+
+00:00:02.734 --> 00:00:05.868
+e queremos saber
+quais alunos aceitar.
+
+00:00:05.901 --> 00:00:10.634
+Vamos aceitá-los ou rejeitá-los
+com base em duas informações.
+
+00:00:10.667 --> 00:00:15.567
+Um teste de admissão,
+e suas notas da escola.
+
+00:00:15.601 --> 00:00:19.868
+Por exemplo, temos aqui
+o aluno 1, com 9 no teste
+
+00:00:19.901 --> 00:00:21.534
+e 8 na notas.
+
+00:00:21.567 --> 00:00:23.300
+Este aluno foi aceito.
+
+00:00:23.334 --> 00:00:28.033
+Temos o aluno 2,
+com 3 no teste e 4 nas notas.
+
+00:00:28.067 --> 00:00:30.434
+Esse aluno não foi aceito.
+
+00:00:30.467 --> 00:00:32.868
+Chega um novo aluno, o 3.
+
+00:00:32.901 --> 00:00:35.534
+Sua pontuação é 7 e 6.
+
+00:00:35.567 --> 00:00:38.701
+A questão é:
+Devemos aceitá-lo ou não?
+
+00:00:38.734 --> 00:00:41.634
+Para decidir,
+vamos pô-los em uma grade
+
+00:00:41.667 --> 00:00:44.501
+onde o eixo x representa
+a pontuação no teste
+
+00:00:44.534 --> 00:00:47.501
+e o eixo y, as notas.
+
+00:00:47.534 --> 00:00:54.100
+Vemos que o aluno 1 estaria aqui
+no ponto com as coordenadas 9 e 8,
+
+00:00:54.133 --> 00:01:00.667
+e o aluno 2, aqui, no ponto
+com as coordenadas 3 e 4.
+
+00:01:00.701 --> 00:01:03.734
+Para ver se devemos
+aceitar ou não o aluno 3,
+
+00:01:03.767 --> 00:01:06.901
+vamos tentar encontrar
+o padrão nos dados.
+
+00:01:06.934 --> 00:01:08.934
+Olhamos
+para os dados anteriores
+
+00:01:08.968 --> 00:01:12.601
+na forma de todos os alunos
+já aceitos ou não.
+
+00:01:12.634 --> 00:01:15.133
+Os dados anteriores
+se parecem com isso.
+
+00:01:15.167 --> 00:01:18.834
+Os pontos verdes representam
+os alunos previamente aceitos
+
+00:01:18.868 --> 00:01:22.968
+e os vermelhos,
+os que foram rejeitados.
+
+00:01:23.000 --> 00:01:24.834
+Certo, vamos a um quiz.
+
+00:01:24.868 --> 00:01:29.167
+Com base nesses dados anteriores,
+o aluno 3 será aceito?
+
+00:01:29.200 --> 00:01:30.334
+Sim ou não?
+
+00:01:30.367 --> 00:01:32.400
+Apresentem
+suas respostas abaixo.
+

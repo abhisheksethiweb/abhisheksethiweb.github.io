@@ -1,0 +1,221 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.370 --> 00:00:01.839
+This is not an easy question.
+
+00:00:01.839 --> 00:00:05.359
+So let's actually make a table
+with the values of these equations
+
+00:00:05.360 --> 00:00:06.850
+on each of the four points.
+
+00:00:07.870 --> 00:00:10.679
+Here we have the four
+points on the top row.
+
+00:00:10.679 --> 00:00:14.660
+And now, each of the other rows
+will be one of the functions.
+
+00:00:14.660 --> 00:00:15.660
+Here's x + y.
+
+00:00:16.940 --> 00:00:21.471
+We fill in the first row as follows,
+0 plus 3 equals,
+
+00:00:21.471 --> 00:00:27.100
+1 plus 2 equals 3, 2 plus 1 equals 3,
+and 3 plus 0 equals 3.
+
+00:00:28.399 --> 00:00:30.289
+So, we see that x + y, or
+
+00:00:30.289 --> 00:00:34.418
+the sum of the two coordinates is 3 for
+each one of the points.
+
+00:00:35.500 --> 00:00:40.850
+For the second row we see that
+the products are 0 times 3 equals 0 for
+
+00:00:40.850 --> 00:00:42.055
+the first one.
+
+00:00:42.055 --> 00:00:45.224
+1 times 2 equals 2 for the second.
+
+00:00:45.225 --> 00:00:51.956
+2 times 1 equals 2 for the third, and
+3 times 0 equals 0 for the fourth.
+
+00:00:51.956 --> 00:00:56.441
+And for the last one x squared
+we see that 0 squared equals 0,
+
+00:00:56.441 --> 00:01:01.630
+1 squared equals 1, 2 squared equals 4,
+and 3 squared equals 9.
+
+00:01:03.520 --> 00:01:09.670
+So let's think, which of these equations
+separates the green and the red points.
+
+00:01:09.670 --> 00:01:13.740
+We look at the sum x + y and
+that gives us 3 at every value, so
+
+00:01:13.739 --> 00:01:15.079
+it doesn't really separates them.
+
+00:01:16.769 --> 00:01:21.459
+If we look at x squared, so the first
+coordinates squared, we get 0 and 9 for
+
+00:01:21.459 --> 00:01:25.089
+the red values and 1 and
+4 for the green values.
+
+00:01:25.090 --> 00:01:29.974
+This one also doesn't separate them
+since the red values are small and
+
+00:01:29.974 --> 00:01:34.134
+large 0 and 9 and
+the green values are in between 1 and 4.
+
+00:01:34.134 --> 00:01:37.064
+So we look at the product xy and
+that gives us 0 for
+
+00:01:37.064 --> 00:01:40.039
+the red values, and
+2 for the green ones.
+
+00:01:40.040 --> 00:01:42.800
+So, it seems that this one does a job,
+right?
+
+00:01:42.799 --> 00:01:45.739
+Since it’s a function that gives
+us one value for the red point and
+
+00:01:45.739 --> 00:01:47.729
+another value from
+the green points then,
+
+00:01:47.730 --> 00:01:50.719
+it’s a function that can tell red and
+green apart.
+
+00:01:51.989 --> 00:01:54.759
+So, if you said xy, that is correct.
+
+00:01:54.760 --> 00:01:56.750
+That is the magic equation we'll use.
+
+00:01:57.790 --> 00:02:02.990
+So let's see, here we have our 4
+points with coordinates x,y and
+
+00:02:02.989 --> 00:02:05.634
+a products of the coordinates xy.
+
+00:02:06.730 --> 00:02:12.602
+So for the, red points x, y,
+we have that the product xy = 0.
+
+00:02:12.602 --> 00:02:18.066
+And for the green points, x, y,
+we have that the product xy = 2.
+
+00:02:18.066 --> 00:02:20.367
+And what separates a 0 and a 2?
+
+00:02:20.367 --> 00:02:26.774
+Well, a 1, so
+the equation xy = 1 will separate them.
+
+00:02:26.774 --> 00:02:29.640
+And what is xy = 1?
+
+00:02:29.639 --> 00:02:33.039
+It's the same as y = 1/x,
+and the graph for
+
+00:02:33.039 --> 00:02:37.429
+y = 1/x is precisely
+this hyperbola over here.
+
+00:02:37.430 --> 00:02:38.960
+That is the curve we wanted.
+
+00:02:40.699 --> 00:02:43.949
+Okay, now let's look at what
+happens in three dimensions.
+
+00:02:43.949 --> 00:02:49.074
+And we recall that our magic equation,
+which will separate the points is xy.
+
+00:02:51.219 --> 00:02:57.609
+So we have our points with coordinates
+(0, 3), (1, 2), (2, 1), and (3, 0).
+
+00:02:57.610 --> 00:03:01.974
+And here we have a copy of the plane
+with an extra axis, the axis z, for
+
+00:03:01.973 --> 00:03:02.590
+height.
+
+00:03:03.669 --> 00:03:07.929
+So let's add this magic equation,
+xy, to our coordinate.
+
+00:03:07.930 --> 00:03:12.969
+In other words, let's consider the map
+from two dimensions to three dimensions,
+
+00:03:12.969 --> 00:03:19.080
+which takes the point in the plane with
+coordinates (x, y) to the point in space
+
+00:03:19.080 --> 00:03:24.750
+with coordinates( x, y, xy).
+
+00:03:24.750 --> 00:03:30.582
+This map says the point (0,
+3) to the point (0, 3, 0).
+
+00:03:30.582 --> 00:03:35.507
+The point (1, 2) to the point (1, 2, 2).
+
+00:03:35.507 --> 00:03:40.227
+The point (2, 1) to the point (2, 1, 2).
+
+00:03:40.227 --> 00:03:44.490
+And the point (3, 0),
+to the point (3, 0, 0).
+
+00:03:44.490 --> 00:03:48.358
+So in a different way, it still
+separates the point since it sends
+
+00:03:48.358 --> 00:03:53.039
+the green points up by 2, and
+it leaves the red points underneath.
+
+00:03:53.039 --> 00:03:55.449
+Now what could separate these points?
+
+00:03:55.449 --> 00:03:56.989
+Well a plane could do it.
+
+00:03:56.990 --> 00:04:00.610
+This is the way to visualize
+the kernel trick in three dimensions.
+

@@ -1,0 +1,128 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.210 --> 00:00:02.170
+Well, let's first look at gender.
+
+00:00:02.170 --> 00:00:07.075
+If we split them by gender, then
+the females downloaded Pokemon Go and
+
+00:00:07.075 --> 00:00:11.550
+WhatsApp and the males downloaded
+Pokemon Go and Snapchat.
+
+00:00:11.550 --> 00:00:14.330
+So, there's not much of a split there.
+
+00:00:14.330 --> 00:00:16.050
+But if we look at age,
+
+00:00:16.050 --> 00:00:20.170
+we realize that everybody under 20
+year old downloaded Pokemon Go.
+
+00:00:20.170 --> 00:00:22.610
+And everybody who is 20 or older didn't.
+
+00:00:23.860 --> 00:00:25.050
+This is a nice split.
+
+00:00:25.050 --> 00:00:28.490
+So the feature that best
+splits the data is age.
+
+00:00:29.670 --> 00:00:32.369
+Therefore, if you said age,
+that is correct.
+
+00:00:33.780 --> 00:00:37.520
+So what we'll do is we
+add a question here.
+
+00:00:37.520 --> 00:00:39.549
+The question is,
+are you younger than 20?
+
+00:00:39.549 --> 00:00:44.120
+If you are,
+then we'll recommend Pokemon Go to you.
+
+00:00:45.200 --> 00:00:48.080
+If not, then we'll see.
+
+00:00:48.080 --> 00:00:50.740
+If you're 20 older,
+then we'll look at the gender.
+
+00:00:51.780 --> 00:00:54.785
+It seems that if you are a female,
+then you downloaded WhatsApp.
+
+00:00:55.920 --> 00:00:58.270
+And if you are a male,
+you downloaded Snapchat.
+
+00:00:59.300 --> 00:01:00.083
+So we add another question here.
+
+00:01:00.083 --> 00:01:03.890
+Which is, are you female or male?
+
+00:01:05.030 --> 00:01:07.093
+If you're a female,
+then we recommend you WhatsApp.
+
+00:01:07.093 --> 00:01:09.830
+And if you're a male,
+then we recommend you Snapchat.
+
+00:01:10.870 --> 00:01:14.250
+What we end up here,
+is with a Decision Tree.
+
+00:01:15.400 --> 00:01:19.000
+The decisions are given by
+the questions we asked.
+
+00:01:19.000 --> 00:01:22.690
+And this Decision Tree
+was built with this data.
+
+00:01:22.690 --> 00:01:26.457
+And now, whenever we have a new user, we
+can put them through this Decision Tree.
+
+00:01:26.457 --> 00:01:31.110
+And recommend them whatever app
+the tree suggests to recommend.
+
+00:01:31.110 --> 00:01:35.360
+If it's a person under 20,
+we recommend them Pokemon Go.
+
+00:01:35.360 --> 00:01:39.270
+If it's a person who is 20 or
+older, then we check the gender.
+
+00:01:39.270 --> 00:01:41.116
+If it's a female,
+then we recommend her WhatsApp.
+
+00:01:41.116 --> 00:01:45.820
+And if it's a male,
+then we recommend him Snapchat.
+
+00:01:47.540 --> 00:01:51.320
+Obviously, there won't always be
+a tree that perfectly fits our data.
+
+00:01:51.320 --> 00:01:54.220
+But in this class, we're going to
+learn an algorithm which will help
+
+00:01:54.220 --> 00:01:57.110
+us find the best fitting
+tree to a table of data.
+

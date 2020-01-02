@@ -1,0 +1,84 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.234 --> 00:00:03.334
+Pense na regressão logística
+como um ninja
+
+00:00:03.367 --> 00:00:06.167
+que observa os dados
+e os divide em dois
+
+00:00:06.200 --> 00:00:07.868
+a partir dos rótulos.
+
+00:00:07.901 --> 00:00:10.467
+Podemos pensar na máquina
+de vetor de suporte
+
+00:00:10.501 --> 00:00:12.567
+como um ninja exigente
+
+00:00:12.601 --> 00:00:15.834
+que observa cuidadosamente
+os pontos nos limites
+
+00:00:15.868 --> 00:00:18.334
+e os corta baseado nisto.
+
+00:00:18.367 --> 00:00:21.367
+Da mesma forma, podemos
+pensar em uma rede neural
+
+00:00:21.400 --> 00:00:24.434
+como uma equipe de ninjas
+que observar seus dados
+
+00:00:24.467 --> 00:00:27.267
+e recorta em regiões
+a partir dos rótulos.
+
+00:00:27.300 --> 00:00:30.400
+O Truque de Kernel
+seria outro ninja,
+
+00:00:30.434 --> 00:00:34.067
+que fica confuso tentando
+cortar maçãs e laranjas.
+
+00:00:34.100 --> 00:00:37.267
+De repente, ele tem
+uma ótima ideia:
+
+00:00:37.300 --> 00:00:39.934
+a ideia é mover
+as maçãs para cima
+
+00:00:39.968 --> 00:00:41.501
+e a laranjas para baixo
+
+00:00:41.534 --> 00:00:45.400
+para poder traçar
+uma linha entre elas.
+
+00:00:45.434 --> 00:00:47.267
+Temos um exercício
+para você.
+
+00:00:47.300 --> 00:00:50.234
+Como você resolveria
+o problema XOR?
+
+00:00:50.267 --> 00:00:53.868
+Qual dos algoritmos aprendidos
+você usaria
+
+00:00:53.901 --> 00:00:56.133
+para separar
+estes quatro pontos?
+
+00:00:56.167 --> 00:00:58.801
+Há mais de uma solução.
+Tente.
+

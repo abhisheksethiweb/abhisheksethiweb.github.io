@@ -1,0 +1,139 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.570 --> 00:00:03.760
+Well if you look at the blue line,
+it seems like its close to failing.
+
+00:00:03.760 --> 00:00:05.620
+It's too close to two of the points.
+
+00:00:06.720 --> 00:00:10.650
+If we were to pertobate it minimally,
+it would misclassify one or more points.
+
+00:00:11.720 --> 00:00:14.670
+The yellow line though seems
+to be nicely spaced, and
+
+00:00:14.670 --> 00:00:16.068
+as far as it can from all the points.
+
+00:00:17.180 --> 00:00:19.740
+So it seems like the best
+line is the yellow line.
+
+00:00:20.840 --> 00:00:23.190
+Therefore, if you said the yellow line,
+we agree.
+
+00:00:24.590 --> 00:00:28.000
+And now the question is,
+how do we find this yellow line?
+
+00:00:29.250 --> 00:00:30.730
+Well before finding the yellow line,
+
+00:00:30.730 --> 00:00:34.309
+let's actually find a measure that tells
+us that the yellow line is better.
+
+00:00:35.400 --> 00:00:38.865
+So the first observation is that these
+points far away from the boundary,
+
+00:00:38.865 --> 00:00:41.320
+didn't matter much to our decision.
+
+00:00:41.320 --> 00:00:42.790
+So let's forget about them, and
+
+00:00:42.790 --> 00:00:44.800
+only consider the points
+close to the boundary.
+
+00:00:46.010 --> 00:00:49.700
+Actually, what we really have to focus
+is the distances from the points
+
+00:00:49.700 --> 00:00:50.760
+to the two lines.
+
+00:00:51.870 --> 00:00:54.900
+And what tells us that
+the yellow line is better?
+
+00:00:54.900 --> 00:00:58.970
+Well the yellow line is better because
+somehow it's farther from the points
+
+00:00:58.970 --> 00:00:59.800
+than the blue line.
+
+00:01:00.930 --> 00:01:03.860
+So we can just look at these four
+distances and notice that the smallest
+
+00:01:03.860 --> 00:01:08.210
+of those four distances, is our measure
+of how close the line is to the points.
+
+00:01:09.220 --> 00:01:12.040
+This means that what we have to
+consider then is the minimum
+
+00:01:12.040 --> 00:01:13.870
+of the four distances.
+
+00:01:13.870 --> 00:01:17.250
+That's our measure of how close
+the line is to the points.
+
+00:01:18.440 --> 00:01:21.040
+We'll call this measure the distance.
+
+00:01:21.040 --> 00:01:23.790
+So we conclude that
+the yellow line is better.
+
+00:01:23.790 --> 00:01:26.700
+Because the minimum for
+all these distances is larger for
+
+00:01:26.700 --> 00:01:29.170
+the yellow line, than for the blue line.
+
+00:01:30.460 --> 00:01:34.170
+So this is the function we need to work
+with, the minimum of the four distances.
+
+00:01:34.170 --> 00:01:37.450
+And our goal is to make that
+minimum as large as possible.
+
+00:01:37.450 --> 00:01:40.500
+In other words,
+we need to maximize the distance.
+
+00:01:41.710 --> 00:01:43.980
+And how do we maximize this distance?
+
+00:01:43.980 --> 00:01:45.640
+You guessed it, with gradient descent.
+
+00:01:45.640 --> 00:01:49.379
+There are also other methods we can use
+which we will learn during the class.
+
+00:01:50.620 --> 00:01:53.040
+This method is called
+support vector machine.
+
+00:01:53.040 --> 00:01:56.310
+The word support comes from the fact
+that the points close to the boundary
+
+00:01:56.310 --> 00:01:57.060
+are called the support.
+

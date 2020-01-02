@@ -1,0 +1,108 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.025 --> 00:00:04.810
+Hi, welcome to Udacity's machine
+learning nano degree program.
+
+00:00:04.810 --> 00:00:09.820
+My name is Luis Serrano and
+I'm a Course Developer here at Udacity.
+
+00:00:09.820 --> 00:00:12.610
+But before I worked here I was working
+on machine learning at Google for
+
+00:00:12.610 --> 00:00:13.690
+a few years.
+
+00:00:13.690 --> 00:00:17.079
+I was using machine learning algorithms
+to generate video recommendations at
+
+00:00:17.079 --> 00:00:18.230
+YouTube.
+
+00:00:18.230 --> 00:00:21.220
+Machine learning is widely used for
+many cool things.
+
+00:00:21.220 --> 00:00:24.970
+Such as image and
+voice recognition, spam detection,
+
+00:00:24.970 --> 00:00:29.990
+fraud detection, stock market, teaching
+a computer how to play chess, and,
+
+00:00:29.990 --> 00:00:32.520
+of course, self-driving cars.
+
+00:00:32.520 --> 00:00:36.560
+So it may sound like something so
+useful must be pretty complicated.
+
+00:00:36.560 --> 00:00:40.170
+But I'm here to show you that machine
+learning is actually pretty easy.
+
+00:00:40.170 --> 00:00:42.140
+And most importantly a lot of fun.
+
+00:00:43.350 --> 00:00:46.550
+So first off, what is machine learning?
+
+00:00:46.550 --> 00:00:52.620
+Well, we have the world and in the world
+we have humans and we have computers.
+
+00:00:52.620 --> 00:00:56.040
+And one of the main
+differences between humans and
+
+00:00:56.040 --> 00:01:00.240
+computers is that humans
+learn from past experiences.
+
+00:01:00.240 --> 00:01:04.060
+Whereas computers need to be told what
+to do, they need to be programmed.
+
+00:01:04.060 --> 00:01:08.690
+And now the question is, can we get
+computers to learn from experience too?
+
+00:01:08.690 --> 00:01:11.280
+And the answer is yes, we can.
+
+00:01:11.280 --> 00:01:14.030
+And that is precisely
+what machine learning is.
+
+00:01:14.030 --> 00:01:19.273
+Teaching computers to learn to
+perform tasks from past experiences.
+
+00:01:19.273 --> 00:01:24.804
+Of course, for computers past
+experiences are just recorded as data.
+
+00:01:24.804 --> 00:01:28.742
+So together, we're going to look at
+a few examples in which we can teach
+
+00:01:28.742 --> 00:01:31.118
+the computer to learn
+from previous data.
+
+00:01:31.118 --> 00:01:34.624
+And most importantly, I'm going to show
+you that machine learning is actually
+
+00:01:34.624 --> 00:01:36.209
+pretty easy, and nothing to fear.
+
+00:01:36.209 --> 00:01:36.709
+[MUSIC]
+

@@ -1,0 +1,61 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.601 --> 00:00:02.901
+Vejamos um exemplo.
+
+00:00:02.934 --> 00:00:05.167
+Nós somos a App Store
+ou o Google Play
+
+00:00:05.200 --> 00:00:08.467
+e queremos recomendar
+aplicativos para usuários.
+
+00:00:08.501 --> 00:00:10.033
+Para cada um
+
+00:00:10.067 --> 00:00:14.300
+nós recomendaremos o aplicativo
+que é provável que ele baixe.
+
+00:00:14.334 --> 00:00:17.834
+Nós temos uma tabela de dados
+para criarmos as regras.
+
+00:00:17.868 --> 00:00:20.801
+A tabela contém
+seis pessoas.
+
+00:00:20.834 --> 00:00:24.601
+Para cada uma delas,
+nós sabemos o gênero,
+
+00:00:25.400 --> 00:00:28.834
+a idade e o aplicativo
+que ela baixou.
+
+00:00:29.567 --> 00:00:34.534
+Por exemplo, a primeira pessoa
+é uma garota de 15 anos
+
+00:00:34.567 --> 00:00:37.033
+que baixou o Pokemon Go.
+
+00:00:37.067 --> 00:00:38.434
+Eis a pergunta:
+
+00:00:38.467 --> 00:00:42.434
+entre o gênero e a idade,
+
+00:00:42.467 --> 00:00:45.834
+qual é mais decisivo
+para prever qual aplicativo
+
+00:00:45.868 --> 00:00:47.701
+os usuários vão baixar?
+
+00:00:47.734 --> 00:00:49.200
+Escreva sua resposta abaixo.
+

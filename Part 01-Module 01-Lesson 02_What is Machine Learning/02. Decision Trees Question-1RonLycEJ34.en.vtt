@@ -1,0 +1,55 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.680 --> 00:00:03.100
+Okay, so we'll start with an example.
+
+00:00:03.100 --> 00:00:05.310
+We are the apps store or Google Play.
+
+00:00:05.310 --> 00:00:08.688
+And our goal is to
+recommend apps to users.
+
+00:00:08.688 --> 00:00:10.090
+So to each user,
+
+00:00:10.090 --> 00:00:14.670
+we're going to try to recommend them the
+app they are most likely to download.
+
+00:00:14.670 --> 00:00:17.890
+So here we have a table of data that
+we're going to use to make the rules.
+
+00:00:17.890 --> 00:00:19.980
+And the table contains six people.
+
+00:00:21.060 --> 00:00:25.690
+And for each one of these six people,
+we have recorded their gender, and
+
+00:00:25.690 --> 00:00:28.460
+their age, and the app they downloaded.
+
+00:00:29.750 --> 00:00:34.028
+So for example, the first person
+is a 15 year old female, and
+
+00:00:34.028 --> 00:00:35.980
+she downloaded Pokemon Go.
+
+00:00:37.150 --> 00:00:37.966
+So here's a quiz.
+
+00:00:37.966 --> 00:00:42.940
+Between gender and age, which
+
+00:00:42.940 --> 00:00:47.790
+one seems more decisive for predicting
+what app will the users download?
+
+00:00:47.790 --> 00:00:49.180
+Submit your answer below.
+

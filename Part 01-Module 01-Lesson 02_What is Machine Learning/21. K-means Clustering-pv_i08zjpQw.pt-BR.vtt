@@ -1,0 +1,188 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.367 --> 00:00:03.001
+Digamos que você tenha
+uma cadeia de pizzarias
+
+00:00:03.033 --> 00:00:05.434
+e queira colocar três delas
+na cidade.
+
+00:00:05.467 --> 00:00:07.200
+Nós fazemos um estudo
+e percebemos
+
+00:00:07.234 --> 00:00:11.234
+que as pessoas que mais
+comem pizza moram aqui.
+
+00:00:11.267 --> 00:00:14.100
+Nós decidimos montar três
+pizzarias
+
+00:00:14.133 --> 00:00:18.001
+e precisamos saber quais são
+os melhores locais para isso.
+
+00:00:18.033 --> 00:00:21.968
+Parece que as casas se dividem
+em três grupos:
+
+00:00:22.000 --> 00:00:23.734
+o vermelho, o azul
+
+00:00:23.767 --> 00:00:25.400
+e o amarelo.
+
+00:00:25.434 --> 00:00:29.467
+Faz sentido montar uma pizzaria
+em cada um dos grupos,
+
+00:00:29.501 --> 00:00:31.234
+mas o computador
+não faz isso,
+
+00:00:31.267 --> 00:00:33.300
+ele não tem como
+observar os grupos,
+
+00:00:33.334 --> 00:00:35.167
+nós precisamos
+de um algoritmo.
+
+00:00:35.200 --> 00:00:37.434
+Este é o algoritmo
+que podemos utilizar.
+
+00:00:37.467 --> 00:00:40.267
+Vamos começar escolhendo
+três locais aleatórios
+
+00:00:40.300 --> 00:00:44.567
+para a pizzaria, eles estão
+nestas estrelas.
+
+00:00:44.601 --> 00:00:48.634
+Faz sentido dizer que cada casa
+irá até a pizzaria
+
+00:00:48.667 --> 00:00:50.934
+que é mais próxima dela.
+
+00:00:50.968 --> 00:00:55.001
+Neste caso, as casas amarelas
+irão à pizzaria amarela,
+
+00:00:55.033 --> 00:00:57.968
+as casas azuis,
+à pizzaria azul,
+
+00:00:58.000 --> 00:01:01.200
+e as casas vermelhas,
+à pizzaria vermelha.
+
+00:01:02.033 --> 00:01:07.200
+Veja a distância entre as casas
+amarelas e a pizzaria amarela.
+
+00:01:07.234 --> 00:01:12.701
+Faria mais sentido mudá-la
+para perto da clientela.
+
+00:01:12.734 --> 00:01:17.267
+O mesmo serve para a azul
+e para a avermelha.
+
+00:01:17.934 --> 00:01:23.501
+Vamos mudar cada pizzaria
+para o centro da clientela.
+
+00:01:23.534 --> 00:01:26.734
+Mas agora, observe
+estas casas azuis.
+
+00:01:26.767 --> 00:01:29.400
+Elas estão mais perto
+da pizzaria amarela
+
+00:01:29.434 --> 00:01:31.167
+do que da azul.
+
+00:01:31.200 --> 00:01:34.901
+Faria mais sentido eles irem
+à pizzaria amarela.
+
+00:01:34.934 --> 00:01:37.001
+Vamos pintá-las de amarelo.
+
+00:01:37.033 --> 00:01:39.234
+O mesmo ocorre
+com estas casas vermelhas.
+
+00:01:39.267 --> 00:01:41.767
+Elas ficaram mais perto
+da pizzaria azul.
+
+00:01:41.801 --> 00:01:43.567
+Vamos pintá-las de azul.
+
+00:01:44.667 --> 00:01:48.133
+Novamente, faz sentido
+mover as pizzarias
+
+00:01:48.167 --> 00:01:50.434
+para o centro da clientela.
+
+00:01:50.467 --> 00:01:53.200
+Agora veja
+estas casas vermelhas.
+
+00:01:53.234 --> 00:01:55.501
+Elas estão mais perto
+da pizzaria azul
+
+00:01:55.534 --> 00:01:59.667
+do que da vermelha.
+Vamos pintá-las de azul.
+
+00:01:59.701 --> 00:02:04.467
+Novamente, movemos as pizzarias
+para o centro da clientela.
+
+00:02:04.501 --> 00:02:06.567
+Agora temos uma solução
+otimizada.
+
+00:02:06.601 --> 00:02:09.767
+Este processo nos levou
+de uma solução aleatória
+
+00:02:09.801 --> 00:02:13.634
+para a ideal, na qual temos
+uma pizzaria no centro
+
+00:02:13.667 --> 00:02:17.133
+de cada agrupamento de casas
+onde os clientes moram.
+
+00:02:17.167 --> 00:02:21.167
+Este algoritmo se chama
+agrupamento k-means.
+
+00:02:21.200 --> 00:02:23.400
+Ele é útil quando temos
+uma ideia
+
+00:02:23.434 --> 00:02:26.234
+de quantos agrupamentos
+queremos ter.
+
+00:02:26.267 --> 00:02:28.033
+Agora eu farei uma pergunta:
+
+00:02:28.067 --> 00:02:31.567
+e se não soubermos quantos
+agrupamentos queremos ter?
+

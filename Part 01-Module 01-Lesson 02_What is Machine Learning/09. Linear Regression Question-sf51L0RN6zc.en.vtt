@@ -1,0 +1,61 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.320 --> 00:00:02.460
+So let's say we're studying the housing market and
+
+00:00:02.460 --> 00:00:04.801
+our task is to predict the price of a house given its size.
+
+00:00:04.801 --> 00:00:08.419
+So we have a small house that costs $70,000,
+
+00:00:08.419 --> 00:00:11.641
+and a big house that costs $160,000.
+
+00:00:11.641 --> 00:00:16.164
+We'd like to estimate the price of this medium-sized house over here.
+
+00:00:17.245 --> 00:00:19.005
+So how do we do it?
+
+00:00:19.004 --> 00:00:23.474
+Well, first we put them in a grid where the x axis represents the size of
+
+00:00:23.475 --> 00:00:27.970
+the house in square feet and the y axis represents the price of the house.
+
+00:00:29.539 --> 00:00:30.719
+And to help us out,
+
+00:00:30.719 --> 00:00:35.000
+we have collected some previous data in the form of these blue dots.
+
+00:00:35.000 --> 00:00:36.689
+These are other houses that we've looked at and
+
+00:00:36.689 --> 00:00:39.939
+we've recorded their prices with respect to their size.
+
+00:00:39.939 --> 00:00:44.189
+In here we can see the small house is priced at $70,000.
+
+00:00:44.189 --> 00:00:47.381
+And the big one at $160,000.
+
+00:00:47.381 --> 00:00:49.619
+Now, it's time for a small quiz.
+
+00:00:49.619 --> 00:00:53.621
+What do you think is the best estimate for the price of the medium house,
+
+00:00:53.621 --> 00:00:54.630
+given these data?
+
+00:00:54.630 --> 00:01:02.206
+Would it be $80,000, $120,000, or $190,000?
+
+00:01:02.206 --> 00:01:04.489
+Submit your answer below.
+

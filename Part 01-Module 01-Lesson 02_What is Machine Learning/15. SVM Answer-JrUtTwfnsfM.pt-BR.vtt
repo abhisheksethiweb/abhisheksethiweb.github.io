@@ -1,0 +1,156 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.467 --> 00:00:03.667
+A linha azul está próxima
+da falha,
+
+00:00:03.701 --> 00:00:06.601
+está perto demais
+de dois dos pontos.
+
+00:00:06.634 --> 00:00:08.601
+Se fôssemos analisar
+minimamente,
+
+00:00:08.634 --> 00:00:11.634
+isso classificaria de forma
+errada um ou mais pontos.
+
+00:00:11.667 --> 00:00:14.501
+A linha amarela
+parece bem espaçada
+
+00:00:14.534 --> 00:00:17.067
+e o mais longe possível
+dos pontos.
+
+00:00:17.100 --> 00:00:20.734
+Parece que a melhor linha
+é a amarela.
+
+00:00:20.767 --> 00:00:23.634
+Se você disse que era
+a amarela, nós concordamos.
+
+00:00:24.467 --> 00:00:28.501
+A pergunta é: "como encontramos
+a linha amarela?"
+
+00:00:29.167 --> 00:00:32.767
+Antes disso, vamos encontrar
+a medida que nos informa
+
+00:00:32.801 --> 00:00:35.300
+que a linha amarela
+é a melhor.
+
+00:00:35.334 --> 00:00:38.968
+A primeira observação
+é que os pontos mais distantes
+
+00:00:39.000 --> 00:00:41.300
+não importaram tanto
+para a decisão.
+
+00:00:41.334 --> 00:00:45.234
+Vamos ignorá-los e considerar
+os que estão próximos do limite.
+
+00:00:45.868 --> 00:00:49.400
+Nós precisamos nos concentrar
+das distâncias dos pontos
+
+00:00:49.434 --> 00:00:51.734
+até as duas linhas.
+
+00:00:51.767 --> 00:00:54.601
+O que nos informa que
+a amarela é a melhor?
+
+00:00:54.634 --> 00:00:58.534
+Ela é melhor porque está
+mais longe dos pontos
+
+00:00:58.567 --> 00:01:00.834
+do que a linha azul.
+
+00:01:00.868 --> 00:01:05.467
+Nós observamos as distâncias
+e vemos que a menor
+
+00:01:05.501 --> 00:01:09.133
+é a medida de proximidade
+da linha com os pontos.
+
+00:01:09.167 --> 00:01:13.734
+Nós precisamos considerar
+o mínimo das quatro distâncias.
+
+00:01:13.767 --> 00:01:17.634
+Essa é a medida da proximidade
+da linha com os pontos.
+
+00:01:18.334 --> 00:01:20.801
+Chamamos esta medida
+de distância.
+
+00:01:20.834 --> 00:01:23.534
+Concluímos que a linha
+amarela é melhor,
+
+00:01:23.567 --> 00:01:25.801
+porque o mínimo de todas
+as distâncias
+
+00:01:25.834 --> 00:01:30.133
+é maior na amarela
+do que na azul.
+
+00:01:30.167 --> 00:01:32.234
+Nós precisamos trabalhar
+com esta função:
+
+00:01:32.267 --> 00:01:34.133
+o mínimo das quatro
+distâncias.
+
+00:01:34.167 --> 00:01:37.300
+Nosso objetivo é tornar
+o mínimo o maior possível.
+
+00:01:37.334 --> 00:01:38.834
+Em outras palavras,
+
+00:01:38.868 --> 00:01:41.567
+precisamos maximizar
+as distâncias.
+
+00:01:41.601 --> 00:01:43.834
+E como maximizamos
+as distâncias?
+
+00:01:43.868 --> 00:01:46.534
+Isso mesmo,
+com o gradiente descendente.
+
+00:01:46.567 --> 00:01:48.400
+Nós podemos utilizar
+outros métodos,
+
+00:01:48.434 --> 00:01:50.267
+que aprenderemos
+durante o curso.
+
+00:01:50.300 --> 00:01:53.033
+Este método é chamado
+de máquina de vetor de suporte.
+
+00:01:53.067 --> 00:01:56.033
+A palavra suporte é porque
+os pontos mais próximos do limite
+
+00:01:56.067 --> 00:01:57.467
+são chamadas de suporte.
+

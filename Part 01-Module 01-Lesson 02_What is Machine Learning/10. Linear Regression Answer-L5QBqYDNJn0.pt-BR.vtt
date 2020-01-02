@@ -1,0 +1,265 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.200 --> 00:00:03.234
+Para nos ajudar,
+vemos que estes pontos
+
+00:00:03.267 --> 00:00:05.033
+formam uma linha.
+
+00:00:05.067 --> 00:00:08.767
+Nós podemos desenhar a linha
+que representa os dados.
+
+00:00:08.801 --> 00:00:12.667
+Com isso, vemos que a previsão
+do valor da casa
+
+00:00:12.701 --> 00:00:14.767
+é este ponto sobre a linha,
+
+00:00:14.801 --> 00:00:18.634
+que corresponde
+a US$ 120 mil.
+
+00:00:18.667 --> 00:00:22.367
+Se você disse US$ 120 mil,
+você está correto.
+
+00:00:22.400 --> 00:00:24.834
+Este método é conhecido
+como regressão linear.
+
+00:00:25.734 --> 00:00:29.701
+Pense nisso como um pintor
+que observa os dados
+
+00:00:29.734 --> 00:00:32.234
+e traça a melhor linha
+entre eles.
+
+00:00:32.267 --> 00:00:35.801
+Você deve estar se perguntando
+como achamos esta linha.
+
+00:00:35.834 --> 00:00:37.467
+Vamos ver um exemplo.
+
+00:00:37.501 --> 00:00:42.767
+Vamos traçar a melhor linha
+entre estes três pontos aqui.
+
+00:00:42.801 --> 00:00:45.067
+A melhor linha é subjetiva,
+
+00:00:45.100 --> 00:00:47.801
+mas encontraremos uma
+que funcione.
+
+00:00:47.834 --> 00:00:49.868
+Como estamos fingindo ser
+um computador,
+
+00:00:49.901 --> 00:00:51.667
+nós não podemos só
+desenhar a linha,
+
+00:00:51.701 --> 00:00:54.267
+então nós começamos
+desenhando uma linha
+
+00:00:54.300 --> 00:00:56.801
+para ver como ela ficou.
+
+00:00:57.434 --> 00:01:02.000
+Para ver como foi,
+nós calculamos o erro.
+
+00:01:02.033 --> 00:01:07.167
+Nós veremos a distância
+da linha até os pontos
+
+00:01:07.200 --> 00:01:12.000
+e diremos que o erro
+é a soma das três distâncias.
+
+00:01:12.901 --> 00:01:18.267
+Agora nós movemos a linha
+para reduzir o erro.
+
+00:01:21.334 --> 00:01:23.701
+Digamos que nós movemos
+nesta direção.
+
+00:01:24.567 --> 00:01:26.801
+Calculamos o erro novamente.
+
+00:01:26.834 --> 00:01:30.100
+Isso é dado pelas distâncias
+em amarelo.
+
+00:01:30.133 --> 00:01:34.601
+Nós somamos e vemos
+que aumentamos o erro,
+
+00:01:34.634 --> 00:01:36.367
+então isso não é bom.
+
+00:01:36.400 --> 00:01:38.901
+Vamos tentar outra direção.
+
+00:01:41.534 --> 00:01:44.033
+Nós movemos
+e calculamos o erro,
+
+00:01:44.067 --> 00:01:47.067
+que é dado pela soma
+das distâncias em verde.
+
+00:01:47.100 --> 00:01:51.000
+Vemos que o erro diminuiu,
+então vamos seguir assim.
+
+00:01:51.701 --> 00:01:54.367
+Após fazer o procedimento
+algumas vezes,
+
+00:01:54.400 --> 00:01:58.634
+nós diminuiremos o erro
+e teremos uma boa solução
+
+00:01:58.667 --> 00:02:01.000
+na forma desta linha.
+
+00:02:01.033 --> 00:02:03.801
+O procedimento
+para minimizar o erro
+
+00:02:03.834 --> 00:02:06.534
+é chamado de gradiente
+descendente.
+
+00:02:06.567 --> 00:02:09.701
+Na vida real, como não queremos
+lidar com distâncias negativas,
+
+00:02:09.734 --> 00:02:13.701
+então, em vez de encontrar
+as distâncias até os pontos,
+
+00:02:13.734 --> 00:02:15.968
+nós adicionamos quadrados.
+
+00:02:16.000 --> 00:02:18.534
+Isso é chamado
+de mínimos quadrados.
+
+00:02:20.234 --> 00:02:22.934
+Nós voltamos
+ao topo do Monte do Errorest
+
+00:02:22.968 --> 00:02:25.100
+e queremos chegar
+à parte de baixo.
+
+00:02:25.133 --> 00:02:28.000
+Neste contexto, quanto mais alto
+nós estivermos,
+
+00:02:28.033 --> 00:02:29.834
+maior será o erro.
+
+00:02:29.868 --> 00:02:32.334
+Descender significa
+reduzir o erro.
+
+00:02:33.033 --> 00:02:34.367
+O que fazemos?
+
+00:02:35.033 --> 00:02:37.334
+Nós olhamos em volta
+e tentamos descobrir
+
+00:02:37.367 --> 00:02:39.334
+onde podemos descer mais.
+
+00:02:40.400 --> 00:02:43.901
+Isso é o mesmo que mover a linha
+e observar o movimento
+
+00:02:43.934 --> 00:02:46.067
+que mais reduz o erro.
+
+00:02:46.100 --> 00:02:47.400
+Por exemplo, aqui,
+
+00:02:47.434 --> 00:02:51.200
+esta é a direção que parece
+descer mais.
+
+00:02:51.234 --> 00:02:53.868
+Então nós seguimos
+nessa direção.
+
+00:02:53.901 --> 00:02:57.200
+Isso é mesmo que mover a linha
+passo a passo
+
+00:02:57.234 --> 00:02:59.667
+até diminuir o erro
+ao mínimo.
+
+00:02:59.701 --> 00:03:03.434
+De certa forma, movemos
+para perto dos três pontos.
+
+00:03:03.467 --> 00:03:05.300
+Agora reduzimos o erro
+
+00:03:05.334 --> 00:03:07.767
+e chegamos perto
+da base da montanha.
+
+00:03:07.801 --> 00:03:09.334
+Nós recomeçamos
+o procedimento,
+
+00:03:09.367 --> 00:03:13.167
+observando para ver
+qual caminho desce mais
+
+00:03:13.200 --> 00:03:14.634
+ou, da mesma forma,
+
+00:03:14.667 --> 00:03:17.067
+qual caminho chega
+mais perto dos pontos.
+
+00:03:17.100 --> 00:03:19.400
+Então nós recomeçamos
+novamente o procedimento
+
+00:03:19.434 --> 00:03:23.200
+e observamos para decidir
+qual caminho desce mais.
+
+00:03:23.234 --> 00:03:24.567
+ou, da mesma forma,
+
+00:03:24.601 --> 00:03:27.033
+qual caminho chega
+mais perto dos pontos.
+
+00:03:27.067 --> 00:03:29.734
+Nós reduzimos o erro
+
+00:03:29.767 --> 00:03:31.767
+até encontrarmos
+o menor valor,
+
+00:03:31.801 --> 00:03:33.868
+que nos fornece
+a melhor linha.
+

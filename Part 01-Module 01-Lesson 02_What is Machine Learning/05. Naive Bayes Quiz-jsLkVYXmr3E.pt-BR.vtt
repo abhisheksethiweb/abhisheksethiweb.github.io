@@ -1,0 +1,97 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.400 --> 00:00:02.667
+Vejamos outro exemplo.
+
+00:00:02.701 --> 00:00:06.567
+Construiremos um classificador
+de detecção de spam de e-mail.
+
+00:00:06.601 --> 00:00:08.267
+Como fazemos isso?
+
+00:00:08.300 --> 00:00:11.200
+Observando
+os dados anteriores.
+
+00:00:11.234 --> 00:00:16.001
+Os dados anteriores
+são 100 e-mails já vistos.
+
+00:00:16.033 --> 00:00:20.901
+Destes 100 e-mails, identificamos
+que 25 são spam
+
+00:00:20.934 --> 00:00:24.033
+e 75 não são spam.
+
+00:00:24.067 --> 00:00:28.434
+Vamos pensar nos recursos
+que o e-mail spam pode exibir
+
+00:00:28.467 --> 00:00:30.167
+e analisá-los.
+
+00:00:30.200 --> 00:00:32.734
+Um recurso pode ser,
+por exemplo,
+
+00:00:32.767 --> 00:00:35.000
+conter a palavra "barato".
+
+00:00:35.033 --> 00:00:39.033
+É razoável pensar que um e-mail
+que contenha a palavra "barato"
+
+00:00:39.067 --> 00:00:40.901
+possa ser um spam.
+
+00:00:40.934 --> 00:00:42.934
+Vamos analisar isso.
+
+00:00:42.968 --> 00:00:46.300
+Nós procuramos pela palavra
+nos 100 e-mails e descobrimos
+
+00:00:46.334 --> 00:00:52.133
+que 20 dos 25 spam e cinco
+dos 75 que não eram spam
+
+00:00:52.167 --> 00:00:54.100
+continham a palavra.
+
+00:00:54.133 --> 00:00:56.334
+Nós ignoramos
+os outros e-mails
+
+00:00:56.367 --> 00:01:00.033
+e nos concentramos nos que
+continham a palavra "barato".
+
+00:01:00.067 --> 00:01:02.334
+Chegou a hora
+de um questionário.
+
+00:01:02.367 --> 00:01:04.000
+Esta é a pergunta:
+
+00:01:04.033 --> 00:01:06.267
+baseado nos nossos dados,
+
+00:01:06.300 --> 00:01:09.167
+se um e-mail contém
+a palavra "barato",
+
+00:01:09.200 --> 00:01:13.167
+qual é a probabilidade
+de ele ser spam?
+
+00:01:14.267 --> 00:01:18.267
+É de 40%, 60%
+
+00:01:18.300 --> 00:01:21.334
+ou 80%
+Escreva sua resposta abaixo.
+

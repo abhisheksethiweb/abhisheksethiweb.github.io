@@ -1,0 +1,145 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.200 --> 00:00:05.033
+Vamos aprender outro método
+poderoso para dividir pontos.
+
+00:00:05.067 --> 00:00:08.100
+Digamos que estes quatro pontos
+estão desta forma
+
+00:00:08.133 --> 00:00:09.667
+e nós queremos separá-los.
+
+00:00:09.701 --> 00:00:12.801
+Parece que a linha
+não dará conta,
+
+00:00:12.834 --> 00:00:16.334
+pois eles estão alinhados
+e os vermelhos estão nas pontas.
+
+00:00:16.367 --> 00:00:18.901
+Então precisamos pensar além.
+
+00:00:18.934 --> 00:00:23.267
+Podemos utilizar
+uma curva com esta.
+
+00:00:23.300 --> 00:00:26.400
+Outra forma é pensar
+fora do plano
+
+00:00:26.434 --> 00:00:29.501
+e imaginar os pontos
+em um espaço tridimensional.
+
+00:00:30.367 --> 00:00:32.934
+Estes são os pontos
+no plano.
+
+00:00:32.968 --> 00:00:37.501
+Nós adicionamos um eixo Z
+para a terceira dimensão.
+
+00:00:38.234 --> 00:00:41.534
+Se conseguirmos levantar
+os dois pontos verdes,
+
+00:00:41.567 --> 00:00:44.501
+nós podemos separá-los
+com um plano.
+
+00:00:45.234 --> 00:00:47.300
+Qual parece ser
+a melhor solução?
+
+00:00:47.334 --> 00:00:51.033
+Pensar de forma plana
+e separá-los com uma curva
+
+00:00:51.067 --> 00:00:55.501
+ou pensar nos pontos no espaço
+e separá-los com um plano?
+
+00:00:55.534 --> 00:00:59.067
+Acontece que estes dois
+são o mesmo método.
+
+00:00:59.100 --> 00:01:02.334
+Não se preocupe,
+nós veremos isso em detalhe.
+
+00:01:02.367 --> 00:01:04.434
+Este método é chamado
+de Truque do Kernel
+
+00:01:04.467 --> 00:01:07.400
+e é muito utilizado
+em máquina de vetor de suporte.
+
+00:01:08.167 --> 00:01:10.801
+Vamos estudar um deles
+de forma detalhada,
+
+00:01:10.834 --> 00:01:12.734
+o truque da curva.
+
+00:01:12.767 --> 00:01:15.567
+Vamos começar colocando
+coordenadas nos pontos.
+
+00:01:15.601 --> 00:01:19.667
+Este é 0,3. Este é 1,2.
+
+00:01:19.701 --> 00:01:23.767
+Este é 2,1. Este é 3,0.
+
+00:01:23.801 --> 00:01:25.767
+Nós precisamos de uma forma
+para separar
+
+00:01:25.801 --> 00:01:27.667
+os pontos verdes
+dos vermelhos.
+
+00:01:27.701 --> 00:01:30.567
+Se as coordenadas dos pontos
+são X,Y,
+
+00:01:30.601 --> 00:01:33.434
+nós precisamos de uma equação
+nas variáveis X e Y
+
+00:01:33.467 --> 00:01:36.100
+que nos forneça valores grandes
+para os pontos verdes
+
+00:01:36.133 --> 00:01:38.033
+e pequenos valores
+para os vermelhos
+
+00:01:38.067 --> 00:01:39.767
+ou vice e versa.
+
+00:01:39.801 --> 00:01:43.767
+Qual das equações a seguir
+pode nos ajudar?
+
+00:01:44.634 --> 00:01:47.667
+A soma das coordenadas,
+X mais Y?
+
+00:01:47.701 --> 00:01:51.033
+O produto das coordenadas,
+X vezes Y?
+
+00:01:51.067 --> 00:01:54.767
+Ou o quadrado da primeira
+coordenada, X ao quadrado?
+
+00:01:54.801 --> 00:01:56.334
+Escreva sua resposta abaixo.
+

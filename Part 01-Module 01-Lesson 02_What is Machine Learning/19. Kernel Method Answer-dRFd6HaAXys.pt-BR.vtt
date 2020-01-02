@@ -1,0 +1,294 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.267 --> 00:00:01.901
+Esta não é
+uma pergunta fácil.
+
+00:00:01.934 --> 00:00:05.167
+Vamos fazer uma tabela
+com os valores das equações
+
+00:00:05.200 --> 00:00:07.701
+em cada um
+dos quatro pontos.
+
+00:00:07.734 --> 00:00:10.400
+Aqui nós temos os quatro pontos
+na linha de cima.
+
+00:00:10.434 --> 00:00:14.434
+Cada uma das linhas
+será uma das funções.
+
+00:00:14.467 --> 00:00:16.667
+Aqui é X mais Y.
+
+00:00:16.701 --> 00:00:19.234
+Nós preenchemos
+a primeira linha assim:
+
+00:00:19.267 --> 00:00:21.300
+zero mais três
+é igual a três,
+
+00:00:21.334 --> 00:00:23.300
+um mais dois é igual a três,
+
+00:00:23.334 --> 00:00:25.267
+dois mais um é igual a três
+
+00:00:25.300 --> 00:00:28.334
+e três mais zero
+é igual a três.
+
+00:00:28.367 --> 00:00:31.801
+Vemos que X mais Y,
+a soma das coordenadas
+
+00:00:31.834 --> 00:00:35.400
+será igual a três
+para todos os pontos.
+
+00:00:35.434 --> 00:00:38.001
+Para a segunda linha,
+vemos que os produtos
+
+00:00:38.033 --> 00:00:41.834
+são: zero vezes três
+é igual a zero, para o primeiro,
+
+00:00:41.868 --> 00:00:45.100
+um vezes dois é igual a dois,
+para o segundo,
+
+00:00:45.133 --> 00:00:48.534
+dois vezes um é igual a dois,
+para a terceira
+
+00:00:48.567 --> 00:00:51.634
+e três vezes zero é igual a zero,
+para a quarta.
+
+00:00:51.667 --> 00:00:53.701
+Para a última, X ao quadrado,
+
+00:00:53.734 --> 00:00:56.067
+vemos que o quadrado de zero
+é zero,
+
+00:00:56.100 --> 00:00:58.000
+um ao quadrado é igual a um,
+
+00:00:58.033 --> 00:01:00.033
+dois ao quadrado
+é igual a quatro
+
+00:01:00.067 --> 00:01:02.267
+e três ao quadrado
+é igual a nove.
+
+00:01:03.167 --> 00:01:06.334
+Qual dessas equações
+
+00:01:06.367 --> 00:01:09.501
+separam os pontos verdes
+dos vermelhos?
+
+00:01:09.534 --> 00:01:13.367
+Na expressão X mais Y,
+temos três para todos,
+
+00:01:13.400 --> 00:01:15.567
+então ele não os separa.
+
+00:01:16.601 --> 00:01:18.167
+Se observamos
+o X ao quadrado,
+
+00:01:18.200 --> 00:01:19.968
+a primeira coordenada
+ao quadrado,
+
+00:01:20.000 --> 00:01:22.300
+temos zero e nove
+para os valores vermelhos
+
+00:01:22.334 --> 00:01:24.801
+e um e quatro
+para os verdes.
+
+00:01:24.834 --> 00:01:27.734
+Isto também não os separa,
+pois os valores vermelhos
+
+00:01:27.767 --> 00:01:30.300
+são pequenos e grandes,
+zero e nove,
+
+00:01:30.334 --> 00:01:34.100
+e os verdes ficam no meio,
+um e quatro.
+
+00:01:34.133 --> 00:01:38.000
+Vemos o produto XY e temos zero
+para os valores vermelhos
+
+00:01:38.033 --> 00:01:39.901
+e dois para os verdes.
+
+00:01:39.934 --> 00:01:42.467
+Parece que este funciona.
+
+00:01:42.501 --> 00:01:45.667
+Como é uma função que dá
+um valor para os vermelhos
+
+00:01:45.701 --> 00:01:47.467
+e outro para os verdes,
+
+00:01:47.501 --> 00:01:51.267
+então ela pode diferenciar
+o vermelho do verde.
+
+00:01:51.901 --> 00:01:54.400
+Se você disse XY,
+você estava certo.
+
+00:01:54.434 --> 00:01:57.100
+Esta é a equação mágica
+que utilizaremos.
+
+00:01:57.701 --> 00:02:02.701
+Aqui nós temos os quatro pontos
+com as coordenadas X,Y
+
+00:02:02.734 --> 00:02:06.701
+e o produto
+das coordenadas X vezes Y.
+
+00:02:06.734 --> 00:02:12.334
+Para os pontos vermelhos,
+temos o produto igual a zero.
+
+00:02:12.367 --> 00:02:17.367
+Para os pontos verdes,
+temos o produto igual a dois.
+
+00:02:18.033 --> 00:02:20.734
+E o que separa
+o zero e o dois?
+
+00:02:20.767 --> 00:02:22.734
+O número um.
+
+00:02:22.767 --> 00:02:27.467
+Então a equação "X vezes Y
+é igual a um" vai separá-los.
+
+00:02:27.501 --> 00:02:29.367
+E o que é "X vezes Y
+igual a um"?
+
+00:02:29.400 --> 00:02:32.367
+É o mesmo que "Y é igual
+a 1 sobre X".
+
+00:02:32.400 --> 00:02:37.167
+E o gráfico disso
+é esta hipérbole,
+
+00:02:37.200 --> 00:02:39.467
+que é a curva
+que nós queríamos.
+
+00:02:40.567 --> 00:02:43.934
+Vejamos o que acontece
+na terceira dimensão.
+
+00:02:43.968 --> 00:02:47.667
+Nós usaremos a equação mágica
+que separa os pontos
+
+00:02:47.701 --> 00:02:49.667
+X vezes Y.
+
+00:02:51.100 --> 00:02:53.067
+Nós temos os pontos
+com as coordenadas
+
+00:02:53.100 --> 00:02:57.467
+(0,3), (1,2), (2,1) e (3,0).
+
+00:02:57.501 --> 00:03:00.534
+E aqui nós temos uma cópia
+do plano com o eixo extra,
+
+00:03:00.567 --> 00:03:03.501
+o eixo Z para a altura.
+
+00:03:03.534 --> 00:03:07.801
+Vamos adicionar
+a equação mágica X vezes Y.
+
+00:03:07.834 --> 00:03:09.234
+Em outras palavras,
+
+00:03:09.267 --> 00:03:11.667
+vamos transferir o mapa
+bidimensional
+
+00:03:11.701 --> 00:03:15.200
+para o tridimensional,
+levando o ponto no plano
+
+00:03:15.234 --> 00:03:17.467
+com as coordenadas X,Y
+
+00:03:17.501 --> 00:03:21.834
+para o ponto no espaço
+com as coordenadas X, Y,
+
+00:03:21.868 --> 00:03:23.801
+X vezes Y.
+
+00:03:24.601 --> 00:03:30.501
+Este mapa envia os pontos
+(0,3) para os (0, 3, 0).
+
+00:03:30.534 --> 00:03:34.667
+O ponto (1, 2)
+para o ponto (1, 2, 2).
+
+00:03:35.467 --> 00:03:39.501
+O ponto (2, 1)
+para o ponto (2, 1, 2).
+
+00:03:40.200 --> 00:03:44.234
+E o ponto (3, 0)
+para o ponto (3, 0, 0).
+
+00:03:45.100 --> 00:03:47.701
+De forma diferente,
+ele ainda separa os pontos,
+
+00:03:47.734 --> 00:03:52.934
+pois o verde esta dois acima
+e o vermelho está abaixo.
+
+00:03:52.968 --> 00:03:55.400
+O que pode separar
+estes pontos?
+
+00:03:55.434 --> 00:03:56.834
+Um plano
+poderia fazer isso.
+
+00:03:56.868 --> 00:03:59.234
+É assim que visualizamos
+o Truque de Kernel
+
+00:03:59.267 --> 00:04:00.701
+de forma tridimensional.
+

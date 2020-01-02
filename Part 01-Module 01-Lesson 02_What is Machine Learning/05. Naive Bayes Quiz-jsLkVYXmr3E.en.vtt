@@ -1,0 +1,86 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.530 --> 00:00:02.750
+Okay, now we're going to
+look at another example.
+
+00:00:02.750 --> 00:00:05.840
+We are going to build an email
+spam detection classifier.
+
+00:00:06.850 --> 00:00:08.540
+And how do we do it?
+
+00:00:08.540 --> 00:00:11.123
+We do it by looking at previous data.
+
+00:00:11.123 --> 00:00:15.839
+The previous data is 100 emails
+that we've already looked that.
+
+00:00:15.839 --> 00:00:21.698
+Out of these 100 emails, we have
+manually flagged 25 of them as spam,
+
+00:00:21.698 --> 00:00:24.150
+and 75 of them as non-spam.
+
+00:00:24.150 --> 00:00:28.490
+Now let's try to think of features that
+a spam email may be likely to display
+
+00:00:28.490 --> 00:00:30.370
+and analyze its features.
+
+00:00:30.370 --> 00:00:34.010
+One feature can be for
+example containing the word cheap.
+
+00:00:35.075 --> 00:00:39.200
+It seems reasonable to think that
+an e-mail that contains the word cheap
+
+00:00:39.200 --> 00:00:40.405
+is likely to be spam.
+
+00:00:40.405 --> 00:00:43.250
+So, let's analyze this claim.
+
+00:00:43.250 --> 00:00:48.010
+We look for the word cheap in at least
+100 emails and find that 20 out of
+
+00:00:48.010 --> 00:00:54.240
+the 25 spam ones and five out of the 75
+non-spam ones contained the word.
+
+00:00:54.240 --> 00:00:56.510
+So, we forget about
+the rest of the emails and
+
+00:00:56.510 --> 00:01:00.380
+focus only on the ones that
+contained the word cheap.
+
+00:01:00.380 --> 00:01:02.720
+Okay, so time for a quiz.
+
+00:01:02.720 --> 00:01:04.313
+Here is the question.
+
+00:01:04.313 --> 00:01:09.467
+Based on our data,
+if an email contains the word cheap,
+
+00:01:09.467 --> 00:01:14.083
+what is the probability
+of this email being spam?
+
+00:01:14.083 --> 00:01:19.420
+Is it 40%, 60%, or 80%?
+
+00:01:19.420 --> 00:01:21.300
+Submit your answer below.
+

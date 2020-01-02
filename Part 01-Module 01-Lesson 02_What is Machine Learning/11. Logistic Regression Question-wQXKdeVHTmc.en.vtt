@@ -1,0 +1,106 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.320 --> 00:00:02.850
+Now let's say we're the admissions
+office at a university, and
+
+00:00:02.850 --> 00:00:04.980
+we're trying to figure out
+which students to admit.
+
+00:00:06.110 --> 00:00:09.780
+We're going to admit them or reject
+them based on two pieces of information,
+
+00:00:10.870 --> 00:00:14.770
+an entrance test we provide them,
+and their grades from school.
+
+00:00:15.820 --> 00:00:20.460
+So for example, here we have student
+one with scores of nine in test and
+
+00:00:20.460 --> 00:00:23.590
+eight in the grades, and
+that student got accepted.
+
+00:00:23.590 --> 00:00:27.180
+We also have student two with
+scores of three in the test and
+
+00:00:27.180 --> 00:00:30.790
+four in the grades and
+that student did not get accepted.
+
+00:00:30.790 --> 00:00:33.120
+And then a new student comes in,
+student three.
+
+00:00:33.120 --> 00:00:35.460
+This person scores seven and six, and
+
+00:00:35.460 --> 00:00:38.010
+the question is should we accept them or
+not?
+
+00:00:39.480 --> 00:00:43.565
+So to decide this, let's first put them
+in a grid where the x axis represents
+
+00:00:43.565 --> 00:00:46.500
+the score on the test and
+the y axis represents the grades.
+
+00:00:47.790 --> 00:00:50.620
+Here we can see that student one
+would lie over here on the point with
+
+00:00:50.620 --> 00:00:54.480
+coordinates nine, eight, and
+
+00:00:54.480 --> 00:00:59.850
+student two would lie over here in the
+point with coordinates three and four.
+
+00:01:00.860 --> 00:01:02.570
+So in order to see if
+we should accept or
+
+00:01:02.570 --> 00:01:06.000
+reject student three,
+we'll try to find the trend in the data.
+
+00:01:07.190 --> 00:01:10.280
+For this we'll look at previous data in
+the form of all students we've already
+
+00:01:10.280 --> 00:01:11.950
+accepted or rejected.
+
+00:01:11.950 --> 00:01:14.490
+It turns out that the previous
+data looks like this.
+
+00:01:15.660 --> 00:01:19.050
+The green dots represent students
+that was previously accepted and
+
+00:01:19.050 --> 00:01:21.970
+the red dots represent students
+that was previously rejected.
+
+00:01:23.260 --> 00:01:25.080
+Okay, so time for a quiz.
+
+00:01:25.080 --> 00:01:29.330
+Based on this previous data do we
+think student three gets accepted?
+
+00:01:29.330 --> 00:01:31.160
+Yes or no?
+
+00:01:31.160 --> 00:01:32.550
+Submit your answer below.
+
