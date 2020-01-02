@@ -1,0 +1,48 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.244 --> 00:00:03.115
+Olá. Na última seção,
+aprendemos a regressão,
+
+00:00:03.148 --> 00:00:05.874
+na qual o objetivo
+era prever valores.
+
+00:00:05.907 --> 00:00:09.706
+Nas próximas seções, veremos
+os algoritmos de classificação,
+
+00:00:09.739 --> 00:00:15.402
+que respondem às perguntas
+com "sim" ou "não".
+
+00:00:15.435 --> 00:00:18.910
+Por exemplo,
+este e-mail é Spam ou não?
+
+00:00:18.943 --> 00:00:21.745
+Este usuário faria o download
+de um aplicativo ou não?
+
+00:00:21.778 --> 00:00:23.822
+Este paciente
+está doente ou não?
+
+00:00:23.855 --> 00:00:28.031
+O primeiro desses algoritmos
+é o perceptron,
+
+00:00:28.064 --> 00:00:31.735
+que é a base para redes neurais.
+Veremos muito mais
+
+00:00:31.768 --> 00:00:34.362
+na seção de aprendizado profundo
+deste Nanodegree,
+
+00:00:34.395 --> 00:00:37.766
+mas, por enquanto, vejamos
+os detalhes deste algoritmo.
+

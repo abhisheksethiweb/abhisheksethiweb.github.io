@@ -1,0 +1,40 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:02.064
+Now, I'm going to leave you with a question.
+
+00:00:02.064 --> 00:00:03.629
+Here is the XOR perceptron,
+
+00:00:03.629 --> 00:00:06.719
+which is very similar to the other two except this one returns a true
+
+00:00:06.719 --> 00:00:10.335
+if exactly one of them is true and the other one is false.
+
+00:00:10.335 --> 00:00:12.380
+So it returns this table.
+
+00:00:12.380 --> 00:00:16.199
+Now, the question is can we turn this into a perceptron.
+
+00:00:16.199 --> 00:00:20.140
+These four points seem hard to be separated by a line.
+
+00:00:20.140 --> 00:00:22.195
+We'll see what we can do in the quiz.
+
+00:00:22.195 --> 00:00:24.285
+But in a nutshell the idea is the following.
+
+00:00:24.285 --> 00:00:29.190
+We'll be combining perception so that the output of one becomes the input of another one.
+
+00:00:29.190 --> 00:00:32.539
+This is what forms a multi-layer perception or a neural network.
+
+00:00:32.539 --> 00:00:35.019
+We'll elaborate on these later in the class.
+

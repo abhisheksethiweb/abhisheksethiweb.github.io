@@ -1,0 +1,272 @@
+<!-- udacimak v1.2.0 -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Perceptron Trick</title>
+  <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../assets/css/plyr.css">
+  <link rel="stylesheet" href="../assets/css/katex.min.css">
+  <link rel="stylesheet" href="../assets/css/jquery.mCustomScrollbar.min.css">
+  <link rel="stylesheet" href="../assets/css/styles.css">
+  <link rel="shortcut icon" type="image/png" href="../assets/img/udacimak.png" />
+</head>
+
+<body>
+  <div class="wrapper">
+    <nav id="sidebar">
+  <div class="sidebar-header">
+    <h3>Perceptron Algorithm</h3>
+  </div>
+
+  <ul class="sidebar-list list-unstyled CTAs">
+    <li>
+      <a href="../index.html" class="article">Back to Home</a>
+    </li>
+  </ul>
+
+  <ul class="sidebar-list list-unstyled components">
+    <li class="">
+      <a href="01. Intro.html">01. Intro</a>
+    </li>
+    <li class="">
+      <a href="02. Classification Problems 1.html">02. Classification Problems 1</a>
+    </li>
+    <li class="">
+      <a href="03. Classification Problems 2.html">03. Classification Problems 2</a>
+    </li>
+    <li class="">
+      <a href="04. Linear Boundaries.html">04. Linear Boundaries</a>
+    </li>
+    <li class="">
+      <a href="05. Higher Dimensions.html">05. Higher Dimensions</a>
+    </li>
+    <li class="">
+      <a href="06. Perceptrons.html">06. Perceptrons</a>
+    </li>
+    <li class="">
+      <a href="07. Perceptrons as Logical Operators.html">07. Perceptrons as Logical Operators</a>
+    </li>
+    <li class="">
+      <a href="08. Perceptron Trick.html">08. Perceptron Trick</a>
+    </li>
+    <li class="">
+      <a href="09. Perceptron Algorithm.html">09. Perceptron Algorithm</a>
+    </li>
+    <li class="">
+      <a href="10. Outro.html">10. Outro</a>
+    </li>
+  </ul>
+
+  <ul class="sidebar-list list-unstyled CTAs">
+    <li>
+      <a href="../index.html" class="article">Back to Home</a>
+    </li>
+  </ul>
+</nav>
+
+    <div id="content">
+      <header class="container-fluild header">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <div class="align-items-middle">
+                <button type="button" id="sidebarCollapse" class="btn btn-toggle-sidebar">
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                </button>
+
+                <h1 style="display: inline-block">08. Perceptron Trick</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main class="container">
+        <div class="row">
+          <div class="col-12">
+            <div class="ud-atom">
+  <h3></h3>
+  <div>
+  <h1 id="perceptron-trick">Perceptron Trick</h1>
+<p>In the last section you used your logic and your mathematical knowledge to create perceptrons for some of the most common logical operators. In real life, though, we can't be building these perceptrons ourselves. The idea is that we give them the result, and they build themselves. For this, here's a pretty neat trick that will help us.</p>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3><p>Perceptron Algorithm</p></h3>
+  <video controls>
+  <source src="08. Perceptron Algorithm--zhTROHtscQ.mp4" type="video/mp4">
+
+  <track default="true" kind="subtitles" srclang="en" src="08. Perceptron Algorithm--zhTROHtscQ.en.vtt" label="en">
+  <track default="false" kind="subtitles" srclang="BR" src="08. Perceptron Algorithm--zhTROHtscQ.pt-BR.vtt" label="BR">
+  <track default="false" kind="subtitles" srclang="CN" src="08. Perceptron Algorithm--zhTROHtscQ.zh-CN.vtt" label="CN">
+</video>
+
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <figure class="figure">
+    <img src="img/perceptronquiz.png" alt="" class="img img-fluid">
+    <figcaption class="figure-caption">
+      
+    </figcaption>
+  </figure>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <form>
+    <fieldset>
+      <legend><p>Does the misclassified point want the line to be closer or farther?</p></legend>
+    </fieldset>
+
+      <div>
+        <input type="radio" value="a1494352441693" name="308847" id="a1494352441693">
+        <label for="a1494352441693"><p>Closer</p></label>
+      </div>
+      <div>
+        <input type="radio" value="a1494352459483" name="308847" id="a1494352459483">
+        <label for="a1494352459483"><p>Farther</p></label>
+      </div>
+  </form>
+
+  <details>
+    <summary><strong>SOLUTION:</strong></summary>
+    Closer
+  </details>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3><p>DL 10 S  Perceptron Algorithm</p></h3>
+  <video controls>
+  <source src="08. DL 10 S  Perceptron Algorithm-fATmrG2hQzI.mp4" type="video/mp4">
+
+  <track default="true" kind="subtitles" srclang="en" src="08. DL 10 S  Perceptron Algorithm-fATmrG2hQzI.en.vtt" label="en">
+  <track default="false" kind="subtitles" srclang="BR" src="08. DL 10 S  Perceptron Algorithm-fATmrG2hQzI.pt-BR.vtt" label="BR">
+  <track default="false" kind="subtitles" srclang="CN" src="08. DL 10 S  Perceptron Algorithm-fATmrG2hQzI.zh-CN.vtt" label="CN">
+</video>
+
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <h3 id="time-for-some-math">Time for some math!</h3>
+<p>Now that we've learned that the points that are misclassified, want the line to move closer to them, let's do some math. The following video shows a mathematical trick that modifies the equation of the line, so that it comes closer to a particular point.</p>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3><p>07 Perceptron Algorithm Trick</p></h3>
+  <video controls>
+  <source src="08. 07 Perceptron Algorithm Trick-lif_qPmXvWA.mp4" type="video/mp4">
+
+  <track default="true" kind="subtitles" srclang="en" src="08. 07 Perceptron Algorithm Trick-lif_qPmXvWA.en.vtt" label="en">
+  <track default="false" kind="subtitles" srclang="BR" src="08. 07 Perceptron Algorithm Trick-lif_qPmXvWA.pt-BR.vtt" label="BR">
+  <track default="false" kind="subtitles" srclang="CN" src="08. 07 Perceptron Algorithm Trick-lif_qPmXvWA.zh-CN.vtt" label="CN">
+</video>
+
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <div>
+    <p><strong>QUESTION:</strong> <p>For the second example, where the line is described by 3x<sub>1</sub>+ 4x<sub>2</sub> - 10 = 0, if the learning rate was set to 0.1, how many times would you have to apply the perceptron trick to move the line to a position where the blue point, at (1, 1), is correctly classified? </p></p>
+    <div class="" form-group">
+      <label for="answer"><strong>ANSWER:</strong></label>
+      <textarea class="form-control" id="answer"></textarea>
+    </div>
+  </div>
+
+  <details>
+    <summary><strong>SOLUTION:</strong></summary>
+    <p><i>NOTE: The solutions are expressed in RegEx pattern. Udacity uses these patterns to check the given answer</i></p>
+
+  </details>
+</div>
+
+</div>
+<div class="divider"></div>
+          </div>
+        </div>
+      </main>
+
+      <footer class="footer">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <p class="text-center">
+                <a href="https://github.com/udacimak/udacimak#readme" target="_blank">udacimak v1.2.0</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </div>
+
+
+  <script src="../assets/js/jquery-3.3.1.min.js"></script>
+  <script src="../assets/js/plyr.polyfilled.min.js"></script>
+  <script src="../assets/js/bootstrap.min.js"></script>
+  <script src="../assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+  <script src="../assets/js/katex.min.js"></script>
+  <script>
+    // Initialize Plyr video players
+    const players = Array.from(document.querySelectorAll('video')).map(p => new Plyr(p));
+
+    // render math equations
+    let elMath = document.getElementsByClassName('mathquill');
+    for (let i = 0, len = elMath.length; i < len; i += 1) {
+      const el = elMath[i];
+
+      katex.render(el.textContent, el, {
+        throwOnError: false
+      });
+    }
+
+    // this hack will make sure Bootstrap tabs work when using Handlebars
+    if ($('#question-tabs').length && $('#user-answer-tabs').length) {
+      $("#question-tabs a.nav-link").on('click', function () {
+        $("#question-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+      $("#user-answer-tabs a.nav-link").on('click', function () {
+        $("#user-answer-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    } else {
+      $("a.nav-link").on('click', function () {
+        $(".tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    }
+
+    // side bar events
+    $(document).ready(function () {
+      $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+      });
+
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar, #content').toggleClass('active');
+        $('.collapse.in').toggleClass('in');
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+      });
+    });
+  </script>
+</body>
+
+</html>

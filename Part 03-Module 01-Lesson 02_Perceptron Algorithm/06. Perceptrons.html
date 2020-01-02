@@ -1,0 +1,209 @@
+<!-- udacimak v1.2.0 -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Perceptrons</title>
+  <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../assets/css/plyr.css">
+  <link rel="stylesheet" href="../assets/css/katex.min.css">
+  <link rel="stylesheet" href="../assets/css/jquery.mCustomScrollbar.min.css">
+  <link rel="stylesheet" href="../assets/css/styles.css">
+  <link rel="shortcut icon" type="image/png" href="../assets/img/udacimak.png" />
+</head>
+
+<body>
+  <div class="wrapper">
+    <nav id="sidebar">
+  <div class="sidebar-header">
+    <h3>Perceptron Algorithm</h3>
+  </div>
+
+  <ul class="sidebar-list list-unstyled CTAs">
+    <li>
+      <a href="../index.html" class="article">Back to Home</a>
+    </li>
+  </ul>
+
+  <ul class="sidebar-list list-unstyled components">
+    <li class="">
+      <a href="01. Intro.html">01. Intro</a>
+    </li>
+    <li class="">
+      <a href="02. Classification Problems 1.html">02. Classification Problems 1</a>
+    </li>
+    <li class="">
+      <a href="03. Classification Problems 2.html">03. Classification Problems 2</a>
+    </li>
+    <li class="">
+      <a href="04. Linear Boundaries.html">04. Linear Boundaries</a>
+    </li>
+    <li class="">
+      <a href="05. Higher Dimensions.html">05. Higher Dimensions</a>
+    </li>
+    <li class="">
+      <a href="06. Perceptrons.html">06. Perceptrons</a>
+    </li>
+    <li class="">
+      <a href="07. Perceptrons as Logical Operators.html">07. Perceptrons as Logical Operators</a>
+    </li>
+    <li class="">
+      <a href="08. Perceptron Trick.html">08. Perceptron Trick</a>
+    </li>
+    <li class="">
+      <a href="09. Perceptron Algorithm.html">09. Perceptron Algorithm</a>
+    </li>
+    <li class="">
+      <a href="10. Outro.html">10. Outro</a>
+    </li>
+  </ul>
+
+  <ul class="sidebar-list list-unstyled CTAs">
+    <li>
+      <a href="../index.html" class="article">Back to Home</a>
+    </li>
+  </ul>
+</nav>
+
+    <div id="content">
+      <header class="container-fluild header">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <div class="align-items-middle">
+                <button type="button" id="sidebarCollapse" class="btn btn-toggle-sidebar">
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                </button>
+
+                <h1 style="display: inline-block">06. Perceptrons</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main class="container">
+        <div class="row">
+          <div class="col-12">
+            <div class="ud-atom">
+  <h3><p>DL 06 Perceptron Definition Fix V2</p></h3>
+  <video controls>
+  <source src="06. DL 06 Perceptron Definition Fix V2-hImSxZyRiOw.mp4" type="video/mp4">
+
+  <track default="true" kind="subtitles" srclang="en" src="06. DL 06 Perceptron Definition Fix V2-hImSxZyRiOw.en.vtt" label="en">
+  <track default="false" kind="subtitles" srclang="BR" src="06. DL 06 Perceptron Definition Fix V2-hImSxZyRiOw.pt-BR.vtt" label="BR">
+  <track default="false" kind="subtitles" srclang="CN" src="06. DL 06 Perceptron Definition Fix V2-hImSxZyRiOw.zh-CN.vtt" label="CN">
+</video>
+
+
+  <div class="jumbotron" style="margin-top: 50px; margin-bottom: 50px;">
+    <h3>INSTRUCTOR NOTE:</h3>
+    <p><em>Corrections:</em></p>
+<ul>
+<li>At 3:07, the title says "Set Function". It should be "Step Function".</li>
+<li>At 3:12, the second option for y should be "0 if x&lt;0".</li>
+</ul>
+  </div>
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <form>
+    <fieldset>
+      <legend><p>Given Score = 2*Test + 1*Grade - 18, suppose w<sub>1</sub> was 1.5 instead of 2. Would the student who got 7 on the test and 6 on the grades be accepted or rejected?</p></legend>
+    </fieldset>
+
+      <div>
+        <input type="radio" value="a1503541286843" name="378612" id="a1503541286843">
+        <label for="a1503541286843"><p>Accepted</p></label>
+      </div>
+      <div>
+        <input type="radio" value="a1503541296314" name="378612" id="a1503541296314">
+        <label for="a1503541296314"><p>Rejected</p></label>
+      </div>
+  </form>
+
+  <details>
+    <summary><strong>SOLUTION:</strong></summary>
+    Rejected
+  </details>
+</div>
+
+</div>
+<div class="divider"></div>
+          </div>
+        </div>
+      </main>
+
+      <footer class="footer">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <p class="text-center">
+                <a href="https://github.com/udacimak/udacimak#readme" target="_blank">udacimak v1.2.0</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </div>
+
+
+  <script src="../assets/js/jquery-3.3.1.min.js"></script>
+  <script src="../assets/js/plyr.polyfilled.min.js"></script>
+  <script src="../assets/js/bootstrap.min.js"></script>
+  <script src="../assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+  <script src="../assets/js/katex.min.js"></script>
+  <script>
+    // Initialize Plyr video players
+    const players = Array.from(document.querySelectorAll('video')).map(p => new Plyr(p));
+
+    // render math equations
+    let elMath = document.getElementsByClassName('mathquill');
+    for (let i = 0, len = elMath.length; i < len; i += 1) {
+      const el = elMath[i];
+
+      katex.render(el.textContent, el, {
+        throwOnError: false
+      });
+    }
+
+    // this hack will make sure Bootstrap tabs work when using Handlebars
+    if ($('#question-tabs').length && $('#user-answer-tabs').length) {
+      $("#question-tabs a.nav-link").on('click', function () {
+        $("#question-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+      $("#user-answer-tabs a.nav-link").on('click', function () {
+        $("#user-answer-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    } else {
+      $("a.nav-link").on('click', function () {
+        $(".tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    }
+
+    // side bar events
+    $(document).ready(function () {
+      $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+      });
+
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar, #content').toggleClass('active');
+        $('.collapse.in').toggleClass('in');
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+      });
+    });
+  </script>
+</body>
+
+</html>
