@@ -1,0 +1,27 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.071 --> 00:00:03.362
+Olá, e bem-vindo à aula sobre
+máquinas de vetores de suporte.
+
+00:00:03.395 --> 00:00:05.994
+Máquinas de vetores de suporte
+são algoritmos poderosos
+
+00:00:06.027 --> 00:00:08.986
+para classificação,
+que não apenas classificam dados,
+
+00:00:09.019 --> 00:00:11.674
+mas também encontram
+o melhor limite possível.
+
+00:00:11.707 --> 00:00:14.898
+Isto é, aquele que mantém
+a maior distância entre os pontos.
+
+00:00:15.201 --> 00:00:16.405
+Vamos ver como funciona.
+

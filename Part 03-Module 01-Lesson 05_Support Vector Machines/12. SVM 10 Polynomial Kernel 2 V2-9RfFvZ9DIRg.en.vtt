@@ -1,0 +1,175 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:02.339
+Okay, so the kernel method was interesting,
+
+00:00:02.339 --> 00:00:06.719
+but it gets really pretty when we look at it in higher dimensions. Check this out.
+
+00:00:06.719 --> 00:00:08.490
+Let's say we have these points,
+
+00:00:08.490 --> 00:00:09.951
+the red and the blue,
+
+00:00:09.951 --> 00:00:11.429
+and we want to split them.
+
+00:00:11.429 --> 00:00:13.605
+The coordinates are these for the red points,
+
+00:00:13.605 --> 00:00:15.150
+and this for the blue points.
+
+00:00:15.150 --> 00:00:17.190
+So again, we try to split them with a line,
+
+00:00:17.190 --> 00:00:21.075
+and quickly realize that there is no line that can separate these points.
+
+00:00:21.074 --> 00:00:23.519
+So, we need something a bit more complicated,
+
+00:00:23.519 --> 00:00:25.439
+and we'll use the Kernel Trick again.
+
+00:00:25.440 --> 00:00:28.035
+I am going to show you two ways to do this.
+
+00:00:28.035 --> 00:00:30.015
+One, is to use a circular boundary.
+
+00:00:30.015 --> 00:00:33.329
+So, a circle that separates the blue points from the red points.
+
+00:00:33.329 --> 00:00:36.059
+And the other one, is to think outside the plane.
+
+00:00:36.060 --> 00:00:38.804
+So again, to think in higher dimensions.
+
+00:00:38.804 --> 00:00:42.179
+We'll now introduce a third axis, the z axis.
+
+00:00:42.179 --> 00:00:44.505
+And now we can think that we're living in a building,
+
+00:00:44.505 --> 00:00:46.710
+and we're going to send the blue points to say,
+
+00:00:46.710 --> 00:00:48.210
+the second floor of the building,
+
+00:00:48.210 --> 00:00:50.804
+and the red points to say the 18th floor.
+
+00:00:50.804 --> 00:00:53.393
+And now, we're going to put a boundary on the tenth floor,
+
+00:00:53.393 --> 00:00:55.560
+and that's how we're going to separate the points.
+
+00:00:55.560 --> 00:00:57.450
+These two and 18 are not arbitrary.
+
+00:00:57.450 --> 00:00:58.905
+We'll see how they appear later.
+
+00:00:58.905 --> 00:01:00.570
+So, basically we have two methods.
+
+00:01:00.570 --> 00:01:03.149
+The circle method which sacrifices the linearity,
+
+00:01:03.149 --> 00:01:04.739
+and instead of using a linear equation,
+
+00:01:04.739 --> 00:01:07.109
+it uses a higher degree polynomial equation.
+
+00:01:07.109 --> 00:01:10.650
+And the building method which sacrifices the dimensionality of the data,
+
+00:01:10.650 --> 00:01:12.750
+and now you don't have data in two dimensions,
+
+00:01:12.750 --> 00:01:14.775
+instead you have it in three dimensions.
+
+00:01:14.775 --> 00:01:16.920
+You still have linear boundaries in this method,
+
+00:01:16.920 --> 00:01:18.570
+but you have more dimensions.
+
+00:01:18.569 --> 00:01:20.399
+So the question is,
+
+00:01:20.400 --> 00:01:21.908
+which one do you like more?
+
+00:01:21.908 --> 00:01:24.000
+The circle or the building method?
+
+00:01:24.000 --> 00:01:26.424
+I'll let you think about it.
+
+00:01:26.424 --> 00:01:28.384
+And I'll tell you,
+
+00:01:28.385 --> 00:01:29.885
+they're actually the same method,
+
+00:01:29.885 --> 00:01:31.565
+and this is the kernel method.
+
+00:01:31.564 --> 00:01:33.694
+And I'll show you why they are the same.
+
+00:01:33.694 --> 00:01:35.449
+So, let's look at the points again,
+
+00:01:35.450 --> 00:01:38.450
+and as we saw no linear function can separate them.
+
+00:01:38.450 --> 00:01:42.875
+So, maybe we need a different function to help us separate them. And here's a quiz.
+
+00:01:42.875 --> 00:01:44.329
+It's not a super-easy quiz.
+
+00:01:44.329 --> 00:01:45.875
+So, I'd like you to think about it.
+
+00:01:45.875 --> 00:01:48.200
+Which equation on the variables x and y,
+
+00:01:48.200 --> 00:01:49.805
+the two coordinates of the point,
+
+00:01:49.805 --> 00:01:53.390
+could come to our rescue when it comes to separating the points?
+
+00:01:53.390 --> 00:01:56.224
+The sum of the coordinates x plus y,
+
+00:01:56.224 --> 00:01:59.254
+the product of the coordinates x times y,
+
+00:01:59.254 --> 00:02:01.459
+or the sum of the squares of the coordinates,
+
+00:02:01.459 --> 00:02:03.394
+x squared plus y squared?
+
+00:02:03.394 --> 00:02:06.530
+So, think about it. If x and y are the coordinates of the point,
+
+00:02:06.530 --> 00:02:10.430
+which one of these three functions can help us separate the points?
+
+00:02:10.430 --> 00:02:12.750
+Enter your answer below.
+
