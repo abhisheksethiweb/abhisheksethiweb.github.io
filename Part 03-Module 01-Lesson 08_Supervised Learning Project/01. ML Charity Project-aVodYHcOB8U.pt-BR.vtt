@@ -1,0 +1,67 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.297 --> 00:00:03.780
+Neste projeto você vai usar técnicas
+de aprendizado supervisionado
+
+00:00:03.813 --> 00:00:07.292
+e uma mente analítica
+em dados coletados do censo dos EUA
+
+00:00:07.325 --> 00:00:10.750
+para ajudar uma organização de
+caridade fictícia chamada ML Charity
+
+00:00:10.783 --> 00:00:14.085
+a identificar pessoas com maior
+probabilidade de doar à causa.
+
+00:00:14.393 --> 00:00:16.573
+Primeiro você vai explorar
+os dados do censo
+
+00:00:16.606 --> 00:00:18.449
+e aprender como são coletados.
+
+00:00:18.482 --> 00:00:21.399
+Depois, vai aplicar uma série
+de transformações
+
+00:00:21.432 --> 00:00:23.010
+e técnicas
+de pré-processamento
+
+00:00:23.043 --> 00:00:25.427
+para manipular os dados
+para um formato viável.
+
+00:00:25.900 --> 00:00:29.581
+E vai avaliar vários aprendizados
+supervisionados de sua escolha
+
+00:00:29.614 --> 00:00:33.109
+nos dados e considerar qual
+é mais adequado à solução.
+
+00:00:33.467 --> 00:00:36.555
+Depois, você vai otimizar
+tudo o que selecionou
+
+00:00:36.588 --> 00:00:39.395
+e apresentar sua solução
+para a ML Charity.
+
+00:00:39.692 --> 00:00:44.174
+Finalmente, você vai explorar
+o modelo escolhido e suas predições
+
+00:00:44.207 --> 00:00:47.815
+para ver como está indo considerando
+os dados que está informando.
+
+00:00:47.848 --> 00:00:49.759
+Estou ansioso
+para ver seu trabalho.
+
