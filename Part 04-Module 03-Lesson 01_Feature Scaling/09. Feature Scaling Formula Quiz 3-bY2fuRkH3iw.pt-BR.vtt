@@ -1,0 +1,52 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.130 --> 00:00:03.706
+A resposta que você obtém ao usar esta fórmula é 0,417.
+
+00:00:03.706 --> 00:00:09.410
+Portanto, 0,417 é o novo valor do recurso que pertence à pessoa com 140 libras.
+
+00:00:09.410 --> 00:00:12.500
+A maneira como fizemos isso é utilizar nosso mín x e máx x.
+
+00:00:12.500 --> 00:00:14.010
+Nós os colocamos na fórmula.
+
+00:00:14.010 --> 00:00:18.660
+E colocamos o 140 também na posição do valor antigo de x.
+
+00:00:18.660 --> 00:00:20.160
+E a partir disto, podemos computar o x prime.
+
+00:00:20.160 --> 00:00:23.820
+E um dos recursos desta fórmula para redimensionar recursos é
+
+00:00:23.820 --> 00:00:27.430
+que seus recursos de transformação sempre estarão entre 0 e 1.
+
+00:00:27.430 --> 00:00:30.220
+Agora, isso tem alguns benefícios e algumas desvantagens.
+
+00:00:30.220 --> 00:00:33.670
+Um dos benefícios é ter um número muito confiável em relação ao que
+
+00:00:33.670 --> 00:00:35.040
+você espera na saída.
+
+00:00:35.040 --> 00:00:38.370
+Uma das desvantagens é que se você tiver outliers em sua entrada
+
+00:00:38.370 --> 00:00:42.590
+os recursos podem de certo modo bagunçar seu redimensionamento, porque seu mín x e
+
+00:00:42.590 --> 00:00:45.100
+seu máx x podem realmente ter valores extremos,
+
+00:00:45.100 --> 00:00:47.910
+Bem, o que eu quero fazer agora é fornecer um teste de programação a você.
+
+00:00:47.910 --> 00:00:49.720
+Onde farei com que você realmente programe isso sozinho.
+

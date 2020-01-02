@@ -1,0 +1,236 @@
+<!-- udacimak v1.2.0 -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Chris&#x27;s T-Shirt Size (Intuition)</title>
+  <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../assets/css/plyr.css">
+  <link rel="stylesheet" href="../assets/css/katex.min.css">
+  <link rel="stylesheet" href="../assets/css/jquery.mCustomScrollbar.min.css">
+  <link rel="stylesheet" href="../assets/css/styles.css">
+  <link rel="shortcut icon" type="image/png" href="../assets/img/udacimak.png" />
+</head>
+
+<body>
+  <div class="wrapper">
+    <nav id="sidebar">
+  <div class="sidebar-header">
+    <h3>Feature Scaling</h3>
+  </div>
+
+  <ul class="sidebar-list list-unstyled CTAs">
+    <li>
+      <a href="../index.html" class="article">Back to Home</a>
+    </li>
+  </ul>
+
+  <ul class="sidebar-list list-unstyled components">
+    <li class="">
+      <a href="01. Chris&#x27;s T-Shirt Size (Intuition).html">01. Chris&#x27;s T-Shirt Size (Intuition)</a>
+    </li>
+    <li class="">
+      <a href="02. A Metric for Chris.html">02. A Metric for Chris</a>
+    </li>
+    <li class="">
+      <a href="03. Height + Weight for Cameron.html">03. Height + Weight for Cameron</a>
+    </li>
+    <li class="">
+      <a href="04. Sarah&#x27;s Height + Weight.html">04. Sarah&#x27;s Height + Weight</a>
+    </li>
+    <li class="">
+      <a href="05. Chris&#x27;s Shirt Size by Our Metric.html">05. Chris&#x27;s Shirt Size by Our Metric</a>
+    </li>
+    <li class="">
+      <a href="06. Comparing Features with Different Scales.html">06. Comparing Features with Different Scales</a>
+    </li>
+    <li class="">
+      <a href="07. Feature Scaling Formula Quiz 1.html">07. Feature Scaling Formula Quiz 1</a>
+    </li>
+    <li class="">
+      <a href="08. Feature Scaling Formula Quiz 2.html">08. Feature Scaling Formula Quiz 2</a>
+    </li>
+    <li class="">
+      <a href="09. Feature Scaling Formula Quiz 3.html">09. Feature Scaling Formula Quiz 3</a>
+    </li>
+    <li class="">
+      <a href="10. MinMax Rescaler Coding Quiz.html">10. Min/Max Rescaler Coding Quiz</a>
+    </li>
+    <li class="">
+      <a href="11. MinMax Scaler in sklearn.html">11. Min/Max Scaler in sklearn</a>
+    </li>
+    <li class="">
+      <a href="12. Quiz on Algorithms Requiring Rescaling.html">12. Quiz on Algorithms Requiring Rescaling</a>
+    </li>
+  </ul>
+
+  <ul class="sidebar-list list-unstyled CTAs">
+    <li>
+      <a href="../index.html" class="article">Back to Home</a>
+    </li>
+  </ul>
+</nav>
+
+    <div id="content">
+      <header class="container-fluild header">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <div class="align-items-middle">
+                <button type="button" id="sidebarCollapse" class="btn btn-toggle-sidebar">
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                </button>
+
+                <h1 style="display: inline-block">01. Chris's T-Shirt Size (Intuition)</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main class="container">
+        <div class="row">
+          <div class="col-12">
+            <div class="ud-atom">
+  <h3><p>Chris's T-Shirt Size (Intuition)</p></h3>
+  <div>
+  <div>
+    <h4>Question:</h4>
+
+    <video controls>
+  <source src="01. Chris&#x27;s T-Shirt Size (Intuition)-oaqjLyiKOIA.mp4" type="video/mp4">
+
+  <track default="false" kind="subtitles" srclang="ar" src="01. Chris&#x27;s T-Shirt Size (Intuition)-oaqjLyiKOIA.ar.vtt" label="ar">
+  <track default="true" kind="subtitles" srclang="en" src="01. Chris&#x27;s T-Shirt Size (Intuition)-oaqjLyiKOIA.en.vtt" label="en">
+  <track default="false" kind="subtitles" srclang="BR" src="01. Chris&#x27;s T-Shirt Size (Intuition)-oaqjLyiKOIA.pt-BR.vtt" label="BR">
+  <track default="false" kind="subtitles" srclang="CN" src="01. Chris&#x27;s T-Shirt Size (Intuition)-oaqjLyiKOIA.zh-CN.vtt" label="CN">
+</video>
+
+
+  </div>
+
+  <h4>Start Quiz:</h4>
+  <div>
+  <div style="display: block;">
+    <div style="position: relative;">
+      <img src="img/3215618544.gif" style="width: 100%; max-height: 100%" alt="">
+      
+    <div style="
+    position: absolute; top: 77.95523835920177%; left: 28.249688279301743%; width: 5%; height: 5%;
+  ">
+      
+        <input type="radio" name="group1" id="radio1" aria-label="">
+      
+    </div>
+  
+    <div style="
+    position: absolute; top: 77.0406042128603%; left: 38.799485660847886%; width: 5%; height: 5%;
+  ">
+      
+        <input type="radio" name="group1" id="radio2" aria-label="">
+      
+    </div>
+  
+    </div>
+  </div>
+</div>
+
+
+  <div>
+    <details>
+      <summary><strong>Solution:</strong></summary>
+      <div>
+        <video controls>
+  <source src="01. Chris&#x27;s T-Shirt Size (Intuition)-l6YXxmCNtHk.mp4" type="video/mp4">
+
+  <track default="false" kind="subtitles" srclang="ar" src="01. Chris&#x27;s T-Shirt Size (Intuition)-l6YXxmCNtHk.ar.vtt" label="ar">
+  <track default="true" kind="subtitles" srclang="en" src="01. Chris&#x27;s T-Shirt Size (Intuition)-l6YXxmCNtHk.en.vtt" label="en">
+  <track default="false" kind="subtitles" srclang="BR" src="01. Chris&#x27;s T-Shirt Size (Intuition)-l6YXxmCNtHk.pt-BR.vtt" label="BR">
+  <track default="false" kind="subtitles" srclang="CN" src="01. Chris&#x27;s T-Shirt Size (Intuition)-l6YXxmCNtHk.zh-CN.vtt" label="CN">
+</video>
+
+
+      </div>
+    </details>
+  </div>
+</div>
+
+
+</div>
+<div class="divider"></div>
+          </div>
+        </div>
+      </main>
+
+      <footer class="footer">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <p class="text-center">
+                <a href="https://github.com/udacimak/udacimak#readme" target="_blank">udacimak v1.2.0</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </div>
+
+
+  <script src="../assets/js/jquery-3.3.1.min.js"></script>
+  <script src="../assets/js/plyr.polyfilled.min.js"></script>
+  <script src="../assets/js/bootstrap.min.js"></script>
+  <script src="../assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+  <script src="../assets/js/katex.min.js"></script>
+  <script>
+    // Initialize Plyr video players
+    const players = Array.from(document.querySelectorAll('video')).map(p => new Plyr(p));
+
+    // render math equations
+    let elMath = document.getElementsByClassName('mathquill');
+    for (let i = 0, len = elMath.length; i < len; i += 1) {
+      const el = elMath[i];
+
+      katex.render(el.textContent, el, {
+        throwOnError: false
+      });
+    }
+
+    // this hack will make sure Bootstrap tabs work when using Handlebars
+    if ($('#question-tabs').length && $('#user-answer-tabs').length) {
+      $("#question-tabs a.nav-link").on('click', function () {
+        $("#question-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+      $("#user-answer-tabs a.nav-link").on('click', function () {
+        $("#user-answer-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    } else {
+      $("a.nav-link").on('click', function () {
+        $(".tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    }
+
+    // side bar events
+    $(document).ready(function () {
+      $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+      });
+
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar, #content').toggleClass('active');
+        $('.collapse.in').toggleClass('in');
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+      });
+    });
+  </script>
+</body>
+
+</html>

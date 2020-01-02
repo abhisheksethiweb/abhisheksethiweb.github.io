@@ -1,0 +1,28 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.420 --> 00:00:03.330
+Então, agora, vou fornecer um teste de programação para que você faça a implementação
+
+00:00:03.330 --> 00:00:05.140
+sozinho usando Python.
+
+00:00:05.140 --> 00:00:08.600
+O que quero que você faça nesse teste é escrever uma função que implemente
+
+00:00:08.600 --> 00:00:12.540
+um redimensionador mín./máx., que é o que eu fiz à mão.
+
+00:00:12.540 --> 00:00:16.350
+Ele transforma os recursos, de modo que eles tenham um intervalo de saídas entre 0 e 1.
+
+00:00:16.350 --> 00:00:19.670
+E a forma como você pode fazer isso é usando a fórmula que acabei de apresentar a você.
+
+00:00:19.670 --> 00:00:23.310
+Portanto, darei a você uma lista de recursos de entrada e sua função deverá
+
+00:00:23.310 --> 00:00:28.130
+retornar uma lista de recursos de saída redimensionados de acordo com esta fórmula.
+

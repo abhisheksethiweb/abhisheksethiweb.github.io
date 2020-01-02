@@ -1,0 +1,49 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.190 --> 00:00:02.600
+Um dos pontos positivos do dimensionamento de recurso
+
+00:00:02.600 --> 00:00:03.940
+é sua simplicidade.
+
+00:00:03.940 --> 00:00:06.810
+Há uma fórmula, e você precisa aplicá-la aos seus dados.
+
+00:00:06.810 --> 00:00:07.970
+Aqui está a fórmula.
+
+00:00:07.970 --> 00:00:10.260
+x principal é o novo recurso que você está criando.
+
+00:00:10.260 --> 00:00:13.220
+Você usa informações sobre os recursos antigos para entender
+
+00:00:13.220 --> 00:00:14.960
+quais valores ele deve ter.
+
+00:00:14.960 --> 00:00:17.111
+mín x e máx x são os valores mínimo e
+
+00:00:17.111 --> 00:00:22.020
+máximo assumidos pelo recurso antigo antes de ser redimensionado.
+
+00:00:22.020 --> 00:00:26.050
+E x é o valor antigo do recurso individual que você está redimensionando.
+
+00:00:26.050 --> 00:00:29.090
+Para tornar isso mais concreto, darei a vocês um teste.
+
+00:00:29.090 --> 00:00:34.430
+Imagine que os pesos antigos, o recurso que queremos redimensionar, sejam 115,
+
+00:00:34.430 --> 00:00:35.540
+140 e 175 libras.
+
+00:00:35.540 --> 00:00:38.260
+Se este é o recurso antigo, o que é mín x?
+
+00:00:38.260 --> 00:00:39.400
+Escreva sua resposta na caixa.
+

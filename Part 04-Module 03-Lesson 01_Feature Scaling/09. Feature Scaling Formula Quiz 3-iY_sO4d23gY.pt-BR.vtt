@@ -1,0 +1,22 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.390 --> 00:00:03.710
+E, agora, quero usar essas informações para redimensionar um recurso.
+
+00:00:03.710 --> 00:00:07.595
+Então, o recurso que quero que você redimensione é para localizar o X' de 140. E
+
+00:00:07.595 --> 00:00:12.010
+qual é o recurso de 140 libras depois de fazer o redimensionamento?
+
+00:00:12.010 --> 00:00:17.450
+Lembre-se de que o Xmin que acabamos de encontrar é igual a 115 e o Xmax é igual a 175.
+
+00:00:17.450 --> 00:00:21.120
+Portanto, você deve descobrir o que incluir a esta fórmula para encontrar o X' 140,
+
+00:00:21.120 --> 00:00:24.640
+o valor redimensionado do peso da pessoa com 140 libras.
+

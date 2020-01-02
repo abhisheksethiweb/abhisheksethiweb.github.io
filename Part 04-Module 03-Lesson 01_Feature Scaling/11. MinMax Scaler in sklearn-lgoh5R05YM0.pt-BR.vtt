@@ -1,0 +1,214 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.480 --> 00:00:04.070
+Neste vídeo, mostrarei como criar o exemplo de MinMaxScaler, que fizemos
+
+00:00:04.070 --> 00:00:06.390
+manualmente, mas agora faremos no SKLearn.
+
+00:00:06.390 --> 00:00:08.960
+Sempre descubro algo sobre o MinMaxScaler
+
+00:00:08.960 --> 00:00:12.700
+quando consulto a documentação do SKLearn no Google.
+
+00:00:12.700 --> 00:00:15.620
+Quando pesquiso no Google, aparece um exemplo como este.
+
+00:00:15.620 --> 00:00:16.980
+Clico no primeiro link.
+
+00:00:16.980 --> 00:00:20.410
+O Python disponibiliza diferentes funções para
+
+00:00:20.410 --> 00:00:21.300
+pré-processamento de dados.
+
+00:00:22.360 --> 00:00:24.720
+Hoje, abordaremos o MinMaxScaler, que está
+
+00:00:24.720 --> 00:00:27.850
+neste parágrafo sobre dimensionamento de características em um intervalo.
+
+00:00:27.850 --> 00:00:30.610
+Esta foi a página de documentação aberta quando apareceu
+
+00:00:30.610 --> 00:00:32.960
+o exemplo que vou mostrar a você agora.
+
+00:00:32.960 --> 00:00:35.780
+Para facilitar a visualização,
+
+00:00:35.780 --> 00:00:39.780
+sugiro que você mantenha esta página aberta em uma guia paralela no seu navegador.
+
+00:00:39.780 --> 00:00:42.330
+Mas, explicarei cada etapa separadamente,
+
+00:00:42.330 --> 00:00:45.730
+mostrando como usá-la em um exemplo prático.
+
+00:00:45.730 --> 00:00:48.620
+Ao entrar na janela do meu Terminal, abro o interpretador Python.
+
+00:00:48.620 --> 00:00:51.710
+Primeiro, precisarei importar o módulo.
+
+00:00:51.710 --> 00:00:53.090
+O segundo passo, que foi uma tarefa
+
+00:00:53.090 --> 00:00:55.960
+complicada na primeira vez que precisei executá-la,
+
+00:00:55.960 --> 00:00:59.560
+é importar o NumPy. Como você já deve ter notado,
+
+00:00:59.560 --> 00:01:03.120
+muitas das funções SKLearn exigem entradas de NumPy.
+
+00:01:03.120 --> 00:01:03.950
+Vou mostrar o que quero dizer.
+
+00:01:03.950 --> 00:01:06.760
+Usarei dados sobre peso neste exemplo. Criarei
+
+00:01:06.760 --> 00:01:09.200
+uma característica chamada weights e
+
+00:01:09.200 --> 00:01:12.340
+a transformarei em um array NumPy.
+
+00:01:12.340 --> 00:01:15.240
+Aprendi isso no exemplo da página de documentação do SKLearn
+
+00:01:15.240 --> 00:01:15.860
+que mostrei a você.
+
+00:01:15.860 --> 00:01:19.060
+Estou apenas seguindo as etapas que eles apresentaram.
+
+00:01:19.060 --> 00:01:20.970
+Agora, vou criar meus dados de entrada.
+
+00:01:20.970 --> 00:01:22.790
+Nesse caso, vou usar o exemplo de weights.
+
+00:01:22.790 --> 00:01:25.380
+Algo que parece difícil e
+
+00:01:25.380 --> 00:01:29.680
+que precisei desvendar é que, de fato, precisamos de um array NumPy.
+
+00:01:29.680 --> 00:01:33.600
+Cada elemento do array NumPy será um ponto de treinamento diferente.
+
+00:01:33.600 --> 00:01:36.790
+E cada elemento do ponto de treinamento, por sua vez, será uma característica.
+
+00:01:36.790 --> 00:01:39.590
+Nesse caso, a característica que realmente me interessa é weights.
+
+00:01:39.590 --> 00:01:42.110
+Tenho, portanto, três pontos de treinamento diferentes para três pessoas diferentes.
+
+00:01:42.110 --> 00:01:44.430
+Ao inserir meus dados, o que vejo é isto.
+
+00:01:44.430 --> 00:01:49.130
+Agora que já tenho os dados de weights, posso usar o scaler.
+
+00:01:49.130 --> 00:01:52.700
+Este é o scaler que importei de SKlearn.preprocessing.
+
+00:01:52.700 --> 00:01:55.130
+Agora quero uma nova característica, chamada rescaled...
+
+00:01:55.130 --> 00:01:57.190
+vamos nomeá-la como rescaled_weight.
+
+00:01:57.190 --> 00:02:00.890
+Para criar rescaled_weight, preciso chamar fit_transform em weights.
+
+00:02:00.890 --> 00:02:02.270
+Sendo assim, ela tem dupla função.
+
+00:02:02.270 --> 00:02:04.330
+Primeiro, ela faz o ajuste.
+
+00:02:04.330 --> 00:02:08.930
+Ela localiza, por exemplo, XMIN e XMAX, enquanto o transform
+
+00:02:08.930 --> 00:02:14.500
+aplica a fórmula a todos os elementos do conjunto de dados.
+
+00:02:14.500 --> 00:02:16.580
+Duas funções ocorrem ao mesmo tempo.
+
+00:02:16.580 --> 00:02:18.280
+Às vezes, você optará por uma ou outra.
+
+00:02:18.280 --> 00:02:21.670
+Agora, vou simular um erro aqui.
+
+00:02:21.670 --> 00:02:23.040
+Vou mostrar o que acontece.
+
+00:02:23.040 --> 00:02:25.470
+Vejamos. Neste erro, ela pressupõe
+
+00:02:25.470 --> 00:02:29.570
+que haveria valores de ponto flutuante como entrada, mas, na verdade, foram retornados inteiros.
+
+00:02:29.570 --> 00:02:32.400
+E o motivo disso está nesta linha.
+
+00:02:32.400 --> 00:02:35.310
+Todas essas entradas são inteiros, mas o que se esperava eram números de ponto flutuante.
+
+00:02:35.310 --> 00:02:37.490
+Se você analisar atentamente a documentação, o exemplo,
+
+00:02:37.490 --> 00:02:40.200
+como eu mesma estava fazendo, notará
+
+00:02:40.200 --> 00:02:43.530
+que isso seria um problema mais tarde.
+
+00:02:43.530 --> 00:02:46.490
+Vamos transformá-los em números de ponto flutuante,
+
+00:02:46.490 --> 00:02:49.680
+acrescentando um ponto decimal após cada número antes de repetir a ação.
+
+00:02:49.680 --> 00:02:50.690
+Ótimo. Parece bem melhor agora.
+
+00:02:50.690 --> 00:02:52.290
+Vejamos o resultado.
+
+00:02:52.290 --> 00:02:54.280
+Aí está nossa característica transformada.
+
+00:02:54.280 --> 00:02:57.710
+Aqui está o 0,417 que calculamos no exemplo anterior.
+
+00:02:57.710 --> 00:03:02.060
+Observe também que o menor valor em uma lista é ajustado para zero,
+
+00:03:02.060 --> 00:03:05.100
+e o maior valor é ajustado para um.
+
+00:03:05.100 --> 00:03:07.105
+Se você analisar atentamente a equação,
+
+00:03:07.105 --> 00:03:09.950
+logo verá que isso sempre acontecerá.
+
+00:03:09.950 --> 00:03:14.030
+Este é um exemplo de como usar o MinMaxScaler no SKLearn para
+
+00:03:14.030 --> 00:03:17.680
+fazer em algumas linhas o que fizemos manualmente no exemplo anterior.
+

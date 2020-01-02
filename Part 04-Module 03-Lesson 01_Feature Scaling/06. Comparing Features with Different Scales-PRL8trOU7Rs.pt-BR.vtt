@@ -1,0 +1,106 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.310 --> 00:00:02.620
+Então o modo como eu conclui que Chris
+
+00:00:02.620 --> 00:00:05.770
+deve usar a camisa de mesmo tamanho que Sarah, ao invés do tamanho de Cameron,
+
+00:00:05.770 --> 00:00:08.890
+é que eu comparei esses números que computei para cada uma dessas pessoas.
+
+00:00:08.890 --> 00:00:13.020
+E perguntei: o número de Chris está mais próximo do número de Cameron ou do número de Sarah? E o
+
+00:00:13.020 --> 00:00:17.980
+resultado é que ele tem 26 de diferença em relação a Sarah e aproximadamente 35 de diferença em relação a Cameron.
+
+00:00:17.980 --> 00:00:19.370
+É mais próximo de Sarah.
+
+00:00:19.370 --> 00:00:23.000
+Mas o que não dá muito certo aqui é que essa métrica de altura mais peso
+
+00:00:23.000 --> 00:00:27.030
+tem duas grandezas muito desproporcionais, a altura e o peso.
+
+00:00:27.030 --> 00:00:30.050
+E o que eu quero dizer com isso é que a altura será
+
+00:00:30.050 --> 00:00:34.280
+um número geralmente entre cinco e
+
+00:00:34.280 --> 00:00:38.620
+sete; a altura, por outro lado, assume valores muito maiores.
+
+00:00:38.620 --> 00:00:42.250
+Entre 115 e 175 libras, neste exemplo.
+
+00:00:42.250 --> 00:00:45.700
+Então, o que acaba acontecendo quando você computa a soma deles dois é que
+
+00:00:45.700 --> 00:00:49.530
+o peso quase sempre dominará completamente sua resposta.
+
+00:00:49.530 --> 00:00:52.470
+E a altura acaba sendo, na verdade, um erro de arredondamento.
+
+00:00:52.470 --> 00:00:56.750
+Ao passo que o que você provavelmente deseja é algo em que as duas grandezas tenham pesos
+
+00:00:56.750 --> 00:00:59.430
+iguais quando você as soma.
+
+00:00:59.430 --> 00:01:01.490
+E é isso que o dimensionamento de recurso faz.
+
+00:01:01.490 --> 00:01:04.180
+Ele é um método para redimensionar recursos como esses,
+
+00:01:04.180 --> 00:01:09.980
+de modo que eles sempre abranjam intervalos comparáveis, normalmente entre zero e um.
+
+00:01:09.980 --> 00:01:13.600
+Desse modo, os valores que você obtiver na altura estarão entre zero e um,
+
+00:01:13.600 --> 00:01:16.040
+e ainda conterão as mesmas informações.
+
+00:01:16.040 --> 00:01:18.300
+Só que expressas em unidades diferentes.
+
+00:01:18.300 --> 00:01:21.630
+E o peso também será expresso entre zero e um.
+
+00:01:21.630 --> 00:01:24.970
+Mais um vez, as informações ainda estarão lá: Cameron com o número maior e
+
+00:01:24.970 --> 00:01:29.010
+Sarah com o número menor, mas isso será expresso nesse intervalo bem menor.
+
+00:01:29.010 --> 00:01:30.480
+Assim, quando você somá-las,
+
+00:01:30.480 --> 00:01:33.420
+o peso não dominará mais a equação.
+
+00:01:33.420 --> 00:01:36.390
+Quando isso acontecer, você terá um resultado muito mais sensível para o
+
+00:01:36.390 --> 00:01:37.880
+tamanho de camisa do Chris.
+
+00:01:37.880 --> 00:01:41.120
+Porque mesmo que ele esteja um pouquinho mais perto de Sarah no peso,
+
+00:01:41.120 --> 00:01:43.520
+ele está muito mais perto de Cameron na altura, então
+
+00:01:43.520 --> 00:01:45.760
+ele provavelmente terminará no mesmo grupo de Cameron.
+
+00:01:45.760 --> 00:01:48.340
+No próximo vídeo, mostrarei a você a equação para dimensionamento de recurso.
+

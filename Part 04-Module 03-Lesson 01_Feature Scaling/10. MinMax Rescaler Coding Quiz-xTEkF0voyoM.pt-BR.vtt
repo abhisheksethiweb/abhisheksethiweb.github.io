@@ -1,0 +1,16 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.670 --> 00:00:03.900
+Espero que você tenha conseguido fazer seu redimensionador de mín./máx. funcionar.
+
+00:00:03.900 --> 00:00:07.340
+Felizmente não deve ter sido muito difícil, mas como você verá no próximo vídeo,
+
+00:00:07.340 --> 00:00:10.080
+existem algumas ferramentas internas do sklearn
+
+00:00:10.080 --> 00:00:13.730
+para que possa fazer isso com estilo, em apenas uma linha de código.
+
