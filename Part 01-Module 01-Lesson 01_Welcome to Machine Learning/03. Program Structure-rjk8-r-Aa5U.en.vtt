@@ -1,0 +1,118 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:01.740
+In the first part of this program,
+
+00:00:01.740 --> 00:00:05.430
+we'll cover the main algorithms of supervised and unsupervised learning,
+
+00:00:05.430 --> 00:00:09.030
+as well as the main techniques for making your models work well.
+
+00:00:09.030 --> 00:00:12.685
+In the first section called Model evaluation and validation,
+
+00:00:12.685 --> 00:00:16.729
+you will learn what machine learning models are and how to train them,
+
+00:00:16.729 --> 00:00:18.795
+test them and validate them.
+
+00:00:18.795 --> 00:00:22.938
+You will learn the main problems one has to deal with when training a model,
+
+00:00:22.938 --> 00:00:25.020
+such as: over fitting and under fitting.
+
+00:00:25.020 --> 00:00:29.025
+And you'll be able to measure them and improve your training.
+
+00:00:29.025 --> 00:00:32.277
+Most algorithms of machine learning fall into two categories,
+
+00:00:32.277 --> 00:00:35.446
+supervised learning and unsupervised learning.
+
+00:00:35.446 --> 00:00:39.460
+Supervised learning is comprised of all the algorithms which will predict a label.
+
+00:00:39.460 --> 00:00:43.170
+We'll go deep into the algorithms of supervised learning such a decision trees,
+
+00:00:43.170 --> 00:00:46.005
+logistic regression, support Vector machines,
+
+00:00:46.005 --> 00:00:48.570
+Naive Bayes and neural networks.
+
+00:00:48.570 --> 00:00:52.785
+In the next section, you will be learning the main unsupervised learning algorithms,
+
+00:00:52.785 --> 00:00:57.030
+especially those involving clustering and dimensionality reduction.
+
+00:00:57.030 --> 00:00:58.980
+These are useful when our data comes with
+
+00:00:58.980 --> 00:01:02.550
+no labels and we need to find properties about it.
+
+00:01:02.550 --> 00:01:06.180
+You'll be able to apply these algorithms on real data sets as well.
+
+00:01:06.180 --> 00:01:08.195
+In the second part of the nanodegree program,
+
+00:01:08.195 --> 00:01:12.270
+you will go much deeper into cutting edge topics in machine learning,
+
+00:01:12.270 --> 00:01:15.609
+such as; Deep learning and reinforcement learning.
+
+00:01:15.609 --> 00:01:17.940
+Neural networks have been crucial in most of
+
+00:01:17.940 --> 00:01:20.940
+the recent advances in machine learning including Alpha go,
+
+00:01:20.940 --> 00:01:23.685
+IBM Watson and self driving cars.
+
+00:01:23.685 --> 00:01:27.685
+In the next section, you'll get a solid foundation of deep neural networks.
+
+00:01:27.685 --> 00:01:31.275
+You'll also learn convolutional neural networks use from many applications,
+
+00:01:31.275 --> 00:01:33.931
+but in particular, for image recognition.
+
+00:01:33.931 --> 00:01:37.780
+Reinforcement learning is an interesting form of machine learning
+
+00:01:37.780 --> 00:01:41.870
+where do you train an intelligent agent to perform actions in an environment,
+
+00:01:41.870 --> 00:01:44.670
+Instead of predicting labels or values.
+
+00:01:44.670 --> 00:01:46.650
+You'll get to use state of the art platforms,
+
+00:01:46.650 --> 00:01:49.830
+like open the EyeGym and cutting edge deep reinforcement
+
+00:01:49.830 --> 00:01:54.557
+learning algorithms like deep Q-networks to solve challenging problems.
+
+00:01:54.557 --> 00:01:56.175
+After completing this program,
+
+00:01:56.175 --> 00:02:00.560
+you'll have a solid foundation in the main algorithms used in machine learning today.
+
+00:02:00.560 --> 00:02:01.550
+See you in class.
+

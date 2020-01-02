@@ -1,0 +1,161 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.200 --> 00:00:03.504
+Na 1ª parte do programa,
+vamos ver os algoritmos principais
+
+00:00:03.537 --> 00:00:05.706
+de aprendizado supervisionado
+e não supervisionado,
+
+00:00:05.739 --> 00:00:09.209
+além das técnicas principais
+para os modelos funcionarem.
+
+00:00:09.243 --> 00:00:12.746
+Na sessão chamada Avaliação
+e Validação de Modelo,
+
+00:00:12.779 --> 00:00:15.449
+você vai aprender sobre modelos
+de aprendizado de máquina,
+
+00:00:15.482 --> 00:00:18.919
+como treiná-los, testá-los
+e validá-los.
+
+00:00:18.952 --> 00:00:21.855
+Você vai conhecer
+os problemas principais
+
+00:00:21.889 --> 00:00:25.259
+de treinar um modelo,
+como sobreajuste e subajuste.
+
+00:00:25.292 --> 00:00:29.062
+Você vai poder medi-los
+e aprimorar seu treinamento.
+
+00:00:29.096 --> 00:00:32.266
+Muitos algoritmos se encaixam
+em duas categorias:
+
+00:00:32.299 --> 00:00:35.369
+aprendizado supervisionado
+e não supervisionado.
+
+00:00:35.402 --> 00:00:38.238
+O aprendizado supervisionado
+contém todos os algoritmos
+
+00:00:38.272 --> 00:00:39.773
+que vão prever um rótulo.
+
+00:00:39.806 --> 00:00:41.942
+Vamos nos aprofundar
+em algoritmos
+
+00:00:41.975 --> 00:00:44.478
+como árvores de decisão,
+regressão logística,
+
+00:00:44.511 --> 00:00:48.582
+máquinas de vetores de suporte,
+Naïve Bayes e redes neurais.
+
+00:00:48.615 --> 00:00:50.551
+Na próxima sessão,
+você vai aprender
+
+00:00:50.584 --> 00:00:53.020
+os algoritmos do aprendizado
+não supervisionado,
+
+00:00:53.053 --> 00:00:57.057
+principalmente os de agrupamento
+e redução de dimensionalidade.
+
+00:00:57.090 --> 00:01:00.127
+Isso é útil quando os dados
+não têm rótulos
+
+00:01:00.160 --> 00:01:02.596
+e precisamos descobrir
+as propriedades deles.
+
+00:01:02.629 --> 00:01:07.000
+Você vai aplicar os algoritmos
+em conjuntos de dados reais.
+
+00:01:07.034 --> 00:01:10.137
+Na 2ª parte do programa,
+você vai se aprofundar mais,
+
+00:01:10.170 --> 00:01:13.507
+com tópicos de ponta,
+como o aprendizado profundo
+
+00:01:13.540 --> 00:01:15.609
+e o aprendizado por reforço.
+
+00:01:15.642 --> 00:01:19.546
+As redes neurais são cruciais
+nos avanços mais recentes,
+
+00:01:19.580 --> 00:01:23.984
+inclusive o AlphaGo, o Watson da IBM
+e carros autônomos.
+
+00:01:24.017 --> 00:01:27.650
+Você vai ter uma base sólida
+das redes neurais profundas.
+
+00:01:27.683 --> 00:01:29.820
+Também vai conhecer as redes
+neurais convolucionais,
+
+00:01:29.853 --> 00:01:31.275
+que são usadas
+em muitas aplicações,
+
+00:01:31.308 --> 00:01:34.194
+mas sobretudo
+no reconhecimento de imagens.
+
+00:01:34.228 --> 00:01:37.831
+O aprendizado por reforço
+é interessante.
+
+00:01:37.865 --> 00:01:41.869
+Você treina um agente inteligente
+a realizar ações num ambiente
+
+00:01:41.902 --> 00:01:44.571
+em vez de prever rótulos
+ou valores.
+
+00:01:44.605 --> 00:01:48.208
+Você vai usar
+plataformas avançadas
+
+00:01:48.242 --> 00:01:50.978
+e algoritmos de aprendizado
+por reforço de ponta,
+
+00:01:51.011 --> 00:01:54.948
+como as Q-network profundas, para
+resolver problemas desafiadores.
+
+00:01:54.982 --> 00:01:57.818
+Ao completar o programa,
+você vai ter uma base sólida
+
+00:01:57.885 --> 00:02:00.487
+nos principais algoritmos
+do aprendizado de máquina.
+
+00:02:00.521 --> 00:02:01.622
+Nos vemos na aula.
+
