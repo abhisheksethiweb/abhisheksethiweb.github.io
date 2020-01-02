@@ -1,0 +1,64 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.558 --> 00:00:03.287
+Para combinar modelos,
+atribuímos pesos
+
+00:00:03.320 --> 00:00:05.142
+de acordo
+com o desempenho deles.
+
+00:00:05.877 --> 00:00:09.374
+Assim, se um dos nossos amigos
+se sair melhor nas respostas,
+
+00:00:09.407 --> 00:00:11.582
+vamos acreditar mais nele.
+
+00:00:11.615 --> 00:00:13.837
+Vamos analisar
+uma pergunta hipotética.
+
+00:00:13.870 --> 00:00:17.157
+Temos três amigos.
+Um sempre fala a verdade.
+
+00:00:17.190 --> 00:00:19.765
+O outro, fala a verdade
+em metade das vezes
+
+00:00:19.798 --> 00:00:22.854
+e mente em metade das vezes,
+e não sabemos qual é qual.
+
+00:00:22.887 --> 00:00:25.189
+E o terceiro sempre mente.
+
+00:00:25.222 --> 00:00:29.925
+A pergunta é: qual desses três
+devemos ignorar mais?
+
+00:00:29.958 --> 00:00:32.022
+Aqui, temos três modelos
+equivalentes.
+
+00:00:32.055 --> 00:00:33.990
+O primeiro está sempre correto,
+
+00:00:34.023 --> 00:00:36.301
+o segundo está correto
+em metade das vezes
+
+00:00:36.334 --> 00:00:39.533
+e o terceiro
+está sempre errado.
+
+00:00:39.566 --> 00:00:42.167
+Qual desses modelos
+é o pior para a gente?
+
+00:00:42.200 --> 00:00:43.710
+Tente responder abaixo.
+

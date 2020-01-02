@@ -1,0 +1,153 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.280 --> 00:00:01.897
+Certo.
+Vamos fazer uns cálculos.
+
+00:00:01.930 --> 00:00:05.378
+Vamos atribuir um peso inicial de 1
+a cada ponto de dados.
+
+00:00:05.411 --> 00:00:07.322
+Agora, vamos ajustar
+o nosso primeiro aprendiz.
+
+00:00:07.355 --> 00:00:10.394
+Antes, nós minimizamos
+o número de erros.
+
+00:00:10.427 --> 00:00:12.923
+Agora, queremos minimizar
+a soma dos pesos
+
+00:00:12.956 --> 00:00:15.434
+dos pontos
+classificados incorretamente
+
+00:00:15.467 --> 00:00:17.786
+que, por enquanto,
+são os mesmos.
+
+00:00:17.819 --> 00:00:19.458
+Aqui está o modelo.
+
+00:00:19.491 --> 00:00:22.507
+Se adicionarmos os pesos dos pontos
+classificados corretamente,
+
+00:00:22.540 --> 00:00:23.970
+obtemos 7.
+
+00:00:24.003 --> 00:00:26.994
+E obtemos 3 para os pontos
+classificados incorretamente.
+
+00:00:27.027 --> 00:00:30.409
+Vamos aumentar o peso dos pontos
+classificados incorretamente.
+
+00:00:30.442 --> 00:00:31.557
+Quanto?
+
+00:00:31.590 --> 00:00:36.091
+O suficiente para este modelo
+ser meio a meio.
+
+00:00:36.124 --> 00:00:41.531
+Se aumentarmos esses três pontos
+por uma fração de 7/3, ou 2,33,
+
+00:00:41.564 --> 00:00:46.058
+a soma dos pontos classificados
+corretamente passa a ser 7,
+
+00:00:46.091 --> 00:00:50.826
+assim como a soma dos pontos
+classificados incorretamente.
+
+00:00:50.859 --> 00:00:54.274
+Agora, esse modelo não serve mais.
+Precisamos de outro.
+
+00:00:54.307 --> 00:00:56.227
+O nosso segundo modelo
+será este,
+
+00:00:56.260 --> 00:00:58.858
+que se ajusta melhor
+aos novos pesos dos dados.
+
+00:00:59.190 --> 00:01:03.642
+Neste, ao somar os pesos dos pontos
+classificados corretamente,
+
+00:01:03.675 --> 00:01:06.706
+obtemos 11, enquanto para os pontos
+classificados incorretamente,
+
+00:01:06.739 --> 00:01:08.163
+obtemos 3 de novo.
+
+00:01:08.196 --> 00:01:10.798
+Vamos aumentar o peso
+dos classificados incorretamente.
+
+00:01:10.831 --> 00:01:11.994
+Quanto?
+
+00:01:12.027 --> 00:01:15.354
+O suficiente para este modelo
+ser meio a meio de novo.
+
+00:01:15.387 --> 00:01:17.798
+Note que se aumentarmos
+cada um destes três erros
+
+00:01:17.831 --> 00:01:21.170
+por uma fração de 11/3,
+ou 3,66,
+
+00:01:21.203 --> 00:01:24.803
+agora, a soma dos pesos dos
+pontos classificados incorretamente
+
+00:01:24.836 --> 00:01:29.231
+será 11, e o nosso modelo
+volta a ser meio a meio.
+
+00:01:29.264 --> 00:01:30.373
+Isso não serve.
+
+00:01:30.406 --> 00:01:33.811
+Vamos ajustar um terceiro modelo
+a estes dados com novos pesos.
+
+00:01:33.844 --> 00:01:36.090
+Este é o nosso
+terceiro modelo.
+
+00:01:36.123 --> 00:01:39.370
+Qual é a soma dos pesos dos pontos
+classificados corretamente?
+
+00:01:39.403 --> 00:01:42.954
+Agora, é 19. Já os incorretos
+permanecem com 3.
+
+00:01:42.987 --> 00:01:45.723
+Podemos continuar
+com isso, mas vamos parar.
+
+00:01:45.756 --> 00:01:47.778
+Nós fizemos três modelos.
+
+00:01:47.811 --> 00:01:51.834
+Estes são os três modelos,
+ou aprendizes fracos, que fizemos.
+
+00:01:52.298 --> 00:01:54.891
+No próximo vídeo, vamos aprender
+como combiná-los.
+

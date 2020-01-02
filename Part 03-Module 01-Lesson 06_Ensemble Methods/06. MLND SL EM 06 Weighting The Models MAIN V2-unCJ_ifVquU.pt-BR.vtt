@@ -1,0 +1,206 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.308 --> 00:00:02.036
+Sim, é fácil de imaginar.
+
+00:00:02.069 --> 00:00:04.116
+Vamos deixar
+o que sempre mente de lado.
+
+00:00:04.149 --> 00:00:06.237
+Na vida real,
+talvez isso seja bom.
+
+00:00:06.270 --> 00:00:09.797
+Mas, aqui, podemos extrair
+boas informações dele.
+
+00:00:09.830 --> 00:00:13.197
+E se fizéssemos várias perguntas
+de "sim/não" para esse amigo?
+
+00:00:13.230 --> 00:00:15.333
+Nós sempre obteríamos
+a resposta errada,
+
+00:00:15.366 --> 00:00:18.645
+então, só precisaríamos
+considerar o exato oposto.
+
+00:00:18.678 --> 00:00:21.887
+Assim, o mentiroso
+nos fornece muita informação.
+
+00:00:22.486 --> 00:00:25.301
+Em comparação,
+o que mente em metade das vezes
+
+00:00:25.334 --> 00:00:27.853
+não nos ajuda muito,
+já que não sabemos
+
+00:00:27.886 --> 00:00:30.117
+se devemos
+acreditar nele ou não.
+
+00:00:30.150 --> 00:00:32.923
+E é claro que o confiável
+também é muito útil.
+
+00:00:32.956 --> 00:00:36.940
+Então concluímos que o pior
+é este do meio.
+
+00:00:36.973 --> 00:00:39.413
+Da mesma forma,
+temos os nossos 3 modelos.
+
+00:00:39.446 --> 00:00:42.591
+O modelo 1 é o confiável,
+que está sempre correto.
+
+00:00:42.624 --> 00:00:45.868
+O modelo 2 é o aleatório,
+que está certo em metade das vezes.
+
+00:00:45.901 --> 00:00:49.131
+E o modelo 3 é o mentiroso,
+que está sempre errado.
+
+00:00:49.164 --> 00:00:53.709
+Nós vamos atribuir ao modelo
+confiável um peso positivo alto.
+
+00:00:53.742 --> 00:00:57.205
+Ao modelo aleatório, um peso
+de zero, já que ele é inútil.
+
+00:00:57.238 --> 00:01:00.030
+E ao modelo mentiroso,
+um peso negativo alto,
+
+00:01:00.063 --> 00:01:03.718
+já que vamos considerar o exato
+oposto do que esse modelo diz.
+
+00:01:03.946 --> 00:01:05.323
+Vamos aos cálculos.
+
+00:01:05.356 --> 00:01:06.580
+Temos uma linha numérica,
+
+00:01:06.613 --> 00:01:10.159
+e queremos que a função do peso
+seja assim.
+
+00:01:10.819 --> 00:01:13.324
+Muito positiva
+para os modelos confiáveis,
+
+00:01:13.357 --> 00:01:15.693
+zero para os modelos inúteis
+
+00:01:15.726 --> 00:01:18.210
+e muito negativa
+para os modelos mentirosos.
+
+00:01:18.243 --> 00:01:20.642
+Vamos lembrar
+como são os modelos.
+
+00:01:20.675 --> 00:01:22.211
+Eles são assim.
+
+00:01:22.244 --> 00:01:24.005
+Vamos ver a acurácia.
+
+00:01:24.038 --> 00:01:26.469
+O modelo confiável
+tem cerca de 1 de acurácia,
+
+00:01:26.502 --> 00:01:29.699
+o modelo aleatório tem cerca
+de 50% de acurácia
+
+00:01:29.732 --> 00:01:32.468
+e o modelo mentiroso
+tem cerca de zero de acurácia.
+
+00:01:32.946 --> 00:01:35.000
+Veja como esta
+função vai nos ajudar.
+
+00:01:35.299 --> 00:01:40.325
+"Y" é igual ao logaritmo natural
+de "x" dividido por 1 sobre "x",
+
+00:01:40.358 --> 00:01:42.837
+onde "x" é a acurácia.
+
+00:01:42.870 --> 00:01:46.989
+Note como ele é muito negativo
+para valores próximos de zero.
+
+00:01:47.022 --> 00:01:50.485
+Para 0,5, seu logaritmo de 0,5
+é dividido por 0,5,
+
+00:01:50.518 --> 00:01:53.390
+que é um logaritmo de 1,
+que é zero.
+
+00:01:53.423 --> 00:01:56.716
+Por fim, ele é muito positivo
+para valores próximos de 1.
+
+00:01:56.749 --> 00:02:00.228
+Há razões matemáticas
+mais fortes para esta ser a função,
+
+00:02:00.261 --> 00:02:02.796
+mas isso está fora
+do escopo deste curso.
+
+00:02:02.829 --> 00:02:05.237
+Nas notas do instrutor, vamos deixar
+links de materiais de leitura,
+
+00:02:05.270 --> 00:02:07.876
+incluindo o artigo original
+de Freund e Schapire,
+
+00:02:08.137 --> 00:02:09.587
+se você se interessar.
+
+00:02:09.620 --> 00:02:11.884
+E se você estiver
+muito confuso,
+
+00:02:11.917 --> 00:02:14.780
+porque viu uma divisão em potencial
+por zero, não se preocupe.
+
+00:02:14.813 --> 00:02:16.574
+Vamos lidar com isso
+daqui a pouco.
+
+00:02:16.607 --> 00:02:19.740
+Nós concluímos que uma ótima
+fórmula para o peso é a seguinte:
+
+00:02:19.773 --> 00:02:24.015
+o logaritmo natural de acurácia
+dividido por 1 menos a acurácia.
+
+00:02:24.453 --> 00:02:25.643
+Agora, um quiz:
+
+00:02:25.676 --> 00:02:29.047
+você consegue encontrar os pesos
+para estes três modelos?
+
+00:02:29.396 --> 00:02:30.814
+Responda abaixo.
+

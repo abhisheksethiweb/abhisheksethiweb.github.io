@@ -1,0 +1,178 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.173 --> 00:00:03.607
+Um atalho: talvez você tenha notado
+que a fórmula para o peso
+
+00:00:03.640 --> 00:00:07.300
+também pode ser escrita como
+o logaritmo natural do número
+
+00:00:07.333 --> 00:00:09.353
+de pontos classificados
+corretamente
+
+00:00:09.386 --> 00:00:12.951
+dividido pelo número de pontos
+classificados incorretamente.
+
+00:00:12.984 --> 00:00:16.048
+Isso é obtido multiplicando
+o topo e a parte inferior da fórmula
+
+00:00:16.081 --> 00:00:19.584
+dentro do logaritmo
+pelo número de pontos de dados.
+
+00:00:19.617 --> 00:00:23.281
+No primeiro modelo, temos 7 pontos
+classificados corretamente
+
+00:00:23.314 --> 00:00:24.809
+e um incorretamente.
+
+00:00:24.842 --> 00:00:28.272
+Por isso, o peso é o logaritmo
+natural de 7 dividido por 1,
+
+00:00:28.305 --> 00:00:30.297
+que é 1,95.
+
+00:00:30.330 --> 00:00:33.881
+Já o segundo tem como peso
+o logaritmo de 4 dividido por 4,
+
+00:00:33.914 --> 00:00:36.537
+que é o logaritmo de 1,
+que é 0.
+
+00:00:36.570 --> 00:00:39.528
+Isso faz sentido, já que o modelo
+tem acurácia de 50%
+
+00:00:39.561 --> 00:00:41.016
+e, por isso, é inútil.
+
+00:00:41.049 --> 00:00:44.753
+E, no terceiro, temos 2 corretos
+e 6 incorretos,
+
+00:00:44.786 --> 00:00:46.512
+então o peso dele é
+
+00:00:46.545 --> 00:00:52.501
+o logaritmo de 2 dividido por 6,
+que é -1,099.
+
+00:00:52.534 --> 00:00:56.321
+Note que o peso é negativo, o que
+significa que ouvimos esse modelo,
+
+00:00:56.354 --> 00:00:58.965
+mas consideramos o oposto
+do que ele diz,
+
+00:00:58.998 --> 00:01:01.028
+já que ele mente
+na maior parte do tempo.
+
+00:01:01.061 --> 00:01:02.504
+E quanto a esses dois modelos?
+
+00:01:02.537 --> 00:01:05.688
+O primeiro tem o peso
+de logaritmo de 8/0,
+
+00:01:05.721 --> 00:01:07.784
+já que ele nunca erra.
+
+00:01:07.817 --> 00:01:09.024
+O que é isso?
+
+00:01:09.057 --> 00:01:14.392
+E pior: o segundo tem logaritmo
+de 0/8, que é logaritmo de 0,
+
+00:01:14.425 --> 00:01:16.016
+que também é indefinido.
+
+00:01:16.049 --> 00:01:17.312
+O que fazemos?
+
+00:01:17.345 --> 00:01:20.360
+Bem, podemos encarar 8/0
+como infinito,
+
+00:01:20.393 --> 00:01:22.624
+então o peso do primeiro
+é infinito.
+
+00:01:22.657 --> 00:01:25.112
+Já para o segundo, podemos
+encarar o logaritmo de 0
+
+00:01:25.145 --> 00:01:29.239
+como menos infinito, então o peso
+do segundo é menos infinito.
+
+00:01:29.272 --> 00:01:32.032
+Isso faz sentido?
+Vamos pensar.
+
+00:01:32.065 --> 00:01:34.344
+Isso vai bagunçar
+nossos cálculos.
+
+00:01:34.377 --> 00:01:38.296
+Se um dos nossos aprendizes fracos
+classificar perfeitamente os dados,
+
+00:01:38.329 --> 00:01:40.232
+então terminamos, certo?
+
+00:01:40.265 --> 00:01:42.384
+Ele diz para o ouvirmos
+infinitamente
+
+00:01:42.417 --> 00:01:44.152
+e para não ouvirmos
+os outros.
+
+00:01:44.185 --> 00:01:46.640
+E o segundo faz o mesmo.
+Se um dos nossos aprendizes
+
+00:01:46.673 --> 00:01:50.512
+obtém tudo errado, então considerar
+o oposto automaticamente
+
+00:01:50.545 --> 00:01:52.456
+classifica corretamente
+os dados.
+
+00:01:52.489 --> 00:01:56.343
+Atribuir um peso de menos infinito
+significa ouvir só esse modelo,
+
+00:01:56.376 --> 00:01:59.512
+mas faça o completo oposto
+e não ligue para os outros modelos.
+
+00:01:59.545 --> 00:02:03.024
+É improvável que esses dois
+aconteçam na prática,
+
+00:02:03.057 --> 00:02:05.641
+então isso não
+é muito preocupante.
+
+00:02:05.674 --> 00:02:08.304
+Ainda assim, é bom saber
+o que acontece em casos extremos
+
+00:02:08.337 --> 00:02:10.312
+para verificações de consistência
+como esta.
+

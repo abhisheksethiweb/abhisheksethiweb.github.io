@@ -1,0 +1,196 @@
+<!-- udacimak v1.2.0 -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>AdaBoost in sklearn</title>
+  <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../assets/css/plyr.css">
+  <link rel="stylesheet" href="../assets/css/katex.min.css">
+  <link rel="stylesheet" href="../assets/css/jquery.mCustomScrollbar.min.css">
+  <link rel="stylesheet" href="../assets/css/styles.css">
+  <link rel="shortcut icon" type="image/png" href="../assets/img/udacimak.png" />
+</head>
+
+<body>
+  <div class="wrapper">
+    <nav id="sidebar">
+  <div class="sidebar-header">
+    <h3>Ensemble Methods</h3>
+  </div>
+
+  <ul class="sidebar-list list-unstyled CTAs">
+    <li>
+      <a href="../index.html" class="article">Back to Home</a>
+    </li>
+  </ul>
+
+  <ul class="sidebar-list list-unstyled components">
+    <li class="">
+      <a href="01. Intro.html">01. Intro</a>
+    </li>
+    <li class="">
+      <a href="02. Bagging.html">02. Bagging</a>
+    </li>
+    <li class="">
+      <a href="03. AdaBoost.html">03. AdaBoost</a>
+    </li>
+    <li class="">
+      <a href="04. Weighting the Data.html">04. Weighting the Data</a>
+    </li>
+    <li class="">
+      <a href="05. Weighting the Models 1.html">05. Weighting the Models 1</a>
+    </li>
+    <li class="">
+      <a href="06. Weighting the Models 2.html">06. Weighting the Models 2</a>
+    </li>
+    <li class="">
+      <a href="07. Weighting the Models 3.html">07. Weighting the Models 3</a>
+    </li>
+    <li class="">
+      <a href="08. Combining the Models.html">08. Combining the Models</a>
+    </li>
+    <li class="">
+      <a href="09. AdaBoost in sklearn.html">09. AdaBoost in sklearn</a>
+    </li>
+    <li class="">
+      <a href="10. Resources.html">10. Resources</a>
+    </li>
+    <li class="">
+      <a href="11. Outro.html">11. Outro</a>
+    </li>
+  </ul>
+
+  <ul class="sidebar-list list-unstyled CTAs">
+    <li>
+      <a href="../index.html" class="article">Back to Home</a>
+    </li>
+  </ul>
+</nav>
+
+    <div id="content">
+      <header class="container-fluild header">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <div class="align-items-middle">
+                <button type="button" id="sidebarCollapse" class="btn btn-toggle-sidebar">
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                </button>
+
+                <h1 style="display: inline-block">09. AdaBoost in sklearn</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main class="container">
+        <div class="row">
+          <div class="col-12">
+            <div class="ud-atom">
+  <h3></h3>
+  <div>
+  <h1 id="adaboost-in-sklearn">AdaBoost in sklearn</h1>
+<p>Building an AdaBoost model in sklearn is no different than building any other model. You can use scikit-learn's <a href="http://scikit-learn.org/stable/modules/generated/sklearn.ensemble.AdaBoostClassifier.html" target="_blank"><code>AdaBoost Classifier</code></a> class.  This class provides the functions to define and fit the model to your data.</p>
+<pre><code class="python language-python">&gt;&gt;&gt; from sklearn.ensemble import AdaBoostClassifier
+&gt;&gt;&gt; model = AdaBoostClassifier()
+&gt;&gt;&gt; model.fit(x_train, y_train)
+&gt;&gt;&gt; model.predict(x_test)</code></pre>
+<p>In the example above, the <code>model</code> variable is a decision tree model that has been fitted to the data <code>x_values</code> and <code>y_values</code>.  The functions <code>fit</code> and <code>predict</code> work exactly as before.</p>
+<h3 id="hyperparameters">Hyperparameters</h3>
+<p>When we define the model, we can specify the hyperparameters. In practice, the most common ones are</p>
+<ul>
+<li><code>base_estimator</code>: The model utilized for the weak learners (<strong>Warning:</strong> Don't forget to import the model that you decide to use for the weak learner).</li>
+<li><code>n_estimators</code>: The maximum  number of weak learners used.</li>
+</ul>
+<p>For example, here we define a model which uses decision trees of max_depth 2 as the weak learners, and it allows a maximum of 4 of them.<br />
+```python</p>
+<blockquote>
+  <blockquote>
+    <blockquote>
+      <p>from sklearn.tree import DecisionTreeClassifier<br />
+      model = AdaBoostClassifier(base_estimator = DecisionTreeClassifier(max_depth=2), n_estimators = 4)```</p>
+    </blockquote>
+  </blockquote>
+</blockquote>
+</div>
+
+</div>
+<div class="divider"></div>
+          </div>
+        </div>
+      </main>
+
+      <footer class="footer">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <p class="text-center">
+                <a href="https://github.com/udacimak/udacimak#readme" target="_blank">udacimak v1.2.0</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </div>
+
+
+  <script src="../assets/js/jquery-3.3.1.min.js"></script>
+  <script src="../assets/js/plyr.polyfilled.min.js"></script>
+  <script src="../assets/js/bootstrap.min.js"></script>
+  <script src="../assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+  <script src="../assets/js/katex.min.js"></script>
+  <script>
+    // Initialize Plyr video players
+    const players = Array.from(document.querySelectorAll('video')).map(p => new Plyr(p));
+
+    // render math equations
+    let elMath = document.getElementsByClassName('mathquill');
+    for (let i = 0, len = elMath.length; i < len; i += 1) {
+      const el = elMath[i];
+
+      katex.render(el.textContent, el, {
+        throwOnError: false
+      });
+    }
+
+    // this hack will make sure Bootstrap tabs work when using Handlebars
+    if ($('#question-tabs').length && $('#user-answer-tabs').length) {
+      $("#question-tabs a.nav-link").on('click', function () {
+        $("#question-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+      $("#user-answer-tabs a.nav-link").on('click', function () {
+        $("#user-answer-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    } else {
+      $("a.nav-link").on('click', function () {
+        $(".tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    }
+
+    // side bar events
+    $(document).ready(function () {
+      $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+      });
+
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar, #content').toggleClass('active');
+        $('.collapse.in').toggleClass('in');
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+      });
+    });
+  </script>
+</body>
+
+</html>
