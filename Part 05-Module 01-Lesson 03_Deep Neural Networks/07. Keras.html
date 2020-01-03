@@ -1,0 +1,417 @@
+<!-- udacimak v1.2.0 -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Keras</title>
+  <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../assets/css/plyr.css">
+  <link rel="stylesheet" href="../assets/css/katex.min.css">
+  <link rel="stylesheet" href="../assets/css/jquery.mCustomScrollbar.min.css">
+  <link rel="stylesheet" href="../assets/css/styles.css">
+  <link rel="shortcut icon" type="image/png" href="../assets/img/udacimak.png" />
+</head>
+
+<body>
+  <div class="wrapper">
+    <nav id="sidebar">
+  <div class="sidebar-header">
+    <h3>Deep Neural Networks</h3>
+  </div>
+
+  <ul class="sidebar-list list-unstyled CTAs">
+    <li>
+      <a href="../index.html" class="article">Back to Home</a>
+    </li>
+  </ul>
+
+  <ul class="sidebar-list list-unstyled components">
+    <li class="">
+      <a href="01. Non-linear Data.html">01. Non-linear Data</a>
+    </li>
+    <li class="">
+      <a href="02. Continuous Perceptrons.html">02. Continuous Perceptrons</a>
+    </li>
+    <li class="">
+      <a href="03. Non-Linear Models.html">03. Non-Linear Models</a>
+    </li>
+    <li class="">
+      <a href="04. Neural Network Architecture.html">04. Neural Network Architecture</a>
+    </li>
+    <li class="">
+      <a href="05. Feedforward.html">05. Feedforward</a>
+    </li>
+    <li class="">
+      <a href="06. Backpropagation.html">06. Backpropagation</a>
+    </li>
+    <li class="">
+      <a href="07. Keras.html">07. Keras</a>
+    </li>
+    <li class="">
+      <a href="08. Pre-Lab Student Admissions in Keras.html">08. Pre-Lab: Student Admissions in Keras</a>
+    </li>
+    <li class="">
+      <a href="09. Lab Student Admissions in Keras.html">09. Lab: Student Admissions in Keras</a>
+    </li>
+    <li class="">
+      <a href="10. Training Optimization.html">10. Training Optimization</a>
+    </li>
+    <li class="">
+      <a href="11. Early Stopping.html">11. Early Stopping</a>
+    </li>
+    <li class="">
+      <a href="12. Regularization.html">12. Regularization</a>
+    </li>
+    <li class="">
+      <a href="13. Regularization 2.html">13. Regularization 2</a>
+    </li>
+    <li class="">
+      <a href="14. Dropout.html">14. Dropout</a>
+    </li>
+    <li class="">
+      <a href="15. Local Minima.html">15. Local Minima</a>
+    </li>
+    <li class="">
+      <a href="16. Vanishing Gradient.html">16. Vanishing Gradient</a>
+    </li>
+    <li class="">
+      <a href="17. Other Activation Functions.html">17. Other Activation Functions</a>
+    </li>
+    <li class="">
+      <a href="18. Batch vs Stochastic Gradient Descent.html">18. Batch vs Stochastic Gradient Descent</a>
+    </li>
+    <li class="">
+      <a href="19. Learning Rate Decay.html">19. Learning Rate Decay</a>
+    </li>
+    <li class="">
+      <a href="20. Random Restart.html">20. Random Restart</a>
+    </li>
+    <li class="">
+      <a href="21. Momentum.html">21. Momentum</a>
+    </li>
+    <li class="">
+      <a href="22. Optimizers in Keras.html">22. Optimizers in Keras</a>
+    </li>
+    <li class="">
+      <a href="23. Error Functions Around the World.html">23. Error Functions Around the World</a>
+    </li>
+    <li class="">
+      <a href="24. Neural Network Regression.html">24. Neural Network Regression</a>
+    </li>
+    <li class="">
+      <a href="25. Neural Networks Playground.html">25. Neural Networks Playground</a>
+    </li>
+    <li class="">
+      <a href="26. Mini Project Intro.html">26. Mini Project Intro</a>
+    </li>
+    <li class="">
+      <a href="27. Pre-Lab IMDB Data in Keras.html">27. Pre-Lab: IMDB Data in Keras</a>
+    </li>
+    <li class="">
+      <a href="28. Lab IMDB Data in Keras.html">28. Lab: IMDB Data in Keras</a>
+    </li>
+    <li class="">
+      <a href="29. Outro.html">29. Outro</a>
+    </li>
+  </ul>
+
+  <ul class="sidebar-list list-unstyled CTAs">
+    <li>
+      <a href="../index.html" class="article">Back to Home</a>
+    </li>
+  </ul>
+</nav>
+
+    <div id="content">
+      <header class="container-fluild header">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <div class="align-items-middle">
+                <button type="button" id="sidebarCollapse" class="btn btn-toggle-sidebar">
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                </button>
+
+                <h1 style="display: inline-block">07. Keras</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main class="container">
+        <div class="row">
+          <div class="col-12">
+            <div class="ud-atom">
+  <h3></h3>
+  <div>
+  <h1 id="neural-networks-in-keras">Neural Networks in Keras</h1>
+<p>Luckily, every time we need to use a neural network, we won't need to code the activation function, gradient descent, etc. There are lots of packages for this, which we recommend you to check out, including the following:</p>
+<ul>
+<li><a href="https://keras.io/" target="_blank">Keras</a></li>
+<li><a href="https://www.tensorflow.org/" target="_blank">TensorFlow</a></li>
+<li><a href="http://caffe.berkeleyvision.org/" target="_blank">Caffe</a></li>
+<li><a href="http://deeplearning.net/software/theano/" target="_blank">Theano</a></li>
+<li><a href="http://scikit-learn.org/" target="_blank">Scikit-learn</a></li>
+<li>And many others!</li>
+</ul>
+<p>In this course, we will learn <a href="https://keras.io/" target="_blank">Keras</a>. Keras makes coding deep neural networks simpler. To demonstrate just how easy it is, you're going to build a simple fully-connected network in a few dozen lines of code.</p>
+<p>We’ll be connecting the concepts that you’ve learned in the previous lessons to the methods that Keras provides.</p>
+<p>The general idea for this example is that you'll first load the data, then define the network, and then finally train the network.</p>
+<h2 id="building-a-neural-network-in-keras">Building a Neural Network in Keras</h2>
+<p>Here are some core concepts you need to know for working with Keras.</p>
+<h2 id="sequential-model">Sequential Model</h2>
+<pre><code class="python language-python">    from keras.models import Sequential
+
+    #Create the Sequential model
+    model = Sequential()</code></pre>
+<p>The <a href="https://keras.io/models/sequential/" target="_blank">keras.models.Sequential</a> class is a wrapper for the neural network model that treats the network as a sequence of layers. It implements the Keras model interface with common methods like <code>compile()</code>, <code>fit()</code>, and <code>evaluate()</code> that are used to train and run the model. We'll cover these functions soon, but first let's start looking at the layers of the model.</p>
+<h2 id="layers">Layers</h2>
+<p>The Keras Layer class provides a common interface for a variety of standard neural network layers. There are fully connected layers, max pool layers, activation layers, and more. You can add a layer to a model using the model's <code>add()</code> method. For example, a simple model with a single hidden layer might look like this:</p>
+<pre><code class="python language-python">    import numpy as np
+    from keras.models import Sequential
+    from keras.layers.core import Dense, Activation
+
+    # X has shape (num_rows, num_cols), where the training data are stored
+    # as row vectors
+    X = np.array([[0, 0], [0, 1], [1, 0], [1, 1]], dtype=np.float32)
+
+    # y must have an output vector for each input vector
+    y = np.array([[0], [0], [0], [1]], dtype=np.float32)
+
+    # Create the Sequential model
+    model = Sequential()
+
+    # 1st Layer - Add an input layer of 32 nodes with the same input shape as
+    # the training samples in X
+    model.add(Dense(32, input_dim=X.shape[1]))
+
+    # Add a softmax activation layer
+    model.add(Activation('softmax'))
+
+    # 2nd Layer - Add a fully connected output layer
+    model.add(Dense(1))
+
+    # Add a sigmoid activation layer
+    model.add(Activation('sigmoid'))</code></pre>
+<p>Keras requires the input shape to be specified in the first layer, but it will automatically infer the shape of all other layers. This means you only have to explicitly set the input dimensions for the first layer.</p>
+<p>The first (hidden) layer from above, <code>model.add(Dense(32, input_dim=X.shape[1]))</code>, creates 32 nodes which each expect to receive 2-element vectors as inputs. Each layer takes the outputs from the previous layer as inputs and pipes through to the next layer. This chain of passing output to the next layer continues until the last layer, which is the output of the model. We can see that the output has dimension 1.</p>
+<p>The activation "layers" in Keras are equivalent to specifying an activation function in the Dense layers (e.g., <code>model.add(Dense(128)); model.add(Activation('softmax'))</code> is computationally equivalent to <code>model.add(Dense(128, activation="softmax")))</code>), but it is common to explicitly separate the activation layers because it allows direct access to the outputs of each layer before the activation is applied (which is useful in some model architectures).</p>
+<p>Once we have our model built, we need to compile it before it can be run. Compiling the Keras model calls the backend (tensorflow, theano, etc.) and binds the optimizer, loss function, and other parameters required before the model can be run on any input data. We'll specify the loss function to be <code>categorical_crossentropy</code> which can be used when there are only two classes, and specify <code>adam</code> as the optimizer (which is a reasonable default when speed is a priority). And finally, we can specify what metrics we want to evaluate the model with. Here we'll use accuracy.</p>
+<pre><code class="python language-python">model.compile(loss="categorical_crossentropy", optimizer="adam", metrics = ["accuracy"])</code></pre>
+<p>We can see the resulting model architecture with the following command:</p>
+<pre><code class="python language-python">model.summary()</code></pre>
+<p>The model is trained with the <code>fit()</code> method, through the following command that specifies the number of training epochs and the message level (how much information we want displayed on the screen during training).</p>
+<pre><code class="python language-python">model.fit(X, y, nb_epoch=1000, verbose=0)</code></pre>
+<p><strong>Note:</strong> In Keras 1, <code>nb_epoch</code> sets the number of epochs, but in Keras 2 this changes to the keyword <code>epochs</code>.</p>
+<p>Finally, we can use the following command to evaluate the model:</p>
+<pre><code class="python language-python">model.evaluate()</code></pre>
+<p>Pretty simple, right? Let's put it into practice.</p>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <h2 id="quiz">Quiz</h2>
+<p>Let's start with the simplest example. In this quiz you will build a simple multi-layer feedforward neural network to solve the XOR problem.</p>
+<ol>
+<li>Set the first layer to a <code>Dense()</code> layer with an output width of 8 nodes and the <code>input_dim</code> set to the size of the training samples (in this case 2).</li>
+<li>Add a <code>tanh</code> activation function.</li>
+<li>Set the output layer width to 1, since the output has only two classes. (We can use 0 for one class and 1 for the other)</li>
+<li>Use a <code>sigmoid</code> activation function after the output layer.</li>
+<li>Run the model for 50 epochs.</li>
+</ol>
+<p>This should give you an accuracy of 50%. That's ok, but certainly not great. Out of 4 input points, we're correctly classifying only 2 of them. Let's try to change some parameters around to improve. For example, you can increase the number of epochs. You'll pass this quiz if you get 75% accuracy. Can you reach 100%?</p>
+<p>To get started, review the Keras documentation about models and layers.<br />
+The Keras example of a <a href="https://github.com/fchollet/keras/blob/master/examples/mnist_mlp.py" target="_blank">Multi-Layer Perceptron</a> network is similar to what you need to do here. Use that as a guide, but keep in mind that there will be a number of differences.</p>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+
+  <h4>Start Quiz:</h4>
+  <div>
+  <div class="nav nav-tabs nav-fill" role="tablist" id="question-tabs">
+    <a href="#308191-network-py" class="nav-item nav-link  active show" id="tab-308191-network-py" data-toggle="tab" role="tab"
+      aria-controls="308191-network-py" aria-selected="true">network.py</a>
+    <a href="#308191-network_solution-py" class="nav-item nav-link " id="tab-308191-network_solution-py" data-toggle="tab" role="tab"
+      aria-controls="308191-network_solution-py" aria-selected="false">network_solution.py</a>
+  </div>
+
+  <div class="tab-content" style="padding: 20px 0;" id="question-tab-contents">
+    <div class="tab-pane  active show" id="308191-network-py" aria-labelledby="tab-308191-network-py" role="tabpanel">
+      <pre><code></code>import numpy as np
+from keras.utils import np_utils
+import tensorflow as tf
+# Using TensorFlow 1.0.0; use tf.python_io in later versions
+tf.python.control_flow_ops &#x3D; tf
+
+# Set random seed
+np.random.seed(42)
+
+# Our data
+X &#x3D; np.array([[0,0],[0,1],[1,0],[1,1]]).astype(&#x27;float32&#x27;)
+y &#x3D; np.array([[0],[1],[1],[0]]).astype(&#x27;float32&#x27;)
+
+# Initial Setup for Keras
+from keras.models import Sequential
+from keras.layers.core import Dense, Activation
+# One-hot encoding the output
+y &#x3D; np_utils.to_categorical(y)
+
+# Building the model
+xor &#x3D; Sequential()
+
+# Add required layers
+# xor.add()
+
+# Specify loss as &quot;binary_crossentropy&quot;, optimizer as &quot;adam&quot;,
+# and add the accuracy metric
+# xor.compile()
+
+# Uncomment this line to print the model architecture
+# xor.summary()
+
+# Fitting the model
+history &#x3D; xor.fit(X, y, nb_epoch&#x3D;50, verbose&#x3D;0)
+
+# Scoring the model
+score &#x3D; xor.evaluate(X, y)
+print(&quot;\nAccuracy: &quot;, score[-1])
+
+# Checking the predictions
+print(&quot;\nPredictions:&quot;)
+print(xor.predict_proba(X))</code></pre>
+    </div>
+    <div class="tab-pane " id="308191-network_solution-py" aria-labelledby="tab-308191-network_solution-py" role="tabpanel">
+      <pre><code></code>import numpy as np
+from keras.utils import np_utils
+import tensorflow as tf
+tf.python.control_flow_ops &#x3D; tf
+
+# Set random seed
+np.random.seed(42)
+
+# Our data
+X &#x3D; np.array([[0,0],[0,1],[1,0],[1,1]]).astype(&#x27;float32&#x27;)
+y &#x3D; np.array([[0],[1],[1],[0]]).astype(&#x27;float32&#x27;)
+
+# Initial Setup for Keras
+from keras.models import Sequential
+from keras.layers.core import Dense, Activation, Flatten
+
+# One-hot encoding the output
+y &#x3D; np_utils.to_categorical(y)
+
+# Building the model
+xor &#x3D; Sequential()
+xor.add(Dense(32, input_dim&#x3D;2))
+xor.add(Activation(&quot;tanh&quot;))
+xor.add(Dense(2))
+xor.add(Activation(&quot;sigmoid&quot;))
+
+xor.compile(loss&#x3D;&quot;categorical_crossentropy&quot;, optimizer&#x3D;&quot;adam&quot;, metrics &#x3D; [&#x27;accuracy&#x27;])
+
+# Uncomment this line to print the model architecture
+# xor.summary()
+
+# Fitting the model
+history &#x3D; xor.fit(X, y, nb_epoch&#x3D;1000, verbose&#x3D;0)
+
+# Scoring the model
+score &#x3D; xor.evaluate(X, y)
+print(&quot;\nAccuracy: &quot;, score[-1])
+
+# Checking the predictions
+print(&quot;\nPredictions:&quot;)
+print(xor.predict_proba(X))</code></pre>
+    </div>
+  </div>
+</div>
+
+
+
+</div>
+
+
+</div>
+<div class="divider"></div>
+          </div>
+        </div>
+      </main>
+
+      <footer class="footer">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <p class="text-center">
+                <a href="https://github.com/udacimak/udacimak#readme" target="_blank">udacimak v1.2.0</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </div>
+
+
+  <script src="../assets/js/jquery-3.3.1.min.js"></script>
+  <script src="../assets/js/plyr.polyfilled.min.js"></script>
+  <script src="../assets/js/bootstrap.min.js"></script>
+  <script src="../assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+  <script src="../assets/js/katex.min.js"></script>
+  <script>
+    // Initialize Plyr video players
+    const players = Array.from(document.querySelectorAll('video')).map(p => new Plyr(p));
+
+    // render math equations
+    let elMath = document.getElementsByClassName('mathquill');
+    for (let i = 0, len = elMath.length; i < len; i += 1) {
+      const el = elMath[i];
+
+      katex.render(el.textContent, el, {
+        throwOnError: false
+      });
+    }
+
+    // this hack will make sure Bootstrap tabs work when using Handlebars
+    if ($('#question-tabs').length && $('#user-answer-tabs').length) {
+      $("#question-tabs a.nav-link").on('click', function () {
+        $("#question-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+      $("#user-answer-tabs a.nav-link").on('click', function () {
+        $("#user-answer-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    } else {
+      $("a.nav-link").on('click', function () {
+        $(".tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    }
+
+    // side bar events
+    $(document).ready(function () {
+      $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+      });
+
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar, #content').toggleClass('active');
+        $('.collapse.in').toggleClass('in');
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+      });
+    });
+  </script>
+</body>
+
+</html>

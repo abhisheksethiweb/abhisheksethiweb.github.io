@@ -1,0 +1,270 @@
+<!-- udacimak v1.2.0 -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Pre-Lab: IMDB Data in Keras</title>
+  <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../assets/css/plyr.css">
+  <link rel="stylesheet" href="../assets/css/katex.min.css">
+  <link rel="stylesheet" href="../assets/css/jquery.mCustomScrollbar.min.css">
+  <link rel="stylesheet" href="../assets/css/styles.css">
+  <link rel="shortcut icon" type="image/png" href="../assets/img/udacimak.png" />
+</head>
+
+<body>
+  <div class="wrapper">
+    <nav id="sidebar">
+  <div class="sidebar-header">
+    <h3>Deep Neural Networks</h3>
+  </div>
+
+  <ul class="sidebar-list list-unstyled CTAs">
+    <li>
+      <a href="../index.html" class="article">Back to Home</a>
+    </li>
+  </ul>
+
+  <ul class="sidebar-list list-unstyled components">
+    <li class="">
+      <a href="01. Non-linear Data.html">01. Non-linear Data</a>
+    </li>
+    <li class="">
+      <a href="02. Continuous Perceptrons.html">02. Continuous Perceptrons</a>
+    </li>
+    <li class="">
+      <a href="03. Non-Linear Models.html">03. Non-Linear Models</a>
+    </li>
+    <li class="">
+      <a href="04. Neural Network Architecture.html">04. Neural Network Architecture</a>
+    </li>
+    <li class="">
+      <a href="05. Feedforward.html">05. Feedforward</a>
+    </li>
+    <li class="">
+      <a href="06. Backpropagation.html">06. Backpropagation</a>
+    </li>
+    <li class="">
+      <a href="07. Keras.html">07. Keras</a>
+    </li>
+    <li class="">
+      <a href="08. Pre-Lab Student Admissions in Keras.html">08. Pre-Lab: Student Admissions in Keras</a>
+    </li>
+    <li class="">
+      <a href="09. Lab Student Admissions in Keras.html">09. Lab: Student Admissions in Keras</a>
+    </li>
+    <li class="">
+      <a href="10. Training Optimization.html">10. Training Optimization</a>
+    </li>
+    <li class="">
+      <a href="11. Early Stopping.html">11. Early Stopping</a>
+    </li>
+    <li class="">
+      <a href="12. Regularization.html">12. Regularization</a>
+    </li>
+    <li class="">
+      <a href="13. Regularization 2.html">13. Regularization 2</a>
+    </li>
+    <li class="">
+      <a href="14. Dropout.html">14. Dropout</a>
+    </li>
+    <li class="">
+      <a href="15. Local Minima.html">15. Local Minima</a>
+    </li>
+    <li class="">
+      <a href="16. Vanishing Gradient.html">16. Vanishing Gradient</a>
+    </li>
+    <li class="">
+      <a href="17. Other Activation Functions.html">17. Other Activation Functions</a>
+    </li>
+    <li class="">
+      <a href="18. Batch vs Stochastic Gradient Descent.html">18. Batch vs Stochastic Gradient Descent</a>
+    </li>
+    <li class="">
+      <a href="19. Learning Rate Decay.html">19. Learning Rate Decay</a>
+    </li>
+    <li class="">
+      <a href="20. Random Restart.html">20. Random Restart</a>
+    </li>
+    <li class="">
+      <a href="21. Momentum.html">21. Momentum</a>
+    </li>
+    <li class="">
+      <a href="22. Optimizers in Keras.html">22. Optimizers in Keras</a>
+    </li>
+    <li class="">
+      <a href="23. Error Functions Around the World.html">23. Error Functions Around the World</a>
+    </li>
+    <li class="">
+      <a href="24. Neural Network Regression.html">24. Neural Network Regression</a>
+    </li>
+    <li class="">
+      <a href="25. Neural Networks Playground.html">25. Neural Networks Playground</a>
+    </li>
+    <li class="">
+      <a href="26. Mini Project Intro.html">26. Mini Project Intro</a>
+    </li>
+    <li class="">
+      <a href="27. Pre-Lab IMDB Data in Keras.html">27. Pre-Lab: IMDB Data in Keras</a>
+    </li>
+    <li class="">
+      <a href="28. Lab IMDB Data in Keras.html">28. Lab: IMDB Data in Keras</a>
+    </li>
+    <li class="">
+      <a href="29. Outro.html">29. Outro</a>
+    </li>
+  </ul>
+
+  <ul class="sidebar-list list-unstyled CTAs">
+    <li>
+      <a href="../index.html" class="article">Back to Home</a>
+    </li>
+  </ul>
+</nav>
+
+    <div id="content">
+      <header class="container-fluild header">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <div class="align-items-middle">
+                <button type="button" id="sidebarCollapse" class="btn btn-toggle-sidebar">
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                </button>
+
+                <h1 style="display: inline-block">27. Pre-Lab: IMDB Data in Keras</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main class="container">
+        <div class="row">
+          <div class="col-12">
+            <div class="ud-atom">
+  <h3></h3>
+  <div>
+  <h1 id="mini-project-using-keras-to-analyze-imdb-movie-data">Mini Project: Using Keras to analyze IMDB Movie Data</h1>
+<p>Now, you're ready to shine! In this project, we will analyze a dataset from IMDB and use it to predict the sentiment analysis of a review.</p>
+<h1 id="workspace">Workspace</h1>
+<p>To open this notebook, you have two options:</p>
+<ul>
+<li>Go to the next page in the classroom (recommended)</li>
+<li>Clone the repo from <a href="https://github.com/udacity/deep-learning" target="_blank">Github</a> and open the notebook <strong>IMDB_in_Keras.ipynb</strong> in the <strong>imdb_keras</strong> folder. You can either download the repository with <code>git clone https://github.com/udacity/deep-learning.git</code>, or download it as an archive file from <a href="https://github.com/udacity/deep-learning/archive/master.zip" target="_blank">this link</a>.</li>
+</ul>
+<h1 id="instructions">Instructions</h1>
+<p>In this lab, we will preprocess the data for you, and you'll be in charge of building and training the model in Keras.</p>
+<h3 id="the-dataset">The dataset</h3>
+<p>This lab uses a dataset of 25,000 <a href="http://www.imdb.com" target="_blank">IMDB</a> reviews. Each review comes with a label. A label of 0 is given to a negative review, and a label of 1 is given to a positive review. The goal of this lab is to create a model that will predict the sentiment of a review, based on the words in the review. You can see more information about this dataset in the <a href="https://keras.io/datasets" target="_blank">Keras</a> website.</p>
+<p>Now, the input already comes preprocessed for us for convenience. Each review is encoded as a sequence of indexes, corresponding to the words in the review. The words are ordered by frequency, so the integer 1 corresponds to the most frequent word  ("the"), the integer 2 to the second most frequent word, etc. By convention, the integer 0 corresponds to unknown words.</p>
+<p>Then, the sentence is turned into a vector by simply concatenating these integers. For instance, if the sentence is "To be or not to be." and the indices of the words are as follows:</p>
+<ul>
+<li>"to": 5</li>
+<li>"be": 8</li>
+<li>"or": 21</li>
+<li>"not": 3</li>
+</ul>
+<p>Then the sentence gets encoded as the vector <code>[5,8,21,3,5,8]</code>.</p>
+<h3 id="loading-the-data">Loading the data</h3>
+<p>The data comes preloaded in Keras, which means we don't need to open or read any files manually. The command to load it is the following, which will actually split the words into training and testing sets and labels!:</p>
+<pre><code class="python language-python">from keras.datasets import imdb
+(x_train, y_train), (x_test, y_test) = imdb.load_data(path="imdb.npz",
+                                                     num_words=None,
+                                                     skip_top=0,
+                                                     maxlen=None,
+                                                     seed=113,
+                                                     start_char=1,
+                                                     oov_char=2,
+                                                     index_from=3)</code></pre>
+<p>The meanings of all of these arguments are <a href="https://keras.io/datasets" target="_blank">here</a>. But in a nutshell, the most important ones are:</p>
+<ul>
+<li><strong>num_words</strong>: Top most frequent words to consider. This is useful if you don't want to consider very obscure words such as "Ultracrepidarian."</li>
+<li><strong>skip_top</strong>: Top words to ignore. This is useful if you don't want to consider the most common words. For example, the word "the" would add no information to the review, so we can skip it by setting <code>skip_top</code> to 2 or higher.</li>
+</ul>
+<h3 id="pre-processing-the-data">Pre-processing the data</h3>
+<p>We first prepare the data by one-hot encoding it into (0,1)-vectors as follows: If, for example, we have 10 words in our vocabulary, and the vector is (4,1,8), we'll turn it into the vector (1,0,0,1,0,0,0,1,0,0).</p>
+<h3 id="building-the-model">Building the model</h3>
+<p>Now it's your turn to use all you've learned! You can build a neural network using Keras, train it, and evaluate it! Make sure you also use methods such as dropout or regularization, and good Keras optimizers to do this. A good accuracy to aim for is 85%. Can your model achieve this?</p>
+<h3 id="help">Help</h3>
+<p>This is a self-assessed lab. If you need any help or want to check your answers, feel free to check out the solutions notebook in the same folder, or click <a href="https://github.com/udacity/deep-learning/blob/master/IMDB-keras/IMDB_In_Keras_Solutions.ipynb" target="_blank">here</a>.</p>
+</div>
+
+</div>
+<div class="divider"></div>
+          </div>
+        </div>
+      </main>
+
+      <footer class="footer">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <p class="text-center">
+                <a href="https://github.com/udacimak/udacimak#readme" target="_blank">udacimak v1.2.0</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </div>
+
+
+  <script src="../assets/js/jquery-3.3.1.min.js"></script>
+  <script src="../assets/js/plyr.polyfilled.min.js"></script>
+  <script src="../assets/js/bootstrap.min.js"></script>
+  <script src="../assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+  <script src="../assets/js/katex.min.js"></script>
+  <script>
+    // Initialize Plyr video players
+    const players = Array.from(document.querySelectorAll('video')).map(p => new Plyr(p));
+
+    // render math equations
+    let elMath = document.getElementsByClassName('mathquill');
+    for (let i = 0, len = elMath.length; i < len; i += 1) {
+      const el = elMath[i];
+
+      katex.render(el.textContent, el, {
+        throwOnError: false
+      });
+    }
+
+    // this hack will make sure Bootstrap tabs work when using Handlebars
+    if ($('#question-tabs').length && $('#user-answer-tabs').length) {
+      $("#question-tabs a.nav-link").on('click', function () {
+        $("#question-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+      $("#user-answer-tabs a.nav-link").on('click', function () {
+        $("#user-answer-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    } else {
+      $("a.nav-link").on('click', function () {
+        $(".tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    }
+
+    // side bar events
+    $(document).ready(function () {
+      $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+      });
+
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar, #content').toggleClass('active');
+        $('.collapse.in').toggleClass('in');
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+      });
+    });
+  </script>
+</body>
+
+</html>

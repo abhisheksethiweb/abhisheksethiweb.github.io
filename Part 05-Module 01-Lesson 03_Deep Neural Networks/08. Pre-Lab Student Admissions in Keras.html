@@ -1,0 +1,362 @@
+<!-- udacimak v1.2.0 -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Pre-Lab: Student Admissions in Keras</title>
+  <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../assets/css/plyr.css">
+  <link rel="stylesheet" href="../assets/css/katex.min.css">
+  <link rel="stylesheet" href="../assets/css/jquery.mCustomScrollbar.min.css">
+  <link rel="stylesheet" href="../assets/css/styles.css">
+  <link rel="shortcut icon" type="image/png" href="../assets/img/udacimak.png" />
+</head>
+
+<body>
+  <div class="wrapper">
+    <nav id="sidebar">
+  <div class="sidebar-header">
+    <h3>Deep Neural Networks</h3>
+  </div>
+
+  <ul class="sidebar-list list-unstyled CTAs">
+    <li>
+      <a href="../index.html" class="article">Back to Home</a>
+    </li>
+  </ul>
+
+  <ul class="sidebar-list list-unstyled components">
+    <li class="">
+      <a href="01. Non-linear Data.html">01. Non-linear Data</a>
+    </li>
+    <li class="">
+      <a href="02. Continuous Perceptrons.html">02. Continuous Perceptrons</a>
+    </li>
+    <li class="">
+      <a href="03. Non-Linear Models.html">03. Non-Linear Models</a>
+    </li>
+    <li class="">
+      <a href="04. Neural Network Architecture.html">04. Neural Network Architecture</a>
+    </li>
+    <li class="">
+      <a href="05. Feedforward.html">05. Feedforward</a>
+    </li>
+    <li class="">
+      <a href="06. Backpropagation.html">06. Backpropagation</a>
+    </li>
+    <li class="">
+      <a href="07. Keras.html">07. Keras</a>
+    </li>
+    <li class="">
+      <a href="08. Pre-Lab Student Admissions in Keras.html">08. Pre-Lab: Student Admissions in Keras</a>
+    </li>
+    <li class="">
+      <a href="09. Lab Student Admissions in Keras.html">09. Lab: Student Admissions in Keras</a>
+    </li>
+    <li class="">
+      <a href="10. Training Optimization.html">10. Training Optimization</a>
+    </li>
+    <li class="">
+      <a href="11. Early Stopping.html">11. Early Stopping</a>
+    </li>
+    <li class="">
+      <a href="12. Regularization.html">12. Regularization</a>
+    </li>
+    <li class="">
+      <a href="13. Regularization 2.html">13. Regularization 2</a>
+    </li>
+    <li class="">
+      <a href="14. Dropout.html">14. Dropout</a>
+    </li>
+    <li class="">
+      <a href="15. Local Minima.html">15. Local Minima</a>
+    </li>
+    <li class="">
+      <a href="16. Vanishing Gradient.html">16. Vanishing Gradient</a>
+    </li>
+    <li class="">
+      <a href="17. Other Activation Functions.html">17. Other Activation Functions</a>
+    </li>
+    <li class="">
+      <a href="18. Batch vs Stochastic Gradient Descent.html">18. Batch vs Stochastic Gradient Descent</a>
+    </li>
+    <li class="">
+      <a href="19. Learning Rate Decay.html">19. Learning Rate Decay</a>
+    </li>
+    <li class="">
+      <a href="20. Random Restart.html">20. Random Restart</a>
+    </li>
+    <li class="">
+      <a href="21. Momentum.html">21. Momentum</a>
+    </li>
+    <li class="">
+      <a href="22. Optimizers in Keras.html">22. Optimizers in Keras</a>
+    </li>
+    <li class="">
+      <a href="23. Error Functions Around the World.html">23. Error Functions Around the World</a>
+    </li>
+    <li class="">
+      <a href="24. Neural Network Regression.html">24. Neural Network Regression</a>
+    </li>
+    <li class="">
+      <a href="25. Neural Networks Playground.html">25. Neural Networks Playground</a>
+    </li>
+    <li class="">
+      <a href="26. Mini Project Intro.html">26. Mini Project Intro</a>
+    </li>
+    <li class="">
+      <a href="27. Pre-Lab IMDB Data in Keras.html">27. Pre-Lab: IMDB Data in Keras</a>
+    </li>
+    <li class="">
+      <a href="28. Lab IMDB Data in Keras.html">28. Lab: IMDB Data in Keras</a>
+    </li>
+    <li class="">
+      <a href="29. Outro.html">29. Outro</a>
+    </li>
+  </ul>
+
+  <ul class="sidebar-list list-unstyled CTAs">
+    <li>
+      <a href="../index.html" class="article">Back to Home</a>
+    </li>
+  </ul>
+</nav>
+
+    <div id="content">
+      <header class="container-fluild header">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <div class="align-items-middle">
+                <button type="button" id="sidebarCollapse" class="btn btn-toggle-sidebar">
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                </button>
+
+                <h1 style="display: inline-block">08. Pre-Lab: Student Admissions in Keras</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main class="container">
+        <div class="row">
+          <div class="col-12">
+            <div class="ud-atom">
+  <h3></h3>
+  <div>
+  <h1 id="mini-project-student-admissions-in-keras">Mini Project: Student Admissions in Keras</h1>
+<p>So, now we're ready to use Keras with real data. We'll now build a neural network which analyzes the dataset of student admissions at UCLA that we've previously studied.</p>
+<p>As you follow along with this lesson, you are encouraged to work in the referenced Jupyter notebooks at the end of the page.  We will present a solution to you, but please try creating your own deep learning models! Much of the value in this experience will come from playing around with the code in your own way. </p>
+<h1 id="workspace">Workspace</h1>
+<p>To open this notebook, you have two options:</p>
+<ul>
+<li>Go to the next page in the classroom (recommended)</li>
+<li>Clone the repo from <a href="https://github.com/udacity/deep-learning" target="_blank">Github</a> and open the notebook <strong>StudentAdmissionsKeras.ipynb</strong> in the <strong>student_admissions_keras</strong> folder. You can either download the repository with <code>git clone https://github.com/udacity/deep-learning.git</code>, or download it as an archive file from <a href="https://github.com/udacity/deep-learning/archive/master.zip" target="_blank">this link</a>.</li>
+</ul>
+<h1 id="instructions">Instructions</h1>
+<p>This is more of a follow-along lab. We'll show you the steps to build the network. However, at the end of the lab you'll be given the opportunity to improve the model, and try to improve on its performance. Here are the main steps in this lab.</p>
+<h3 id="studying-the-data">Studying the data</h3>
+<p>The dataset has the following columns:</p>
+<ul>
+<li>Student GPA (grades)</li>
+<li>Score on the GRE (test)</li>
+<li>Class rank (1-4)</li>
+</ul>
+<p>First, let's start by looking at the data. For that, we'll use the read_csv function in pandas.</p>
+<pre><code>import pandas as pd
+data = pd.read_csv('student_data.csv')
+print(data)</code></pre>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <figure class="figure">
+    <img src="img/data.png" alt="" class="img img-fluid">
+    <figcaption class="figure-caption">
+      
+    </figcaption>
+  </figure>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <p>Here we can see that the first column is the label <code>y</code>, which corresponds to acceptance/rejection. Namely, a label of <code>1</code> means the student got accepted, and a label of <code>0</code> means the student got rejected.</p>
+<p>When we plot the data, we get the following graphs, which show that unfortunately, the data is not as nicely separable as we'd hope:</p>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <figure class="figure">
+    <img src="img/student-acceptance.png" alt="" class="img img-fluid">
+    <figcaption class="figure-caption">
+      
+    </figcaption>
+  </figure>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <p>So one thing we can do is make one graph for each of the 4 ranks. In that case, we get this:</p>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <figure class="figure">
+    <img src="img/all-ranks.png" alt="" class="img img-fluid">
+    <figcaption class="figure-caption">
+      
+    </figcaption>
+  </figure>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <h3 id="pre-processing-the-data">Pre-processing the data</h3>
+<p>Ok, there's a bit more hope here. It seems like the better grades and test scores the student has, the more likely they are to be accepted. And the rank has something to do with it. So what we'll do is, we'll one-hot encode the rank, and our 6 input variables will be:</p>
+<ul>
+<li>Test (GPA)</li>
+<li>Grades (GRE)</li>
+<li>Rank 1</li>
+<li>Rank 2</li>
+<li>Rank 3</li>
+<li>Rank 4.</li>
+</ul>
+<p>The last 4 inputs will be binary variables that have a value of 1 if the student has that rank, or 0 otherwise.</p>
+<p>So, first things first, let's notice that the test scores have a range of 800, while the grades have a range of 4. This is a huge discrepancy, and it will affect our training. Normally, the best thing to do is to normalize the scores so they are between 0 and 1. We can do this as follows:</p>
+<pre><code> data["gre"] = data["gre"]/800
+ data["gpa"] = data["gpa"]/4.0</code></pre>
+<p>Now, we split our data input into X, and the labels y , and one-hot encode the output, so it appears as two classes (accepted and not accepted).</p>
+<pre><code> X = np.array(data)[:,1:]
+ y = keras.utils.to_categorical(np.array(data["admit"]))</code></pre>
+<h3 id="building-the-model-architecture">Building the model architecture</h3>
+<p>And finally, we define the model architecture. We can use different architectures, but here's an example:</p>
+<pre><code> model = Sequential()
+ model.add(Dense(128, input_dim=6))
+ model.add(Activation('sigmoid'))
+ model.add(Dense(32))
+ model.add(Activation('sigmoid'))
+ model.add(Dense(2))
+ model.add(Activation('sigmoid'))
+ model.compile(loss = 'categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
+ model.summary()</code></pre>
+<p>The error function is given by <code>categorical_crossentropy</code>, which is the one we've been using, but there are other options. There are several optimizers which you can choose from in order to improve your training. Here we use <em>adam</em>, but there are others that are useful, such as <em>rmsprop</em>. These use a variety of techniques that we'll outline in upcoming pages in this lesson.</p>
+<p>The model summary will tell us the following:</p>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <figure class="figure">
+    <img src="img/summary.png" alt="" class="img img-fluid">
+    <figcaption class="figure-caption">
+      
+    </figcaption>
+  </figure>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <h3 id="training-the-model">Training the model</h3>
+<p>Now, we train the model, with 1000 epochs. Don't worry about the batch_size, we'll learn about it soon.</p>
+<pre><code>model.fit(X_train, y_train, epochs=1000, batch_size=100, verbose=0)</code></pre>
+<h3 id="evaluating-the-model">Evaluating the model</h3>
+<p>And finally, we can evaluate our model.</p>
+<pre><code> score = model.evaluate(X_train, y_train)</code></pre>
+<p>Results may vary, but you should get somewhere over 70% accuracy.</p>
+<p>And there you go, you've trained your first neural network to analyze a dataset. Now, in the following pages, you'll learn many techniques to improve the training process.</p>
+</div>
+
+</div>
+<div class="divider"></div>
+          </div>
+        </div>
+      </main>
+
+      <footer class="footer">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <p class="text-center">
+                <a href="https://github.com/udacimak/udacimak#readme" target="_blank">udacimak v1.2.0</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </div>
+
+
+  <script src="../assets/js/jquery-3.3.1.min.js"></script>
+  <script src="../assets/js/plyr.polyfilled.min.js"></script>
+  <script src="../assets/js/bootstrap.min.js"></script>
+  <script src="../assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+  <script src="../assets/js/katex.min.js"></script>
+  <script>
+    // Initialize Plyr video players
+    const players = Array.from(document.querySelectorAll('video')).map(p => new Plyr(p));
+
+    // render math equations
+    let elMath = document.getElementsByClassName('mathquill');
+    for (let i = 0, len = elMath.length; i < len; i += 1) {
+      const el = elMath[i];
+
+      katex.render(el.textContent, el, {
+        throwOnError: false
+      });
+    }
+
+    // this hack will make sure Bootstrap tabs work when using Handlebars
+    if ($('#question-tabs').length && $('#user-answer-tabs').length) {
+      $("#question-tabs a.nav-link").on('click', function () {
+        $("#question-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+      $("#user-answer-tabs a.nav-link").on('click', function () {
+        $("#user-answer-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    } else {
+      $("a.nav-link").on('click', function () {
+        $(".tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    }
+
+    // side bar events
+    $(document).ready(function () {
+      $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+      });
+
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar, #content').toggleClass('active');
+        $('.collapse.in').toggleClass('in');
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+      });
+    });
+  </script>
+</body>
+
+</html>

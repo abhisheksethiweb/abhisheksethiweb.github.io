@@ -1,0 +1,33 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.334 --> 00:00:02.367
+Chegou a sua hora
+de brilhar.
+
+00:00:02.400 --> 00:00:03.767
+Na próxima prática do Keras
+
+00:00:03.801 --> 00:00:05.701
+aplicaremos
+o que aprendemos até agora
+
+00:00:05.734 --> 00:00:08.367
+e construiremos
+uma rede neural para analisar
+
+00:00:08.400 --> 00:00:10.167
+dados reais.
+
+00:00:10.200 --> 00:00:13.501
+Os dados são milhares
+de críticas de filmes do IMDb.
+
+00:00:13.534 --> 00:00:17.501
+E o desafio será prever
+o sentimento da crítica.
+
+00:00:17.534 --> 00:00:20.133
+Som, câmera, ação.
+

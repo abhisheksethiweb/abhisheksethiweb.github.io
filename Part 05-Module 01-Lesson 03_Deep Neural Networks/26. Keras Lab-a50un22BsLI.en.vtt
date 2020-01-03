@@ -1,0 +1,25 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:02.149
+Now, this is your turn to shine.
+
+00:00:02.149 --> 00:00:03.604
+In the following Karris lab,
+
+00:00:03.604 --> 00:00:06.410
+we'll be applying all we've learned so far in order to build
+
+00:00:06.410 --> 00:00:10.339
+a neural network that will help us analyze actual real data.
+
+00:00:10.339 --> 00:00:13.535
+The data consists of thousands of movie reviews from IMDb,
+
+00:00:13.535 --> 00:00:17.515
+and the challenge will consist of predicting the sentiment of the review.
+
+00:00:17.515 --> 00:00:20.000
+Ready, set, go.
+
