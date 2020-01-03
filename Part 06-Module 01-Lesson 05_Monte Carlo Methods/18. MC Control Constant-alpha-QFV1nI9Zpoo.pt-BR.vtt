@@ -1,0 +1,213 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.130 --> 00:00:02.933
+Agora, o seu passo atualizado
+para avaliação de política
+
+00:00:02.968 --> 00:00:04.557
+tem uma aparência como essa.
+
+00:00:04.592 --> 00:00:06.028
+Você gerou um episódio
+
+00:00:06.063 --> 00:00:09.268
+e, para cada par de estado-ação
+que foi visitado,
+
+00:00:09.303 --> 00:00:12.492
+você calculou o retorno
+correspondente que seguiu.
+
+00:00:12.527 --> 00:00:16.029
+Depois, você usou esse retorno
+para ter uma estimativa atualizada.
+
+00:00:16.064 --> 00:00:18.724
+Vamos ver esse passo atualizado
+mais detalhadamente
+
+00:00:18.759 --> 00:00:20.628
+com o objetivo
+de melhorá-lo.
+
+00:00:20.663 --> 00:00:23.188
+Perceba que primeiro
+calculamos a diferença
+
+00:00:23.223 --> 00:00:25.628
+entre o retorno amostrado
+mais recente
+
+00:00:25.663 --> 00:00:29.004
+e o valor correspondente
+do par de estado-ação.
+
+00:00:29.039 --> 00:00:31.029
+Vamos representar isso
+como delta t,
+
+00:00:31.064 --> 00:00:33.477
+e você pode encarar isso
+como uma etapa de erro.
+
+00:00:33.512 --> 00:00:37.348
+Afinal, é a diferença
+do que esperamos que o retorno seja
+
+00:00:37.383 --> 00:00:39.717
+e o que o retorno
+de fato era.
+
+00:00:39.752 --> 00:00:41.933
+No caso desse erro
+ser positivo,
+
+00:00:41.968 --> 00:00:44.628
+isso significa que o retorno
+que recebemos
+
+00:00:44.663 --> 00:00:47.453
+é mais do que a função
+de valor esperava.
+
+00:00:47.488 --> 00:00:50.028
+Neste caso, a função de valor
+é baixa demais,
+
+00:00:50.063 --> 00:00:52.668
+então usamos esse passo
+de avaliação para aumentar
+
+00:00:52.703 --> 00:00:53.868
+a estimativa.
+
+00:00:53.903 --> 00:00:57.188
+Por outro lado,
+se o erro for negativo,
+
+00:00:57.223 --> 00:00:59.627
+isso significa que o retorno
+é maior
+
+00:00:59.660 --> 00:01:02.437
+do que a função
+de valor de ação esperava.
+
+00:01:02.472 --> 00:01:05.540
+Faz sentido considerar
+essa nova evidência
+
+00:01:05.575 --> 00:01:08.708
+e diminuir a estimativa
+da função de valor de ação.
+
+00:01:09.074 --> 00:01:12.628
+E o quanto aumentamos
+ou diminuímos a ação?
+
+00:01:12.663 --> 00:01:15.197
+Atualmente,
+o algoritmo a diminui
+
+00:01:15.232 --> 00:01:18.804
+em uma quantidade inversamente
+proporcional ao número de vezes
+
+00:01:18.839 --> 00:01:21.580
+que já visitamos
+o par de estado-ação.
+
+00:01:22.309 --> 00:01:24.059
+Nas primeiras vezes
+que visitarmos o par,
+
+00:01:24.094 --> 00:01:26.238
+as mudanças provavelmente
+serão grandes.
+
+00:01:26.273 --> 00:01:29.445
+Mas em instantes futuros,
+quando o denominador dessa função
+
+00:01:29.480 --> 00:01:33.540
+ficar bem grande, as mudanças
+ficam cada vez menores.
+
+00:01:33.575 --> 00:01:37.708
+Para entender o por que disso,
+você deve lembrar que essa equação
+
+00:01:37.743 --> 00:01:41.732
+calcula só a média
+dos retornos amostrados.
+
+00:01:41.767 --> 00:01:45.909
+Se você já tiver a média
+de 999 retornos,
+
+00:01:45.944 --> 00:01:49.644
+quando você for considerar
+o retorno 1000,
+
+00:01:49.679 --> 00:01:52.596
+a média não será muito
+alterada.
+
+00:01:52.631 --> 00:01:55.500
+Com isso em mente,
+vamos mudar o algoritmo
+
+00:01:55.535 --> 00:01:57.956
+para que ele use
+um stepsize constante,
+
+00:01:57.991 --> 00:02:00.540
+que eu representei
+aqui como alfa.
+
+00:02:00.575 --> 00:02:02.844
+Isso garante que retornos
+que vierem mais tarde
+
+00:02:02.879 --> 00:02:06.116
+sejam mais enfatizados
+do que os que chegaram mais cedo.
+
+00:02:06.151 --> 00:02:09.564
+Dessa forma, o agente vai confiar
+mais nos retornos mais recentes,
+
+00:02:09.599 --> 00:02:12.869
+e gradualmente esquecer aqueles
+que chegaram no passado.
+
+00:02:12.904 --> 00:02:14.947
+Isso é muito importante,
+porque lembre-se
+
+00:02:14.982 --> 00:02:17.659
+de que a política
+está sempre mudando
+
+00:02:17.694 --> 00:02:20.996
+e, a cada passo,
+tornando-se mais ótima.
+
+00:02:21.031 --> 00:02:24.069
+Na verdade, instantes de tempo
+futuros são muito importantes
+
+00:02:24.104 --> 00:02:26.460
+para estimar
+os valores de ação.
+
+00:02:26.965 --> 00:02:29.348
+Eu aconselho fortemente
+que você faça essa alteração
+
+00:02:29.383 --> 00:02:32.468
+no seu algoritmo para a avaliação
+de política Monte Carlo.
+

@@ -1,0 +1,79 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:05.400
+So far, we've discussed how we might design the algorithm for Monte Carlo control.
+
+00:00:05.400 --> 00:00:08.130
+I mentioned in the last video that we
+
+00:00:08.130 --> 00:00:11.385
+still have some work to do with the evaluation step.
+
+00:00:11.384 --> 00:00:14.820
+Towards this end, we discussed an algorithm for keeping
+
+00:00:14.820 --> 00:00:18.675
+a running estimate of the mean of a sequence of numbers.
+
+00:00:18.675 --> 00:00:23.160
+Remember that this algorithm focused on one state action pair,
+
+00:00:23.160 --> 00:00:27.079
+which was visited some number and times.
+
+00:00:27.079 --> 00:00:33.195
+The algorithm looks at each visit in order and successively updates the mean new.
+
+00:00:33.195 --> 00:00:35.737
+So this algorithm currently,
+
+00:00:35.737 --> 00:00:41.549
+can only update the value function estimate corresponding to a single state action pair.
+
+00:00:41.549 --> 00:00:43.439
+Our next step is to change it a bit,
+
+00:00:43.439 --> 00:00:48.384
+so that it can maintain estimates of values for many state action pairs.
+
+00:00:48.384 --> 00:00:51.539
+Then, we'll be able to plug in that algorithm as
+
+00:00:51.539 --> 00:00:56.435
+a new and improved evaluation step. So here's what we'll do.
+
+00:00:56.435 --> 00:01:01.005
+The agent begins by sampling an episode from the environment.
+
+00:01:01.005 --> 00:01:06.915
+Then, for every time step we look at the corresponding state action pair.
+
+00:01:06.915 --> 00:01:08.190
+If it's a first visit,
+
+00:01:08.189 --> 00:01:10.724
+we calculate the corresponding return.
+
+00:01:10.724 --> 00:01:15.619
+Then, in accordance with the algorithm we examined for keeping the running mean,
+
+00:01:15.620 --> 00:01:19.785
+we then just update the corresponding estimate of the action value.
+
+00:01:19.784 --> 00:01:25.090
+And so when we go to plug in this stuff into our algorithm for our Monte Carlo control,
+
+00:01:25.090 --> 00:01:28.320
+we also have to be careful to also initialize the number
+
+00:01:28.319 --> 00:01:32.339
+of times we've visited each pair and we're getting there.
+
+00:01:32.340 --> 00:01:34.829
+Your blackjack playing agent will soon have
+
+00:01:34.829 --> 00:01:38.069
+a method for improving its strategy after every game.
+

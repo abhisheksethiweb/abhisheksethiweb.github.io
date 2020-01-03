@@ -1,0 +1,79 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:02.640
+Now that we've explored the Prediction Problem,
+
+00:00:02.640 --> 00:00:05.849
+we're now ready to move on to the Control Problem.
+
+00:00:05.849 --> 00:00:11.539
+So, how might an agent learn an optimal policy through interaction with the environment?
+
+00:00:11.539 --> 00:00:13.529
+It's truly exciting that we've gotten to
+
+00:00:13.529 --> 00:00:16.265
+a point in the course where we can answer this question.
+
+00:00:16.265 --> 00:00:20.300
+To understand the algorithm for Monte-Carlo Control,
+
+00:00:20.300 --> 00:00:24.620
+It will prove useful to first revisit what we did in the Dynamic Programming setting.
+
+00:00:24.620 --> 00:00:29.839
+In that setting, the first control algorithm we examined was Policy Iteration.
+
+00:00:29.839 --> 00:00:33.539
+It proceeded as a sequence of evaluation and improvement
+
+00:00:33.539 --> 00:00:38.369
+steps where the evaluation step was allowed to run close to convergence.
+
+00:00:38.369 --> 00:00:41.664
+Truncated Policy Iteration was a little bit different
+
+00:00:41.664 --> 00:00:45.254
+where instead of forcing the evaluation staff to converge,
+
+00:00:45.255 --> 00:00:50.295
+we instead performed only a fixed number of sweeps through the state's spase.
+
+00:00:50.295 --> 00:00:53.490
+Value Iteration involved doing only one sweep in
+
+00:00:53.490 --> 00:00:57.530
+the evaluation step before advancing to the improvement step.
+
+00:00:57.530 --> 00:01:00.420
+Although these algorithms have some differences,
+
+00:01:00.420 --> 00:01:04.155
+it will prove useful to focus on what they have in common.
+
+00:01:04.155 --> 00:01:07.769
+And we'll use the term "Generalized Policy Iteration"
+
+00:01:07.769 --> 00:01:10.739
+to refer to this general process without
+
+00:01:10.739 --> 00:01:13.259
+imposing any constraints on how many sweeps of
+
+00:01:13.260 --> 00:01:18.195
+policy evaluation there are or how close it's allowed to run to convergence.
+
+00:01:18.194 --> 00:01:22.484
+And even though we developed these ideas and the dynamic programming setting,
+
+00:01:22.484 --> 00:01:24.894
+all of the reinforcement learning methods we'll
+
+00:01:24.894 --> 00:01:27.729
+investigate in this course fall under this format.
+
+00:01:27.730 --> 00:01:32.480
+In the next video, we'll use these ideas to specify an algorithm for Monte-Carlo Control.
+

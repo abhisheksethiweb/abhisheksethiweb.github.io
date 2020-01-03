@@ -1,0 +1,360 @@
+<!-- udacimak v1.2.0 -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>MC Control: Constant-alpha, Part 2</title>
+  <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../assets/css/plyr.css">
+  <link rel="stylesheet" href="../assets/css/katex.min.css">
+  <link rel="stylesheet" href="../assets/css/jquery.mCustomScrollbar.min.css">
+  <link rel="stylesheet" href="../assets/css/styles.css">
+  <link rel="shortcut icon" type="image/png" href="../assets/img/udacimak.png" />
+</head>
+
+<body>
+  <div class="wrapper">
+    <nav id="sidebar">
+  <div class="sidebar-header">
+    <h3>Monte Carlo Methods</h3>
+  </div>
+
+  <ul class="sidebar-list list-unstyled CTAs">
+    <li>
+      <a href="../index.html" class="article">Back to Home</a>
+    </li>
+  </ul>
+
+  <ul class="sidebar-list list-unstyled components">
+    <li class="">
+      <a href="01. Introduction.html">01. Introduction</a>
+    </li>
+    <li class="">
+      <a href="02. OpenAI Gym BlackjackEnv.html">02. OpenAI Gym: BlackjackEnv</a>
+    </li>
+    <li class="">
+      <a href="03. MC Prediction State Values.html">03. MC Prediction: State Values</a>
+    </li>
+    <li class="">
+      <a href="04. Implementation.html">04. Implementation</a>
+    </li>
+    <li class="">
+      <a href="05. Mini Project MC (Parts 0 and 1).html">05. Mini Project: MC (Parts 0 and 1)</a>
+    </li>
+    <li class="">
+      <a href="06. MC Prediction Action Values.html">06. MC Prediction: Action Values</a>
+    </li>
+    <li class="">
+      <a href="07. Implementation.html">07. Implementation</a>
+    </li>
+    <li class="">
+      <a href="08. Mini Project MC (Part 2).html">08. Mini Project: MC (Part 2)</a>
+    </li>
+    <li class="">
+      <a href="09. Generalized Policy Iteration.html">09. Generalized Policy Iteration</a>
+    </li>
+    <li class="">
+      <a href="10. MC Control Incremental Mean.html">10. MC Control: Incremental Mean</a>
+    </li>
+    <li class="">
+      <a href="11. Quiz Incremental Mean.html">11. Quiz: Incremental Mean</a>
+    </li>
+    <li class="">
+      <a href="12. MC Control Policy Evaluation.html">12. MC Control: Policy Evaluation</a>
+    </li>
+    <li class="">
+      <a href="13. MC Control Policy Improvement.html">13. MC Control: Policy Improvement</a>
+    </li>
+    <li class="">
+      <a href="14. Quiz Epsilon-Greedy Policies.html">14. Quiz: Epsilon-Greedy Policies</a>
+    </li>
+    <li class="">
+      <a href="15. Exploration vs. Exploitation.html">15. Exploration vs. Exploitation</a>
+    </li>
+    <li class="">
+      <a href="16. Implementation.html">16. Implementation</a>
+    </li>
+    <li class="">
+      <a href="17. Mini Project MC (Part 3).html">17. Mini Project: MC (Part 3)</a>
+    </li>
+    <li class="">
+      <a href="18. MC Control Constant-alpha, Part 1.html">18. MC Control: Constant-alpha, Part 1</a>
+    </li>
+    <li class="">
+      <a href="19. MC Control Constant-alpha, Part 2.html">19. MC Control: Constant-alpha, Part 2</a>
+    </li>
+    <li class="">
+      <a href="20. Implementation.html">20. Implementation</a>
+    </li>
+    <li class="">
+      <a href="21. Mini Project MC (Part 4).html">21. Mini Project: MC (Part 4)</a>
+    </li>
+    <li class="">
+      <a href="22. Summary.html">22. Summary</a>
+    </li>
+  </ul>
+
+  <ul class="sidebar-list list-unstyled CTAs">
+    <li>
+      <a href="../index.html" class="article">Back to Home</a>
+    </li>
+  </ul>
+</nav>
+
+    <div id="content">
+      <header class="container-fluild header">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <div class="align-items-middle">
+                <button type="button" id="sidebarCollapse" class="btn btn-toggle-sidebar">
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                </button>
+
+                <h1 style="display: inline-block">19. MC Control: Constant-alpha, Part 2</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main class="container">
+        <div class="row">
+          <div class="col-12">
+            <div class="ud-atom">
+  <h3></h3>
+  <div>
+  <h1 id="mc-control-constant-alpha">MC Control: Constant-alpha</h1>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <p>In an earlier quiz (<strong>Quiz: Incremental Mean</strong>), you completed an algorithm that maintains a running estimate of the mean of a sequence of numbers <span class="mathquill ud-math">(x_1, x_2, \ldots, x_n)</span>.  The <code>running_mean</code> function accepted a list of numbers <code>x</code> as input and returned a list <code>mean_values</code>, where <code>mean_values[k]</code> was the mean of <code>x[:k+1]</code>.</p>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <figure class="figure">
+    <img src="img/incremental.png" alt="" class="img img-fluid">
+    <figcaption class="figure-caption">
+      
+    </figcaption>
+  </figure>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <p>When we adapted this algorithm for Monte Carlo control in the following concept (<strong>MC Control: Policy Evaluation</strong>), the sequence <span class="mathquill ud-math">(x_1, x_2, \ldots, x_n)</span> corresponded to returns obtained after visiting the <em>same</em> state-action pair. </p>
+<p>That said, the sampled returns (for the <em>same</em> state-action pair) likely corresponds to many <em>different</em> policies.  This is because the control algorithm proceeds as a sequence of alternating evaluation and improvement steps, where the policy is improved after every episode of interaction.  In particular, we discussed that returns sampled at later time steps likely correspond to policies that are more optimal.  </p>
+<p>With this in mind, it made sense to amend the policy evaluation step to instead use a constant step size, which we denoted by <span class="mathquill ud-math">\alpha</span> in the previous video (<strong>MC Control: Constant-alpha, Part 1</strong>).  This ensures that the agent primarily considers the most recently sampled returns when estimating the action-values and gradually forgets about returns in the distant past.</p>
+<p>The analogous pseudocode (for taking a <em>forgetful</em> mean of a sequence <span class="mathquill ud-math">(x_1, x_2, \ldots, x_n)</span>) can be found below.</p>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <figure class="figure">
+    <img src="img/constant-alpha.png" alt="" class="img img-fluid">
+    <figcaption class="figure-caption">
+      
+    </figcaption>
+  </figure>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <p>This change has been implemented in the <code>forgetful_mean</code> function below.  The function accepts a list of numbers <code>x</code> and the step size <code>alpha</code> as input.  It returns a list <code>mean_values</code>, where <code>mean_values[i]</code> is the (<code>i+1</code>)-st estimated state-action value.</p>
+<p>The <code>print_results</code> function analyzes the difference between the <code>running_mean</code> and <code>forgetful_mean</code> functions.  It passes the same value for <code>x</code> to both functions and tests multiple values for <code>alpha</code> in the <code>forgetful_mean</code> function.  </p>
+<p>Take the time to become familiar with the code below.  Then, click on the <strong>[ Test Run ]</strong> button to execute the <code>print_results</code> function.  Feel free to change the values for <code>x</code> and <code>alpha_values</code>, if you would like to run more tests to further develop your intuition.</p>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+
+  <h4>Start Quiz:</h4>
+  <div>
+  <div class="nav nav-tabs nav-fill" role="tablist" id="question-tabs">
+    <a href="#418501-quiz-py" class="nav-item nav-link  active show" id="tab-418501-quiz-py" data-toggle="tab" role="tab"
+      aria-controls="418501-quiz-py" aria-selected="true">quiz.py</a>
+  </div>
+
+  <div class="tab-content" style="padding: 20px 0;" id="question-tab-contents">
+    <div class="tab-pane  active show" id="418501-quiz-py" aria-labelledby="tab-418501-quiz-py" role="tabpanel">
+      <pre><code></code>import numpy as np
+
+# This is the sequence (corresponding to successively sampled returns). 
+# Feel free to change it!
+x &#x3D; np.hstack((np.ones(10), 10*np.ones(10)))
+
+# These are the different step sizes alpha that we will test.  
+# Feel free to change it!
+alpha_values &#x3D; np.arange(0,.3,.01)+.01
+
+#########################################################
+# Please do not change any of the code below this line. #
+#########################################################
+
+def running_mean(x):
+    mu &#x3D; 0
+    mean_values &#x3D; []
+    for k in np.arange(0, len(x)):
+        mu &#x3D; mu + (1.0/(k+1))*(x[k] - mu)
+        mean_values.append(mu)
+    return mean_values
+    
+def forgetful_mean(x, alpha):
+    mu &#x3D; 0
+    mean_values &#x3D; []
+    for k in np.arange(0, len(x)):
+        mu &#x3D; mu + alpha*(x[k] - mu)
+        mean_values.append(mu)
+    return mean_values
+
+def print_results():
+    &quot;&quot;&quot;
+    prints the mean of the sequence &quot;x&quot; (as calculated by the
+    running_mean function), along with analogous results for each value of alpha 
+    in &quot;alpha_values&quot; (as calculated by the forgetful_mean function).
+    &quot;&quot;&quot;
+    print(&#x27;The running_mean function returns:&#x27;, running_mean(x)[-1])
+    print(&#x27;The forgetful_mean function returns:&#x27;)
+    for alpha in alpha_values:
+        print(np.round(forgetful_mean(x, alpha)[-1],4), \
+        &#x27;(alpha&#x3D;{})&#x27;.format(np.round(alpha,2)))
+</code></pre>
+    </div>
+  </div>
+</div>
+
+
+
+</div>
+
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <h2 id="setting-the-value-of-span-classmathquill-ud-mathalphaspan">Setting the Value of <span class="mathquill ud-math">\alpha</span></h2>
+<p>Remember that the <code>forgetful_mean</code> function is closely related to the <strong>Evaluation</strong> step in constant-<span class="mathquill ud-math">\alpha</span> MC control.  You can find the associated pseudocode below.</p>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <figure class="figure">
+    <img src="img/screen-shot-2017-10-12-at-5.47.45-pm.png" alt="" class="img img-fluid">
+    <figcaption class="figure-caption">
+      
+    </figcaption>
+  </figure>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <p>Before moving on to the next concept, use the above coding environment to verify the following facts about about how to set the value of <span class="mathquill ud-math">\alpha</span> when implementing constant-<span class="mathquill ud-math">\alpha</span> MC control.</p>
+<ul>
+<li><p>You should always set the value for <span class="mathquill ud-math">\alpha</span> to a number greater than zero and less than (or equal to) one.  </p>
+<ul>
+<li>If <span class="mathquill ud-math">\alpha=0</span>, then the action-value function estimate is never updated by the agent.</li>
+<li>If <span class="mathquill ud-math">\alpha = 1</span>, then the final value estimate for each state-action pair is always equal to the last return that was experienced by the agent (after visiting the pair).</li></ul></li>
+<li><p>Smaller values for <span class="mathquill ud-math">\alpha</span> encourage the agent to consider a longer history of returns when calculating the action-value function estimate.  Increasing the value of <span class="mathquill ud-math">\alpha</span> ensures that the agent focuses more on the most recently sampled returns.</p></li>
+</ul>
+<p>Note that it is also possible to verify the above facts by slightly rewriting the update step as follows:</p>
+<p><span class="mathquill ud-math">Q(S_t,A_t) \leftarrow (1-\alpha)Q(S_t,A_t) + \alpha G_t</span></p>
+<p>where it is now more obvious that <span class="mathquill ud-math">\alpha</span> controls how much the agent trusts the most recent return <span class="mathquill ud-math">G_t</span> over the estimate <span class="mathquill ud-math">Q(S_t,A_t)</span> constructed by considering all past returns.</p>
+<p><strong>IMPORTANT NOTE</strong>: It is important to mention that when implementing constant-<span class="mathquill ud-math">\alpha</span> MC control, you must be careful to not set the value of <span class="mathquill ud-math">\alpha</span> too close to 1.  This is because very large values can keep the algorithm from converging to the optimal policy <span class="mathquill ud-math">\pi_*</span>.  However, you must also be careful to not set the value of <span class="mathquill ud-math">\alpha</span> too low, as this can result in an agent who learns too slowly.  The best value of <span class="mathquill ud-math">\alpha</span> for your implementation will greatly depend on your environment and is best gauged through trial-and-error.</p>
+</div>
+
+</div>
+<div class="divider"></div>
+          </div>
+        </div>
+      </main>
+
+      <footer class="footer">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <p class="text-center">
+                <a href="https://github.com/udacimak/udacimak#readme" target="_blank">udacimak v1.2.0</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </div>
+
+
+  <script src="../assets/js/jquery-3.3.1.min.js"></script>
+  <script src="../assets/js/plyr.polyfilled.min.js"></script>
+  <script src="../assets/js/bootstrap.min.js"></script>
+  <script src="../assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+  <script src="../assets/js/katex.min.js"></script>
+  <script>
+    // Initialize Plyr video players
+    const players = Array.from(document.querySelectorAll('video')).map(p => new Plyr(p));
+
+    // render math equations
+    let elMath = document.getElementsByClassName('mathquill');
+    for (let i = 0, len = elMath.length; i < len; i += 1) {
+      const el = elMath[i];
+
+      katex.render(el.textContent, el, {
+        throwOnError: false
+      });
+    }
+
+    // this hack will make sure Bootstrap tabs work when using Handlebars
+    if ($('#question-tabs').length && $('#user-answer-tabs').length) {
+      $("#question-tabs a.nav-link").on('click', function () {
+        $("#question-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+      $("#user-answer-tabs a.nav-link").on('click', function () {
+        $("#user-answer-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    } else {
+      $("a.nav-link").on('click', function () {
+        $(".tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    }
+
+    // side bar events
+    $(document).ready(function () {
+      $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+      });
+
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar, #content').toggleClass('active');
+        $('.collapse.in').toggleClass('in');
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+      });
+    });
+  </script>
+</body>
+
+</html>

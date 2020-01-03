@@ -1,0 +1,362 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.342 --> 00:00:03.102
+Agora que temos um bom método
+para avaliação de política,
+
+00:00:03.111 --> 00:00:06.086
+vamos nos concentrar
+na melhoria de política.
+
+00:00:06.174 --> 00:00:09.390
+Dada uma função de valor de ação,
+como podemos usá-la
+
+00:00:09.405 --> 00:00:11.126
+para propor uma política?
+
+00:00:11.149 --> 00:00:13.110
+É possível apenas copiar
+o algoritmo
+
+00:00:13.134 --> 00:00:14.957
+do caso da Programação
+Dinâmica?
+
+00:00:14.990 --> 00:00:16.910
+Talvez possamos pegar
+a função de valor de ação
+
+00:00:16.959 --> 00:00:19.902
+e construir a política greedy
+correspondente.
+
+00:00:19.932 --> 00:00:21.606
+Em outras palavras,
+para cada estado,
+
+00:00:21.636 --> 00:00:24.214
+apenas pegamos a ação
+com o valor mais alto.
+
+00:00:24.244 --> 00:00:26.827
+O que você acha?
+Essa abordagem é válida?
+
+00:00:26.857 --> 00:00:28.893
+A resposta é mais ou menos.
+
+00:00:28.923 --> 00:00:31.365
+Se o plano é combiná-la
+com o algoritmo de avaliação
+
+00:00:31.398 --> 00:00:34.286
+de política que você
+acabou de aprender,
+
+00:00:34.316 --> 00:00:36.814
+teremos que fazer
+pequenas alterações.
+
+00:00:36.844 --> 00:00:39.470
+Para ver isso,
+vamos examinar um exemplo.
+
+00:00:39.500 --> 00:00:40.783
+Imagine que você
+é um agente
+
+00:00:40.813 --> 00:00:42.677
+e que há duas portas
+na sua frente.
+
+00:00:42.707 --> 00:00:45.413
+Você precisa decidir
+qual das duas tem mais valor.
+
+00:00:45.443 --> 00:00:47.038
+Vamos ver como pode
+determinar isso
+
+00:00:47.068 --> 00:00:49.757
+usando as ideias por trás
+dos métodos de Monte Carlo.
+
+00:00:49.787 --> 00:00:52.886
+No início, você não tem motivos
+para favorecer uma porta
+
+00:00:52.920 --> 00:00:54.016
+sobre a outra.
+
+00:00:54.079 --> 00:00:56.957
+Digamos que você inicie
+a sua estimativa para o valor
+
+00:00:56.987 --> 00:00:58.661
+de cada porta em 0.
+
+00:00:58.691 --> 00:01:02.062
+Para saber qual porta abrir, imagine
+que você jogue cara ou coroa,
+
+00:01:02.095 --> 00:01:04.665
+dê coroa e você abra
+a porta B.
+
+00:01:04.702 --> 00:01:07.606
+Ao fazer isso, você recebe
+uma recompensa de 0.
+
+00:01:07.636 --> 00:01:10.631
+Para simplificar, imagine
+que o episódio termina
+
+00:01:10.661 --> 00:01:12.549
+depois que uma única
+porta for aberta.
+
+00:01:12.579 --> 00:01:17.838
+Isto é, após abrir a porta B,
+você recebeu um retorno de 0.
+
+00:01:17.868 --> 00:01:20.949
+Certo, isso não muda a estimativa
+da função de valor,
+
+00:01:20.979 --> 00:01:24.453
+então faz sentido escolher uma porta
+aleatória de novo.
+
+00:01:24.483 --> 00:01:27.125
+Você joga a moeda,
+dá cara dessa vez,
+
+00:01:27.155 --> 00:01:29.037
+então você abre a porta A.
+
+00:01:29.067 --> 00:01:31.670
+Ao fazer isso, você recebe
+uma recompensa de 1.
+
+00:01:31.700 --> 00:01:35.854
+Isso atualiza a estimativa
+para o valor da porta A para 1.
+
+00:01:36.238 --> 00:01:39.749
+Agora, se usarmos greedy
+em relação à função de valor,
+
+00:01:39.779 --> 00:01:42.125
+abrimos a porta A de novo.
+
+00:01:42.155 --> 00:01:44.702
+Imagine que, dessa vez,
+recebemos uma recompensa de 3.
+
+00:01:44.732 --> 00:01:47.766
+Isso atualiza o valor
+da porta A para 2,
+
+00:01:47.796 --> 00:01:50.854
+então, no próximo instante de tempo,
+a política greedy diz
+
+00:01:50.884 --> 00:01:52.693
+para escolhermos
+a porta A de novo.
+
+00:01:52.723 --> 00:01:56.781
+Sempre que fizermos isso,
+recebemos uma recompensa positiva
+
+00:01:56.811 --> 00:01:59.510
+que seja sempre 1 ou 3.
+
+00:01:59.540 --> 00:02:02.445
+Estamos o tempo todo
+abrindo a mesma porta.
+
+00:02:02.475 --> 00:02:05.669
+Há um problema com isso,
+porque não tivemos uma chance
+
+00:02:05.699 --> 00:02:08.492
+de explorar o que há
+atrás da segunda porta.
+
+00:02:08.522 --> 00:02:11.632
+Por exemplo, considere o caso
+em que o mecanismo por trás
+
+00:02:11.665 --> 00:02:13.845
+da porta A
+seja o que você espera.
+
+00:02:13.875 --> 00:02:16.614
+Ele produz uma recompensa
+de 1 ou 3,
+
+00:02:16.644 --> 00:02:18.621
+em que ambas
+são igualmente prováveis.
+
+00:02:18.651 --> 00:02:20.598
+Mas o mecanismos por trás
+da porta B
+
+00:02:21.013 --> 00:02:23.588
+oferece uma recompensa
+de 0 ou 100.
+
+00:02:23.618 --> 00:02:26.917
+Essa é uma informação que você
+teria gostado de descobrir,
+
+00:02:26.947 --> 00:02:29.989
+mas, ao seguir a política greedy,
+você não descobriu.
+
+00:02:30.019 --> 00:02:34.182
+O ponto é que quando chegamos cedo
+à situação na nossa investigação
+
+00:02:34.212 --> 00:02:37.492
+em que a porta A pareceu
+mais favorável do que a porta B,
+
+00:02:37.522 --> 00:02:40.973
+precisávamos ter passado mais tempo
+nos certificando disso,
+
+00:02:41.003 --> 00:02:43.973
+porque nossas primeiras impressões
+estavam incorretas.
+
+00:02:44.003 --> 00:02:46.821
+Em vez de construir
+essa política greedy,
+
+00:02:46.851 --> 00:02:49.838
+uma política melhor
+seria uma estocástica,
+
+00:02:49.868 --> 00:02:52.861
+que selecionasse a porta A
+com probabilidade de 95%
+
+00:02:52.891 --> 00:02:56.084
+e a porta B com probabilidade
+de, digamos, 5%.
+
+00:02:56.114 --> 00:02:58.885
+Isso ainda está bem próximo
+da política greedy,
+
+00:02:58.915 --> 00:03:01.173
+então ainda estamos atuando
+de forma ótima,
+
+00:03:01.203 --> 00:03:04.470
+mas há o acréscimo de que se
+continuarmos escolhendo a porta B
+
+00:03:04.500 --> 00:03:07.245
+com uma probabilidade pequena,
+em algum ponto,
+
+00:03:07.275 --> 00:03:10.117
+veremos o retorno de 100.
+
+00:03:10.147 --> 00:03:12.428
+Esse exemplo motiva o modo
+como vamos definir
+
+00:03:12.461 --> 00:03:15.589
+a versão Monte Carlo
+da melhoria de política.
+
+00:03:15.619 --> 00:03:19.141
+Em vez de sempre construir
+uma política greedy,
+
+00:03:19.171 --> 00:03:22.301
+o que faremos será construir
+uma política estocástica
+
+00:03:22.331 --> 00:03:25.141
+que tenha maior probabilidade
+de selecionar a ação greedy,
+
+00:03:25.171 --> 00:03:28.197
+mas que tenha uma probabilidade
+pequena, embora não nula,
+
+00:03:28.227 --> 00:03:30.837
+de selecionar uma das ações
+não-greedy.
+
+00:03:30.867 --> 00:03:34.668
+Neste caso, você vai configurar
+um número positivo epsilon,
+
+00:03:34.698 --> 00:03:35.985
+em que quanto maior ele for,
+
+00:03:36.018 --> 00:03:39.365
+mais próximo você vai estar
+de selecionar uma ação não-greedy.
+
+00:03:39.395 --> 00:03:42.701
+Chamamos isso
+de "política epsilon-greedy".
+
+00:03:42.731 --> 00:03:46.317
+Epsilon precisa ser um número
+entre 0 e 1.
+
+00:03:46.347 --> 00:03:49.229
+Assim, com probabilidade
+1 menos epsilon,
+
+00:03:49.259 --> 00:03:51.948
+o agente seleciona
+a ação greedy,
+
+00:03:51.978 --> 00:03:56.116
+e com probabilidade epsilon,
+seleciona qualquer ação aleatória.
+
+00:03:56.146 --> 00:03:59.389
+Contanto que epsilon
+seja um número pequeno,
+
+00:03:59.419 --> 00:04:03.029
+temos um método para construir
+uma política que é muito próxima
+
+00:04:03.059 --> 00:04:07.700
+da política greedy, com o benefício
+dela não impedir que o agente
+
+00:04:07.730 --> 00:04:11.133
+continue explorando
+o leque de possibilidades.
+
+00:04:11.163 --> 00:04:14.717
+Resumindo, o nosso algoritmo
+para o controle Monte Carlo
+
+00:04:14.747 --> 00:04:16.292
+terá essa aparência,
+
+00:04:16.322 --> 00:04:19.062
+em que eu inseri o fato
+de que o passo de melhoria
+
+00:04:19.097 --> 00:04:21.813
+vai obter
+a política epsilon-greedy.
+

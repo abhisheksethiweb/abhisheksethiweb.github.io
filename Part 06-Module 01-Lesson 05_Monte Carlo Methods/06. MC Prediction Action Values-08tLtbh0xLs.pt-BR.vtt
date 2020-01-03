@@ -1,0 +1,357 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.269 --> 00:00:02.553
+Espero que tenha gostado
+de implementar a primeira parte
+
+00:00:02.583 --> 00:00:04.009
+do miniprojeto.
+
+00:00:04.039 --> 00:00:05.865
+Nós escolhemos um algoritmo
+Monte Carlo
+
+00:00:05.895 --> 00:00:08.138
+para abordar
+o problema de previsão.
+
+00:00:08.616 --> 00:00:10.224
+No caso
+da Programação Dinâmica,
+
+00:00:10.254 --> 00:00:12.824
+o próximo passo foi usar
+a função de valor de estado
+
+00:00:12.854 --> 00:00:15.376
+para obter uma função
+de valor de ação.
+
+00:00:16.009 --> 00:00:18.312
+Lembre que usamos
+esta equação
+
+00:00:18.342 --> 00:00:20.889
+para converter os valores de estado
+em valores de ação.
+
+00:00:21.379 --> 00:00:22.568
+O que você acha?
+
+00:00:22.598 --> 00:00:24.608
+Podemos seguir o mesmo
+procedimento aqui?
+
+00:00:25.262 --> 00:00:27.425
+Infelizmente, não.
+
+00:00:27.455 --> 00:00:30.161
+Lembre que essa parte
+sublinhada da equação
+
+00:00:30.191 --> 00:00:33.265
+codifica a dinâmica
+de um único passo do ambiente.
+
+00:00:33.752 --> 00:00:35.035
+Isso era conhecido
+pelo agente
+
+00:00:35.068 --> 00:00:37.241
+na configuração
+da Programação Dinâmica,
+
+00:00:37.271 --> 00:00:39.320
+mas na configuração
+da aprendizagem por reforço,
+
+00:00:39.350 --> 00:00:41.592
+o agente não conhece
+essa dinâmica,
+
+00:00:41.622 --> 00:00:44.856
+então não podemos aplicar
+essa equação diretamente como antes.
+
+00:00:45.880 --> 00:00:49.689
+Assim, para obter os valores
+de ação, fazemos uma pequena mudança
+
+00:00:49.719 --> 00:00:51.416
+no nosso algoritmo
+de previsão.
+
+00:00:51.446 --> 00:00:54.388
+Para deixar mais claro,
+vamos voltar ao exemplo simples
+
+00:00:54.421 --> 00:00:55.856
+do vídeo anterior.
+
+00:00:56.312 --> 00:00:59.408
+Como antes, imagine que o agente
+interaja com o ambiente
+
+00:00:59.438 --> 00:01:02.960
+em cada passo, escolhendo a ação
+ditada pela política.
+
+00:01:03.833 --> 00:01:07.864
+Esses foram os três episódios
+que resultaram dessa interação.
+
+00:01:08.453 --> 00:01:11.600
+Mas, agora, para obter
+os valores de ação,
+
+00:01:12.464 --> 00:01:15.369
+em vez de observar
+as visitas a cada estado,
+
+00:01:15.776 --> 00:01:19.481
+vamos observar as visitas
+a cada par de estado-ação.
+
+00:01:20.496 --> 00:01:24.576
+Depois, vamos calcular o retorno
+que seguiu de cada par
+
+00:01:25.408 --> 00:01:27.744
+e fazer a média deles
+como antes.
+
+00:01:27.774 --> 00:01:31.617
+Neste caso, o valor de ação
+correspondente ao estado X
+
+00:01:31.647 --> 00:01:34.537
+e à ação de subir
+é estimado em 1/2.
+
+00:01:34.862 --> 00:01:38.384
+E seguindo o mesmo processo
+para avaliar o estado Y
+
+00:01:38.414 --> 00:01:40.896
+e a ação de descida,
+você vai notar que o par
+
+00:01:40.926 --> 00:01:43.288
+aparece mais de uma vez
+em cada episódio.
+
+00:01:43.709 --> 00:01:47.313
+Para lidar com isso, precisamos
+definir terminologias de novo.
+
+00:01:47.574 --> 00:01:50.648
+Definimos cada ocorrência
+do par de estado-ação
+
+00:01:50.678 --> 00:01:53.175
+em um episódio
+como uma visita a esse par.
+
+00:01:53.567 --> 00:01:56.568
+Se o par for visitado mais
+de uma vez em um episódio,
+
+00:01:56.598 --> 00:02:01.360
+temos que escolher entre só
+considerar a primeira visita ao par,
+
+00:02:01.390 --> 00:02:05.448
+ou usar cada visita para calcular
+a estimativa do valor de ação.
+
+00:02:05.478 --> 00:02:08.656
+Você vai notar que cada opção
+retorna um valor diferente,
+
+00:02:08.686 --> 00:02:11.777
+em que o método first-visit
+retorna 7/3
+
+00:02:11.807 --> 00:02:14.672
+e que cada método MC
+every-visit retorna 2,
+
+00:02:14.702 --> 00:02:16.928
+mas se o agente
+obtiver mais experiência
+
+00:02:16.958 --> 00:02:20.152
+coletando mais episódios,
+esses valores vão convergir
+
+00:02:20.182 --> 00:02:21.615
+em um mesmo número.
+
+00:02:21.645 --> 00:02:24.400
+Por ora, vamos supor
+que implementamos
+
+00:02:24.430 --> 00:02:26.399
+o método MC first-visit.
+
+00:02:26.429 --> 00:02:28.976
+Certo, é quase tão simples
+quanto parece.
+
+00:02:29.006 --> 00:02:32.252
+Só há um pequeno problema
+que precisa ser resolvido.
+
+00:02:32.503 --> 00:02:35.733
+Para vê-lo, vamos recuperar
+a política que estamos avaliando.
+
+00:02:35.763 --> 00:02:39.247
+É uma política determinista
+em que o agente sempre seleciona
+
+00:02:39.277 --> 00:02:41.720
+a ação de subida
+quando está no estado X,
+
+00:02:41.750 --> 00:02:44.584
+e a ação de descida
+quando está no estado Y.
+
+00:02:44.614 --> 00:02:47.863
+Em particular, nunca vamos poder
+estimar o valor de ação
+
+00:02:47.893 --> 00:02:50.712
+que corresponde ao estado X
+e à ação de descida,
+
+00:02:51.128 --> 00:02:52.912
+ou ao estado Y
+e à ação de subida.
+
+00:02:52.942 --> 00:02:56.304
+Isso porque, sob essa política,
+o agente nunca vai selecionar
+
+00:02:56.334 --> 00:02:58.376
+a ação de descida
+se estiver no estado X,
+
+00:02:58.406 --> 00:03:02.055
+e nunca vai selecionar
+a ação de subida no estado Y.
+
+00:03:02.085 --> 00:03:05.199
+Lembre que o nosso algoritmo
+só pode estimar os valores de ação
+
+00:03:05.229 --> 00:03:07.127
+correspondentes ao pares
+de estado-ação
+
+00:03:07.157 --> 00:03:09.080
+que ele realmente visite.
+
+00:03:09.110 --> 00:03:12.520
+Não importa por quanto tempo
+o agente interaja com o ambiente,
+
+00:03:12.550 --> 00:03:16.239
+a estimativa da função de valor
+de ação será sempre incompleta.
+
+00:03:16.269 --> 00:03:18.944
+Felizmente, há uma solução rápida
+para esse problema,
+
+00:03:18.974 --> 00:03:21.575
+que envolve garantir que a gente
+não tente avaliar
+
+00:03:21.605 --> 00:03:24.144
+a função de valor de ação
+para uma política determinista.
+
+00:03:24.863 --> 00:03:27.896
+Em vez disso, só trabalharemos
+com políticas estocásticas,
+
+00:03:27.926 --> 00:03:30.239
+em que a partir de cada estado,
+cada ação tenha
+
+00:03:30.269 --> 00:03:32.967
+uma probabilidade de ser visitada
+que não seja 0.
+
+00:03:32.997 --> 00:03:36.111
+Por exemplo, se o agente
+chegar ao estado X,
+
+00:03:36.511 --> 00:03:38.303
+imagine que ele selecione
+a ação de subida
+
+00:03:38.333 --> 00:03:40.767
+com uma probabilidade de 90%
+e, do contrário,
+
+00:03:40.797 --> 00:03:42.360
+selecione a ação de descida.
+
+00:03:42.390 --> 00:03:45.544
+Já se ele chegar ao estado Y,
+ele selecione a ação de descida
+
+00:03:45.574 --> 00:03:48.031
+com uma probabilidade de 80%
+e, do contrário,
+
+00:03:48.061 --> 00:03:49.808
+selecione a ação de subida.
+
+00:03:49.838 --> 00:03:52.751
+Para políticas desse tipo,
+cada par de estado-ação
+
+00:03:52.781 --> 00:03:55.759
+é eventualmente visitado
+pelo agente.
+
+00:03:55.789 --> 00:03:58.472
+Além disso, no limite,
+conforme o número de episódios
+
+00:03:58.502 --> 00:04:01.743
+se aproxima do infinito, o mesmo
+acontece com o número de visitas
+
+00:04:01.773 --> 00:04:03.559
+a cada par de estado-ação.
+
+00:04:03.589 --> 00:04:06.047
+Isso garante
+que a gente consiga calcular
+
+00:04:06.077 --> 00:04:08.271
+uma boa estimativa
+de função de valor de ação
+
+00:04:08.301 --> 00:04:09.944
+para cada par
+de estado-ação,
+
+00:04:09.974 --> 00:04:12.528
+contanto que o agente interaja
+com o ambiente
+
+00:04:12.558 --> 00:04:14.280
+em episódios suficientes.
+
+00:04:14.310 --> 00:04:16.911
+Logo você terá a chance
+de experimentar isso.
+

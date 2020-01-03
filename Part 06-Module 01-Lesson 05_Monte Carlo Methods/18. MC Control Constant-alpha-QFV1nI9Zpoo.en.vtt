@@ -1,0 +1,151 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:04.580
+Currently your update step for Policy Evaluation looks a bit like this.
+
+00:00:04.580 --> 00:00:06.105
+You generate an episode,
+
+00:00:06.105 --> 00:00:09.220
+then for each state-action pair that was visited,
+
+00:00:09.220 --> 00:00:12.554
+you calculate the corresponding return that follows.
+
+00:00:12.554 --> 00:00:16.004
+Then, you use that return to get an updated estimate.
+
+00:00:16.004 --> 00:00:20.594
+We're going to look at this update step a bit closer with the aim of improving it.
+
+00:00:20.594 --> 00:00:22.679
+You can think of it as first calculating
+
+00:00:22.679 --> 00:00:25.739
+the difference between the most recently sampled return,
+
+00:00:25.739 --> 00:00:28.799
+and the corresponding value of the state-action pair.
+
+00:00:28.800 --> 00:00:30.914
+We denote that by Delta T,
+
+00:00:30.914 --> 00:00:33.140
+and you can think of it as an error turn.
+
+00:00:33.140 --> 00:00:37.215
+After all, it's the difference between what we expect the return to be,
+
+00:00:37.215 --> 00:00:39.553
+and what the return actually was.
+
+00:00:39.552 --> 00:00:41.969
+In the case that this error is positive,
+
+00:00:41.969 --> 00:00:43.929
+well that means that the return that we
+
+00:00:43.929 --> 00:00:47.640
+received is more than what the value function expected.
+
+00:00:47.640 --> 00:00:50.155
+In this case, the action value is too low,
+
+00:00:50.155 --> 00:00:53.829
+so we use this update step to increase the estimate.
+
+00:00:53.829 --> 00:00:55.004
+On the other hand,
+
+00:00:55.005 --> 00:00:57.090
+if the error is negative,
+
+00:00:57.090 --> 00:01:02.760
+then that means that the return is higher than what the actual value function expected.
+
+00:01:02.759 --> 00:01:05.655
+So it makes sense to take into account this new evidence,
+
+00:01:05.655 --> 00:01:08.805
+and decrease the estimate and the actual value function.
+
+00:01:08.805 --> 00:01:12.465
+And exactly how much do we increase or decrease the function?
+
+00:01:12.465 --> 00:01:16.950
+Well currently, the algorithm decreases it by an amount inversely
+
+00:01:16.950 --> 00:01:21.790
+proportional to the number of times that we've visited the state-action pair already.
+
+00:01:21.790 --> 00:01:24.085
+So the first few times we visit the pair,
+
+00:01:24.084 --> 00:01:26.259
+the change is likely to be quite large.
+
+00:01:26.260 --> 00:01:27.840
+But at future time points,
+
+00:01:27.840 --> 00:01:30.734
+where the denominator of this fraction gets quite big,
+
+00:01:30.734 --> 00:01:33.344
+the changes get smaller and smaller.
+
+00:01:33.344 --> 00:01:35.965
+To understand why this would be the case,
+
+00:01:35.965 --> 00:01:38.370
+you have to remember that this equation just
+
+00:01:38.370 --> 00:01:41.665
+calculates the average of all the sampled returns.
+
+00:01:41.665 --> 00:01:45.795
+So if you already have the average of 999 returns,
+
+00:01:45.795 --> 00:01:49.575
+then when you take into account the 1,000th return,
+
+00:01:49.575 --> 00:01:52.605
+it's not going to change the average much.
+
+00:01:52.605 --> 00:01:53.905
+So with this in mind,
+
+00:01:53.905 --> 00:01:56.400
+we'll change the algorithm to instead use
+
+00:01:56.400 --> 00:02:00.765
+a constant step size which I've denoted by Alpha here.
+
+00:02:00.765 --> 00:02:03.030
+This ensures that returns that come later are
+
+00:02:03.030 --> 00:02:05.835
+more emphasized than those that arrived earlier.
+
+00:02:05.834 --> 00:02:09.599
+In this way, the agent will mostly trust the most recent returns,
+
+00:02:09.599 --> 00:02:13.129
+and gradually forget about those that came in the past.
+
+00:02:13.129 --> 00:02:17.734
+This is quite important because remember that the policy is constantly changing,
+
+00:02:17.734 --> 00:02:21.159
+and with every step becoming more optimal.
+
+00:02:21.159 --> 00:02:27.030
+So in fact, later time steps are quite important to estimating the action values.
+
+00:02:27.030 --> 00:02:29.370
+I strongly encourage you to make this amendment to
+
+00:02:29.370 --> 00:02:33.000
+your algorithm for Monte Carlo policy evaluation.
+

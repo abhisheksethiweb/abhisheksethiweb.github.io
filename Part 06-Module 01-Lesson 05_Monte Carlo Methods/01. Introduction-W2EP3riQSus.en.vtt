@@ -1,0 +1,37 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:04.349
+So far, you've learned all about the Reinforcement Learning Framework.
+
+00:00:04.349 --> 00:00:05.835
+You've learned about agents,
+
+00:00:05.835 --> 00:00:09.120
+and environments, and how we specify MDPs.
+
+00:00:09.119 --> 00:00:10.674
+In the previous lesson,
+
+00:00:10.675 --> 00:00:14.425
+you looked at a simplification of the Reinforcement Learning problem.
+
+00:00:14.425 --> 00:00:16.620
+In the Dynamic Programming setting,
+
+00:00:16.620 --> 00:00:20.984
+the agent already had full knowledge of the environments dynamics.
+
+00:00:20.984 --> 00:00:24.059
+But in this lesson, and for all remaining lessons,
+
+00:00:24.059 --> 00:00:26.759
+we'll consider the Reinforcement Learning problem where
+
+00:00:26.760 --> 00:00:30.810
+the agent is not given full knowledge of how the environment operates,
+
+00:00:30.809 --> 00:00:33.579
+and instead, must learn from interaction.
+

@@ -1,0 +1,202 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:02.850
+Our Monte Carlo control algorithm will draw
+
+00:00:02.850 --> 00:00:06.325
+inspiration from generalized policy iteration.
+
+00:00:06.325 --> 00:00:08.984
+We'll begin with the policy evaluation step.
+
+00:00:08.984 --> 00:00:11.939
+We've already somewhat addressed how to accomplish this
+
+00:00:11.939 --> 00:00:15.859
+and you implemented it in part two of the mini project.
+
+00:00:15.859 --> 00:00:20.160
+In your implementation, the agent needs to play blackjack about
+
+00:00:20.160 --> 00:00:24.350
+5,000 times to get a good estimate of the value function.
+
+00:00:24.350 --> 00:00:27.045
+In the context of policy iteration,
+
+00:00:27.045 --> 00:00:32.175
+this seems like way too long to spend evaluating a policy before trying to improve it.
+
+00:00:32.174 --> 00:00:34.619
+Maybe it would make more sense to improve
+
+00:00:34.619 --> 00:00:38.274
+the policy after every individual game of blackjack.
+
+00:00:38.274 --> 00:00:41.504
+In that case, we could initialize the value of
+
+00:00:41.505 --> 00:00:46.300
+each state action pair to zero and have some starting policy.
+
+00:00:46.299 --> 00:00:49.814
+Then, we could use that policy to generate an episode.
+
+00:00:49.814 --> 00:00:51.409
+When that episode finishes,
+
+00:00:51.409 --> 00:00:53.915
+we could update the value function.
+
+00:00:53.915 --> 00:00:57.894
+Then, the value function could be used to improve the policy.
+
+00:00:57.895 --> 00:01:03.190
+That new policy could then be used to generate the next episode, and so on.
+
+00:01:03.189 --> 00:01:07.269
+To do this well, we'll have to change our algorithm for policy evaluation.
+
+00:01:07.269 --> 00:01:11.449
+We'll begin by digging deeper into our current algorithm.
+
+00:01:11.450 --> 00:01:14.945
+Remember that we begin by running many episodes.
+
+00:01:14.944 --> 00:01:18.149
+Then, we look at some state action pair.
+
+00:01:18.150 --> 00:01:24.100
+We calculate the return that followed in each case and then take the average.
+
+00:01:24.099 --> 00:01:25.544
+As a more general case,
+
+00:01:25.545 --> 00:01:30.554
+say we visited the state action pair some number and times.
+
+00:01:30.554 --> 00:01:33.763
+We'll denote the corresponding returns by x1,
+
+00:01:33.763 --> 00:01:35.745
+x2 all the way up to xn.
+
+00:01:35.745 --> 00:01:40.852
+Then, our value function estimate is calculated as the average of those values.
+
+00:01:40.852 --> 00:01:43.745
+We'll denote it with a MU n where the n
+
+00:01:43.745 --> 00:01:47.204
+just helps us to remember that we visited the pair n times.
+
+00:01:47.204 --> 00:01:52.759
+And so Instead of calculating that average at the end of all the episodes,
+
+00:01:52.760 --> 00:01:58.109
+maybe what we could do instead is iteratively update the estimate after every visit.
+
+00:01:58.109 --> 00:02:00.359
+So the first time that we visited,
+
+00:02:00.359 --> 00:02:03.340
+whatever the return was, that's our estimate.
+
+00:02:03.340 --> 00:02:05.299
+Then the second time we visit,
+
+00:02:05.299 --> 00:02:09.717
+we can update the estimate to be the average of x1 and x2.
+
+00:02:09.717 --> 00:02:12.289
+And for an arbitrary number of visits K,
+
+00:02:12.289 --> 00:02:17.727
+we just take the average of all the values x1 through xk.
+
+00:02:17.728 --> 00:02:19.025
+And our final estimate,
+
+00:02:19.025 --> 00:02:22.580
+will just be exactly what we'd end up with if we'd waited
+
+00:02:22.580 --> 00:02:26.380
+to calculate anything until all the episodes finished.
+
+00:02:26.379 --> 00:02:28.969
+And so let's see if we can figure out how
+
+00:02:28.969 --> 00:02:32.069
+to accomplish this in a computationally efficient way.
+
+00:02:32.069 --> 00:02:35.919
+And towards that goal, we'll have to do a little bit of math.
+
+00:02:35.919 --> 00:02:40.334
+We'll begin by remembering how we calculate the estimate for the return.
+
+00:02:40.335 --> 00:02:42.409
+In particular, the Kth estimate is
+
+00:02:42.409 --> 00:02:46.585
+just the average of the returns that followed from the first K visits.
+
+00:02:46.585 --> 00:02:50.930
+Then, we'll notice we can rewrite the sum of the first K returns,
+
+00:02:50.930 --> 00:02:56.254
+as the sum of the first K minus one returns plus the Kth return.
+
+00:02:56.254 --> 00:03:01.960
+After that, we can re-express the sum of the first K minus one terms,
+
+00:03:01.960 --> 00:03:05.754
+as the K minus first mean times K minus one.
+
+00:03:05.754 --> 00:03:10.310
+It's just a simple rearrangement of the terms to get the last line.
+
+00:03:10.310 --> 00:03:14.090
+Now this equation expresses the Kth mean in
+
+00:03:14.090 --> 00:03:18.159
+terms of the K minus first mean and the Kth return.
+
+00:03:18.159 --> 00:03:20.689
+And we'll use this formula to design
+
+00:03:20.689 --> 00:03:24.719
+an algorithm that keeps a running mean of the returns.
+
+00:03:24.719 --> 00:03:29.009
+We begin by initializing the mean to zero.
+
+00:03:29.009 --> 00:03:31.310
+We'll also need to keep track of the number of
+
+00:03:31.310 --> 00:03:34.710
+returns that we've included in the average already.
+
+00:03:34.710 --> 00:03:35.990
+So at the beginning,
+
+00:03:35.990 --> 00:03:38.405
+we'll initialize that to zero.
+
+00:03:38.405 --> 00:03:42.740
+Then we enter a while loop at every point we increment K by
+
+00:03:42.740 --> 00:03:48.170
+one and then use the most recent return x of K to update the mean.
+
+00:03:48.169 --> 00:03:52.039
+And that's it. Now while it's not entirely clear yet
+
+00:03:52.039 --> 00:03:56.245
+exactly how to use this in the context of Monte Carlo control,
+
+00:03:56.246 --> 00:03:59.000
+this algorithm will come in very useful soon.
+

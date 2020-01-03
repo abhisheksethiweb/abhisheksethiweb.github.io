@@ -1,0 +1,470 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.363 --> 00:00:02.531
+Vamos relembrar
+o problema que nós temos.
+
+00:00:02.745 --> 00:00:05.019
+Temos um agente
+e um ambiente.
+
+00:00:05.115 --> 00:00:07.716
+O tempo foi dividido
+em instantes de tempo discretos,
+
+00:00:07.746 --> 00:00:09.340
+e a cada instante de tempo,
+
+00:00:09.370 --> 00:00:13.226
+o agente recebe uma recompensa
+e um estado do ambiente
+
+00:00:13.256 --> 00:00:16.131
+e seleciona uma ação
+para realizar em resposta.
+
+00:00:17.043 --> 00:00:19.859
+Dessa forma, a interação evolui
+como uma sequência
+
+00:00:19.889 --> 00:00:22.027
+de estados, ações
+e recompensas.
+
+00:00:22.713 --> 00:00:24.756
+Nesta aula,
+vamos nos concentrar
+
+00:00:24.786 --> 00:00:27.731
+em tarefas episódicas,
+em que a interação para
+
+00:00:27.761 --> 00:00:29.891
+em algum instante
+de tempo T,
+
+00:00:29.921 --> 00:00:32.483
+quando o agente chega
+ao estado final.
+
+00:00:32.513 --> 00:00:35.379
+Nós nos referimos à sequência
+como um episódio.
+
+00:00:35.409 --> 00:00:37.762
+Para cada episódio,
+o objetivo do agente
+
+00:00:37.792 --> 00:00:40.202
+é encontrar
+a política ótima
+
+00:00:40.232 --> 00:00:43.875
+para maximizar a recompensa
+cumulativa esperada.
+
+00:00:44.691 --> 00:00:48.114
+Em direção a esse objetivo, vamos
+começar com o problema de previsão.
+
+00:00:48.144 --> 00:00:51.428
+Dada uma política,
+como o agente consegue estimar
+
+00:00:51.458 --> 00:00:53.460
+a função de valor
+para essa política?
+
+00:00:54.056 --> 00:00:57.962
+Lembre que o agente
+não conhece a dinâmica do ambiente.
+
+00:00:58.355 --> 00:01:00.883
+Então, ele terá que estimar
+a função de valor
+
+00:01:00.913 --> 00:01:02.947
+interagindo com o ambiente.
+
+00:01:03.611 --> 00:01:08.419
+E, para isso, o agente
+precisa ter uma política em mente.
+
+00:01:09.251 --> 00:01:13.194
+É possível ter uma política
+que queiramos avaliar
+
+00:01:13.224 --> 00:01:16.203
+e uma política diferente
+para interagir com o ambiente.
+
+00:01:16.875 --> 00:01:19.555
+Nos referimos a isso
+como um método sem política
+
+00:01:19.585 --> 00:01:21.211
+para o problema de previsão.
+
+00:01:21.241 --> 00:01:23.739
+Métodos sem política envolvem
+algumas complexidades
+
+00:01:23.769 --> 00:01:25.586
+que vamos guardar
+para depois.
+
+00:01:26.115 --> 00:01:29.179
+Em vez disso, vamos começar
+com o método com política,
+
+00:01:29.587 --> 00:01:33.403
+em que o agente interage
+com o ambiente seguindo uma política
+
+00:01:33.433 --> 00:01:35.986
+cuja função de valor
+ele quer calcular.
+
+00:01:36.539 --> 00:01:39.082
+Antes de entrarmos
+nos detalhes do algoritmo,
+
+00:01:39.112 --> 00:01:41.402
+vamos examinar
+um exemplo motivador.
+
+00:01:41.432 --> 00:01:43.866
+Imagine que estamos trabalhando
+com uma tarefa episódica
+
+00:01:43.896 --> 00:01:47.715
+e que o PDM tenha três estados:
+X, Y e Z,
+
+00:01:48.107 --> 00:01:49.843
+em que Z é um estado final.
+
+00:01:50.649 --> 00:01:54.371
+Caso ajude ter uma compreensão
+visual do PDM,
+
+00:01:54.401 --> 00:01:58.066
+você pode encará-lo como um
+mundo congelante muito pequeno.
+
+00:01:58.808 --> 00:02:02.635
+Imagine que os estados S e Y
+correspondam a diferentes locais
+
+00:02:02.665 --> 00:02:04.395
+em uma floresta
+coberta de neve,
+
+00:02:04.425 --> 00:02:07.082
+com possíveis prazeres
+e terrores
+
+00:02:07.112 --> 00:02:11.018
+que correspondem a recompensas
+positivas ou negativas.
+
+00:02:11.515 --> 00:02:14.075
+Lembre que o estado Z
+é o estado final.
+
+00:02:14.105 --> 00:02:17.427
+Imagine que ele corresponda
+a uma casa na floresta.
+
+00:02:17.457 --> 00:02:20.490
+Se o agente chegar a esse estado,
+ele entra na casa
+
+00:02:20.520 --> 00:02:22.210
+e o episódio termina.
+
+00:02:22.240 --> 00:02:24.530
+Imagine que haja duas ações
+em potencial:
+
+00:02:24.560 --> 00:02:26.058
+para cima e para baixo,
+
+00:02:26.539 --> 00:02:28.931
+e, assim como o ambiente
+de um lago congelado,
+
+00:02:28.961 --> 00:02:30.587
+o mundo é escorregadio.
+
+00:02:30.922 --> 00:02:33.843
+Então, se o agente
+escolher descer,
+
+00:02:33.873 --> 00:02:37.354
+no instante de tempo seguinte
+há uma probabilidade positiva
+
+00:02:37.384 --> 00:02:40.842
+de que ele se mova para cima
+ou permaneça onde está.
+
+00:02:41.426 --> 00:02:44.194
+Da mesma forma,
+se ele decidir subir,
+
+00:02:44.224 --> 00:02:48.771
+quando ele tentar ir nessa direção,
+ele pode acabar descendo,
+
+00:02:48.801 --> 00:02:50.866
+ou, de novo, sequer se mover
+
+00:02:51.586 --> 00:02:54.234
+Digamos que a gente queira
+avaliar a política
+
+00:02:54.264 --> 00:02:57.466
+em que o agente escolha
+subir no estado X
+
+00:02:57.496 --> 00:02:59.754
+e descer no estado Y.
+
+00:03:00.339 --> 00:03:02.771
+Em direção a esse objetivo,
+o agente pode interagir
+
+00:03:02.801 --> 00:03:05.730
+com o ambiente seguindo
+essa política.
+
+00:03:05.760 --> 00:03:07.930
+Imagine que no início
+da interação
+
+00:03:07.960 --> 00:03:10.614
+o agente observe o estado X.
+
+00:03:10.644 --> 00:03:14.658
+Assim, seguindo a política,
+ele escolha subir.
+
+00:03:14.688 --> 00:03:17.625
+Como resultado, ele recebe
+uma recompensa de -2
+
+00:03:17.655 --> 00:03:19.850
+e um estado seguinte Y.
+
+00:03:19.880 --> 00:03:23.050
+De novo, seguindo a política,
+ele decide descer
+
+00:03:23.466 --> 00:03:26.491
+e, como resultado,
+recebe uma recompensa de 0
+
+00:03:26.521 --> 00:03:28.690
+e um estado seguinte Y.
+
+00:03:28.720 --> 00:03:32.323
+Neste ponto, ele segue a política
+e decide descer.
+
+00:03:32.353 --> 00:03:34.906
+Como resultado, ele recebe
+uma recompensa de 3
+
+00:03:34.936 --> 00:03:36.914
+e chega ao estado final Z,
+
+00:03:36.944 --> 00:03:38.794
+então a interação termina.
+
+00:03:38.824 --> 00:03:41.211
+Imagine que o agente
+interaja com o ambiente
+
+00:03:41.241 --> 00:03:43.714
+em dois episódios
+adicionais.
+
+00:03:44.144 --> 00:03:47.890
+Podemos usar esses episódios
+para estimar a função de valor.
+
+00:03:48.390 --> 00:03:50.864
+É claro que esses três episódios
+curtos não são
+
+00:03:50.898 --> 00:03:55.890
+interação o suficiente para o agente
+entender bem o ambiente,
+
+00:03:56.171 --> 00:03:58.882
+mas, por ora, vamos fingir
+que eles são o suficiente.
+
+00:03:59.288 --> 00:04:02.509
+Vamos começar com um estado.
+como o estado X.
+
+00:04:03.288 --> 00:04:06.225
+Nós observamos todas
+as ocorrências do estado X
+
+00:04:06.255 --> 00:04:08.474
+em todos os episódios.
+
+00:04:08.504 --> 00:04:11.810
+Depois, calculamos o retorno
+com desconto que seguiu
+
+00:04:11.840 --> 00:04:13.618
+depois desse estado
+ter aparecido.
+
+00:04:13.648 --> 00:04:17.882
+Digamos que a taxa de desconto
+seja 1, isto é, não vamos descontar.
+
+00:04:17.912 --> 00:04:20.290
+Assim, no caso
+do primeiro episódio,
+
+00:04:20.320 --> 00:04:24.538
+o retorno é -2 mais 0
+mais 3, ou 1.
+
+00:04:25.182 --> 00:04:30.786
+No terceiro episódio,
+o retorno é -3 mais 3, ou 0.
+
+00:04:31.585 --> 00:04:35.434
+O algoritmo de previsão Monte Carlo
+pega a média desses valores
+
+00:04:35.890 --> 00:04:39.890
+e a aplica como uma estimativa
+para o valor do estado X.
+
+00:04:40.602 --> 00:04:45.138
+Neste caso, o valor do estado X
+é estimado para ser 1/2.
+
+00:04:45.874 --> 00:04:48.857
+Esse algoritmo
+cria algumas intuições.
+
+00:04:48.887 --> 00:04:51.282
+Lembre que o valor
+de um estado é definido
+
+00:04:51.312 --> 00:04:54.914
+para ser o retorno esperado depois
+que esse estado foi observado.
+
+00:04:55.322 --> 00:04:58.874
+Então, o retorno médio testado
+pelo agente
+
+00:04:58.904 --> 00:05:00.778
+serve como uma boa
+estimativa.
+
+00:05:01.353 --> 00:05:04.738
+Vamos seguir o mesmo processo
+para avaliar o estado Y.
+
+00:05:05.122 --> 00:05:07.874
+Você vai notar que o estado Y
+aparece mais de uma vez
+
+00:05:07.904 --> 00:05:09.193
+em cada episódio,
+
+00:05:09.223 --> 00:05:12.266
+e não está claro
+o que fazer nesse caso.
+
+00:05:12.296 --> 00:05:16.505
+Para ajustar isso, temos que definir
+uma terminologia adicional.
+
+00:05:16.535 --> 00:05:20.418
+Nós definimos toda ocorrência
+de um estado em um episódio
+
+00:05:20.448 --> 00:05:22.578
+como uma visita
+a esse estado.
+
+00:05:22.608 --> 00:05:25.561
+Em qualquer evento que um estado
+tenha visitado mais de uma vez
+
+00:05:25.591 --> 00:05:28.441
+em um episódio,
+temos duas opções.
+
+00:05:28.471 --> 00:05:32.017
+Como primeira opção,
+poderíamos, para cada episódio,
+
+00:05:32.047 --> 00:05:35.281
+considerar apenas a primeira
+visita ao estado
+
+00:05:35.311 --> 00:05:37.682
+e fazer a média
+desses retornos.
+
+00:05:38.005 --> 00:05:42.509
+Nesse caso, o valor do estado Y
+seria estimado como a média
+
+00:05:42.543 --> 00:05:46.354
+de 3, 3 e 1, ou 7/3.
+
+00:05:46.895 --> 00:05:50.049
+Se escolhermos essa abordagem,
+dizemos que usamos
+
+00:05:50.079 --> 00:05:52.946
+o método MC first-visit.
+
+00:05:52.976 --> 00:05:55.626
+A outra opção é fazer a média
+do retorno
+
+00:05:55.656 --> 00:05:59.841
+seguindo todas as visitas
+ao estado Y em todos os episódios.
+
+00:06:00.233 --> 00:06:04.081
+Nesse caso, o valor do estado Y
+seria estimado
+
+00:06:04.111 --> 00:06:06.801
+como a média de todos
+esses números,
+
+00:06:07.178 --> 00:06:10.785
+que pode ser calculada
+como 14/7, ou 2.
+
+00:06:12.006 --> 00:06:15.857
+Você terá a chance de implementar
+esse algoritmo sozinho.
+
+00:06:15.887 --> 00:06:20.905
+Sinta-se livre para escolher
+a previsão MC first ou every-visit,
+
+00:06:20.935 --> 00:06:23.177
+ou, se preferir,
+implemente as duas.
+

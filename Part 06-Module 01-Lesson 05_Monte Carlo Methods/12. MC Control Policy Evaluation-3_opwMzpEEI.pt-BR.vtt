@@ -1,0 +1,131 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.365 --> 00:00:03.596
+Até agora, discutimos
+como podemos projetar o algoritmo
+
+00:00:03.626 --> 00:00:05.765
+para o controle Monte Carlo.
+
+00:00:05.795 --> 00:00:09.709
+Eu mencionei no último vídeo
+que ainda temos trabalho a fazer
+
+00:00:09.739 --> 00:00:11.373
+com o passo de avaliação.
+
+00:00:11.805 --> 00:00:14.011
+Para isso,
+falamos de um algoritmo
+
+00:00:14.041 --> 00:00:18.045
+que mantém uma estimativa da média
+de uma sequência de números.
+
+00:00:18.716 --> 00:00:23.244
+Lembre que esse algoritmo
+foca em um par de estado-ação,
+
+00:00:23.274 --> 00:00:26.253
+que foi visitado
+algum número de vezes.
+
+00:00:27.124 --> 00:00:30.195
+O algoritmo observa
+cada visita em ordem
+
+00:00:30.225 --> 00:00:33.164
+e atualiza sucessivamente
+a média µ.
+
+00:00:33.595 --> 00:00:36.660
+Então, esse algoritmo, atualmente,
+só pode atualizar
+
+00:00:36.690 --> 00:00:38.796
+a estimativa da função de valor
+correspondente
+
+00:00:38.826 --> 00:00:41.052
+a um único par
+de estado-ação.
+
+00:00:41.391 --> 00:00:43.187
+O nosso próximo estado
+é mudá-lo um pouco
+
+00:00:43.217 --> 00:00:45.852
+para que ele mantenha
+estimativas de valores
+
+00:00:45.882 --> 00:00:47.676
+para vários pares
+de estado-ação.
+
+00:00:48.341 --> 00:00:50.964
+Assim, vamos poder incluir
+esse algoritmo
+
+00:00:51.340 --> 00:00:54.260
+como um passo de avaliação
+novo e melhorado.
+
+00:00:54.940 --> 00:00:56.380
+Faremos o seguinte.
+
+00:00:56.410 --> 00:00:59.572
+O agente começa fazendo
+uma amostragem de um episódio
+
+00:00:59.602 --> 00:01:01.172
+do ambiente.
+
+00:01:01.202 --> 00:01:03.212
+Depois, para cada instante
+de tempo,
+
+00:01:03.612 --> 00:01:06.573
+observamos o par de estado-ação
+correspondente.
+
+00:01:06.913 --> 00:01:10.660
+Se for a primeira visita,
+calculamos o retorno correspondente.
+
+00:01:11.059 --> 00:01:13.828
+Depois, de acordo com o algoritmo
+que examinamos
+
+00:01:13.858 --> 00:01:15.435
+para manter a média
+contínua,
+
+00:01:15.465 --> 00:01:19.476
+atualizamos a estimativa
+correspondente do valor de ação.
+
+00:01:19.980 --> 00:01:23.150
+Assim, quando incluímos o passo
+ao nosso algoritmo
+
+00:01:23.183 --> 00:01:26.357
+para o controle Monte Carlo,
+temos que ter cuidado
+
+00:01:26.387 --> 00:01:30.652
+para também inicializar o número
+de vezes que visitamos cada par,
+
+00:01:30.682 --> 00:01:32.284
+e estamos quase lá.
+
+00:01:32.314 --> 00:01:35.373
+O seu agente jogador de blackjack
+em breve terá um método
+
+00:01:35.403 --> 00:01:38.167
+para melhorar a estratégia dele
+depois de cada partida.
+

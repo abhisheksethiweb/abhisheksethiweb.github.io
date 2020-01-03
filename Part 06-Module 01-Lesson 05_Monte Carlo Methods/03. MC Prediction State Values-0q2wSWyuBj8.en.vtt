@@ -1,0 +1,316 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:02.745
+Let's recall the problem at hand.
+
+00:00:02.745 --> 00:00:05.259
+We have an agent and environment.
+
+00:00:05.259 --> 00:00:08.009
+Time has broken into discrete time steps,
+
+00:00:08.009 --> 00:00:09.285
+and every time step,
+
+00:00:09.285 --> 00:00:12.269
+the agent receives a reward and state from
+
+00:00:12.269 --> 00:00:16.835
+the environment and chooses an action to perform in response.
+
+00:00:16.835 --> 00:00:22.605
+In this way, the interaction evolves as a sequence of states, actions, and rewards.
+
+00:00:22.605 --> 00:00:27.300
+In this lesson, we'll confine our attention to episodic tasks where the interaction
+
+00:00:27.300 --> 00:00:32.535
+stops at some time step T when the agent encounters a terminal state.
+
+00:00:32.534 --> 00:00:35.324
+And we refer to this sequence as an episode.
+
+00:00:35.325 --> 00:00:38.445
+For any episode, the agent's goal is to find
+
+00:00:38.445 --> 00:00:44.219
+the optimal policy in order to maximize expected cumulative reward.
+
+00:00:44.219 --> 00:00:48.450
+Towards this goal, we'll start with the prediction problem.
+
+00:00:48.450 --> 00:00:54.150
+Given the policy, how might the agent estimate the value function for that policy?
+
+00:00:54.149 --> 00:00:58.452
+Remember that the environment's dynamics are unknown to the agent.
+
+00:00:58.453 --> 00:01:03.638
+So it will have to estimate the value function by interacting with the environment.
+
+00:01:03.637 --> 00:01:05.828
+And in order to interact with the environment,
+
+00:01:05.828 --> 00:01:09.250
+the agent needs to have a policy in mind.
+
+00:01:09.250 --> 00:01:12.329
+Now, it's possible to have one policy that we'd like to
+
+00:01:12.329 --> 00:01:16.875
+evaluate and a different policy to interact with the environment.
+
+00:01:16.875 --> 00:01:21.352
+This is referred to as an off-policy method for the prediction problem.
+
+00:01:21.352 --> 00:01:26.129
+Off-policy methods entail some complexity that we'll save for later.
+
+00:01:26.129 --> 00:01:29.564
+Instead, we'll start with an on policy method,
+
+00:01:29.564 --> 00:01:33.375
+where the agent interacts with the environment by following a policy,
+
+00:01:33.375 --> 00:01:36.531
+whose value function it would like to calculate.
+
+00:01:36.531 --> 00:01:39.025
+Before we go into the details of the algorithm,
+
+00:01:39.025 --> 00:01:41.484
+let's look at a motivating example.
+
+00:01:41.484 --> 00:01:46.004
+Say we're working with an episodic task and the MDP has three states;
+
+00:01:46.004 --> 00:01:50.530
+X,Y, and Z, where Z has a terminal state.
+
+00:01:50.530 --> 00:01:54.254
+In case it helps to have a more visual understanding of the MDP,
+
+00:01:54.254 --> 00:01:56.234
+you can think of it as a very,
+
+00:01:56.234 --> 00:01:58.314
+very small frozen world.
+
+00:01:58.314 --> 00:02:04.679
+Say states X and Y correspond to different locations in a snowy forest with
+
+00:02:04.680 --> 00:02:11.465
+possible delights and terrors corresponding to possibly positive or negative reward.
+
+00:02:11.465 --> 00:02:17.159
+Remember state Z is the terminal state and say it corresponds to a house in the forest.
+
+00:02:17.159 --> 00:02:19.365
+If the agent lands at the state,
+
+00:02:19.365 --> 00:02:22.159
+it enters the house and the episode ends.
+
+00:02:22.159 --> 00:02:24.525
+Say there are two potential actions,
+
+00:02:24.525 --> 00:02:28.913
+up and down and similar to the frozen lake environment,
+
+00:02:28.913 --> 00:02:30.855
+the world is slippery.
+
+00:02:30.854 --> 00:02:33.659
+So if the agent chooses action down,
+
+00:02:33.659 --> 00:02:35.384
+at the next time step,
+
+00:02:35.384 --> 00:02:41.084
+there is some positive probability that it instead moves up or stays where it is.
+
+00:02:41.085 --> 00:02:46.680
+Likewise, if it decides to go up then when it tries to move in that direction,
+
+00:02:46.680 --> 00:02:51.000
+it might instead go down or again not move at all.
+
+00:02:51.000 --> 00:02:55.530
+And say we'd like to evaluate the policy where the agent chooses
+
+00:02:55.530 --> 00:03:00.328
+action up in state X and action down in State Y.
+
+00:03:00.328 --> 00:03:02.175
+Then towards this goal the agent could
+
+00:03:02.175 --> 00:03:05.535
+interact with the environment by following this policy.
+
+00:03:05.534 --> 00:03:07.935
+Say at the beginning of the interaction,
+
+00:03:07.935 --> 00:03:10.545
+the agent observes state X,
+
+00:03:10.544 --> 00:03:12.524
+then following the policy,
+
+00:03:12.525 --> 00:03:15.390
+it chooses action up, as a result.
+
+00:03:15.389 --> 00:03:19.500
+It receives a reward of negative two and the next state of Y.
+
+00:03:19.500 --> 00:03:21.900
+Again, following the policy,
+
+00:03:21.900 --> 00:03:23.520
+it chooses to go down,
+
+00:03:23.520 --> 00:03:24.774
+and as a result,
+
+00:03:24.774 --> 00:03:28.689
+gets a reward of zero and next state of Y.
+
+00:03:28.689 --> 00:03:32.699
+At this point, it follows the policy and chooses action down.
+
+00:03:32.699 --> 00:03:36.889
+As a result, it gets a reward of three and reaches the terminal stage Z,
+
+00:03:36.889 --> 00:03:39.059
+so the interaction ends.
+
+00:03:39.060 --> 00:03:44.090
+Say the agent interacts with the environment in two additional episodes.
+
+00:03:44.090 --> 00:03:48.485
+Then we can use these episodes to estimate the value function.
+
+00:03:48.485 --> 00:03:51.420
+Of course these three short episodes aren't really
+
+00:03:51.419 --> 00:03:56.024
+enough interaction for the agent to get a great understanding of the environment,
+
+00:03:56.025 --> 00:03:58.890
+but for now, let's assume that they're sufficient.
+
+00:03:58.889 --> 00:04:03.309
+We'll begin with one state, say state X.
+
+00:04:03.310 --> 00:04:08.599
+Then we look at all of the occurrences of state X and all of the episodes.
+
+00:04:08.599 --> 00:04:13.269
+Then we just calculate the discounted return that followed after that state appeared.
+
+00:04:13.270 --> 00:04:17.699
+Say the discount is one so in other words, we won't discount.
+
+00:04:17.699 --> 00:04:20.235
+Then in the case of the first episode,
+
+00:04:20.235 --> 00:04:22.206
+the return is negative two,
+
+00:04:22.206 --> 00:04:24.790
+plus zero, plus three or one.
+
+00:04:24.790 --> 00:04:26.955
+And in the third episode,
+
+00:04:26.954 --> 00:04:31.349
+the return is negative three plus three or zero.
+
+00:04:31.350 --> 00:04:34.770
+The Monte Carlo prediction algorithm takes the average of
+
+00:04:34.769 --> 00:04:40.544
+these values and plugs it in as an estimate for the value of state X.
+
+00:04:40.545 --> 00:04:45.824
+In this case, the value of state X is estimated to be one half.
+
+00:04:45.824 --> 00:04:48.629
+This algorithm makes some intuitive sense.
+
+00:04:48.629 --> 00:04:51.709
+Remember that the value of a state is defined to be
+
+00:04:51.709 --> 00:04:54.959
+the expected return after that state is observed.
+
+00:04:54.959 --> 00:05:01.114
+And so the average return that was experienced by the agent makes for a good estimate.
+
+00:05:01.115 --> 00:05:04.930
+We'll follow the same process to evaluate state Y.
+
+00:05:04.930 --> 00:05:08.025
+And you'll notice that state Y appears more than once in
+
+00:05:08.024 --> 00:05:12.529
+each episode and it's not quite clear what to do in this case.
+
+00:05:12.529 --> 00:05:16.274
+To address this, we'll need to define some additional terminology.
+
+00:05:16.274 --> 00:05:22.185
+We define every occurrence of a state in an episode as a visit to that state.
+
+00:05:22.185 --> 00:05:24.720
+And in the event where a state is visited,
+
+00:05:24.720 --> 00:05:28.245
+more than once in an episode we have two options.
+
+00:05:28.245 --> 00:05:30.030
+As a first option,
+
+00:05:30.029 --> 00:05:33.344
+we could for each episode only consider
+
+00:05:33.345 --> 00:05:38.070
+the first visit to the state and average those returns.
+
+00:05:38.069 --> 00:05:42.995
+In this case, the value of state Y would be estimated as the average of three,
+
+00:05:42.995 --> 00:05:47.069
+three and one or seven third's.
+
+00:05:47.069 --> 00:05:48.490
+If we choose this approach,
+
+00:05:48.490 --> 00:05:52.875
+then we say that we are using the first visit MC method.
+
+00:05:52.875 --> 00:05:55.524
+The other option is to average the return
+
+00:05:55.524 --> 00:06:00.154
+following all visits to state Y in all episodes.
+
+00:06:00.154 --> 00:06:03.299
+In this case, the value of State Y would
+
+00:06:03.300 --> 00:06:06.884
+be estimated as the average of all of these numbers,
+
+00:06:06.884 --> 00:06:11.295
+which can be calculated as fourteen sevenths or two.
+
+00:06:11.295 --> 00:06:16.035
+You'll soon have the chance to implement this algorithm for yourself.
+
+00:06:16.035 --> 00:06:20.939
+Feel free to choose either first visit or every visit MC prediction,
+
+00:06:20.939 --> 00:06:23.060
+or if you like, implement both.
+

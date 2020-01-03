@@ -1,0 +1,365 @@
+<!-- udacimak v1.2.0 -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Summary</title>
+  <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../assets/css/plyr.css">
+  <link rel="stylesheet" href="../assets/css/katex.min.css">
+  <link rel="stylesheet" href="../assets/css/jquery.mCustomScrollbar.min.css">
+  <link rel="stylesheet" href="../assets/css/styles.css">
+  <link rel="shortcut icon" type="image/png" href="../assets/img/udacimak.png" />
+</head>
+
+<body>
+  <div class="wrapper">
+    <nav id="sidebar">
+  <div class="sidebar-header">
+    <h3>Monte Carlo Methods</h3>
+  </div>
+
+  <ul class="sidebar-list list-unstyled CTAs">
+    <li>
+      <a href="../index.html" class="article">Back to Home</a>
+    </li>
+  </ul>
+
+  <ul class="sidebar-list list-unstyled components">
+    <li class="">
+      <a href="01. Introduction.html">01. Introduction</a>
+    </li>
+    <li class="">
+      <a href="02. OpenAI Gym BlackjackEnv.html">02. OpenAI Gym: BlackjackEnv</a>
+    </li>
+    <li class="">
+      <a href="03. MC Prediction State Values.html">03. MC Prediction: State Values</a>
+    </li>
+    <li class="">
+      <a href="04. Implementation.html">04. Implementation</a>
+    </li>
+    <li class="">
+      <a href="05. Mini Project MC (Parts 0 and 1).html">05. Mini Project: MC (Parts 0 and 1)</a>
+    </li>
+    <li class="">
+      <a href="06. MC Prediction Action Values.html">06. MC Prediction: Action Values</a>
+    </li>
+    <li class="">
+      <a href="07. Implementation.html">07. Implementation</a>
+    </li>
+    <li class="">
+      <a href="08. Mini Project MC (Part 2).html">08. Mini Project: MC (Part 2)</a>
+    </li>
+    <li class="">
+      <a href="09. Generalized Policy Iteration.html">09. Generalized Policy Iteration</a>
+    </li>
+    <li class="">
+      <a href="10. MC Control Incremental Mean.html">10. MC Control: Incremental Mean</a>
+    </li>
+    <li class="">
+      <a href="11. Quiz Incremental Mean.html">11. Quiz: Incremental Mean</a>
+    </li>
+    <li class="">
+      <a href="12. MC Control Policy Evaluation.html">12. MC Control: Policy Evaluation</a>
+    </li>
+    <li class="">
+      <a href="13. MC Control Policy Improvement.html">13. MC Control: Policy Improvement</a>
+    </li>
+    <li class="">
+      <a href="14. Quiz Epsilon-Greedy Policies.html">14. Quiz: Epsilon-Greedy Policies</a>
+    </li>
+    <li class="">
+      <a href="15. Exploration vs. Exploitation.html">15. Exploration vs. Exploitation</a>
+    </li>
+    <li class="">
+      <a href="16. Implementation.html">16. Implementation</a>
+    </li>
+    <li class="">
+      <a href="17. Mini Project MC (Part 3).html">17. Mini Project: MC (Part 3)</a>
+    </li>
+    <li class="">
+      <a href="18. MC Control Constant-alpha, Part 1.html">18. MC Control: Constant-alpha, Part 1</a>
+    </li>
+    <li class="">
+      <a href="19. MC Control Constant-alpha, Part 2.html">19. MC Control: Constant-alpha, Part 2</a>
+    </li>
+    <li class="">
+      <a href="20. Implementation.html">20. Implementation</a>
+    </li>
+    <li class="">
+      <a href="21. Mini Project MC (Part 4).html">21. Mini Project: MC (Part 4)</a>
+    </li>
+    <li class="">
+      <a href="22. Summary.html">22. Summary</a>
+    </li>
+  </ul>
+
+  <ul class="sidebar-list list-unstyled CTAs">
+    <li>
+      <a href="../index.html" class="article">Back to Home</a>
+    </li>
+  </ul>
+</nav>
+
+    <div id="content">
+      <header class="container-fluild header">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <div class="align-items-middle">
+                <button type="button" id="sidebarCollapse" class="btn btn-toggle-sidebar">
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                </button>
+
+                <h1 style="display: inline-block">22. Summary</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main class="container">
+        <div class="row">
+          <div class="col-12">
+            <div class="ud-atom">
+  <h3></h3>
+  <div>
+  <h1 id="summary">Summary</h1>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <figure class="figure">
+    <img src="img/screen-shot-2017-10-05-at-3.55.40-pm.png" alt="Optimal policy and state-value function in blackjack (Sutton and Barto, 2017)" class="img img-fluid">
+    <figcaption class="figure-caption">
+      <p>Optimal policy and state-value function in blackjack (Sutton and Barto, 2017)</p>
+    </figcaption>
+  </figure>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <h2 id="-mc-prediction-state-values">## MC Prediction: State Values</h2>
+<ul>
+<li>Algorithms that solve the <strong>prediction problem</strong> determine the value function <span class="mathquill ud-math">v_\pi</span> (or <span class="mathquill ud-math">q_\pi</span>) corresponding to a policy <span class="mathquill ud-math">\pi</span>.</li>
+<li>Methods that evaluate a policy <span class="mathquill ud-math">\pi</span> from interaction with the environment fall under one of two categories:<ul>
+<li><strong>On-policy</strong> methods have the agent interact with the environment by following the same policy <span class="mathquill ud-math">\pi</span> that it seeks to evaluate (or improve).</li>
+<li><strong>Off-policy</strong> methods have the agent interact with the environment by following a policy <span class="mathquill ud-math">b</span> (where <span class="mathquill ud-math">b\neq\pi</span>) that is different from the policy that it seeks to evaluate (or improve).</li></ul></li>
+<li>Each occurrence of state <span class="mathquill ud-math">s\in\mathcal{S}</span> in an episode is called a <strong>visit to <span class="mathquill ud-math">s</span></strong>.</li>
+<li>There are two types of Monte Carlo (MC) prediction methods (for estimating <span class="mathquill ud-math">v_\pi</span>):<ul>
+<li><strong>First-visit MC</strong> estimates <span class="mathquill ud-math">v_\pi(s)</span> as the average of the returns following <em>only first</em> visits to <span class="mathquill ud-math">s</span> (that is, it ignores returns that are associated to later visits).</li>
+<li><strong>Every-visit MC</strong> estimates <span class="mathquill ud-math">v_\pi(s)</span> as the average of the returns following <em>all</em> visits to <span class="mathquill ud-math">s</span>.</li></ul></li>
+</ul>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <figure class="figure">
+    <img src="img/mc-pred-state.png" alt="" class="img img-fluid">
+    <figcaption class="figure-caption">
+      
+    </figcaption>
+  </figure>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <h2 id="-mc-prediction-action-values">## MC Prediction: Action Values</h2>
+<ul>
+<li>Each occurrence of the state-action pair <span class="mathquill ud-math">s,a</span> (<span class="mathquill ud-math">s\in\mathcal{S},a\in\mathcal{A}</span>) in an episode is called a <strong>visit to <span class="mathquill ud-math">s,a</span></strong>.</li>
+<li>There are two types of MC prediction methods (for estimating <span class="mathquill ud-math">q_\pi</span>):<ul>
+<li><strong>First-visit MC</strong> estimates <span class="mathquill ud-math">q_\pi(s,a)</span> as the average of the returns following <em>only first</em> visits to <span class="mathquill ud-math">s,a</span> (that is, it ignores returns that are associated to later visits).</li>
+<li><strong>Every-visit MC</strong> estimates <span class="mathquill ud-math">q_\pi(s,a)</span> as the average of the returns following <em>all</em> visits to <span class="mathquill ud-math">s,a</span>.</li></ul></li>
+</ul>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <figure class="figure">
+    <img src="img/mc-pred-action.png" alt="" class="img img-fluid">
+    <figcaption class="figure-caption">
+      
+    </figcaption>
+  </figure>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <h2 id="-generalized-policy-iteration">## Generalized Policy Iteration</h2>
+<ul>
+<li>Algorithms designed to solve the <strong>control problem</strong> determine the optimal policy <span class="mathquill ud-math">\pi_*</span> from interaction with the environment.</li>
+<li><strong>Generalized policy iteration (GPI)</strong> refers to the general method of using alternating rounds of policy evaluation and improvement in the search for an optimal policy,  All of the reinforcement learning algorithms we examine in this course can be classified as GPI.</li>
+</ul>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <h2 id="-mc-control-incremental-mean">## MC Control: Incremental Mean</h2>
+<ul>
+<li>(In this concept, we derived an algorithm that keeps a running average of a sequence of numbers.)</li>
+</ul>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <h2 id="-mc-control-policy-evaluation">## MC Control: Policy Evaluation</h2>
+<ul>
+<li>(In this concept, we amended the policy evaluation step to update the value function after every episode of interaction.)</li>
+</ul>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <h2 id="-mc-control-policy-improvement">## MC Control: Policy Improvement</h2>
+<ul>
+<li>A policy is <strong>greedy</strong> with respect to an action-value function estimate <span class="mathquill ud-math">Q</span> if for every state <span class="mathquill ud-math">s\in\mathcal{S}</span>, it is guaranteed to select an action <span class="mathquill ud-math">a\in\mathcal{A}(s)</span> such that <span class="mathquill ud-math">a = \arg\max_{a\in\mathcal{A}(s)}Q(s,a)</span>.  (It is common to refer to the selected action as the <strong>greedy action</strong>.)</li>
+<li>A policy is <strong><span class="mathquill ud-math">\epsilon</span>-greedy</strong> with respect to an action-value function estimate <span class="mathquill ud-math">Q</span> if for every state <span class="mathquill ud-math">s\in\mathcal{S}</span>, <ul>
+<li>with probability <span class="mathquill ud-math">1-\epsilon</span>, the agent selects the greedy action, and</li>
+<li>with probability <span class="mathquill ud-math">\epsilon</span>, the agent selects an action (uniformly) at random.</li></ul></li>
+</ul>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <h2 id="-exploration-vs-exploitation">## Exploration vs. Exploitation</h2>
+<ul>
+<li>All reinforcement learning agents face the <strong>Exploration-Exploitation Dilemma</strong>, where they must find a way to balance the drive to behave optimally based on their current knowledge (<strong>exploitation</strong>) and the need to acquire knowledge to attain better judgment (<strong>exploration</strong>).</li>
+<li>In order for MC control to converge to the optimal policy, the <strong>Greedy in the Limit with Infinite Exploration (GLIE)</strong> conditions must be met:<ul>
+<li>every state-action pair <span class="mathquill ud-math">s, a</span> (for all <span class="mathquill ud-math">s\in\mathcal{S}</span> and <span class="mathquill ud-math">a\in\mathcal{A}(s)</span>) is visited infinitely many times, and </li>
+<li>the policy converges to a policy that is greedy with respect to the action-value function estimate <span class="mathquill ud-math">Q</span>.</li></ul></li>
+</ul>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <figure class="figure">
+    <img src="img/mc-control-glie.png" alt="" class="img img-fluid">
+    <figcaption class="figure-caption">
+      
+    </figcaption>
+  </figure>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <h2 id="-mc-control-constant-alpha">## MC Control: Constant-alpha</h2>
+<ul>
+<li>(In this concept, we derived the algorithm for <strong>constant-<span class="mathquill ud-math">\alpha</span> MC control</strong>, which uses a constant step-size parameter <span class="mathquill ud-math">\alpha</span>.)</li>
+<li>The step-size parameter <span class="mathquill ud-math">\alpha</span> must satisfy <span class="mathquill ud-math">0 < \alpha \leq 1</span>.  Higher values of <span class="mathquill ud-math">\alpha</span> will result in faster learning, but values of <span class="mathquill ud-math">\alpha</span> that are too high can prevent MC control from converging to <span class="mathquill ud-math">\pi_*</span>.</li>
+</ul>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <figure class="figure">
+    <img src="img/mc-control-constant-a.png" alt="" class="img img-fluid">
+    <figcaption class="figure-caption">
+      
+    </figcaption>
+  </figure>
+</div>
+
+</div>
+<div class="divider"></div>
+          </div>
+        </div>
+      </main>
+
+      <footer class="footer">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <p class="text-center">
+                <a href="https://github.com/udacimak/udacimak#readme" target="_blank">udacimak v1.2.0</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </div>
+
+
+  <script src="../assets/js/jquery-3.3.1.min.js"></script>
+  <script src="../assets/js/plyr.polyfilled.min.js"></script>
+  <script src="../assets/js/bootstrap.min.js"></script>
+  <script src="../assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+  <script src="../assets/js/katex.min.js"></script>
+  <script>
+    // Initialize Plyr video players
+    const players = Array.from(document.querySelectorAll('video')).map(p => new Plyr(p));
+
+    // render math equations
+    let elMath = document.getElementsByClassName('mathquill');
+    for (let i = 0, len = elMath.length; i < len; i += 1) {
+      const el = elMath[i];
+
+      katex.render(el.textContent, el, {
+        throwOnError: false
+      });
+    }
+
+    // this hack will make sure Bootstrap tabs work when using Handlebars
+    if ($('#question-tabs').length && $('#user-answer-tabs').length) {
+      $("#question-tabs a.nav-link").on('click', function () {
+        $("#question-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+      $("#user-answer-tabs a.nav-link").on('click', function () {
+        $("#user-answer-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    } else {
+      $("a.nav-link").on('click', function () {
+        $(".tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    }
+
+    // side bar events
+    $(document).ready(function () {
+      $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+      });
+
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar, #content').toggleClass('active');
+        $('.collapse.in').toggleClass('in');
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+      });
+    });
+  </script>
+</body>
+
+</html>

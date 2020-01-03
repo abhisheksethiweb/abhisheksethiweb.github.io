@@ -1,0 +1,55 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.327 --> 00:00:02.327
+Até agora,
+você aprendeu tudo
+
+00:00:02.362 --> 00:00:04.484
+sobre a estrutura
+da aprendizagem por reforço.
+
+00:00:04.519 --> 00:00:06.740
+Você aprendeu
+sobre agentes e ambientes,
+
+00:00:06.775 --> 00:00:09.047
+e como especificamos PDMs.
+
+00:00:09.423 --> 00:00:11.999
+Na aula anterior,
+vimos uma simplificação
+
+00:00:12.034 --> 00:00:14.677
+de um problema
+de aprendizagem por reforço.
+
+00:00:14.712 --> 00:00:16.599
+Na configuração
+da Programação Dinâmica,
+
+00:00:16.634 --> 00:00:20.575
+o agente já tinha total conhecimento
+da dinâmica do ambiente.
+
+00:00:21.375 --> 00:00:24.006
+Mas nesta aula,
+e em todas as aulas restantes,
+
+00:00:24.107 --> 00:00:26.320
+vamos considerar o problema
+de aprendizagem por reforço
+
+00:00:26.355 --> 00:00:29.055
+em que não é dado ao agente
+total conhecimento
+
+00:00:29.090 --> 00:00:30.821
+sobre como o ambiente
+funciona,
+
+00:00:30.856 --> 00:00:33.723
+e, em vez disso, ele precisará
+aprender através da interação.
+

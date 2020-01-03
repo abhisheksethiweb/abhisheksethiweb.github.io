@@ -1,0 +1,208 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:02.730
+I hope you enjoyed implementing the first part of
+
+00:00:02.730 --> 00:00:08.109
+the mini project which used a Monte Carlo algorithm to address the prediction problem.
+
+00:00:08.109 --> 00:00:10.244
+In the dynamic programming case,
+
+00:00:10.244 --> 00:00:15.484
+our next step was to use the State value function to obtain an action value function.
+
+00:00:15.484 --> 00:00:21.175
+Remember, that we used this equation to convert the state values to the action values.
+
+00:00:21.175 --> 00:00:24.789
+And what do you think? Can we follow the same procedure here?
+
+00:00:24.789 --> 00:00:27.594
+Unfortunately, no.
+
+00:00:27.594 --> 00:00:29.599
+Remember that this underlined part of
+
+00:00:29.600 --> 00:00:33.755
+the equation encodes the one step dynamics of the environment.
+
+00:00:33.755 --> 00:00:37.790
+This was known to the agent in the dynamic programming setting but in the
+
+00:00:37.789 --> 00:00:42.094
+reinforcement learning setting the agent does not know these dynamics so,
+
+00:00:42.094 --> 00:00:45.350
+we cannot directly apply this equation as before.
+
+00:00:45.350 --> 00:00:47.550
+Instead, to get the action values,
+
+00:00:47.549 --> 00:00:51.519
+we will just make a small modification to our prediction algorithm.
+
+00:00:51.520 --> 00:00:55.950
+For clarity, let's return to the simple example from the previous video.
+
+00:00:55.950 --> 00:00:59.400
+As before, say the agent interacts with the environment
+
+00:00:59.399 --> 00:01:03.350
+at each step choosing the action dictated by the policy.
+
+00:01:03.350 --> 00:01:07.980
+These were the three episodes that resulted from that interaction.
+
+00:01:07.980 --> 00:01:11.905
+But now, towards getting the action values.
+
+00:01:11.905 --> 00:01:15.445
+Instead of looking at the visits to each state,
+
+00:01:15.444 --> 00:01:21.409
+we'll look at the visits to each possible state-action pair then we'll compute
+
+00:01:21.409 --> 00:01:28.024
+the return that followed from each state action pair and average them as before.
+
+00:01:28.025 --> 00:01:30.670
+In this case, the action value corresponding to
+
+00:01:30.670 --> 00:01:33.957
+State X and action up is estimated to be one half.
+
+00:01:33.956 --> 00:01:39.294
+And when we follow the same process to evaluate State Y and action down,
+
+00:01:39.295 --> 00:01:43.344
+you'll notice that the pair appears more than once in each episode.
+
+00:01:43.344 --> 00:01:47.620
+To address this, we'll need to again define some terminology.
+
+00:01:47.620 --> 00:01:49.520
+We define every occurrence of
+
+00:01:49.519 --> 00:01:52.682
+the state action pair in an episode as a visit to that pair.
+
+00:01:52.682 --> 00:01:55.689
+And if a pair is visited more than once in
+
+00:01:55.689 --> 00:01:59.109
+an episode we have our choice of either only taking into
+
+00:01:59.109 --> 00:02:03.250
+account the first-visit to the pair or using every-visit to
+
+00:02:03.250 --> 00:02:07.780
+calculate the action value estimate and you'll notice that each option returns
+
+00:02:07.780 --> 00:02:10.659
+a different value where the first-visit method returns
+
+00:02:10.659 --> 00:02:14.109
+seven-thirds and the every-visit MC method returns
+
+00:02:14.110 --> 00:02:17.530
+two but if the agent gets more experience by collecting
+
+00:02:17.530 --> 00:02:21.384
+more episodes these values will converge to the same number.
+
+00:02:21.384 --> 00:02:26.375
+So for now, let's just assume that we implement the first-visit MC method.
+
+00:02:26.375 --> 00:02:29.155
+Okay and it is almost as simple as that.
+
+00:02:29.155 --> 00:02:32.430
+There's just one small problem that needs to be addressed.
+
+00:02:32.430 --> 00:02:35.765
+To see this, let's recall the policy that we are evaluating.
+
+00:02:35.764 --> 00:02:39.819
+It is a deterministic policy where the agent always selects action
+
+00:02:39.819 --> 00:02:44.379
+up when in State X and action down when in State Y,
+
+00:02:44.379 --> 00:02:48.549
+in particular, we'll never be able to estimate the action value corresponding
+
+00:02:48.550 --> 00:02:53.110
+to State X and action down or State Y and action up.
+
+00:02:53.110 --> 00:02:57.370
+This is because under this policy the agent will never pick action down when in
+
+00:02:57.370 --> 00:03:01.990
+State X and it will never choose action up when in State Y.
+
+00:03:01.990 --> 00:03:04.330
+Remember that our algorithm can only estimate
+
+00:03:04.330 --> 00:03:08.905
+the action values corresponding to state-action pairs that it actually visits.
+
+00:03:08.905 --> 00:03:12.590
+So no matter how long the agent interacts with the environment,
+
+00:03:12.590 --> 00:03:16.265
+the action value function estimate will always be incomplete.
+
+00:03:16.264 --> 00:03:20.349
+Thankfully, there is a quick solution to this problem that involves making sure that we
+
+00:03:20.349 --> 00:03:24.799
+do not try to evaluate the action value function for a deterministic policy.
+
+00:03:24.800 --> 00:03:28.990
+Instead, we'll only work with stochastic policies where from each state,
+
+00:03:28.990 --> 00:03:32.885
+each action has some non-zero probability of being visited.
+
+00:03:32.884 --> 00:03:36.033
+For instance, if the agent encounters State X,
+
+00:03:36.033 --> 00:03:40.780
+say it selects action up with 90 percent probability and otherwise,
+
+00:03:40.780 --> 00:03:44.159
+selects action down and if it encounters State Y,
+
+00:03:44.159 --> 00:03:49.520
+it chooses action down with 80 percent probability and otherwise, selects action up.
+
+00:03:49.520 --> 00:03:51.205
+For policies of this type,
+
+00:03:51.205 --> 00:03:56.550
+each state-action pair is eventually visited by the agent and furthermore,
+
+00:03:56.550 --> 00:03:59.020
+in the limit as the number of episodes goes to
+
+00:03:59.020 --> 00:04:03.290
+infinity so does the number of visits to each state-action pair.
+
+00:04:03.289 --> 00:04:05.620
+And that guarantees that we'll be able to
+
+00:04:05.620 --> 00:04:08.455
+calculate a nice action value function estimate for
+
+00:04:08.455 --> 00:04:10.630
+each state-action pair as long as
+
+00:04:10.629 --> 00:04:14.384
+the agent interacts with the environment in enough episodes.
+
+00:04:14.384 --> 00:04:17.000
+You'll have the chance to test this out yourself soon.
+

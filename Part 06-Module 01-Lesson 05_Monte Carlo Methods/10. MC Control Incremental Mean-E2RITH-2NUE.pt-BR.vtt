@@ -1,0 +1,300 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.429 --> 00:00:02.391
+O nosso algoritmo
+de controle Monte Carlo
+
+00:00:02.421 --> 00:00:05.679
+vai se inspirar na iteração
+de política generalizada.
+
+00:00:06.343 --> 00:00:08.990
+Vamos começar com o passo
+de avaliação de política.
+
+00:00:09.020 --> 00:00:11.950
+De certa forma, já falamos
+sobre como conseguir isso,
+
+00:00:11.980 --> 00:00:15.286
+e você já o implementou
+na parte 2 do miniprojeto.
+
+00:00:16.590 --> 00:00:19.887
+Em sua implementação,
+o agente deve jogar blackjack
+
+00:00:19.917 --> 00:00:22.871
+cerca de 5 mil vezes
+para ter uma boa estimativa
+
+00:00:22.901 --> 00:00:24.247
+da função de valor.
+
+00:00:24.895 --> 00:00:26.854
+No contexto da iteração
+de política,
+
+00:00:27.271 --> 00:00:30.279
+isso parece tempo demais gasto
+avaliando uma política
+
+00:00:30.309 --> 00:00:32.191
+antes de tentar melhorá-la.
+
+00:00:32.221 --> 00:00:35.247
+Talvez faça mais sentido
+melhorar a política
+
+00:00:35.277 --> 00:00:38.166
+depois de toda partida individual
+de blackjack.
+
+00:00:38.638 --> 00:00:43.054
+Nesse caso, podemos inicializar
+o valor de cada par de estado-ação
+
+00:00:43.084 --> 00:00:45.854
+em 0,
+e ter uma política inicial.
+
+00:00:46.486 --> 00:00:49.471
+Depois, podemos usar essa política
+para gerar um episódio.
+
+00:00:50.102 --> 00:00:53.176
+Quando esse episódio terminar,
+podemos atualizar a função de valor.
+
+00:00:53.845 --> 00:00:57.430
+Depois, a função de valor pode ser
+ser usada para melhorar a política.
+
+00:00:58.110 --> 00:01:01.695
+Essa política nova pode ser usada
+para gerar o episódio seguinte
+
+00:01:01.735 --> 00:01:02.873
+a assim por diante.
+
+00:01:03.262 --> 00:01:05.463
+Para fazer isso bem,
+temos que mudar o nosso algoritmo
+
+00:01:05.493 --> 00:01:07.319
+para avaliação de política.
+
+00:01:07.750 --> 00:01:11.070
+Vamos começar explorando o nosso
+algoritmo mais profundamente.
+
+00:01:11.517 --> 00:01:14.631
+Lembre que começamos
+executando vários episódios.
+
+00:01:15.062 --> 00:01:17.654
+Depois, examinamos
+alguns pares de estado-ação.
+
+00:01:18.110 --> 00:01:21.454
+Calculamos o retorno
+que seguiu em cada caso
+
+00:01:21.887 --> 00:01:23.454
+e fazemos a média.
+
+00:01:24.062 --> 00:01:26.390
+Em um caso mais geral,
+imagine que visitamos
+
+00:01:26.420 --> 00:01:29.790
+esse par de estado-ação
+algum número n vezes.
+
+00:01:30.471 --> 00:01:32.622
+Representamos os retornos
+correspondentes
+
+00:01:32.652 --> 00:01:35.646
+como x1, x2 até xn.
+
+00:01:35.676 --> 00:01:38.398
+Assim, a estimativa da nossa
+função de valor é calculada
+
+00:01:38.431 --> 00:01:40.253
+como a média
+desses valores.
+
+00:01:40.934 --> 00:01:42.886
+Representamos isso como µn,
+
+00:01:42.916 --> 00:01:47.014
+em que n nos ajuda a lembrar
+que visitamos o par n vezes.
+
+00:01:47.471 --> 00:01:52.309
+Certo, em vez de calcular essa média
+no fim de todos os episódios,
+
+00:01:52.741 --> 00:01:56.190
+talvez o que possamos fazer
+seja atualizar iterativamente
+
+00:01:56.220 --> 00:01:58.006
+a estimativa depois
+de cada visita.
+
+00:01:58.036 --> 00:02:01.758
+Na primeira vez que visitarmos,
+qualquer que tenha sido o retorno,
+
+00:02:01.788 --> 00:02:03.382
+ele será a nossa estimativa.
+
+00:02:03.412 --> 00:02:06.806
+Na segunda vez que visitarmos,
+podemos atualizar a estimativa
+
+00:02:06.836 --> 00:02:09.286
+para que ela seja a média
+de x1 e x2.
+
+00:02:09.677 --> 00:02:12.261
+E para um número arbitrário
+de visitas k,
+
+00:02:12.291 --> 00:02:17.287
+fazemos a média
+de todos os valores x1 até xk.
+
+00:02:17.694 --> 00:02:20.407
+A nossa estimativa final
+será exatamente
+
+00:02:20.445 --> 00:02:21.830
+aquilo
+com o que terminaríamos
+
+00:02:21.860 --> 00:02:23.933
+se esperássemos para calcular
+qualquer coisa
+
+00:02:23.963 --> 00:02:26.181
+até que todos episódios
+tivessem terminado.
+
+00:02:26.211 --> 00:02:30.022
+Certo, vamos ver se conseguimos
+descobrir como chegar a isso
+
+00:02:30.052 --> 00:02:31.982
+de uma forma matemática
+eficiente.
+
+00:02:32.526 --> 00:02:35.749
+Para isso, teremos
+que fazer alguns cálculos.
+
+00:02:36.102 --> 00:02:38.814
+Vamos começar relembrando
+como calculamos a estimativa
+
+00:02:38.844 --> 00:02:40.110
+para o retorno.
+
+00:02:40.140 --> 00:02:44.726
+Em particular, a kº estimativa
+é a média dos retornos que seguiram
+
+00:02:44.756 --> 00:02:46.326
+depois das k visitas.
+
+00:02:46.734 --> 00:02:49.238
+Depois, vamos notar que podemos
+reescrever a soma
+
+00:02:49.268 --> 00:02:52.453
+dos primeiros k retornos
+como a soma dos primeiros
+
+00:02:52.483 --> 00:02:56.022
+k-1 retornos
+mais o kº retorno.
+
+00:02:56.605 --> 00:03:01.573
+Depois disso, podemos reexpressar
+a soma dos primeiros k-1 termos
+
+00:03:01.603 --> 00:03:05.645
+como a k-1 média vezes k-1.
+
+00:03:06.133 --> 00:03:08.702
+É uma simples reorganização
+dos termos
+
+00:03:08.732 --> 00:03:10.318
+para obter a última linha.
+
+00:03:10.746 --> 00:03:13.622
+Essa equação expressa
+a kª média
+
+00:03:13.652 --> 00:03:16.389
+nos termos da primeira
+k-1 média,
+
+00:03:16.419 --> 00:03:17.949
+e do kº retorno.
+
+00:03:18.643 --> 00:03:21.517
+Nós vamos usar essa fórmula
+para projetar um algoritmo
+
+00:03:21.547 --> 00:03:23.997
+que execute uma média contínua
+dos retornos.
+
+00:03:25.525 --> 00:03:28.726
+Começamos inicializando
+a média em 0.
+
+00:03:29.141 --> 00:03:31.654
+Também temos que monitorar
+o número de retornos
+
+00:03:31.684 --> 00:03:34.350
+que já incluímos na média.
+
+00:03:34.789 --> 00:03:37.790
+Então, no início,
+vamos iniciá-la em 0.
+
+00:03:38.509 --> 00:03:40.389
+Depois, entramos
+em um ciclo intenso
+
+00:03:40.419 --> 00:03:43.446
+em que a cada ponto,
+aumentamos k em 1,
+
+00:03:44.038 --> 00:03:47.948
+e usamos o retorno mais recente
+x de k para atualizar a média.
+
+00:03:48.604 --> 00:03:49.902
+É isso.
+
+00:03:49.932 --> 00:03:54.149
+Embora ainda não esteja claro
+como usar isso no contexto
+
+00:03:54.179 --> 00:03:57.717
+do controle Monte Carlo,
+esse algoritmo vai se mostrar
+
+00:03:57.747 --> 00:03:59.102
+muito útil em breve.
+

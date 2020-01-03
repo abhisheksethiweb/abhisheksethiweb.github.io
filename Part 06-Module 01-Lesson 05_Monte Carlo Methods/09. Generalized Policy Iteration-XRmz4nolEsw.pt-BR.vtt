@@ -1,0 +1,131 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.364 --> 00:00:02.472
+Agora que exploramos
+o problema de previsão,
+
+00:00:02.502 --> 00:00:05.168
+podemos avançar
+para o problema de controle.
+
+00:00:05.782 --> 00:00:09.175
+Como um agente consegue aprender
+uma política ótima
+
+00:00:09.205 --> 00:00:11.239
+através da interação
+com o ambiente?
+
+00:00:11.516 --> 00:00:14.472
+É emocionante termos chegado
+em um ponto do curso
+
+00:00:14.502 --> 00:00:16.367
+em que podemos
+responder essa pergunta.
+
+00:00:16.816 --> 00:00:19.792
+Para entender o algoritmo
+para o controle Monte Carlo,
+
+00:00:20.115 --> 00:00:22.751
+será útil rever
+o que fizemos
+
+00:00:22.781 --> 00:00:24.680
+na configuração
+da Programação Dinâmica.
+
+00:00:24.988 --> 00:00:27.415
+Nessa configuração,
+o primeiro algoritmo de controle
+
+00:00:27.445 --> 00:00:29.847
+que examinamos
+foi a iteração de política.
+
+00:00:30.287 --> 00:00:34.176
+Ele procedia como uma sequência
+de passos de avaliação e melhorias,
+
+00:00:34.206 --> 00:00:36.591
+em que o passo de avaliação
+podia ser executado
+
+00:00:36.621 --> 00:00:38.423
+próximo de conversões.
+
+00:00:38.759 --> 00:00:41.655
+A iteração de política truncada
+era um pouco diferente,
+
+00:00:41.685 --> 00:00:45.416
+em que em vez de forçar o passo
+de avaliação a convergir,
+
+00:00:45.446 --> 00:00:50.134
+realizamos só um número fixo
+de varreduras pelo espaço de estado.
+
+00:00:50.596 --> 00:00:53.383
+Na iteração de valor,
+fizemos só uma varredura
+
+00:00:53.413 --> 00:00:57.415
+no passo de avaliação antes
+de avançar para o passo de melhoria.
+
+00:00:57.912 --> 00:01:00.440
+Embora esses algoritmos
+tenham algumas diferenças,
+
+00:01:00.470 --> 00:01:03.742
+será útil focar no que eles
+têm em comum.
+
+00:01:04.731 --> 00:01:07.679
+Vamos usar o termo
+"iteração de política generalizada"
+
+00:01:07.709 --> 00:01:10.071
+para nos referir
+a esse processo geral,
+
+00:01:10.390 --> 00:01:13.015
+sem impor nenhum limite
+de quantas varreduras
+
+00:01:13.045 --> 00:01:15.047
+de iterações de políticas
+existem,
+
+00:01:15.077 --> 00:01:18.023
+ou o quão próximas elas podem
+rodar de convergências.
+
+00:01:18.655 --> 00:01:20.503
+E, embora tenhamos
+desenvolvido essas ideias
+
+00:01:20.533 --> 00:01:22.480
+na configuração
+da Programação Dinâmica,
+
+00:01:22.797 --> 00:01:24.703
+todos os métodos de aprendizagem
+por reforço
+
+00:01:24.733 --> 00:01:28.007
+que vamos examinar neste curso
+se encaixam nesse formato.
+
+00:01:28.037 --> 00:01:29.816
+No próximo vídeo,
+vamos usar essas ideias
+
+00:01:29.846 --> 00:01:32.561
+para especificar um algoritmo
+para o controle Monte Carlo.
+

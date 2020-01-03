@@ -1,0 +1,256 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:03.120
+Now that we have a nice method for policy evaluation,
+
+00:00:03.120 --> 00:00:06.095
+we'll turn our attention to policy improvement.
+
+00:00:06.094 --> 00:00:08.355
+So given an action-value function,
+
+00:00:08.355 --> 00:00:11.015
+how may we use it to propose a policy.
+
+00:00:11.015 --> 00:00:14.935
+Is it possible to just copy the algorithm from the dynamic programming case?
+
+00:00:14.935 --> 00:00:17.190
+Maybe we could take the action-value function and
+
+00:00:17.190 --> 00:00:19.825
+construct the corresponding greedy policy.
+
+00:00:19.824 --> 00:00:24.054
+In other words, for each state we just pick the action with the highest value.
+
+00:00:24.054 --> 00:00:26.939
+And what do you think, is that approach valid here?
+
+00:00:26.940 --> 00:00:28.855
+The answer is, kind of.
+
+00:00:28.855 --> 00:00:30.780
+If the plan is to combine it with
+
+00:00:30.780 --> 00:00:34.498
+the policy evaluation algorithm that you just learned about,
+
+00:00:34.497 --> 00:00:36.794
+we'll need to make some slight amendments.
+
+00:00:36.795 --> 00:00:39.450
+To see this, let's look at an example.
+
+00:00:39.450 --> 00:00:42.815
+Say you're an agent and there are two doors in front of you.
+
+00:00:42.814 --> 00:00:45.314
+You need to decide which one has more value.
+
+00:00:45.314 --> 00:00:49.924
+Let's see how you might determine this using the ideas behind the Monte Carlo method.
+
+00:00:49.924 --> 00:00:53.969
+At the beginning, you have no reason to favor any door over the other.
+
+00:00:53.969 --> 00:00:58.359
+So let's say you initialize your estimate for the value of each door to zero.
+
+00:00:58.359 --> 00:01:00.884
+And in order to figure out which door to open,
+
+00:01:00.884 --> 00:01:02.114
+let's say you flip a coin,
+
+00:01:02.115 --> 00:01:04.500
+it comes up tails, and so you open door B.
+
+00:01:04.500 --> 00:01:07.459
+And when you do that you receive a reward of zero.
+
+00:01:07.459 --> 00:01:09.455
+And let's say, for simplicity,
+
+00:01:09.456 --> 00:01:12.435
+that an episode finishes after a single door is opened.
+
+00:01:12.435 --> 00:01:13.875
+And so in other words,
+
+00:01:13.875 --> 00:01:15.420
+after opening door B,
+
+00:01:15.420 --> 00:01:17.745
+you received a return of zero.
+
+00:01:17.745 --> 00:01:20.160
+So that doesn't change the estimate of
+
+00:01:20.159 --> 00:01:24.429
+the value function and so it makes sense to just pick a door randomly again.
+
+00:01:24.430 --> 00:01:25.750
+And so you flip a coin,
+
+00:01:25.750 --> 00:01:27.105
+It comes up heads this time,
+
+00:01:27.105 --> 00:01:28.576
+and so you open door A.
+
+00:01:28.576 --> 00:01:29.810
+When you do this,
+
+00:01:29.810 --> 00:01:31.799
+you get a reward of one.
+
+00:01:31.799 --> 00:01:36.250
+This of course updates the estimate for the value of door A to one.
+
+00:01:36.250 --> 00:01:39.915
+So now if we act greedily with respect to the value function,
+
+00:01:39.915 --> 00:01:41.925
+then we open door A again.
+
+00:01:41.924 --> 00:01:44.799
+Say this time, we get a reward of three.
+
+00:01:44.799 --> 00:01:47.709
+This updates the value of door A to two.
+
+00:01:47.709 --> 00:01:49.589
+And so at the next point in time,
+
+00:01:49.590 --> 00:01:52.409
+the greedy policy says to pick door A again.
+
+00:01:52.409 --> 00:01:55.019
+And say every time we do that we get
+
+00:01:55.019 --> 00:01:59.265
+some positive reward and it's always either one or three.
+
+00:01:59.265 --> 00:02:02.555
+So for all time, we're opening the same door.
+
+00:02:02.555 --> 00:02:04.088
+There's a big problem with this,
+
+00:02:04.087 --> 00:02:08.530
+because we never really got a chance to truly explore what's behind the second door.
+
+00:02:08.530 --> 00:02:13.770
+For instance, consider the case that the mechanism behind door A is what you'd expect.
+
+00:02:13.770 --> 00:02:16.515
+It yields a reward of one or three,
+
+00:02:16.514 --> 00:02:23.484
+where both are equally likely but the mechanism behind door B gives a reward of 0 or 100.
+
+00:02:23.485 --> 00:02:26.190
+Then that's information that you would have liked to
+
+00:02:26.189 --> 00:02:29.849
+discover but following the greedy policy has prevented you.
+
+00:02:29.849 --> 00:02:33.030
+So the point is, that when we got to a situation early in
+
+00:02:33.030 --> 00:02:37.800
+our investigation where door A seemed more favorable than door B,
+
+00:02:37.800 --> 00:02:40.945
+we really needed to spend more time making sure of that,
+
+00:02:40.944 --> 00:02:43.814
+because our early perceptions were incorrect.
+
+00:02:43.814 --> 00:02:46.960
+So instead of constructing that greedy policy,
+
+00:02:46.960 --> 00:02:51.210
+a better policy would be a stochastic one that picked door A with
+
+00:02:51.210 --> 00:02:55.890
+95% probability and door B with 5% probability let's say.
+
+00:02:55.889 --> 00:02:58.804
+Then that's still pretty close to the greedy policy.
+
+00:02:58.805 --> 00:03:00.990
+So we're still acting pretty optimally.
+
+00:03:00.990 --> 00:03:03.300
+But there's the added value that if we continue to
+
+00:03:03.300 --> 00:03:06.390
+select door B with some small probability,
+
+00:03:06.389 --> 00:03:10.349
+then at some point we're going to see that return of 100.
+
+00:03:10.349 --> 00:03:15.693
+This example motivates how we'll define the Monte Carlo version of policy improvement.
+
+00:03:15.693 --> 00:03:18.915
+Instead of always constructing a greedy policy,
+
+00:03:18.915 --> 00:03:20.900
+what we'll do instead is construct
+
+00:03:20.900 --> 00:03:25.075
+a stochastic policy that's most likely to pick the greedy action,
+
+00:03:25.074 --> 00:03:30.774
+but with some small but non-zero probability picks one of the non-greedy actions instead.
+
+00:03:30.775 --> 00:03:35.955
+In this case, you will set some small positive number epsilon where the larger it is,
+
+00:03:35.955 --> 00:03:39.504
+the more likely you are to pick one of the non-greedy actions,
+
+00:03:39.503 --> 00:03:42.679
+and we call this an epsilon-greedy policy.
+
+00:03:42.680 --> 00:03:46.155
+Epsilon must be a number between zero and one.
+
+00:03:46.155 --> 00:03:49.155
+Then with probability one minus epsilon,
+
+00:03:49.155 --> 00:03:51.719
+the agent selects the greedy action,
+
+00:03:51.719 --> 00:03:53.935
+and with probability epsilon,
+
+00:03:53.935 --> 00:03:56.145
+it selects any action randomly.
+
+00:03:56.145 --> 00:03:59.460
+Then as long as epsilon is set to a small number,
+
+00:03:59.460 --> 00:04:04.920
+we have a method for constructing a policy that's really close to the greedy policy with
+
+00:04:04.919 --> 00:04:07.139
+the added benefit that it doesn't prevent
+
+00:04:07.139 --> 00:04:11.099
+the agent from continuing to explore the range of possibilities.
+
+00:04:11.099 --> 00:04:16.139
+So in summary, our algorithm for a Monte Carlo control will look like this,
+
+00:04:16.139 --> 00:04:18.060
+where I plugged in the fact that
+
+00:04:18.060 --> 00:04:22.439
+the improvements step will obtain the Epsilon-greedy policy.
+
