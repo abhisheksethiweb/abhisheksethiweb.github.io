@@ -1,0 +1,259 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:01.215
+Earlier in this lesson,
+
+00:00:01.215 --> 00:00:03.450
+you were introduced to an iterative method for
+
+00:00:03.450 --> 00:00:07.425
+determining the value function corresponding to a policy.
+
+00:00:07.424 --> 00:00:10.394
+In this video, we'll discuss the algorithm in more detail.
+
+00:00:10.394 --> 00:00:13.605
+The algorithm is called iterative policy evaluation,
+
+00:00:13.605 --> 00:00:15.960
+and it assumes that the agent already has
+
+00:00:15.960 --> 00:00:20.940
+full and perfect knowledge of the MDP that characterizes the environment.
+
+00:00:20.940 --> 00:00:23.220
+Remember that this algorithm was motivated by
+
+00:00:23.219 --> 00:00:26.914
+the Bellman expectation equation for the state-value function.
+
+00:00:26.914 --> 00:00:29.875
+And this equation is really a system of equations
+
+00:00:29.875 --> 00:00:33.164
+since we have one equation for each environment state.
+
+00:00:33.164 --> 00:00:38.994
+Each equation relates the value of a state to the values of its successor states.
+
+00:00:38.994 --> 00:00:41.625
+Theoretically, since we have a system of equations
+
+00:00:41.625 --> 00:00:44.234
+with one equation for each unknown quantity,
+
+00:00:44.234 --> 00:00:46.354
+we could solve this system.
+
+00:00:46.354 --> 00:00:49.959
+But there's an easier way where instead of solving the system exactly,
+
+00:00:49.960 --> 00:00:53.340
+we'll construct an iterative algorithm where each step gets us
+
+00:00:53.340 --> 00:00:57.435
+closer and closer to solving this system of equations.
+
+00:00:57.435 --> 00:01:02.355
+Specifically, our iterative algorithm will adapt this Bellman equation,
+
+00:01:02.354 --> 00:01:04.579
+so it can be used as an update rule.
+
+00:01:04.579 --> 00:01:09.420
+Here, the capital V denotes the current guess for the policy's value function.
+
+00:01:09.420 --> 00:01:11.460
+Note that I've only changed two things about
+
+00:01:11.459 --> 00:01:15.149
+the Bellman equation which I've underlined in yellow here.
+
+00:01:15.150 --> 00:01:21.109
+So the algorithm begins with an initial guess for the value function of the policy.
+
+00:01:21.109 --> 00:01:25.150
+What's typically done is to set the initial guess for each state to zero.
+
+00:01:25.150 --> 00:01:27.990
+Okay, and so there's no way that's actually
+
+00:01:27.989 --> 00:01:31.884
+the true value function but we just need to start somewhere.
+
+00:01:31.885 --> 00:01:34.200
+Then we'll loop over the states and use
+
+00:01:34.200 --> 00:01:37.844
+the update rule to improve our guess for the state-value function.
+
+00:01:37.844 --> 00:01:42.164
+And what's nice is that as long as a few technical conditions are satisfied,
+
+00:01:42.165 --> 00:01:47.600
+this algorithm is guaranteed to converge to the value function for the policy.
+
+00:01:47.599 --> 00:01:50.159
+Now we can only attain true convergence and the limit of
+
+00:01:50.159 --> 00:01:52.909
+running this algorithm an infinite number of times,
+
+00:01:52.909 --> 00:01:55.200
+and that's not feasible in practice.
+
+00:01:55.200 --> 00:01:58.719
+So, we'll have to stop short of true convergence.
+
+00:01:58.719 --> 00:02:03.655
+And the question is, how can we tell when we've gotten close enough?
+
+00:02:03.655 --> 00:02:06.150
+Well in practice, when you implement the algorithm,
+
+00:02:06.150 --> 00:02:09.289
+you'll notice that the first few times the update step is applied,
+
+00:02:09.289 --> 00:02:12.044
+there are big changes to the value function.
+
+00:02:12.044 --> 00:02:14.864
+But then eventually, at a later time point,
+
+00:02:14.865 --> 00:02:17.905
+you'll notice that updates are hardly noticeable.
+
+00:02:17.905 --> 00:02:20.400
+And once we get to that point where applying
+
+00:02:20.400 --> 00:02:24.200
+the update rule doesn't change the estimate of the value function much,
+
+00:02:24.199 --> 00:02:26.939
+that's a strong indication that our algorithm has gotten
+
+00:02:26.939 --> 00:02:30.104
+reasonably close to converging to the true value function.
+
+00:02:30.104 --> 00:02:32.234
+And so inspired by this fact,
+
+00:02:32.235 --> 00:02:34.980
+we can design a stopping criterion that terminates
+
+00:02:34.979 --> 00:02:38.759
+the algorithm whenever we've done a complete pass over all the states,
+
+00:02:38.759 --> 00:02:41.459
+and none of the values has changed much.
+
+00:02:41.460 --> 00:02:45.390
+To do this, we'll amend the pseudo code where the first step is for
+
+00:02:45.389 --> 00:02:49.944
+you to set a very small positive number theta.
+
+00:02:49.944 --> 00:02:55.989
+Next, ask before you initialize the first guess for the value function to be all zeroes.
+
+00:02:55.990 --> 00:02:59.460
+Then you enter the iterative loop where each step you apply
+
+00:02:59.460 --> 00:03:01.560
+the Bellman update and check to see how
+
+00:03:01.560 --> 00:03:04.949
+much the values for each of the states has changed.
+
+00:03:04.949 --> 00:03:07.259
+If the maximum change over all states is
+
+00:03:07.259 --> 00:03:10.169
+less than that small number of theta that you set,
+
+00:03:10.169 --> 00:03:12.239
+then you stop the algorithm and say that
+
+00:03:12.240 --> 00:03:15.254
+your estimate for the value function is good enough.
+
+00:03:15.254 --> 00:03:20.805
+And that's it. But now if that updates step feels suspicious to you, I don't blame you.
+
+00:03:20.805 --> 00:03:23.469
+And your instincts to want to prove are correct.
+
+00:03:23.469 --> 00:03:27.740
+It's not at all intuitive that this algorithm should work the way it does.
+
+00:03:27.740 --> 00:03:31.950
+But here's the main idea behind what that update step is doing.
+
+00:03:31.949 --> 00:03:37.079
+Remember that we loop over states and apply the update to one state at a time.
+
+00:03:37.080 --> 00:03:39.195
+And from each state,
+
+00:03:39.194 --> 00:03:41.849
+the agent could choose any of a number of
+
+00:03:41.849 --> 00:03:47.284
+possible actions that bring it to any of a number of potential next states.
+
+00:03:47.284 --> 00:03:50.460
+And the Bellman equation helps us relate the value of
+
+00:03:50.460 --> 00:03:55.615
+this parent state to the values of all of its possible successor states.
+
+00:03:55.615 --> 00:03:59.835
+Now what we do is, look at the estimated value function for the parent state,
+
+00:03:59.835 --> 00:04:03.305
+along with the values of the successor states.
+
+00:04:03.305 --> 00:04:06.050
+And if we plug in those values to the Bellman equation,
+
+00:04:06.050 --> 00:04:07.840
+and it's not satisfied,
+
+00:04:07.840 --> 00:04:10.590
+what we'll do is, we'll change the value of
+
+00:04:10.590 --> 00:04:14.550
+the parent state so that the Bellman equation is satisfied.
+
+00:04:14.550 --> 00:04:17.685
+Then, we'll do the same for the second state and so on.
+
+00:04:17.685 --> 00:04:20.610
+And what's important to note is that if at some point,
+
+00:04:20.610 --> 00:04:23.790
+we go to apply this update rule and there's no change in
+
+00:04:23.790 --> 00:04:27.500
+any of the values of any of the states, then that means,
+
+00:04:27.500 --> 00:04:31.350
+we have a value function that perfectly satisfies the Bellman equation,
+
+00:04:31.350 --> 00:04:36.715
+and the only value function that does that is the true value function of the policy.
+
+00:04:36.714 --> 00:04:39.994
+We won't go deeper into this in the video, but as always,
+
+00:04:39.995 --> 00:04:41.490
+if you'd like to discuss further,
+
+00:04:41.490 --> 00:04:46.220
+you're encouraged to ask questions in the office hours or post in the slack channels.
+
+00:04:46.220 --> 00:04:50.000
+But now, it's time for you to implement this algorithm yourself.
+

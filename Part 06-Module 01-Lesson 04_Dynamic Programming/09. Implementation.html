@@ -1,0 +1,307 @@
+<!-- udacimak v1.2.0 -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Implementation</title>
+  <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../assets/css/plyr.css">
+  <link rel="stylesheet" href="../assets/css/katex.min.css">
+  <link rel="stylesheet" href="../assets/css/jquery.mCustomScrollbar.min.css">
+  <link rel="stylesheet" href="../assets/css/styles.css">
+  <link rel="shortcut icon" type="image/png" href="../assets/img/udacimak.png" />
+</head>
+
+<body>
+  <div class="wrapper">
+    <nav id="sidebar">
+  <div class="sidebar-header">
+    <h3>Dynamic Programming</h3>
+  </div>
+
+  <ul class="sidebar-list list-unstyled CTAs">
+    <li>
+      <a href="../index.html" class="article">Back to Home</a>
+    </li>
+  </ul>
+
+  <ul class="sidebar-list list-unstyled components">
+    <li class="">
+      <a href="01. Introduction.html">01. Introduction</a>
+    </li>
+    <li class="">
+      <a href="02. OpenAI Gym FrozenLakeEnv.html">02. OpenAI Gym: FrozenLakeEnv</a>
+    </li>
+    <li class="">
+      <a href="03. Your Workspace.html">03. Your Workspace</a>
+    </li>
+    <li class="">
+      <a href="04. Another Gridworld Example.html">04. Another Gridworld Example</a>
+    </li>
+    <li class="">
+      <a href="05. An Iterative Method, Part 1.html">05. An Iterative Method, Part 1</a>
+    </li>
+    <li class="">
+      <a href="06. An Iterative Method, Part 2.html">06. An Iterative Method, Part 2</a>
+    </li>
+    <li class="">
+      <a href="07. Quiz An Iterative Method.html">07. Quiz: An Iterative Method</a>
+    </li>
+    <li class="">
+      <a href="08. Iterative Policy Evaluation.html">08. Iterative Policy Evaluation</a>
+    </li>
+    <li class="">
+      <a href="09. Implementation.html">09. Implementation</a>
+    </li>
+    <li class="">
+      <a href="10. Mini Project DP (Parts 0 and 1).html">10. Mini Project: DP (Parts 0 and 1)</a>
+    </li>
+    <li class="">
+      <a href="11. Action Values.html">11. Action Values</a>
+    </li>
+    <li class="">
+      <a href="12. Implementation.html">12. Implementation</a>
+    </li>
+    <li class="">
+      <a href="13. Mini Project DP (Part 2).html">13. Mini Project: DP (Part 2)</a>
+    </li>
+    <li class="">
+      <a href="14. Policy Improvement.html">14. Policy Improvement</a>
+    </li>
+    <li class="">
+      <a href="15. Implementation.html">15. Implementation</a>
+    </li>
+    <li class="">
+      <a href="16. Mini Project DP (Part 3).html">16. Mini Project: DP (Part 3)</a>
+    </li>
+    <li class="">
+      <a href="17. Policy Iteration.html">17. Policy Iteration</a>
+    </li>
+    <li class="">
+      <a href="18. Implementation.html">18. Implementation</a>
+    </li>
+    <li class="">
+      <a href="19. Mini Project DP (Part 4).html">19. Mini Project: DP (Part 4)</a>
+    </li>
+    <li class="">
+      <a href="20. Truncated Policy Iteration.html">20. Truncated Policy Iteration</a>
+    </li>
+    <li class="">
+      <a href="21. Implementation.html">21. Implementation</a>
+    </li>
+    <li class="">
+      <a href="22. Mini Project DP (Part 5).html">22. Mini Project: DP (Part 5)</a>
+    </li>
+    <li class="">
+      <a href="23. Value Iteration.html">23. Value Iteration</a>
+    </li>
+    <li class="">
+      <a href="24. Implementation.html">24. Implementation</a>
+    </li>
+    <li class="">
+      <a href="25. Mini Project DP (Part 6).html">25. Mini Project: DP (Part 6)</a>
+    </li>
+    <li class="">
+      <a href="26. Check Your Understanding.html">26. Check Your Understanding</a>
+    </li>
+    <li class="">
+      <a href="27. Summary.html">27. Summary</a>
+    </li>
+  </ul>
+
+  <ul class="sidebar-list list-unstyled CTAs">
+    <li>
+      <a href="../index.html" class="article">Back to Home</a>
+    </li>
+  </ul>
+</nav>
+
+    <div id="content">
+      <header class="container-fluild header">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <div class="align-items-middle">
+                <button type="button" id="sidebarCollapse" class="btn btn-toggle-sidebar">
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                </button>
+
+                <h1 style="display: inline-block">09. Implementation</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main class="container">
+        <div class="row">
+          <div class="col-12">
+            <div class="ud-atom">
+  <h3></h3>
+  <div>
+  <h1 id="implementation-iterative-policy-evaluation">Implementation: Iterative Policy Evaluation</h1>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <p>The pseudocode for <strong>iterative policy evaluation</strong> can be found below.</p>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <figure class="figure">
+    <img src="img/policy-eval.png" alt="" class="img img-fluid">
+    <figcaption class="figure-caption">
+      
+    </figcaption>
+  </figure>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <p>Note that policy evaluation is guaranteed to converge to the state-value function <span class="mathquill ud-math">v_\pi</span> corresponding to a policy <span class="mathquill ud-math">\pi</span>, as long as <span class="mathquill ud-math">v_\pi(s)</span> is finite for each state <span class="mathquill ud-math">s\in\mathcal{S}</span>.  For a finite Markov decision process (MDP), this is guaranteed as long as either:</p>
+<ul>
+<li><span class="mathquill ud-math">\gamma < 1</span>, or</li>
+<li>if the agent starts in any state <span class="mathquill ud-math">s\in\mathcal{S}</span>, it is guaranteed to eventually reach a terminal state if it follows policy <span class="mathquill ud-math">\pi</span>.</li>
+</ul>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <p>Please use the next concept to complete <strong>Part 0: Explore FrozenLakeEnv</strong> and <strong>Part 1: Iterative Policy Evaluation</strong> of <code>Dynamic_Programming.ipynb</code>.  Remember to save your work!  </p>
+<p>If you'd like to reference the pseudocode while working on the notebook, you are encouraged to open <a href="https://github.com/udacity/rl-cheatsheet/blob/master/cheatsheet.pdf" target="_blank">this sheet</a> in a new window.  </p>
+<p>Feel free to check your solution by looking at the corresponding sections in <code>Dynamic_Programming_Solution.ipynb</code>. (<em>In order to access this file, you need only click on "jupyter" in the top left corner to return to the Notebook dashboard.</em>)</p>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <figure class="figure">
+    <img src="img/screen-shot-2017-12-17-at-9.41.03-am.png" alt="To find &#x60;Dynamic_Programming_Solution.ipynb&#x60;, return to the Notebook dashboard." class="img img-fluid">
+    <figcaption class="figure-caption">
+      <p>To find <code>Dynamic_Programming_Solution.ipynb</code>, return to the Notebook dashboard.</p>
+    </figcaption>
+  </figure>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <h3 id="optional-additional-note-on-the-convergence-conditions">(Optional) Additional Note on the Convergence Conditions</h3>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <p>To see intuitively <em>why</em> the conditions for convergence make sense, consider the case that neither of the conditions are satisfied, so:</p>
+<ul>
+<li><span class="mathquill ud-math">\gamma = 1</span>, and</li>
+<li>there is some state <span class="mathquill ud-math">s\in\mathcal{S}</span> where if the agent starts in that state, it will never encounter a terminal state if it follows policy <span class="mathquill ud-math">\pi</span>.</li>
+</ul>
+<p>In this case, </p>
+<ul>
+<li>reward is not discounted, and </li>
+<li>an episode may never finish.  </li>
+</ul>
+<p>Then, it is possible that iterative policy evaluation will not converge, and this is because the state-value function may not be well-defined!  To see this, note that in this case, calculating a state value could involve adding up an infinite number of (expected) rewards, where the sum may not <a href="https://en.wikipedia.org/wiki/Convergent_series" target="_blank">converge</a>.</p>
+<p>In case it would help to see a concrete example, consider an MDP with:</p>
+<ul>
+<li>two states <span class="mathquill ud-math">s_1</span> and <span class="mathquill ud-math">s_2</span>, where <span class="mathquill ud-math">s_2</span> is a terminal state  </li>
+<li>one action <span class="mathquill ud-math">a</span> (<em>Note: An MDP with only one action can also be referred to as a <a href="https://goo.gl/BNi4qu" target="_blank">Markov Reward Process (MRP)</a>.</em>)</li>
+<li><span class="mathquill ud-math">p(s_1,1|s_1, a) = 1</span></li>
+</ul>
+<p>In this case, say the agent's policy <span class="mathquill ud-math">\pi</span> is to "select" the only action that's available, so <span class="mathquill ud-math">\pi(s_1) = a</span>.  Say <span class="mathquill ud-math">\gamma = 1</span>.  According to the one-step dynamics, if the agent starts in state <span class="mathquill ud-math">s_1</span>, it will stay in that state forever and never encounter the terminal state <span class="mathquill ud-math">s_2</span>.</p>
+<p>In this case, <strong><span class="mathquill ud-math">v_\pi(s_1)</span> is not well-defined</strong>.  To see this, remember that <span class="mathquill ud-math">v_\pi(s_1)</span> is the (expected) return after visiting state <span class="mathquill ud-math">s_1</span>, and we have that </p>
+<p><span class="mathquill ud-math">v_\pi(s_1) = 1 + 1 + 1 + 1 + …</span> </p>
+<p>which <a href="https://en.wikipedia.org/wiki/Divergent_series" target="_blank">diverges</a> to infinity.  (Take the time now to convince yourself that if either of the two convergence conditions were satisfied in this example, then <span class="mathquill ud-math">v_\pi(s_1)</span> would be well-defined.  As a <strong>very optional</strong> next step, if you want to verify this mathematically, you may find it useful to review <a href="https://en.wikipedia.org/wiki/Geometric_series" target="_blank">geometric series</a> and the <a href="https://en.wikipedia.org/wiki/Negative_binomial_distribution" target="_blank">negative binomial distribution</a>.)</p>
+</div>
+
+</div>
+<div class="divider"></div>
+          </div>
+        </div>
+      </main>
+
+      <footer class="footer">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <p class="text-center">
+                <a href="https://github.com/udacimak/udacimak#readme" target="_blank">udacimak v1.2.0</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </div>
+
+
+  <script src="../assets/js/jquery-3.3.1.min.js"></script>
+  <script src="../assets/js/plyr.polyfilled.min.js"></script>
+  <script src="../assets/js/bootstrap.min.js"></script>
+  <script src="../assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+  <script src="../assets/js/katex.min.js"></script>
+  <script>
+    // Initialize Plyr video players
+    const players = Array.from(document.querySelectorAll('video')).map(p => new Plyr(p));
+
+    // render math equations
+    let elMath = document.getElementsByClassName('mathquill');
+    for (let i = 0, len = elMath.length; i < len; i += 1) {
+      const el = elMath[i];
+
+      katex.render(el.textContent, el, {
+        throwOnError: false
+      });
+    }
+
+    // this hack will make sure Bootstrap tabs work when using Handlebars
+    if ($('#question-tabs').length && $('#user-answer-tabs').length) {
+      $("#question-tabs a.nav-link").on('click', function () {
+        $("#question-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+      $("#user-answer-tabs a.nav-link").on('click', function () {
+        $("#user-answer-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    } else {
+      $("a.nav-link").on('click', function () {
+        $(".tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    }
+
+    // side bar events
+    $(document).ready(function () {
+      $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+      });
+
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar, #content').toggleClass('active');
+        $('.collapse.in').toggleClass('in');
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+      });
+    });
+  </script>
+</body>
+
+</html>

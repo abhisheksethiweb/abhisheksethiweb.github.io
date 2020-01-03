@@ -1,0 +1,121 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:01.919
+Congratulations!
+
+00:00:01.919 --> 00:00:05.915
+You've implemented your first algorithm that can solve an MDP.
+
+00:00:05.915 --> 00:00:07.740
+For the remainder of this lesson,
+
+00:00:07.740 --> 00:00:10.679
+we'll look at some variations of this algorithm,
+
+00:00:10.679 --> 00:00:15.750
+and you'll have the chance to implement all of them to compare their performance.
+
+00:00:15.750 --> 00:00:19.495
+We'll begin by looking at this policy evaluation step.
+
+00:00:19.495 --> 00:00:21.750
+Remember that policy evaluation is
+
+00:00:21.750 --> 00:00:26.370
+an iterative algorithm where we rely on a Bellman update rule.
+
+00:00:26.370 --> 00:00:29.760
+The number of iterations needed for a single round of
+
+00:00:29.760 --> 00:00:35.789
+policy evaluation is decided according to some small positive number theta that you set.
+
+00:00:35.789 --> 00:00:38.689
+And the closer you wanted your approximate state by
+
+00:00:38.689 --> 00:00:41.244
+your function to the true value function,
+
+00:00:41.244 --> 00:00:45.134
+the smaller you had to make this hyperparameter theta.
+
+00:00:45.134 --> 00:00:46.754
+But now the question is,
+
+00:00:46.755 --> 00:00:49.480
+can we sacrifice some accuracy here?
+
+00:00:49.479 --> 00:00:54.329
+After all, who's to say how long this policy evaluation algorithm should take.
+
+00:00:54.329 --> 00:00:56.948
+Smaller theta means it will take longer,
+
+00:00:56.948 --> 00:01:00.899
+but exactly how much longer will depend on your MDP.
+
+00:01:00.899 --> 00:01:05.129
+Maybe, instead of terminating the algorithm with this stopping criterion,
+
+00:01:05.129 --> 00:01:09.524
+we can give an absolute number of iterations that were willing to calculate.
+
+00:01:09.525 --> 00:01:13.260
+So we could modify this policy evaluation step to
+
+00:01:13.260 --> 00:01:16.920
+instead terminate after updating the values of each of the states,
+
+00:01:16.920 --> 00:01:21.750
+maybe once, twice, or some positive integer number of times.
+
+00:01:21.750 --> 00:01:25.814
+The idea is that if our goal is to get an optimal policy,
+
+00:01:25.814 --> 00:01:30.929
+we aren't prevented from doing that by having a value function that's a little bit off,
+
+00:01:30.930 --> 00:01:34.320
+so we don't need to wait for a really good estimate of
+
+00:01:34.319 --> 00:01:38.439
+the value function before calculating an improved policy.
+
+00:01:38.439 --> 00:01:44.650
+For instance, say this is the optimal actual value function for a hypothetical MDP.
+
+00:01:44.650 --> 00:01:50.189
+One optimal policy then can be obtained by looking at each state separately,
+
+00:01:50.189 --> 00:01:53.670
+and then picking the action that maximizes the function.
+
+00:01:53.670 --> 00:01:57.210
+But say we don't have this optimal action value function,
+
+00:01:57.209 --> 00:02:01.250
+say instead we're working with a wildly incorrect estimate,
+
+00:02:01.250 --> 00:02:03.673
+where all the values are way off,
+
+00:02:03.673 --> 00:02:08.310
+but the relative values between many state action pairs are correct.
+
+00:02:08.310 --> 00:02:14.175
+Then if we use this technically incorrect value function to obtain a policy,
+
+00:02:14.175 --> 00:02:18.719
+that policy will in fact be the same optimal policy,
+
+00:02:18.719 --> 00:02:21.164
+but that's just the main idea.
+
+00:02:21.164 --> 00:02:22.259
+We don't need to have
+
+00:02:22.259 --> 00:02:28.000
+a perfect or even near perfect estimate of the value function to get an optimal policy.
+

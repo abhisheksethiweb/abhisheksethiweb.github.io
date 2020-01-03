@@ -1,0 +1,259 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:03.930
+Let's build off the grid world example and investigate how we might
+
+00:00:03.930 --> 00:00:08.130
+determine the value function corresponding to a particular policy.
+
+00:00:08.130 --> 00:00:10.915
+To begin, we'll enumerate the states.
+
+00:00:10.914 --> 00:00:14.804
+So, state S1 is the state in the top left corner,
+
+00:00:14.804 --> 00:00:18.539
+then S2, S3, and S4.
+
+00:00:18.539 --> 00:00:22.349
+Say, we're trying to evaluate the Stochastic Policy where
+
+00:00:22.350 --> 00:00:26.865
+the agent selects actions uniformly from the set of possible actions.
+
+00:00:26.864 --> 00:00:29.279
+For instance, in state S1,
+
+00:00:29.280 --> 00:00:35.490
+the agent either moves right or down and it essentially decides by just flipping a coin.
+
+00:00:35.490 --> 00:00:40.590
+That is, it moves right with 50 percent probability and otherwise, moves down.
+
+00:00:40.590 --> 00:00:48.109
+In state S2, it moves left half of the time and moves down the other half of the time.
+
+00:00:48.109 --> 00:00:50.280
+The same goes for state S3,
+
+00:00:50.280 --> 00:00:55.664
+where the agent moves up with 50 percent probability and otherwise moves right.
+
+00:00:55.664 --> 00:01:00.839
+So, how about we determine the state value function corresponding to this policy?
+
+00:01:00.840 --> 00:01:05.320
+Let's begin with recording what we know about state S1.
+
+00:01:05.319 --> 00:01:07.964
+So, half the time, the agent moves right.
+
+00:01:07.965 --> 00:01:10.784
+In the event that the agent does move right,
+
+00:01:10.784 --> 00:01:14.575
+the expected return it collects can be calculated as negative
+
+00:01:14.575 --> 00:01:18.469
+one plus the value of the state S2 that it lands on.
+
+00:01:18.469 --> 00:01:20.280
+And the other half of the time,
+
+00:01:20.280 --> 00:01:24.120
+the agent moves down and the resultant expected return is
+
+00:01:24.120 --> 00:01:29.189
+just negative three plus the value of the next state S3.
+
+00:01:29.189 --> 00:01:34.245
+So then, the value of state S1 can be calculated as the average of these two values.
+
+00:01:34.245 --> 00:01:38.835
+Since the agent chooses each of the potential actions with equal probability,
+
+00:01:38.834 --> 00:01:45.454
+you might recognize this equation as just the Bellman equation evaluated at the state S1.
+
+00:01:45.454 --> 00:01:48.060
+Here we see that it let's us express the value of
+
+00:01:48.060 --> 00:01:54.329
+state S1 and the context of the values of all of its possible successor states.
+
+00:01:54.329 --> 00:01:56.640
+Continuing with state S2,
+
+00:01:56.640 --> 00:01:58.635
+if the agent moves left,
+
+00:01:58.635 --> 00:02:02.579
+the expected return is negative one plus the value
+
+00:02:02.579 --> 00:02:06.480
+of the state S1 and if the agent moves down,
+
+00:02:06.480 --> 00:02:12.330
+the expected return is five plus the value of the terminal state S4.
+
+00:02:12.330 --> 00:02:15.025
+And to get the value of state S2,
+
+00:02:15.025 --> 00:02:18.010
+we need to just take the average of these two values.
+
+00:02:18.009 --> 00:02:23.424
+And here we've arrived at the Bellman equation again but now, for state S2.
+
+00:02:23.425 --> 00:02:28.170
+We can continue the trend for state S3 when we take into account that
+
+00:02:28.169 --> 00:02:33.734
+the agent can move up or right and we take the average of the two values.
+
+00:02:33.735 --> 00:02:39.720
+Finally, the value of the state S4 will always be zero since it's a terminal state.
+
+00:02:39.719 --> 00:02:43.125
+After all, in the case that the agent starts at the state,
+
+00:02:43.125 --> 00:02:47.460
+the episode ends immediately and no reward is received.
+
+00:02:47.460 --> 00:02:51.510
+In this way, we see that we have one equation for each state and we
+
+00:02:51.509 --> 00:02:55.649
+can directly solve this system of equations to get the value of each state.
+
+00:02:55.650 --> 00:02:57.240
+And when you solve the system,
+
+00:02:57.240 --> 00:03:01.100
+you get these values where the values of state S1 and of
+
+00:03:01.099 --> 00:03:06.419
+the terminal state are both zero and each of the other two states has a value of two.
+
+00:03:06.419 --> 00:03:11.609
+For each state, we now have the expected return that's likely to follow if
+
+00:03:11.610 --> 00:03:17.930
+the agent starts in that state and then follows the equal probable random policy.
+
+00:03:17.930 --> 00:03:21.480
+The only problem here is that typically the state space is much
+
+00:03:21.479 --> 00:03:26.504
+larger so directly solving the system of equations is more difficult.
+
+00:03:26.504 --> 00:03:31.849
+In this case, using an iterative method for solving the system generally works better.
+
+00:03:31.849 --> 00:03:34.364
+So instead of solving the system directly,
+
+00:03:34.365 --> 00:03:39.305
+what we can do is start off with a guess for the value of each state.
+
+00:03:39.305 --> 00:03:41.580
+It doesn't have to be any good and what's typically
+
+00:03:41.580 --> 00:03:45.365
+done is to set the value of each state to zero.
+
+00:03:45.365 --> 00:03:48.270
+Then we start by focusing our attention to one state.
+
+00:03:48.270 --> 00:03:50.050
+Say state S1.
+
+00:03:50.050 --> 00:03:53.935
+And we'd like to improve our guess for the value of the state.
+
+00:03:53.935 --> 00:03:56.759
+To do this, we'll use the same Bellman equation from
+
+00:03:56.759 --> 00:04:01.429
+before but we'll adopt it so it works as an update rule.
+
+00:04:01.430 --> 00:04:05.555
+Here, the capital V denotes our current guess for the value function.
+
+00:04:05.555 --> 00:04:11.469
+We'll use this update rule to obtain a new guess for the value of state S1.
+
+00:04:11.469 --> 00:04:13.650
+The idea is that we'll update a guess with
+
+00:04:13.650 --> 00:04:16.889
+a guess where the current guesses for the values of
+
+00:04:16.889 --> 00:04:23.769
+states S2 and S3 are used to obtain a new guess for the value of state S1.
+
+00:04:23.769 --> 00:04:29.969
+So we plug in the estimates for the values of states S2 and S3 and when we do that,
+
+00:04:29.970 --> 00:04:33.180
+we get negative two which is our new guess for the value of
+
+00:04:33.180 --> 00:04:37.735
+state S1 and will record that new value.
+
+00:04:37.735 --> 00:04:41.730
+Then, we'll do the same for the second state where we update
+
+00:04:41.730 --> 00:04:46.770
+the guess for the value of state S2 using the value of state S1.
+
+00:04:46.769 --> 00:04:48.704
+When we plug in the value,
+
+00:04:48.704 --> 00:04:55.389
+we get one as our new estimate for the value of state S2 and we'll keep track of that.
+
+00:04:55.389 --> 00:04:58.245
+Then onto state S3,
+
+00:04:58.245 --> 00:05:03.949
+we update the value using our current estimate for the value of state S1.
+
+00:05:03.949 --> 00:05:07.654
+Our new estimate is one which we can record.
+
+00:05:07.654 --> 00:05:11.449
+We won't need to update the value of state S4 since it's
+
+00:05:11.449 --> 00:05:15.779
+a terminal state so it'll always have a value of zero.
+
+00:05:15.779 --> 00:05:20.029
+But we can loop back to the first state and continue to proceed in
+
+00:05:20.029 --> 00:05:22.519
+this way with updating our guess
+
+00:05:22.519 --> 00:05:26.625
+based on the current guess for the values of the other states.
+
+00:05:26.625 --> 00:05:31.334
+In this case, the value is updated to negative one which we can record.
+
+00:05:31.334 --> 00:05:33.949
+Then we move on to state S2,
+
+00:05:33.949 --> 00:05:37.670
+S3 and so on over and over and it turns out that
+
+00:05:37.670 --> 00:05:43.520
+this iterative algorithm yields an estimate that converges to the true value function.
+
+00:05:43.519 --> 00:05:45.979
+This is the idea behind an algorithm known as
+
+00:05:45.980 --> 00:05:51.000
+Iterative Policy Evaluation and we'll go into much more detail soon.
+

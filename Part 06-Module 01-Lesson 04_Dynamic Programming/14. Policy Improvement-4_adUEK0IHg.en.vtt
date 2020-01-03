@@ -1,0 +1,295 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:02.254
+I hope you enjoyed implementing
+
+00:00:02.254 --> 00:00:06.459
+iterative policy evaluation in the first part of the mini project.
+
+00:00:06.459 --> 00:00:12.160
+Feel free to use your algorithm to evaluate a policy for any finite MDP of your choosing.
+
+00:00:12.160 --> 00:00:15.775
+You need not confine yourself to the Frozen Lake environment.
+
+00:00:15.775 --> 00:00:17.984
+Just remember that policy evaluation
+
+00:00:17.984 --> 00:00:21.695
+requires the agent to have full knowledge of the MDP.
+
+00:00:21.695 --> 00:00:24.060
+Then if you like, you can use the second part of
+
+00:00:24.059 --> 00:00:27.714
+the mini project to obtain the corresponding action value function.
+
+00:00:27.714 --> 00:00:31.484
+But for now, let's continue our search for an optimal policy.
+
+00:00:31.484 --> 00:00:34.935
+Policy evaluation gets us partially there.
+
+00:00:34.935 --> 00:00:38.100
+After all, in order to figure out the best policy,
+
+00:00:38.100 --> 00:00:41.590
+it helps to be able to evaluate candidate policies.
+
+00:00:41.590 --> 00:00:45.145
+In this video, you'll learn about policy improvement,
+
+00:00:45.145 --> 00:00:49.320
+an algorithm that uses the value function for a policy in
+
+00:00:49.320 --> 00:00:53.984
+order to propose a new policy that's at least as good as the current one.
+
+00:00:53.984 --> 00:00:56.549
+But why would we want to do that?
+
+00:00:56.549 --> 00:00:59.309
+Well, immediately we can see how
+
+00:00:59.310 --> 00:01:04.644
+policy evaluation and policy improvement could go quite nicely together.
+
+00:01:04.644 --> 00:01:09.625
+Policy evaluation takes a policy and yields the value function.
+
+00:01:09.625 --> 00:01:12.239
+Then we can take that same value function and use
+
+00:01:12.239 --> 00:01:17.174
+policy improvement to get a potentially new and improved policy.
+
+00:01:17.174 --> 00:01:20.614
+Then it's possible to take that new policy,
+
+00:01:20.614 --> 00:01:23.549
+plug it in to do policy evaluation again,
+
+00:01:23.549 --> 00:01:28.959
+then policy improvement over and over until we converge to an optimal policy.
+
+00:01:28.959 --> 00:01:31.140
+Let's try to understand this better in
+
+00:01:31.140 --> 00:01:34.810
+the context of the grid world from earlier in the lesson.
+
+00:01:34.810 --> 00:01:37.500
+Remember that this was an episodic task where
+
+00:01:37.500 --> 00:01:41.734
+the only terminal state was the bottom right hand corner.
+
+00:01:41.734 --> 00:01:45.629
+We assume that the agent already knows everything about the environment.
+
+00:01:45.629 --> 00:01:49.670
+So it knows how transitions happen and how reward is decided.
+
+00:01:49.670 --> 00:01:52.200
+And in particular, it does not need to interact
+
+00:01:52.200 --> 00:01:54.856
+with the environment to get this information,
+
+00:01:54.856 --> 00:01:58.000
+but it still needs to determine the optimal policy.
+
+00:01:58.000 --> 00:02:02.745
+So say the agent starts off with an initial guess for the optimal policy.
+
+00:02:02.745 --> 00:02:05.280
+In a previous video, we saw that it made sense to
+
+00:02:05.280 --> 00:02:08.159
+start with the equal probable random policy,
+
+00:02:08.159 --> 00:02:13.579
+where in each state the agent randomly picks from a set of available actions.
+
+00:02:13.580 --> 00:02:15.360
+So based on this idea,
+
+00:02:15.360 --> 00:02:18.150
+the agent calculates the corresponding value function
+
+00:02:18.150 --> 00:02:20.655
+through iterative policy evaluation.
+
+00:02:20.655 --> 00:02:23.094
+We did this in an earlier video,
+
+00:02:23.094 --> 00:02:26.391
+where we saw that this was the value function.
+
+00:02:26.391 --> 00:02:28.560
+So now the question becomes,
+
+00:02:28.560 --> 00:02:29.835
+how might we design
+
+00:02:29.835 --> 00:02:35.594
+this policy improvement step to find a policy that's at least as good as the current one?
+
+00:02:35.594 --> 00:02:39.979
+We'll break policy improvement into two steps.
+
+00:02:39.979 --> 00:02:45.109
+The first step is to convert the state value function to an actual value function.
+
+00:02:45.110 --> 00:02:47.655
+You've already seen how to implement this.
+
+00:02:47.655 --> 00:02:51.585
+And when we only follow that same procedure on this small grid world,
+
+00:02:51.585 --> 00:02:54.645
+we get this action-value function.
+
+00:02:54.645 --> 00:02:58.500
+So now we need only focus on how to use
+
+00:02:58.500 --> 00:03:01.050
+this action-value function to obtain
+
+00:03:01.050 --> 00:03:05.760
+a policy that's better than the equal probable random policy.
+
+00:03:05.759 --> 00:03:08.635
+So here's the idea. For each state,
+
+00:03:08.635 --> 00:03:13.240
+we'll just pick the action that maximizes the action-value function.
+
+00:03:13.240 --> 00:03:16.905
+So beginning with the state in the top left corner,
+
+00:03:16.905 --> 00:03:19.680
+one is greater than negative one,
+
+00:03:19.680 --> 00:03:23.520
+so the policy will be to go right, instead of down.
+
+00:03:23.520 --> 00:03:26.372
+Then five is greater than negative one,
+
+00:03:26.372 --> 00:03:28.575
+so the policy goes down here.
+
+00:03:28.574 --> 00:03:32.155
+And again, five is greater than negative one,
+
+00:03:32.155 --> 00:03:34.455
+so the policy goes right.
+
+00:03:34.455 --> 00:03:38.880
+You might be wondering at this point what would happen if we encountered a state
+
+00:03:38.879 --> 00:03:44.039
+with multiple choices of actions that maximize the action-value function.
+
+00:03:44.039 --> 00:03:46.268
+In this case you have options.
+
+00:03:46.268 --> 00:03:49.590
+You could arbitrarily pick one or construct
+
+00:03:49.590 --> 00:03:55.240
+a stochastic policy that assigns non-zero probability to any or all of them.
+
+00:03:55.240 --> 00:03:57.719
+We'll go more into this soon.
+
+00:03:57.719 --> 00:04:02.400
+But let's dig deeper into exactly why this should work.
+
+00:04:02.400 --> 00:04:06.885
+Remember that the value function corresponding to a policy just stores
+
+00:04:06.884 --> 00:04:12.564
+the expected return if the agent follows the policy for all time steps.
+
+00:04:12.564 --> 00:04:15.914
+And when we calculate the action-value function,
+
+00:04:15.914 --> 00:04:19.653
+we're looking at what would happen if the agent at some time
+
+00:04:19.653 --> 00:04:25.545
+step t chose an action a and then henceforth followed the policy.
+
+00:04:25.545 --> 00:04:31.050
+And our method for constructing the next policy pi_prime looks at
+
+00:04:31.050 --> 00:04:34.275
+this action-value function and for each state
+
+00:04:34.274 --> 00:04:39.539
+determines that first action a that's best for maximizing return.
+
+00:04:39.540 --> 00:04:43.350
+In this way, it follows that whatever expected return was
+
+00:04:43.350 --> 00:04:47.800
+associated to following the old policy pi for all time steps,
+
+00:04:47.800 --> 00:04:51.660
+the agent has higher expected return If it initially
+
+00:04:51.660 --> 00:04:57.080
+follows policy pi_prime and then henceforth follows policy pi.
+
+00:04:57.079 --> 00:05:00.990
+That said, it's possible to prove not only
+
+00:05:00.990 --> 00:05:05.367
+is policy pi_prime better to follow for the first time step,
+
+00:05:05.367 --> 00:05:09.835
+it's also better to follow for all time steps.
+
+00:05:09.834 --> 00:05:12.810
+In other words, it's possible to prove that
+
+00:05:12.810 --> 00:05:17.644
+policy pi_prime is better than or equal to policy pi.
+
+00:05:17.644 --> 00:05:20.079
+And remember in order to prove this,
+
+00:05:20.079 --> 00:05:24.329
+we need to show that the value function for policy pi_prime is
+
+00:05:24.329 --> 00:05:29.719
+greater than or equal to the value function for policy pi for all states.
+
+00:05:29.720 --> 00:05:32.235
+If you'd like to see how to do this in more detail,
+
+00:05:32.235 --> 00:05:35.850
+you're encouraged to check out the optional reading in the textbook.
+
+00:05:35.850 --> 00:05:41.670
+For now we can plug this into our algorithm for policy improvement where as you can see,
+
+00:05:41.670 --> 00:05:43.830
+the idea is that you'll first calculate
+
+00:05:43.829 --> 00:05:47.459
+the action-value function from the state value function.
+
+00:05:47.459 --> 00:05:50.969
+Then, in order to construct a better policy for each state,
+
+00:05:50.970 --> 00:05:55.855
+we just need to pick one action that maximizes the action-value function.
+
+00:05:55.855 --> 00:06:00.000
+You'll have the chance to implement this algorithm yourself soon.
+

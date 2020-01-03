@@ -1,0 +1,76 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:05.655
+Let's begin with a very small world and an agent who lives in it.
+
+00:00:05.655 --> 00:00:09.359
+The world is primarily composed of nice patches of grass,
+
+00:00:09.359 --> 00:00:13.169
+but one of the four locations in the world has a large mountain.
+
+00:00:13.169 --> 00:00:16.530
+We can think of each of these four possible locations in
+
+00:00:16.530 --> 00:00:19.780
+the world as states in the environment.
+
+00:00:19.780 --> 00:00:21.054
+At each point in time,
+
+00:00:21.054 --> 00:00:23.684
+let's say the agent can only move up, down,
+
+00:00:23.684 --> 00:00:28.829
+left or right and can only take actions that lead it to not fall off the grid.
+
+00:00:28.829 --> 00:00:33.085
+Here, the arrows show the possible movements that we allow the agent.
+
+00:00:33.085 --> 00:00:35.850
+let's also say the goal of the agent is to get to
+
+00:00:35.850 --> 00:00:39.550
+the bottom right hand corner of the world as quickly as possible.
+
+00:00:39.549 --> 00:00:42.029
+We'll think of this as an episodic task where
+
+00:00:42.030 --> 00:00:45.798
+an episode finishes when the agent reaches the goal,
+
+00:00:45.798 --> 00:00:49.535
+so we won't have to worry about transitions away from the school state.
+
+00:00:49.534 --> 00:00:55.429
+Furthermore, say that the agent receives a reward of a negative one for most transitions,
+
+00:00:55.429 --> 00:00:58.560
+but if an action leads it to encounter a mountain,
+
+00:00:58.560 --> 00:01:02.980
+it receives a reward of negative three and if it reaches the goal state,
+
+00:01:02.979 --> 00:01:05.125
+it gets a reward of five.
+
+00:01:05.125 --> 00:01:06.870
+In the dynamic programming setting,
+
+00:01:06.870 --> 00:01:09.450
+the agent knows this rewards structure and
+
+00:01:09.450 --> 00:01:12.590
+it knows how transitions happen between states.
+
+00:01:12.590 --> 00:01:17.445
+So the agent already knows everything about how the environment operates.
+
+00:01:17.444 --> 00:01:19.054
+So now what?
+
+00:01:19.055 --> 00:01:23.010
+How can the agent use this information to find the optimal policy?
+

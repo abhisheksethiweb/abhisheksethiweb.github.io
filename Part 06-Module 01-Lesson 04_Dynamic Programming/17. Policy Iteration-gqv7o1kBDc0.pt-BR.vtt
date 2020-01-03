@@ -1,0 +1,119 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.075 --> 00:00:03.353
+A esta altura da lição,
+você já usou a Avaliação de Política
+
+00:00:03.386 --> 00:00:05.508
+para determinar
+o quanto uma política é boa
+
+00:00:05.541 --> 00:00:08.028
+calculando sua função valor.
+
+00:00:08.061 --> 00:00:10.449
+Você também usou
+a Melhoria de Política,
+
+00:00:10.482 --> 00:00:13.169
+que usa a função valor
+de uma política
+
+00:00:13.202 --> 00:00:18.187
+para construir uma nova política
+que é melhor ou igual à atual.
+
+00:00:18.220 --> 00:00:22.183
+Eu já mencionei que é melhor
+combinar esses dois algoritmos,
+
+00:00:22.216 --> 00:00:25.342
+para produzir um algoritmo
+que propõe sucessivamente
+
+00:00:25.375 --> 00:00:27.839
+políticas cada vez melhores.
+
+00:00:27.872 --> 00:00:30.945
+O nome do algoritmo
+que combina esses dois passos
+
+00:00:30.978 --> 00:00:34.980
+é "Iteração de Política"
+e ele é nosso foco atual.
+
+00:00:35.013 --> 00:00:37.594
+O algoritmo começa
+com um palpite inicial
+
+00:00:37.627 --> 00:00:39.163
+para a política ótima.
+
+00:00:39.549 --> 00:00:43.794
+É sensato começar com a política
+aleatória igualmente provável,
+
+00:00:43.827 --> 00:00:45.684
+em que, em cada estado,
+todas as ações
+
+00:00:45.717 --> 00:00:48.391
+têm a mesma chance
+de serem escolhidas.
+
+00:00:48.424 --> 00:00:50.861
+Depois usaremos
+a Avaliação de Política
+
+00:00:50.894 --> 00:00:53.953
+para obter
+a função valor correspondente.
+
+00:00:53.986 --> 00:00:56.254
+Em seguida, usaremos
+a Melhoria de Política
+
+00:00:56.287 --> 00:00:59.331
+para obter
+uma política melhor ou igual.
+
+00:01:00.134 --> 00:01:02.450
+Depois repetimos esse processo
+inúmeras vezes,
+
+00:01:02.483 --> 00:01:05.721
+com a Avaliação de Política
+e depois a Melhoria de Política,
+
+00:01:05.754 --> 00:01:09.484
+até finalmente encontrarmos
+um passo de Melhoria de Política
+
+00:01:09.517 --> 00:01:12.911
+que não resulte
+em nenhuma mudança na política.
+
+00:01:12.944 --> 00:01:15.975
+O melhor de tudo é
+que, no caso do MDP finito,
+
+00:01:16.008 --> 00:01:19.347
+com certeza vamos convergir
+para a política ótima.
+
+00:01:19.380 --> 00:01:20.494
+No próximo conceito,
+
+00:01:20.527 --> 00:01:23.595
+você terá a chance combinar
+todos os códigos que já escreveu
+
+00:01:23.628 --> 00:01:26.728
+para finalmente ajudar seu agente
+a usar a Iteração de Política
+
+00:01:26.761 --> 00:01:28.938
+para obter a política ótima.
+

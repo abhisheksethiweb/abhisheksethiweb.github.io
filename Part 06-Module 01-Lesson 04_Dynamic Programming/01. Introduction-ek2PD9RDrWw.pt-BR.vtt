@@ -1,0 +1,55 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.389 --> 00:00:03.550
+Para esta lição, concentraremos
+nossa atenção em um problema
+
+00:00:03.583 --> 00:00:07.358
+que é mais fácil do que o problema
+da aprendizagem por reforço.
+
+00:00:07.391 --> 00:00:09.022
+Em vez de trabalhar
+num cenário
+
+00:00:09.055 --> 00:00:11.520
+onde o agente tem que aprender
+com a interação,
+
+00:00:11.553 --> 00:00:15.838
+vamos considerar que o agente
+já sabe tudo sobre o ambiente.
+
+00:00:16.188 --> 00:00:19.820
+O agente sabe como o ambiente
+decide o próximo estado
+
+00:00:19.853 --> 00:00:22.950
+e sabe como o ambiente
+decide a recompensa.
+
+00:00:22.983 --> 00:00:25.228
+O objetivo será o mesmo.
+
+00:00:25.261 --> 00:00:30.071
+Dada essa informação, o agente
+tentará encontrar a política ótima.
+
+00:00:30.710 --> 00:00:32.396
+Resolver primeiro
+esse problema
+
+00:00:32.429 --> 00:00:35.504
+será muito útil
+para desenvolver nossa intuição,
+
+00:00:35.537 --> 00:00:39.407
+antes de resolvermos todo o problema
+da aprendizagem por reforço.
+
+00:00:39.440 --> 00:00:42.549
+Com isso em mente,
+vejo você no próximo vídeo.
+

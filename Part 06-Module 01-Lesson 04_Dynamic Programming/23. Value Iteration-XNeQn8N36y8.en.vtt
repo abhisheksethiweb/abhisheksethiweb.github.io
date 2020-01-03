@@ -1,0 +1,151 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:03.314
+So we have talked about policy iteration.
+
+00:00:03.314 --> 00:00:06.474
+We have also learned about truncated policy iteration.
+
+00:00:06.474 --> 00:00:09.509
+In this case, the policy evaluation step is
+
+00:00:09.509 --> 00:00:13.669
+permitted only a limited number of sweeps through the state space.
+
+00:00:13.669 --> 00:00:17.234
+In other words, we limit the number of times that the estimated value of
+
+00:00:17.234 --> 00:00:21.964
+each state is updated before proceeding to the policy improvement round.
+
+00:00:21.964 --> 00:00:25.449
+In this video, you will learn about Value Iteration,
+
+00:00:25.449 --> 00:00:29.634
+where the policy evaluation step is stopped after a single sweep.
+
+00:00:29.635 --> 00:00:31.330
+It is really as simple as that,
+
+00:00:31.329 --> 00:00:34.530
+but it turns out that you can simplify the underlying code,
+
+00:00:34.530 --> 00:00:38.804
+and we will derive the simple form together over the remainder of this video.
+
+00:00:38.804 --> 00:00:40.905
+So let us write down the pseudo code
+
+00:00:40.905 --> 00:00:44.670
+corresponding to each of these evaluation and improvement steps.
+
+00:00:44.670 --> 00:00:47.535
+And the first thing to notice is that we can collapse
+
+00:00:47.534 --> 00:00:51.269
+these lines to remove a bit of redundancy.
+
+00:00:51.270 --> 00:00:53.340
+In particular, the action value from
+
+00:00:53.340 --> 00:00:57.140
+the first line can be plugged in where it appears in the second line.
+
+00:00:57.140 --> 00:00:59.700
+Now recall that this policy improvements step is
+
+00:00:59.700 --> 00:01:02.850
+followed by another policy evaluation step.
+
+00:01:02.850 --> 00:01:06.210
+Pi prime is used as the new value of policy pi,
+
+00:01:06.209 --> 00:01:09.899
+which is then put through a single sweep of policy evaluation.
+
+00:01:09.900 --> 00:01:13.750
+Okay, so we can quickly see another bit of redundancy here.
+
+00:01:13.750 --> 00:01:15.840
+Instead of updating pi prime and then
+
+00:01:15.840 --> 00:01:19.465
+immediately using it to set the new value of policy pi,
+
+00:01:19.465 --> 00:01:25.890
+what we can do is just directly update the value of policy pi from the value function.
+
+00:01:25.890 --> 00:01:29.609
+Next, we'll need to look at these two equations a bit closer.
+
+00:01:29.609 --> 00:01:33.319
+And when we do that, we notice that they're nearly the same.
+
+00:01:33.319 --> 00:01:39.077
+In particular, everything that appears after the sum is nearly identical,
+
+00:01:39.078 --> 00:01:41.954
+with the exception of the values here.
+
+00:01:41.954 --> 00:01:43.590
+It turns out that we can combine
+
+00:01:43.590 --> 00:01:48.135
+these two lines to produce a single line that accomplishes the same effect.
+
+00:01:48.135 --> 00:01:52.140
+Towards that, we'll first note that pi of S is the ARG Max
+
+00:01:52.140 --> 00:01:56.105
+over all actions of some semi-complicated expression,
+
+00:01:56.105 --> 00:02:00.760
+but we can think of this long thing as a function of the action A.
+
+00:02:00.760 --> 00:02:04.315
+Then, V of S is a sign that same function,
+
+00:02:04.314 --> 00:02:08.879
+but evaluated at pi of S. So if pi of S is set to
+
+00:02:08.879 --> 00:02:14.032
+the ARG Max and V of S this is set to the function evaluated at that ARG Max,
+
+00:02:14.032 --> 00:02:17.339
+well, then we could just directly set V of S to the max of
+
+00:02:17.340 --> 00:02:22.807
+the function until we can plug this in to our algorithm.
+
+00:02:22.807 --> 00:02:26.709
+We begin with an initial guess of the value function.
+
+00:02:26.710 --> 00:02:29.265
+The algorithm loops over the state space and
+
+00:02:29.264 --> 00:02:33.774
+successively applies the update rule to get a better guess at the value function.
+
+00:02:33.775 --> 00:02:38.780
+After each update, we check to see if the value function estimate has converged.
+
+00:02:38.780 --> 00:02:40.449
+And in case it has,
+
+00:02:40.449 --> 00:02:42.739
+we stop this part of the algorithm.
+
+00:02:42.740 --> 00:02:46.000
+After convergence, there is one last step to get
+
+00:02:46.000 --> 00:02:49.719
+the policy corresponding to the final value function.
+
+00:02:49.719 --> 00:02:51.879
+Once you are ready, follow the instructions in
+
+00:02:51.879 --> 00:02:55.000
+the next concept to implement this algorithm yourself.
+

@@ -1,0 +1,37 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:03.029
+For this lesson, we'll confine our attention to
+
+00:00:03.029 --> 00:00:07.275
+a problem that's slightly easier than the reinforcement learning problem.
+
+00:00:07.275 --> 00:00:11.685
+Instead of working in a setting where the agent has to learn from interaction,
+
+00:00:11.685 --> 00:00:16.000
+we'll assume that the agent already knows everything about the environment.
+
+00:00:16.000 --> 00:00:19.875
+So the agent knows how the environment decides the next state,
+
+00:00:19.875 --> 00:00:22.211
+and it knows how the environment decides reward.
+
+00:00:22.211 --> 00:00:25.504
+The goal will remain the same.
+
+00:00:25.504 --> 00:00:30.359
+Given this information, the agent would like to find the optimal policy.
+
+00:00:30.359 --> 00:00:34.740
+Solving the simpler problem first will prove incredibly useful for building
+
+00:00:34.740 --> 00:00:39.535
+intuition before we tackle the full reinforcement learning problem.
+
+00:00:39.534 --> 00:00:42.329
+With this in mind, I'll catch you in the next video.
+

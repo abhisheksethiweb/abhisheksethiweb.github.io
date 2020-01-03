@@ -1,0 +1,109 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.534 --> 00:00:02.960
+Vamos começar
+com um mundo bem pequeno
+
+00:00:02.993 --> 00:00:05.398
+e com um agente
+que mora dentro dele.
+
+00:00:05.431 --> 00:00:09.143
+O mundo é formado essencialmente
+por belos pedaços de grama,
+
+00:00:09.176 --> 00:00:13.472
+mas num dos quatro lugares do mundo
+há uma grande montanha.
+
+00:00:13.505 --> 00:00:16.777
+Podemos pensar em cada um
+desses quatros lugares do mundo
+
+00:00:16.810 --> 00:00:19.520
+como estados do ambiente.
+
+00:00:19.553 --> 00:00:20.881
+Em cada ponto no tempo,
+
+00:00:20.914 --> 00:00:23.474
+o agente só pode andar
+para cima, para baixo,
+
+00:00:23.507 --> 00:00:24.810
+para a esquerda ou direita
+
+00:00:24.843 --> 00:00:28.684
+e só pode escolher ações
+que não o façam cair fora da grade.
+
+00:00:28.717 --> 00:00:33.307
+Aqui as setas mostram
+os movimentos permitidos ao agente.
+
+00:00:33.340 --> 00:00:37.699
+O objetivo do agente é chegar
+ao canto inferior direito do mundo
+
+00:00:37.732 --> 00:00:39.716
+o mais rápido possível.
+
+00:00:39.749 --> 00:00:41.683
+Pense nisso
+como uma tarefa episódica
+
+00:00:41.716 --> 00:00:45.557
+em que o episódio termina
+quando o agente alcança o objetivo.
+
+00:00:45.590 --> 00:00:46.820
+Então podemos ignorar
+
+00:00:46.853 --> 00:00:49.785
+as transições que se afastam
+do estado do objetivo.
+
+00:00:49.818 --> 00:00:53.699
+Além disso, o agente receberá
+uma recompensa de -1
+
+00:00:53.732 --> 00:00:55.527
+na maioria das transições,
+
+00:00:55.560 --> 00:00:58.467
+mas, se uma ação o levar
+a encontrar uma montanha,
+
+00:00:58.500 --> 00:01:01.316
+ele receberá
+uma recompensa de -3
+
+00:01:01.349 --> 00:01:04.972
+e, se alcançar o estado do objetivo,
+receberá uma recompensa de 5.
+
+00:01:05.005 --> 00:01:06.760
+Na configuração
+da programação dinâmica,
+
+00:01:06.793 --> 00:01:09.088
+o agente conhece
+essa estrutura de recompensas
+
+00:01:09.121 --> 00:01:12.355
+e sabe como as transições
+acontecem entre os estados.
+
+00:01:12.388 --> 00:01:17.535
+Então o agente já sabe tudo
+sobre como o ambiente opera.
+
+00:01:17.568 --> 00:01:18.785
+E agora?
+
+00:01:18.818 --> 00:01:23.205
+Como o agente usa essas informações
+para descobrir a política ótima?
+

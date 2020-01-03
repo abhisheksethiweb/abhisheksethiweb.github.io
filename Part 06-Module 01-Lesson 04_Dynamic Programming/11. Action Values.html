@@ -1,0 +1,299 @@
+<!-- udacimak v1.2.0 -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Action Values</title>
+  <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../assets/css/plyr.css">
+  <link rel="stylesheet" href="../assets/css/katex.min.css">
+  <link rel="stylesheet" href="../assets/css/jquery.mCustomScrollbar.min.css">
+  <link rel="stylesheet" href="../assets/css/styles.css">
+  <link rel="shortcut icon" type="image/png" href="../assets/img/udacimak.png" />
+</head>
+
+<body>
+  <div class="wrapper">
+    <nav id="sidebar">
+  <div class="sidebar-header">
+    <h3>Dynamic Programming</h3>
+  </div>
+
+  <ul class="sidebar-list list-unstyled CTAs">
+    <li>
+      <a href="../index.html" class="article">Back to Home</a>
+    </li>
+  </ul>
+
+  <ul class="sidebar-list list-unstyled components">
+    <li class="">
+      <a href="01. Introduction.html">01. Introduction</a>
+    </li>
+    <li class="">
+      <a href="02. OpenAI Gym FrozenLakeEnv.html">02. OpenAI Gym: FrozenLakeEnv</a>
+    </li>
+    <li class="">
+      <a href="03. Your Workspace.html">03. Your Workspace</a>
+    </li>
+    <li class="">
+      <a href="04. Another Gridworld Example.html">04. Another Gridworld Example</a>
+    </li>
+    <li class="">
+      <a href="05. An Iterative Method, Part 1.html">05. An Iterative Method, Part 1</a>
+    </li>
+    <li class="">
+      <a href="06. An Iterative Method, Part 2.html">06. An Iterative Method, Part 2</a>
+    </li>
+    <li class="">
+      <a href="07. Quiz An Iterative Method.html">07. Quiz: An Iterative Method</a>
+    </li>
+    <li class="">
+      <a href="08. Iterative Policy Evaluation.html">08. Iterative Policy Evaluation</a>
+    </li>
+    <li class="">
+      <a href="09. Implementation.html">09. Implementation</a>
+    </li>
+    <li class="">
+      <a href="10. Mini Project DP (Parts 0 and 1).html">10. Mini Project: DP (Parts 0 and 1)</a>
+    </li>
+    <li class="">
+      <a href="11. Action Values.html">11. Action Values</a>
+    </li>
+    <li class="">
+      <a href="12. Implementation.html">12. Implementation</a>
+    </li>
+    <li class="">
+      <a href="13. Mini Project DP (Part 2).html">13. Mini Project: DP (Part 2)</a>
+    </li>
+    <li class="">
+      <a href="14. Policy Improvement.html">14. Policy Improvement</a>
+    </li>
+    <li class="">
+      <a href="15. Implementation.html">15. Implementation</a>
+    </li>
+    <li class="">
+      <a href="16. Mini Project DP (Part 3).html">16. Mini Project: DP (Part 3)</a>
+    </li>
+    <li class="">
+      <a href="17. Policy Iteration.html">17. Policy Iteration</a>
+    </li>
+    <li class="">
+      <a href="18. Implementation.html">18. Implementation</a>
+    </li>
+    <li class="">
+      <a href="19. Mini Project DP (Part 4).html">19. Mini Project: DP (Part 4)</a>
+    </li>
+    <li class="">
+      <a href="20. Truncated Policy Iteration.html">20. Truncated Policy Iteration</a>
+    </li>
+    <li class="">
+      <a href="21. Implementation.html">21. Implementation</a>
+    </li>
+    <li class="">
+      <a href="22. Mini Project DP (Part 5).html">22. Mini Project: DP (Part 5)</a>
+    </li>
+    <li class="">
+      <a href="23. Value Iteration.html">23. Value Iteration</a>
+    </li>
+    <li class="">
+      <a href="24. Implementation.html">24. Implementation</a>
+    </li>
+    <li class="">
+      <a href="25. Mini Project DP (Part 6).html">25. Mini Project: DP (Part 6)</a>
+    </li>
+    <li class="">
+      <a href="26. Check Your Understanding.html">26. Check Your Understanding</a>
+    </li>
+    <li class="">
+      <a href="27. Summary.html">27. Summary</a>
+    </li>
+  </ul>
+
+  <ul class="sidebar-list list-unstyled CTAs">
+    <li>
+      <a href="../index.html" class="article">Back to Home</a>
+    </li>
+  </ul>
+</nav>
+
+    <div id="content">
+      <header class="container-fluild header">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <div class="align-items-middle">
+                <button type="button" id="sidebarCollapse" class="btn btn-toggle-sidebar">
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                </button>
+
+                <h1 style="display: inline-block">11. Action Values</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main class="container">
+        <div class="row">
+          <div class="col-12">
+            <div class="ud-atom">
+  <h3></h3>
+  <div>
+  <h1 id="action-values">Action Values</h1>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <p>In a previous concept, you wrote your own implementation of iterative policy evaluation to estimate the state-value function <span class="mathquill ud-math">v_\pi</span> for a policy <span class="mathquill ud-math">\pi</span>.  In this concept, you will use the simple gridworld from the videos to practice converting a state-value function <span class="mathquill ud-math">v_\pi</span> to an action-value function <span class="mathquill ud-math">q_\pi</span>.</p>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <p>Consider the small gridworld that we used to illustrate iterative policy evaluation.  The <strong>state-value function</strong> for the equiprobable random policy is visualized below.</p>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <figure class="figure">
+    <img src="img/statevalue.png" alt="" class="img img-fluid">
+    <figcaption class="figure-caption">
+      
+    </figcaption>
+  </figure>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <p>Take the time now to verify that the below image corresponds to the <strong>action-value function</strong> for the same policy.</p>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <figure class="figure">
+    <img src="img/actionvalue.png" alt="" class="img img-fluid">
+    <figcaption class="figure-caption">
+      
+    </figcaption>
+  </figure>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <p>As an example, consider <span class="mathquill ud-math">q_\pi(s_1, \text{right})</span>.  This action value can be calculated as</p>
+<p><span class="mathquill ud-math">q_\pi(s_1, \text{right}) = -1 + v_\pi(s_2) = -1 + 2 = 1</span>,</p>
+<p>where we just use the fact that we can express the value of the state-action pair <span class="mathquill ud-math">s_1, \text{right}</span> as the sum of two quantities: (1) the immediate reward after moving right and landing on state <span class="mathquill ud-math">s_2</span>, and (2) the cumulative reward obtained if the agent begins in state <span class="mathquill ud-math">s_2</span> and follows the policy. </p>
+<p>Please now use the state-value function <span class="mathquill ud-math">v_\pi</span> to calculate <span class="mathquill ud-math">q_\pi(s_1, \text{down})</span>, <span class="mathquill ud-math">q_\pi(s_2, \text{left})</span>, <span class="mathquill ud-math">q_\pi(s_2, \text{down})</span>, <span class="mathquill ud-math">q_\pi(s_3, \text{up})</span>, and <span class="mathquill ud-math">q_\pi(s_3, \text{right})</span>.</p>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <h2 id="for-more-complex-environments">For More Complex Environments</h2>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <p>In this simple gridworld example, the environment is <strong>deterministic</strong>.  In other words, after the agent selects an action, the next state and reward are 100% guaranteed and non-random.  For deterministic environments, <span class="mathquill ud-math">p(s',r|s,a) \in { 0,1 }</span> for all <span class="mathquill ud-math">s', r, s, a</span>.    </p>
+<blockquote>
+  <p>In this case, when the agent is in state <span class="mathquill ud-math">s</span> and takes action <span class="mathquill ud-math">a</span>, the next state <span class="mathquill ud-math">s'</span> and reward <span class="mathquill ud-math">r</span> can be predicted with certainty, and we must have <span class="mathquill ud-math">q_\pi(s,a) = r + \gamma v_\pi(s')</span>.</p>
+</blockquote>
+<p>In general, the environment need not be deterministic, and instead may be <strong>stochastic</strong>.  This is the default behavior of the <code>FrozenLake</code> environment from the mini project; in this case, once the agent selects an action, the next state and reward cannot be predicted with certainty and instead are random draws from a <a href="https://en.wikipedia.org/wiki/Conditional_probability_distribution" target="_blank">(conditional) probability distribution</a> <span class="mathquill ud-math">p(s',r|s,a)</span>.</p>
+<blockquote>
+  <p>In this case, when the agent is in state <span class="mathquill ud-math">s</span> and takes action <span class="mathquill ud-math">a</span>, the probability of each possible next state <span class="mathquill ud-math">s'</span> and reward <span class="mathquill ud-math">r</span> is given by <span class="mathquill ud-math">p(s',r|s,a)</span>.  In this case, we must have <span class="mathquill ud-math">q_\pi(s,a) = \sum_{s'\in\mathcal{S}^+, r\in\mathcal{R}}p(s',r|s,a)(r+\gamma v_\pi(s'))</span>, where we take the <a href="https://en.wikipedia.org/wiki/Expected_value" target="_blank">expected value</a> of the sum <span class="mathquill ud-math">r + \gamma v_\pi(s')</span>.</p>
+</blockquote>
+<p>Over the next couple concepts, you'll use this equation to write a function that yields an action-value function <span class="mathquill ud-math">q_\pi</span> corresponding to a policy <span class="mathquill ud-math">\pi</span> for the <code>FrozenLake</code> environment.</p>
+</div>
+
+</div>
+<div class="divider"></div>
+          </div>
+        </div>
+      </main>
+
+      <footer class="footer">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <p class="text-center">
+                <a href="https://github.com/udacimak/udacimak#readme" target="_blank">udacimak v1.2.0</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </div>
+
+
+  <script src="../assets/js/jquery-3.3.1.min.js"></script>
+  <script src="../assets/js/plyr.polyfilled.min.js"></script>
+  <script src="../assets/js/bootstrap.min.js"></script>
+  <script src="../assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+  <script src="../assets/js/katex.min.js"></script>
+  <script>
+    // Initialize Plyr video players
+    const players = Array.from(document.querySelectorAll('video')).map(p => new Plyr(p));
+
+    // render math equations
+    let elMath = document.getElementsByClassName('mathquill');
+    for (let i = 0, len = elMath.length; i < len; i += 1) {
+      const el = elMath[i];
+
+      katex.render(el.textContent, el, {
+        throwOnError: false
+      });
+    }
+
+    // this hack will make sure Bootstrap tabs work when using Handlebars
+    if ($('#question-tabs').length && $('#user-answer-tabs').length) {
+      $("#question-tabs a.nav-link").on('click', function () {
+        $("#question-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+      $("#user-answer-tabs a.nav-link").on('click', function () {
+        $("#user-answer-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    } else {
+      $("a.nav-link").on('click', function () {
+        $(".tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    }
+
+    // side bar events
+    $(document).ready(function () {
+      $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+      });
+
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar, #content').toggleClass('active');
+        $('.collapse.in').toggleClass('in');
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+      });
+    });
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,413 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.053 --> 00:00:02.166
+Vamos construir o exemplo
+do mundo da grade
+
+00:00:02.199 --> 00:00:04.442
+e investigar
+como podemos determinar
+
+00:00:04.475 --> 00:00:08.373
+a função valor correspondente
+a uma política ótima específica.
+
+00:00:08.406 --> 00:00:10.981
+Para começar,
+vamos enumerar os estados.
+
+00:00:11.014 --> 00:00:14.837
+O estado S1 é o estado
+do canto superior esquerdo,
+
+00:00:14.870 --> 00:00:18.506
+seguido de S2, S3 e S4.
+
+00:00:19.096 --> 00:00:22.059
+Digamos que queremos avaliar
+a política estocástica
+
+00:00:22.092 --> 00:00:24.643
+em que o agente seleciona ações
+de modo uniforme
+
+00:00:24.676 --> 00:00:27.026
+a partir de um conjunto
+de ações possíveis.
+
+00:00:27.059 --> 00:00:29.220
+Por exemplo, no estado S1,
+
+00:00:29.253 --> 00:00:31.861
+o agente anda
+para a direita ou para baixo
+
+00:00:31.894 --> 00:00:35.313
+e decide isso
+de forma arbitrária.
+
+00:00:35.346 --> 00:00:38.300
+Ou seja, há 50% de chance
+que ele andará para a direita
+
+00:00:38.333 --> 00:00:40.329
+ou, caso contrário,
+para baixo.
+
+00:00:40.995 --> 00:00:44.732
+No estado S2, ele anda
+para a esquerda metade das vezes
+
+00:00:44.765 --> 00:00:47.573
+e anda para baixo
+na outra metade das vezes.
+
+00:00:48.094 --> 00:00:50.217
+O mesmo acontece
+no estado S3,
+
+00:00:50.250 --> 00:00:53.207
+em que há 50% de chance
+de o agente andar para cima
+
+00:00:53.240 --> 00:00:55.434
+ou, caso contrário,
+para a direita.
+
+00:00:55.467 --> 00:00:58.695
+Então como podemos determinar
+a função valor-estado
+
+00:00:58.728 --> 00:01:01.020
+correspondente
+a essa política?
+
+00:01:01.053 --> 00:01:05.218
+Vamos começar relembrando
+o que sabemos sobre o estado S1.
+
+00:01:05.251 --> 00:01:08.015
+Metade das vezes
+o agente anda para a direita.
+
+00:01:08.048 --> 00:01:10.823
+Se o agente andar
+para a direita,
+
+00:01:10.856 --> 00:01:13.662
+o retorno esperado que ele receberá
+pode ser calculado
+
+00:01:13.695 --> 00:01:18.550
+como -1 mais o valor do estado S2
+para o qual ele anda.
+
+00:01:18.583 --> 00:01:21.806
+E, na outra metade das vezes,
+o agente anda para baixo,
+
+00:01:21.839 --> 00:01:23.831
+e o retorno esperado
+resultante
+
+00:01:23.864 --> 00:01:28.369
+é -3 mais o valor
+do próximo estado S3.
+
+00:01:29.004 --> 00:01:31.966
+Então o valor do estado S1
+pode ser calculado
+
+00:01:31.999 --> 00:01:34.119
+como a média
+desses dois valores,
+
+00:01:34.152 --> 00:01:36.947
+já que o agente escolhe
+cada uma das ações prováveis
+
+00:01:36.980 --> 00:01:39.061
+com a mesma probabilidade.
+
+00:01:39.094 --> 00:01:42.363
+Você deve reconhecer esta equação
+como a equação de Bellman,
+
+00:01:42.396 --> 00:01:45.310
+avaliada no estado S1.
+
+00:01:45.343 --> 00:01:49.277
+Aqui vemos que ela nos permite
+expressar o valor do estado S1
+
+00:01:49.310 --> 00:01:53.596
+e o contexto dos valores de todos
+os seus estados seguintes possíveis.
+
+00:01:54.207 --> 00:01:58.649
+Continuando para o estado S2,
+se o agente andar para a esquerda,
+
+00:01:58.682 --> 00:02:04.546
+o retorno esperado é -1
+mais o valor do estado S1.
+
+00:02:04.579 --> 00:02:06.401
+E, se o agente andar
+para baixo,
+
+00:02:06.434 --> 00:02:12.127
+o retorno esperado é 5
+mais o valor do estado terminal S4.
+
+00:02:12.870 --> 00:02:14.924
+E, para obter
+o valor do estado S2,
+
+00:02:14.957 --> 00:02:18.171
+temos apenas que calcular
+a média desses dois valores.
+
+00:02:18.204 --> 00:02:21.151
+Aqui chegamos de novo
+à equação de Bellman,
+
+00:02:21.184 --> 00:02:23.533
+mas agora para o estado S2.
+
+00:02:23.566 --> 00:02:26.620
+Podemos continuar essa tendência
+no estado S3,
+
+00:02:26.653 --> 00:02:30.371
+considerando que o agente pode andar
+para cima ou para a direita
+
+00:02:30.404 --> 00:02:33.188
+e calculando a média
+dos dois valores.
+
+00:02:33.728 --> 00:02:37.766
+Por fim, o valor do estado S4
+será sempre 0,
+
+00:02:37.799 --> 00:02:39.904
+já que é o estado terminal.
+
+00:02:39.937 --> 00:02:43.060
+Afinal de contas,
+se o agente começar nesse estado,
+
+00:02:43.093 --> 00:02:47.626
+o episódio terminará imediatamente
+e não haverá nenhuma recompensa.
+
+00:02:47.659 --> 00:02:51.028
+Deste modo, vemos que temos
+uma equação para cada estado
+
+00:02:51.061 --> 00:02:53.605
+e resolvemos diretamente
+esse sistema de equações
+
+00:02:53.638 --> 00:02:55.729
+para obter o valor
+de cada estado.
+
+00:02:55.762 --> 00:02:58.694
+Ao resolver o sistema,
+você obtém estes valores.
+
+00:02:58.727 --> 00:03:03.310
+O valor do estado S1
+e do estado terminal é 0,
+
+00:03:03.343 --> 00:03:06.635
+e o valor dos outros dois estados
+é 2.
+
+00:03:06.668 --> 00:03:11.216
+Para cada estado, agora temos
+o retorno esperado mais provável,
+
+00:03:11.249 --> 00:03:13.299
+caso o agente comece
+nesse estado
+
+00:03:13.332 --> 00:03:17.256
+e siga a política aleatória
+igualmente provável.
+
+00:03:18.005 --> 00:03:22.227
+O único problema é que o espaço
+de estados costuma ser bem maior,
+
+00:03:22.260 --> 00:03:26.370
+então resolver o sistema de equações
+diretamente é mais difícil.
+
+00:03:26.403 --> 00:03:29.685
+Nesse caso, usar um método iterativo
+para resolver o sistema
+
+00:03:29.718 --> 00:03:31.649
+costuma funcionar melhor.
+
+00:03:31.682 --> 00:03:34.315
+Então, em vez de resolver
+o sistema diretamente,
+
+00:03:34.348 --> 00:03:39.135
+podemos começar com um palpite
+para o valor de cada estado.
+
+00:03:39.168 --> 00:03:40.670
+Não precisa ser
+um bom palpite,
+
+00:03:40.703 --> 00:03:44.596
+e a prática mais usual é definir
+o valor de cada estado como 0.
+
+00:03:45.198 --> 00:03:48.233
+Depois começamos concentrando
+nossa atenção em um estado -
+
+00:03:48.266 --> 00:03:50.264
+digamos que o estado S1 -
+
+00:03:50.297 --> 00:03:53.922
+e queremos melhorar nosso palpite
+para o valor desse estado.
+
+00:03:53.955 --> 00:03:58.007
+Para fazer isso, usaremos
+a mesma equação de Bellman de antes,
+
+00:03:58.040 --> 00:04:01.296
+mas vamos adaptá-la para funcionar
+como uma regra de atualização.
+
+00:04:01.329 --> 00:04:05.848
+Aqui o V maiúsculo representa
+o palpite atual para a função valor.
+
+00:04:05.881 --> 00:04:08.735
+Usaremos a regra de atualização
+para obter um novo palpite
+
+00:04:08.768 --> 00:04:11.239
+para o valor do estado S1.
+
+00:04:11.272 --> 00:04:14.637
+A ideia é atualizar um palpite
+com outro palpite,
+
+00:04:14.670 --> 00:04:19.127
+usando os palpites atuais
+para os valores dos estados S2 e S3
+
+00:04:19.160 --> 00:04:24.017
+para obter um novo palpite
+para o valor do estado S1.
+
+00:04:24.050 --> 00:04:28.774
+Então inserimos as estimativas
+para os valores dos estados S2 e S3
+
+00:04:28.807 --> 00:04:31.259
+e, ao fazer isso,
+obtemos -2,
+
+00:04:31.292 --> 00:04:34.710
+que é o nosso novo palpite
+para o valor do estado S1.
+
+00:04:34.743 --> 00:04:37.080
+Nós vamos registrar
+esse novo valor.
+
+00:04:37.842 --> 00:04:40.854
+Em seguida, faremos o mesmo
+para o segundo estado,
+
+00:04:40.887 --> 00:04:43.974
+atualizando o palpite
+para o valor do estado S2
+
+00:04:44.007 --> 00:04:46.427
+através do valor
+do estado S1.
+
+00:04:47.208 --> 00:04:48.537
+Quando inserimos o valor,
+
+00:04:48.570 --> 00:04:53.283
+obtemos 1 como nossa nova estimativa
+para o valor do estado S2
+
+00:04:53.316 --> 00:04:55.112
+e vamos registrar
+esse dado.
+
+00:04:55.914 --> 00:04:59.726
+Em seguida, no estado S3,
+atualizamos o valor
+
+00:04:59.759 --> 00:05:03.749
+usando nossa estimativa atual
+para o valor do estado S1.
+
+00:05:03.782 --> 00:05:07.339
+Nossa nova estimativa é 1,
+o que podemos registrar.
+
+00:05:08.232 --> 00:05:10.919
+Nós não precisamos atualizar
+o valor do estado S4,
+
+00:05:10.952 --> 00:05:12.627
+já que é um estado terminal,
+
+00:05:12.660 --> 00:05:15.769
+então o valor dele
+sempre será 0.
+
+00:05:15.802 --> 00:05:18.334
+Mas podemos voltar
+para o primeiro estado
+
+00:05:18.367 --> 00:05:22.454
+e continuar repetindo esse processo
+de atualizar nosso palpite
+
+00:05:22.487 --> 00:05:26.500
+com base no palpite atual
+para os valores dos outros estados.
+
+00:05:26.533 --> 00:05:31.361
+Neste caso, o valor é atualizado
+para -1, que podemos registrar.
+
+00:05:31.394 --> 00:05:36.459
+Depois seguimos para o estado S2, S3
+e assim por diante, repetidamente,
+
+00:05:36.492 --> 00:05:40.098
+e, no fim, esse algoritmo iterativo
+gera uma estimativa
+
+00:05:40.131 --> 00:05:42.899
+que converge
+para a função valor verdadeira.
+
+00:05:43.259 --> 00:05:48.018
+Essa é a ideia do algoritmo chamado
+Avaliação de Política Iterativa,
+
+00:05:48.051 --> 00:05:50.546
+e veremos mais detalhes
+em breve.
+

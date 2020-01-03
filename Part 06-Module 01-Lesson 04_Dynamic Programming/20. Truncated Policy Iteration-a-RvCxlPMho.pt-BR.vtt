@@ -1,0 +1,185 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.455 --> 00:00:01.788
+Parabéns!
+
+00:00:01.821 --> 00:00:06.080
+Você implementou seu 1º algoritmo
+que pode resolver um MDP.
+
+00:00:06.113 --> 00:00:07.627
+No restante da lição,
+
+00:00:07.660 --> 00:00:10.645
+veremos algumas variações
+desse algoritmo,
+
+00:00:10.678 --> 00:00:13.089
+e você terá a chance
+de implementar todos eles
+
+00:00:13.122 --> 00:00:15.523
+para comparar
+o desempenho deles.
+
+00:00:15.556 --> 00:00:19.262
+Começaremos analisando
+este passo de Avaliação de Política.
+
+00:00:19.295 --> 00:00:21.389
+Lembre-se
+que a Avaliação de Política
+
+00:00:21.422 --> 00:00:23.334
+é um algoritmo iterativo
+
+00:00:23.367 --> 00:00:26.482
+no qual dependemos
+na regra de atualização de Bellman.
+
+00:00:26.515 --> 00:00:28.289
+O número
+de iterações necessárias
+
+00:00:28.322 --> 00:00:32.021
+numa única rodada
+de Avaliação de Política é decidido
+
+00:00:32.054 --> 00:00:35.979
+com base num número positivo
+baixo teta, definido por você.
+
+00:00:36.012 --> 00:00:39.317
+E, quanto mais você quiser aproximar
+a função valor-estado estimada
+
+00:00:39.350 --> 00:00:40.960
+da função valor verdadeira,
+
+00:00:40.993 --> 00:00:44.642
+menor terá que ser o valor definido
+para o hiperparâmetro teta.
+
+00:00:45.234 --> 00:00:49.309
+Mas agora a pergunta é:
+podemos sacrificar a precisão aqui?
+
+00:00:49.342 --> 00:00:51.187
+Afinal, quanto tempo
+vai durar
+
+00:00:51.220 --> 00:00:54.111
+o algoritmo
+de Avaliação de Política?
+
+00:00:54.144 --> 00:00:56.730
+Um teta menor significa
+que ele vai durar mais,
+
+00:00:56.763 --> 00:01:00.680
+mas o tempo exato vai depender
+do seu MDP.
+
+00:01:00.713 --> 00:01:05.112
+Talvez, em vez de cessar o algoritmo
+com este critério de parada,
+
+00:01:05.145 --> 00:01:07.602
+podemos fornecer
+um número absoluto de iterações
+
+00:01:07.635 --> 00:01:09.666
+que estamos dispostos
+a calcular.
+
+00:01:09.699 --> 00:01:12.772
+Assim podemos alterar
+o passo de Avaliação de Política
+
+00:01:12.805 --> 00:01:16.761
+para encerrá-lo depois de atualizar
+os valores de cada estado
+
+00:01:16.794 --> 00:01:22.080
+uma ou duas vezes, ou qualquer outro
+número inteiro positivo de vezes.
+
+00:01:22.113 --> 00:01:25.779
+A ideia é que, se nosso objetivo
+é obter a política ótima,
+
+00:01:25.812 --> 00:01:27.707
+isso não nos impede
+de fazer isso
+
+00:01:27.740 --> 00:01:31.154
+através de uma função valor
+um pouco imprecisa.
+
+00:01:31.187 --> 00:01:35.004
+Então não temos que esperar por
+uma boa estimativa da função valor
+
+00:01:35.037 --> 00:01:38.089
+para calcular
+uma política melhorada.
+
+00:01:38.408 --> 00:01:42.546
+Por exemplo, digamos que esta
+seja a função valor ótima atual
+
+00:01:42.579 --> 00:01:45.026
+de um MDP hipotético.
+
+00:01:45.059 --> 00:01:50.148
+Uma política ótima pode ser obtida
+olhando para cada estado em separado
+
+00:01:50.181 --> 00:01:53.773
+e depois escolhendo a ação
+que maximiza a função.
+
+00:01:53.806 --> 00:01:57.461
+Mas digamos que nós não temos
+essa função valor-ação ótima.
+
+00:01:57.494 --> 00:02:01.345
+Digamos que estamos trabalhando
+com uma estimativa muito incorreta,
+
+00:02:01.378 --> 00:02:03.733
+em que todos os valores são
+imprecisos,
+
+00:02:03.766 --> 00:02:06.883
+mas os valores relativos
+entre muitos pares estado-ação
+
+00:02:06.916 --> 00:02:08.535
+estão corretos.
+
+00:02:08.568 --> 00:02:12.256
+Então, se usarmos essa função valor
+tecnicamente incorreta
+
+00:02:12.289 --> 00:02:14.297
+para obter nossa política,
+
+00:02:14.330 --> 00:02:18.945
+essa política será a mesma
+que a política ótima.
+
+00:02:18.978 --> 00:02:20.947
+Mas essa é só
+a ideia principal.
+
+00:02:20.980 --> 00:02:24.473
+Nós não temos que ter uma estimativa
+perfeita ou quase perfeita
+
+00:02:24.506 --> 00:02:28.035
+da função valor
+para obter a política ótima.
+

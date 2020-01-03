@@ -1,0 +1,221 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.297 --> 00:00:03.030
+Nós falamos
+sobre a Iteração de Política.
+
+00:00:03.063 --> 00:00:06.657
+Aprendemos também sobre
+a Iteração de Política Truncada.
+
+00:00:06.690 --> 00:00:09.134
+Nesse caso,
+o passo de Avaliação de Política
+
+00:00:09.167 --> 00:00:11.742
+só pode ser realizado
+um número limitado de vezes
+
+00:00:11.775 --> 00:00:13.485
+no espaço de estados.
+
+00:00:13.518 --> 00:00:15.642
+Ou seja, nós limitamos
+o número de vezes
+
+00:00:15.690 --> 00:00:18.773
+que o valor estimado de cada estado
+é atualizado
+
+00:00:18.806 --> 00:00:21.651
+antes de seguir para a rodada
+de Melhoria de Política.
+
+00:00:22.408 --> 00:00:25.516
+Neste vídeo, você vai aprender
+sobre a Iteração de Valor,
+
+00:00:25.549 --> 00:00:27.742
+em que a Avaliação de Política
+é encerrada
+
+00:00:27.775 --> 00:00:29.417
+depois
+de uma única varredura.
+
+00:00:29.450 --> 00:00:31.447
+É muito simples,
+
+00:00:31.480 --> 00:00:34.499
+mas você pode simplificar
+o código subjacente.
+
+00:00:34.532 --> 00:00:36.622
+E formularemos juntos
+esse simples modelo
+
+00:00:36.655 --> 00:00:38.566
+ao longo do restante
+deste vídeo.
+
+00:00:39.142 --> 00:00:40.845
+Então vamos escrever
+o pseudocódigo
+
+00:00:40.878 --> 00:00:44.814
+correspondente a cada um dos passos
+de Avaliação e Melhoria.
+
+00:00:44.847 --> 00:00:48.303
+A primeira coisa que notamos é
+que podemos rearrumar estas linhas
+
+00:00:48.336 --> 00:00:50.995
+para remover
+um pouco de redundância.
+
+00:00:51.028 --> 00:00:53.845
+Em particular, o valor da ação
+da primeira linha
+
+00:00:53.878 --> 00:00:56.875
+pode ser inserido
+onde ele aparece na segunda linha.
+
+00:00:56.908 --> 00:00:59.278
+Lembre-se que esse passo
+de Melhoria de Política
+
+00:00:59.311 --> 00:01:02.810
+é seguido por outro passo
+de Avaliação de Política.
+
+00:01:02.843 --> 00:01:06.229
+Pi' é usado como o novo valor
+da política pi,
+
+00:01:06.262 --> 00:01:09.923
+que é então submetido a uma única
+varredura de Avaliação de Política.
+
+00:01:09.956 --> 00:01:13.569
+Bom, podemos ver que aqui
+também há um pouco de redundância.
+
+00:01:13.602 --> 00:01:15.318
+Em vez de atualizar pi'
+
+00:01:15.351 --> 00:01:19.523
+e usá-lo imediatamente para definir
+o novo valor da política pi,
+
+00:01:19.556 --> 00:01:23.813
+podemos atualizar diretamente
+o valor da política pi
+
+00:01:23.846 --> 00:01:25.615
+a partir da função valor.
+
+00:01:25.648 --> 00:01:29.886
+Em seguida, precisamos
+analisar melhor estas duas equações.
+
+00:01:29.919 --> 00:01:33.680
+Ao fazer isso, percebemos
+que elas são quase iguais.
+
+00:01:33.713 --> 00:01:38.990
+Em particular, tudo o que aparece
+depois da soma é quase idêntico,
+
+00:01:39.023 --> 00:01:41.757
+com exceção destes valores.
+
+00:01:41.790 --> 00:01:44.575
+No fim das contas,
+podemos combinar estas duas linhas
+
+00:01:44.608 --> 00:01:48.407
+para formar uma única linha
+que produzirá o mesmo efeito.
+
+00:01:48.440 --> 00:01:53.464
+Primeiro notamos que pi de s
+é o arg max de todas as ações
+
+00:01:53.497 --> 00:01:56.107
+de uma expressão
+meio complicada,
+
+00:01:56.140 --> 00:02:00.545
+mas podemos ver essa longa expressão
+como uma função da ação a.
+
+00:02:00.578 --> 00:02:04.306
+Em seguida, V de s é definido
+por essa mesma função,
+
+00:02:04.339 --> 00:02:07.062
+porém, avaliado em pi de s.
+
+00:02:07.095 --> 00:02:09.809
+Então, se pi de s for definido
+como o arg max
+
+00:02:09.842 --> 00:02:13.954
+e V de s for definido como a função
+avaliada nesse arg max,
+
+00:02:13.987 --> 00:02:18.303
+podemos definir diretamente V de s
+como o valor máximo da função.
+
+00:02:18.336 --> 00:02:21.228
+Então podemos inserir essa linha
+no nosso algoritmo.
+
+00:02:23.001 --> 00:02:26.435
+Começamos com um palpite inicial
+para a função valor.
+
+00:02:26.468 --> 00:02:28.925
+O algoritmo observa
+os espaços de estados
+
+00:02:28.958 --> 00:02:31.305
+e aplica sucessivamente
+a regra de atualização
+
+00:02:31.338 --> 00:02:33.957
+para obter um palpite melhor
+para a função valor.
+
+00:02:33.990 --> 00:02:35.159
+Após cada atualização,
+
+00:02:35.192 --> 00:02:38.935
+verificamos se a estimativa
+da função valor convergiu.
+
+00:02:38.968 --> 00:02:42.458
+Em caso positivo, cessamos
+essa parte do algoritmo.
+
+00:02:43.130 --> 00:02:45.532
+Depois da convergência,
+há um último passo
+
+00:02:45.565 --> 00:02:49.448
+para obter a política correspondente
+à função valor final.
+
+00:02:49.481 --> 00:02:52.916
+Quando estiver pronto, siga
+as instruções do próximo conceito
+
+00:02:52.949 --> 00:02:55.293
+para implementar sozinho
+este algoritmo.
+

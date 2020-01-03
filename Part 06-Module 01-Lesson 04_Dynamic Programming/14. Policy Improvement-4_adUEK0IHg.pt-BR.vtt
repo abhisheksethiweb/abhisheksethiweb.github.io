@@ -1,0 +1,456 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.206 --> 00:00:02.114
+Espero que tenha gostado
+de implementar
+
+00:00:02.147 --> 00:00:06.372
+a Avaliação de Política Iterativa
+na 1ª parte do miniprojeto.
+
+00:00:06.405 --> 00:00:09.197
+Use seu algoritmo
+para avaliar uma política
+
+00:00:09.230 --> 00:00:11.995
+de qualquer MDP finito
+de sua escolha.
+
+00:00:12.028 --> 00:00:15.624
+Você não precisa se limitar
+ao ambiente "lago congelado".
+
+00:00:15.657 --> 00:00:17.734
+Mas lembre-se
+que a Avaliação de Política
+
+00:00:17.767 --> 00:00:21.378
+requer que o agente
+conheça muito bem o MDP.
+
+00:00:21.411 --> 00:00:24.679
+Depois, se quiser, você pode usar
+a 2ª parte do miniprojeto
+
+00:00:24.712 --> 00:00:27.855
+para obter a função valor-ação
+correspondente.
+
+00:00:27.888 --> 00:00:31.617
+Mas, por enquanto, vamos continuar
+nossa busca pela política ótima.
+
+00:00:31.650 --> 00:00:35.008
+A Avaliação de Política nos leva
+parcialmente até ela.
+
+00:00:35.041 --> 00:00:37.915
+Afinal de contas, para descobrir
+a melhor política,
+
+00:00:37.948 --> 00:00:41.483
+é bom ser capaz de avaliar
+as políticas candidatas.
+
+00:00:41.935 --> 00:00:45.239
+Neste vídeo, você aprenderá
+sobre a Melhoria de Política -
+
+00:00:45.272 --> 00:00:48.940
+um algoritmo que usa
+a função valor de uma política
+
+00:00:48.973 --> 00:00:51.170
+para propor
+uma nova política
+
+00:00:51.203 --> 00:00:54.204
+que seja ao menos
+tão boa quanto a atual.
+
+00:00:54.237 --> 00:00:56.623
+Mas por que faríamos isso?
+
+00:00:56.656 --> 00:01:00.715
+Bom, logo de cara podemos ver
+que a Avaliação de Política
+
+00:01:00.748 --> 00:01:04.767
+e a Melhoria de Política
+podem funcionar muito bem juntas.
+
+00:01:04.800 --> 00:01:09.531
+A Avaliação de Política pega
+uma política e gera a função valor.
+
+00:01:09.564 --> 00:01:11.771
+Depois podemos pegar
+essa mesma função valor
+
+00:01:11.804 --> 00:01:13.418
+e usar
+a Melhoria de Política
+
+00:01:13.451 --> 00:01:17.281
+para obter uma possível
+política nova e melhorada.
+
+00:01:17.314 --> 00:01:20.486
+Depois podemos pegar
+essa nova política,
+
+00:01:20.519 --> 00:01:23.479
+determinar que ela faça de novo
+a Avaliação de Política
+
+00:01:23.512 --> 00:01:26.016
+e depois a Melhoria de Política,
+repetidas vezes,
+
+00:01:26.049 --> 00:01:28.990
+até convergirmos
+para a política ótima.
+
+00:01:29.023 --> 00:01:30.873
+Vamos tentar
+entender isso melhor
+
+00:01:30.906 --> 00:01:34.526
+no contexto do mundo de grade
+de uma lição anterior.
+
+00:01:34.559 --> 00:01:37.187
+Lembre-se que essa era
+uma tarefa episódica
+
+00:01:37.220 --> 00:01:41.516
+em que o único estado terminal
+era o do canto inferior direito.
+
+00:01:41.549 --> 00:01:45.574
+Vamos considerar que o agente
+já sabe tudo sobre o ambiente.
+
+00:01:45.607 --> 00:01:47.609
+Ele sabe como as transições
+acontecem
+
+00:01:47.642 --> 00:01:49.472
+e como a recompensa
+é decidida.
+
+00:01:49.505 --> 00:01:52.815
+Em particular, ele não precisa
+interagir com o ambiente
+
+00:01:52.848 --> 00:01:54.751
+para obter essa informação,
+
+00:01:54.784 --> 00:01:58.176
+mas ainda assim precisa determinar
+a política ótima.
+
+00:01:58.209 --> 00:02:00.840
+Então o agente vai começar
+com um palpite inicial
+
+00:02:00.873 --> 00:02:02.682
+para a política ótima.
+
+00:02:02.715 --> 00:02:04.986
+Num vídeo anterior,
+vimos que era melhor
+
+00:02:05.019 --> 00:02:08.327
+começar com a política aleatória
+igualmente provável,
+
+00:02:08.360 --> 00:02:11.510
+em que, em cada estado, o agente
+escolhe uma ação aleatoriamente
+
+00:02:11.543 --> 00:02:13.549
+entre várias ações
+disponíveis.
+
+00:02:13.582 --> 00:02:15.129
+Com base nessa ideia,
+
+00:02:15.162 --> 00:02:18.047
+o agente calcula
+a função valor correspondente
+
+00:02:18.080 --> 00:02:20.796
+através
+da Avaliação de Política Iterativa.
+
+00:02:20.829 --> 00:02:22.843
+Nós fizemos isso
+em um vídeo anterior,
+
+00:02:22.876 --> 00:02:25.776
+em que vimos
+que esta era a função valor.
+
+00:02:26.392 --> 00:02:28.276
+Então agora a pergunta é:
+
+00:02:28.309 --> 00:02:31.777
+como podemos criar
+o passo de Melhoria de Política
+
+00:02:31.810 --> 00:02:35.971
+para encontrar a política que é
+ao menos tão boa quanto a atual?
+
+00:02:36.004 --> 00:02:39.761
+Vamos dividir a Melhoria de Política
+em dois passos.
+
+00:02:39.794 --> 00:02:42.910
+O primeiro passo é converter
+a função valor-estado
+
+00:02:42.943 --> 00:02:44.978
+em uma função valor-ação.
+
+00:02:45.011 --> 00:02:47.651
+Você já viu
+como implementar isso.
+
+00:02:47.684 --> 00:02:51.430
+E, ao seguir o mesmo procedimento
+no pequeno mundo de grade,
+
+00:02:51.463 --> 00:02:54.462
+obtemos
+esta função valor-ação.
+
+00:02:55.139 --> 00:03:00.223
+Então agora temos que descobrir
+como usar essa função valor-ação
+
+00:03:00.256 --> 00:03:02.447
+para obter uma política
+que é melhor
+
+00:03:02.480 --> 00:03:05.569
+do que a política aleatória
+igualmente provável.
+
+00:03:05.602 --> 00:03:07.399
+A ideia é a seguinte:
+
+00:03:07.432 --> 00:03:09.970
+para cada estado,
+vamos escolher a ação
+
+00:03:10.003 --> 00:03:13.089
+que maximiza
+a função valor-ação.
+
+00:03:13.610 --> 00:03:17.176
+Então, começando com o estado
+do canto superior esquerdo,
+
+00:03:17.209 --> 00:03:19.591
+1 é maior que -1,
+
+00:03:19.624 --> 00:03:23.170
+então a política será andar
+para a direita em vez de para baixo.
+
+00:03:23.203 --> 00:03:26.045
+Em seguida,
+5 é maior que -1,
+
+00:03:26.078 --> 00:03:28.738
+então aqui a política é
+andar para baixo.
+
+00:03:28.771 --> 00:03:32.028
+Mais uma vez,
+5 é maior que -1,
+
+00:03:32.061 --> 00:03:34.117
+então a política é
+andar para a direita.
+
+00:03:34.907 --> 00:03:36.630
+Você deve estar
+se perguntando
+
+00:03:36.663 --> 00:03:38.773
+o que aconteceria
+se encontrarmos um estado
+
+00:03:38.806 --> 00:03:43.791
+com várias opções de ações
+que maximizem a função valor-ação.
+
+00:03:43.824 --> 00:03:45.951
+Nesse caso,
+você tem algumas opções.
+
+00:03:45.984 --> 00:03:48.628
+Você pode escolher uma delas
+de forma arbitrária
+
+00:03:48.661 --> 00:03:51.160
+ou construir
+uma política estocástica
+
+00:03:51.193 --> 00:03:53.347
+que atribui uma probabilidade
+diferente de 0
+
+00:03:53.380 --> 00:03:55.506
+a uma ou todas as ações.
+
+00:03:55.539 --> 00:03:57.874
+Veremos isso melhor
+em breve.
+
+00:03:57.907 --> 00:04:01.541
+Mas vamos analisar melhor
+por que exatamente isso dá certo.
+
+00:04:02.223 --> 00:04:05.935
+Lembre-se que a função valor
+correspondente a uma política
+
+00:04:05.968 --> 00:04:08.136
+só armazena
+o retorno esperado
+
+00:04:08.169 --> 00:04:12.370
+se o agente seguir a política
+em todos os instantes de tempo.
+
+00:04:12.972 --> 00:04:15.887
+E, quando calculamos
+a função valor-ação,
+
+00:04:15.920 --> 00:04:20.569
+vemos o que aconteceria se o agente,
+num instante de tempo t,
+
+00:04:20.602 --> 00:04:22.320
+escolhesse uma ação "a"
+
+00:04:22.353 --> 00:04:25.365
+e, daí em diante,
+seguisse a política.
+
+00:04:25.945 --> 00:04:30.262
+E o nosso método para construir
+a próxima política pi'
+
+00:04:30.295 --> 00:04:32.851
+olha
+para essa função valor-ação
+
+00:04:32.884 --> 00:04:36.354
+e, para cada estado,
+determina a primeira ação "a"
+
+00:04:36.387 --> 00:04:39.374
+que é melhor
+para maximizar o retorno.
+
+00:04:39.407 --> 00:04:42.970
+Deste modo, o método segue
+qualquer retorno esperado
+
+00:04:43.003 --> 00:04:46.128
+que esteja associado
+a seguir a antiga política pi
+
+00:04:46.161 --> 00:04:47.914
+em todos
+os instantes de tempo.
+
+00:04:47.947 --> 00:04:50.543
+O agente terá
+um retorno esperado maior
+
+00:04:50.576 --> 00:04:53.361
+se seguir a política pi'
+inicialmente
+
+00:04:53.394 --> 00:04:56.796
+e, daí em diante,
+seguir a política pi.
+
+00:04:56.829 --> 00:04:59.641
+Dito isso, é possível provar
+
+00:04:59.674 --> 00:05:03.621
+que não só é melhor
+seguir a política pi'
+
+00:05:03.654 --> 00:05:05.536
+no 1º instante de tempo,
+
+00:05:05.569 --> 00:05:09.637
+como também é melhor segui-la
+em todos os instantes de tempo.
+
+00:05:09.670 --> 00:05:12.408
+Em outras palavras,
+é possível provar
+
+00:05:12.441 --> 00:05:17.698
+que a política pi' é
+melhor ou igual à política pi.
+
+00:05:17.731 --> 00:05:19.828
+Lembre-se que,
+para provar isso,
+
+00:05:19.861 --> 00:05:23.889
+temos que mostrar
+que a função valor da política pi'
+
+00:05:23.922 --> 00:05:29.493
+é maior ou igual à função valor
+da política pi em todos os estados.
+
+00:05:29.526 --> 00:05:32.115
+Se quiser ver como fazer isso
+com mais detalhes,
+
+00:05:32.148 --> 00:05:35.584
+dê uma olhada na leitura opcional
+do material do curso.
+
+00:05:35.617 --> 00:05:37.345
+Por enquanto,
+vamos inserir isso
+
+00:05:37.378 --> 00:05:40.351
+no nosso algoritmo
+de Melhoria de Política,
+
+00:05:40.384 --> 00:05:43.719
+em que, como você pode ver,
+a ideia é calcular primeiro
+
+00:05:43.752 --> 00:05:47.175
+a função valor-ação
+a partir da função valor-estado.
+
+00:05:47.208 --> 00:05:50.791
+Depois, para construir uma política
+melhor para cada estado,
+
+00:05:50.824 --> 00:05:55.835
+só temos que escolher uma ação
+que maximize a função valor-ação.
+
+00:05:55.868 --> 00:05:59.650
+Você terá a chance de implementar
+este algoritmo em breve.
+
