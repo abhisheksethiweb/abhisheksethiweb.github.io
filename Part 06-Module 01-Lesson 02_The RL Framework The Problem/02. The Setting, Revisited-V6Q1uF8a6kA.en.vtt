@@ -1,0 +1,202 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:02.640
+Remember the cute puppy from the previous lesson?
+
+00:00:02.640 --> 00:00:06.269
+He set the stage as an agent who learns from trial
+
+00:00:06.269 --> 00:00:10.644
+and error how to behave in an environment to maximize reward.
+
+00:00:10.644 --> 00:00:15.114
+But what do we mean when we talk about reinforcement learning in general?
+
+00:00:15.115 --> 00:00:16.905
+Well, you might be surprised to hear
+
+00:00:16.905 --> 00:00:20.980
+that not much changes when we trade this puppy for a self-driving car,
+
+00:00:20.980 --> 00:00:26.414
+a robot, or a more in general, reinforcement learning agent.
+
+00:00:26.414 --> 00:00:29.489
+In particular, the RL framework is characterized
+
+00:00:29.489 --> 00:00:33.659
+by an agent learned to interact with its environment.
+
+00:00:33.659 --> 00:00:37.199
+We assume that time evolves and discrete timesteps.
+
+00:00:37.200 --> 00:00:38.910
+At the initial timestep,
+
+00:00:38.909 --> 00:00:42.359
+the agent observes the environment.
+
+00:00:42.359 --> 00:00:43.950
+You can think of this observation as
+
+00:00:43.950 --> 00:00:46.995
+a situation that the environment presents to the agent.
+
+00:00:46.994 --> 00:00:52.199
+Then, it must select an appropriate action in response.
+
+00:00:52.200 --> 00:00:55.425
+Then at the next timestep in response to the agents action,
+
+00:00:55.424 --> 00:00:59.149
+the environment presents a new situation to the agent.
+
+00:00:59.149 --> 00:01:03.869
+At the same time the environment gives the agent a reward which provides
+
+00:01:03.869 --> 00:01:09.759
+some indication of whether the agent has responded appropriately to the environment.
+
+00:01:09.760 --> 00:01:12.480
+Then the process continues where at each timestep
+
+00:01:12.480 --> 00:01:16.290
+the environment sends the agent an observation and reward.
+
+00:01:16.290 --> 00:01:21.800
+And in response, the agent must choose an action.
+
+00:01:21.799 --> 00:01:24.810
+In general, we don't need to assume that the environment
+
+00:01:24.810 --> 00:01:28.875
+shows the agent everything he needs to make well-informed decisions.
+
+00:01:28.875 --> 00:01:33.165
+But it greatly simplifies the underlying mathematics if we do.
+
+00:01:33.165 --> 00:01:34.725
+So in this course,
+
+00:01:34.724 --> 00:01:37.199
+we'll make the assumption that the agent is able to
+
+00:01:37.200 --> 00:01:40.605
+fully observe what ever state the environment is in.
+
+00:01:40.605 --> 00:01:45.418
+And instead of referring to the agent as receiving an observation,
+
+00:01:45.418 --> 00:01:49.820
+well, Huntsworth say that it receives the environment state.
+
+00:01:49.819 --> 00:01:52.829
+But let's make this description a bit clearer with
+
+00:01:52.829 --> 00:01:59.134
+some added notation where we again start from the very beginning at timestep zero.
+
+00:01:59.135 --> 00:02:03.480
+The agent first receives the environment state which we denote by S0,
+
+00:02:03.480 --> 00:02:07.635
+where zero stands for a timestep zero of course.
+
+00:02:07.635 --> 00:02:11.745
+Then, based on that observation the agent chooses an action,
+
+00:02:11.745 --> 00:02:15.120
+A0, at the next timestep,
+
+00:02:15.120 --> 00:02:17.640
+in this case, it timestep one and that's
+
+00:02:17.639 --> 00:02:22.289
+a direct consequence of the agent's choice of action, A0.
+
+00:02:22.289 --> 00:02:24.810
+And the environments previous state, S0,
+
+00:02:24.810 --> 00:02:28.099
+the environment transitions to a new state, S1,
+
+00:02:28.099 --> 00:02:30.284
+and gives some reward,
+
+00:02:30.284 --> 00:02:32.530
+R1, to the agent.
+
+00:02:32.530 --> 00:02:36.080
+The agent then chooses an action, A1.
+
+00:02:36.080 --> 00:02:42.680
+At timestep two, the process continues where the environment passes the reward in state.
+
+00:02:42.680 --> 00:02:47.659
+Then the agent responds with an action and so on.
+
+00:02:47.659 --> 00:02:50.340
+Whereas the agent interacts with the environment,
+
+00:02:50.340 --> 00:02:56.414
+this interaction is manifest as a sequence of states, actions, and rewards.
+
+00:02:56.413 --> 00:03:01.349
+That said, the reward will always be the most relevant quantity to the agent.
+
+00:03:01.349 --> 00:03:05.370
+To be specific, any agent has the goal to maximize
+
+00:03:05.370 --> 00:03:11.270
+expected cumulative reward or the some of the rewards attained over all timesteps.
+
+00:03:11.270 --> 00:03:14.310
+In other words, it seeks to find the strategy for choosing
+
+00:03:14.310 --> 00:03:18.490
+actions with the cumulative reward is likely to be quite high.
+
+00:03:18.490 --> 00:03:23.879
+And the agent can only accomplish this by interacting with the environment.
+
+00:03:23.879 --> 00:03:26.025
+This is because at every timestep,
+
+00:03:26.025 --> 00:03:30.414
+the environment decides how much reward the agent receives.
+
+00:03:30.414 --> 00:03:34.139
+In other words, the agent must play by the rules of the environment.
+
+00:03:34.139 --> 00:03:36.779
+But through interaction, the agent can learn
+
+00:03:36.780 --> 00:03:40.763
+those rules and choose appropriate actions to accomplish its goal.
+
+00:03:40.763 --> 00:03:44.509
+And this is essentially what we'll try to accomplish in this course.
+
+00:03:44.509 --> 00:03:47.399
+But it's important to emphasize that all of this is
+
+00:03:47.400 --> 00:03:50.605
+just a mathematical model for a real world problem.
+
+00:03:50.604 --> 00:03:52.919
+So if you have a problem in mind that you
+
+00:03:52.919 --> 00:03:55.559
+think can be solved with reinforcement learning,
+
+00:03:55.560 --> 00:03:58.155
+you will have to specify the states, actions,
+
+00:03:58.155 --> 00:04:03.270
+and rewards, and you'll have to decide the rules of the environment in this course.
+
+00:04:03.270 --> 00:04:07.000
+You'll see a lot of examples for how to accomplish this.
+

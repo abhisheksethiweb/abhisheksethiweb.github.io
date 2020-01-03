@@ -1,0 +1,31 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:02.390
+Hi and welcome back.
+
+00:00:02.390 --> 00:00:05.540
+I hope you enjoyed the first lesson and walked away with
+
+00:00:05.540 --> 00:00:10.559
+an understanding of how reinforcement learning is used in industry today.
+
+00:00:10.560 --> 00:00:13.475
+So far, we've started a conversation to illustrate
+
+00:00:13.474 --> 00:00:16.669
+the diverse potential of reinforcement learning techniques.
+
+00:00:16.670 --> 00:00:19.915
+In this lesson, we'll continue the conversation and
+
+00:00:19.914 --> 00:00:24.589
+end with a rigorous definition for the reinforcement learning problem.
+
+00:00:24.589 --> 00:00:27.949
+Specifically, you'll learn how to take a real world problem and
+
+00:00:27.949 --> 00:00:31.390
+formulate it so it can be solved through reinforcement learning.
+

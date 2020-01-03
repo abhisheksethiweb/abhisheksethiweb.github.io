@@ -1,0 +1,302 @@
+<!-- udacimak v1.2.0 -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Summary</title>
+  <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../assets/css/plyr.css">
+  <link rel="stylesheet" href="../assets/css/katex.min.css">
+  <link rel="stylesheet" href="../assets/css/jquery.mCustomScrollbar.min.css">
+  <link rel="stylesheet" href="../assets/css/styles.css">
+  <link rel="shortcut icon" type="image/png" href="../assets/img/udacimak.png" />
+</head>
+
+<body>
+  <div class="wrapper">
+    <nav id="sidebar">
+  <div class="sidebar-header">
+    <h3>The RL Framework: The Problem</h3>
+  </div>
+
+  <ul class="sidebar-list list-unstyled CTAs">
+    <li>
+      <a href="../index.html" class="article">Back to Home</a>
+    </li>
+  </ul>
+
+  <ul class="sidebar-list list-unstyled components">
+    <li class="">
+      <a href="01. Introduction.html">01. Introduction</a>
+    </li>
+    <li class="">
+      <a href="02. The Setting, Revisited.html">02. The Setting, Revisited</a>
+    </li>
+    <li class="">
+      <a href="03. Episodic vs. Continuing Tasks.html">03. Episodic vs. Continuing Tasks</a>
+    </li>
+    <li class="">
+      <a href="04. Quiz Test Your Intuition.html">04. Quiz: Test Your Intuition</a>
+    </li>
+    <li class="">
+      <a href="05. Quiz Episodic or Continuing.html">05. Quiz: Episodic or Continuing?</a>
+    </li>
+    <li class="">
+      <a href="06. The Reward Hypothesis.html">06. The Reward Hypothesis</a>
+    </li>
+    <li class="">
+      <a href="07. Goals and Rewards, Part 1.html">07. Goals and Rewards, Part 1</a>
+    </li>
+    <li class="">
+      <a href="08. Goals and Rewards, Part 2.html">08. Goals and Rewards, Part 2</a>
+    </li>
+    <li class="">
+      <a href="09. Quiz Goals and Rewards.html">09. Quiz: Goals and Rewards</a>
+    </li>
+    <li class="">
+      <a href="10. Cumulative Reward.html">10. Cumulative Reward</a>
+    </li>
+    <li class="">
+      <a href="11. Discounted Return.html">11. Discounted Return</a>
+    </li>
+    <li class="">
+      <a href="12. Quiz Pole-Balancing.html">12. Quiz: Pole-Balancing</a>
+    </li>
+    <li class="">
+      <a href="13. MDPs, Part 1.html">13. MDPs, Part 1</a>
+    </li>
+    <li class="">
+      <a href="14. MDPs, Part 2.html">14. MDPs, Part 2</a>
+    </li>
+    <li class="">
+      <a href="15. Quiz One-Step Dynamics, Part 1.html">15. Quiz: One-Step Dynamics, Part 1</a>
+    </li>
+    <li class="">
+      <a href="16. Quiz One-Step Dynamics, Part 2.html">16. Quiz: One-Step Dynamics, Part 2</a>
+    </li>
+    <li class="">
+      <a href="17. MDPs, Part 3.html">17. MDPs, Part 3</a>
+    </li>
+    <li class="">
+      <a href="18. Finite MDPs.html">18. Finite MDPs</a>
+    </li>
+    <li class="">
+      <a href="19. Summary.html">19. Summary</a>
+    </li>
+  </ul>
+
+  <ul class="sidebar-list list-unstyled CTAs">
+    <li>
+      <a href="../index.html" class="article">Back to Home</a>
+    </li>
+  </ul>
+</nav>
+
+    <div id="content">
+      <header class="container-fluild header">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <div class="align-items-middle">
+                <button type="button" id="sidebarCollapse" class="btn btn-toggle-sidebar">
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                </button>
+
+                <h1 style="display: inline-block">19. Summary</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main class="container">
+        <div class="row">
+          <div class="col-12">
+            <div class="ud-atom">
+  <h3></h3>
+  <div>
+  <h1 id="summary">Summary</h1>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <figure class="figure">
+    <img src="img/screen-shot-2017-09-20-at-12.02.06-pm.png" alt="The agent-environment interaction in reinforcement learning. (Source: Sutton and Barto, 2017)" class="img img-fluid">
+    <figcaption class="figure-caption">
+      <p>The agent-environment interaction in reinforcement learning. (Source: Sutton and Barto, 2017)</p>
+    </figcaption>
+  </figure>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <h2 id="-the-setting-revisited">### The Setting, Revisited</h2>
+<ul>
+<li>The reinforcement learning (RL) framework is characterized by an <strong>agent</strong> learning to interact with its <strong>environment</strong>.</li>
+<li>At each time step, the agent receives the environment's <strong>state</strong> (<em>the environment presents a situation to the agent)</em>, and the agent must choose an appropriate <strong>action</strong> in response.  One time step later, the agent receives a <strong>reward</strong> (<em>the environment indicates whether the agent has responded appropriately to the state</em>) and a new <strong>state</strong>.</li>
+<li>All agents have the goal to maximize expected <strong>cumulative reward</strong>, or the expected sum of rewards attained over all time steps.</li>
+</ul>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <h2 id="-episodic-vs-continuing-tasks">### Episodic vs. Continuing Tasks</h2>
+<ul>
+<li>A <strong>task</strong> is an instance of the reinforcement learning (RL) problem.</li>
+<li><strong>Continuing tasks</strong> are tasks that continue forever, without end.</li>
+<li><strong>Episodic tasks</strong> are tasks with a well-defined starting and ending point.<ul>
+<li>In this case, we refer to a complete sequence of interaction, from start to finish, as an <strong>episode</strong>.</li>
+<li>Episodic tasks come to an end whenever the agent reaches a <strong>terminal state</strong>.</li></ul></li>
+</ul>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <h2 id="-the-reward-hypothesis">### The Reward Hypothesis</h2>
+<ul>
+<li><strong>Reward Hypothesis</strong>: All goals can be framed as the maximization of (expected) cumulative reward.</li>
+</ul>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <h2 id="-goals-and-rewards">### Goals and Rewards</h2>
+<ul>
+<li>(Please see <strong>Part 1</strong> and <strong>Part 2</strong> to review an example of how to specify the reward signal in a real-world problem.)</li>
+</ul>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <h2 id="-cumulative-reward">### Cumulative Reward</h2>
+<ul>
+<li>The <strong>return at time step  <span class="mathquill ud-math">t</span></strong> is <span class="mathquill ud-math">G_t := R_{t+1} + R_{t+2} + R_{t+3} + \ldots </span></li>
+<li>The agent selects actions with the goal of maximizing expected (discounted) return. (<em>Note: discounting is covered in the next concept.</em>)</li>
+</ul>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <h2 id="-discounted-return">### Discounted Return</h2>
+<ul>
+<li>The <strong>discounted return at time step  <span class="mathquill ud-math">t</span></strong> is <span class="mathquill ud-math">G_t := R_{t+1} + \gamma R_{t+2} + \gamma^2 R_{t+3} + \ldots </span>.</li>
+<li>The <strong>discount rate <span class="mathquill ud-math">\gamma</span></strong> is something that you set, to refine the goal that you have the agent.  <ul>
+<li>It must satisfy <span class="mathquill ud-math">0 \leq \gamma \leq 1</span>.</li>
+<li>If <span class="mathquill ud-math">\gamma=0</span>, the agent only cares about the most immediate reward.</li>
+<li>If <span class="mathquill ud-math">\gamma=1</span>, the return is not discounted.</li>
+<li>For larger values of <span class="mathquill ud-math">\gamma</span>, the agent cares more about the distant future. Smaller values of <span class="mathquill ud-math">\gamma</span> result in more extreme discounting, where - in the most extreme case - agent only cares about the most immediate reward.</li></ul></li>
+</ul>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <h2 id="-mdps-and-one-step-dynamics">### MDPs and One-Step Dynamics</h2>
+<ul>
+<li>The <strong>state space <span class="mathquill ud-math">\mathcal{S}</span></strong> is the set of all (<em>nonterminal</em>) states.  </li>
+<li>In episodic tasks, we use <span class="mathquill ud-math">\mathcal{S}^+</span> to refer to the set of all states, including terminal states.</li>
+<li>The <strong>action space <span class="mathquill ud-math">\mathcal{A}</span></strong> is the set of possible actions.  (Alternatively, <span class="mathquill ud-math">\mathcal{A}(s)</span> refers to the set of possible actions available in state <span class="mathquill ud-math">s \in \mathcal{S}</span>.)</li>
+<li>(Please see <strong>Part 2</strong> to review how to specify the reward signal in the recycling robot example.)</li>
+<li>The <strong>one-step dynamics</strong> of the environment determine how the environment decides the state and reward at every time step.  The dynamics can be defined by specifying <span class="mathquill ud-math">p(s',r|s,a) \doteq \mathbb{P}(S_{t+1}=s', R_{t+1}=r|S_{t} = s, A_{t}=a)</span> for each possible <span class="mathquill ud-math">s', r, s, \text{and } a</span>.</li>
+<li>A <strong>(finite) Markov Decision Process (MDP)</strong> is defined by:<ul>
+<li>a (finite) set of states <span class="mathquill ud-math">\mathcal{S}</span> (or <span class="mathquill ud-math">\mathcal{S}^+</span>, in the case of an episodic task)</li>
+<li>a (finite) set of actions <span class="mathquill ud-math">\mathcal{A}</span></li>
+<li>a set of rewards <span class="mathquill ud-math">\mathcal{R}</span></li>
+<li>the one-step dynamics of the environment</li>
+<li>the discount rate <span class="mathquill ud-math">\gamma \in [0,1]</span></li></ul></li>
+</ul>
+</div>
+
+</div>
+<div class="divider"></div>
+          </div>
+        </div>
+      </main>
+
+      <footer class="footer">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <p class="text-center">
+                <a href="https://github.com/udacimak/udacimak#readme" target="_blank">udacimak v1.2.0</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </div>
+
+
+  <script src="../assets/js/jquery-3.3.1.min.js"></script>
+  <script src="../assets/js/plyr.polyfilled.min.js"></script>
+  <script src="../assets/js/bootstrap.min.js"></script>
+  <script src="../assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+  <script src="../assets/js/katex.min.js"></script>
+  <script>
+    // Initialize Plyr video players
+    const players = Array.from(document.querySelectorAll('video')).map(p => new Plyr(p));
+
+    // render math equations
+    let elMath = document.getElementsByClassName('mathquill');
+    for (let i = 0, len = elMath.length; i < len; i += 1) {
+      const el = elMath[i];
+
+      katex.render(el.textContent, el, {
+        throwOnError: false
+      });
+    }
+
+    // this hack will make sure Bootstrap tabs work when using Handlebars
+    if ($('#question-tabs').length && $('#user-answer-tabs').length) {
+      $("#question-tabs a.nav-link").on('click', function () {
+        $("#question-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+      $("#user-answer-tabs a.nav-link").on('click', function () {
+        $("#user-answer-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    } else {
+      $("a.nav-link").on('click', function () {
+        $(".tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    }
+
+    // side bar events
+    $(document).ready(function () {
+      $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+      });
+
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar, #content').toggleClass('active');
+        $('.collapse.in').toggleClass('in');
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+      });
+    });
+  </script>
+</body>
+
+</html>

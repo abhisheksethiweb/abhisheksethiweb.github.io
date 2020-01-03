@@ -1,0 +1,250 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:02.100
+So we're working with an example of
+
+00:00:02.100 --> 00:00:06.004
+a recycling robot and we've already detailed the states and actions.
+
+00:00:06.004 --> 00:00:08.640
+In this example, remember that the state
+
+00:00:08.640 --> 00:00:11.865
+corresponds to the charge left on the robot's battery.
+
+00:00:11.865 --> 00:00:15.900
+And there are two potential states, high and low.
+
+00:00:15.900 --> 00:00:20.329
+As a first step, consider the case of the charge on the battery is high.
+
+00:00:20.329 --> 00:00:24.464
+Then, the robot could choose to search, wait, or recharge.
+
+00:00:24.464 --> 00:00:30.554
+But actually, recharging doesn't make much sense if the battery is already high,
+
+00:00:30.554 --> 00:00:34.302
+so we'll say that the only options are to search or wait.
+
+00:00:34.302 --> 00:00:38.159
+All right, so if the agent chooses to search,
+
+00:00:38.159 --> 00:00:39.919
+then at the next time step,
+
+00:00:39.920 --> 00:00:42.725
+the state could be high or low.
+
+00:00:42.725 --> 00:00:47.250
+Let's say that with 70 percent probability, it stays high.
+
+00:00:47.250 --> 00:00:50.850
+So there's a 30 percent chance the battery switches to low.
+
+00:00:50.850 --> 00:00:54.480
+In both cases, we'll say that this decision to search led
+
+00:00:54.479 --> 00:00:58.019
+to the robot collecting exactly four cans.
+
+00:00:58.020 --> 00:00:59.565
+And in line with this,
+
+00:00:59.564 --> 00:01:04.140
+the environment gives the agent a reward of four.
+
+00:01:04.141 --> 00:01:06.765
+The other option is to wait.
+
+00:01:06.765 --> 00:01:11.040
+If the robot has a high battery and then decides to wait, well,
+
+00:01:11.040 --> 00:01:14.955
+waiting doesn't use any battery at all and we'll say that then,
+
+00:01:14.954 --> 00:01:19.719
+it's guaranteed that the battery will again be high at the next time step.
+
+00:01:19.719 --> 00:01:24.864
+In this case, we'll suppose that since the robot wasn't out actively searching,
+
+00:01:24.864 --> 00:01:30.629
+it's able to collect fewer cans and say it's delivered just one can.
+
+00:01:30.629 --> 00:01:33.149
+And again in line with this,
+
+00:01:33.150 --> 00:01:37.109
+the environment gives the agent a reward of one.
+
+00:01:37.109 --> 00:01:40.454
+Onto the case where the battery is low.
+
+00:01:40.454 --> 00:01:44.224
+Again, the robot has three options.
+
+00:01:44.224 --> 00:01:48.495
+If the battery is low and it chooses to wait for people to bring cans,
+
+00:01:48.495 --> 00:01:54.180
+that doesn't use any battery until the state at the next time step is going to be low.
+
+00:01:54.180 --> 00:01:58.095
+And just like when the robot decided to wait when the battery was high,
+
+00:01:58.094 --> 00:02:01.620
+the agent gets a reward of one.
+
+00:02:01.620 --> 00:02:04.011
+If the robot recharges,
+
+00:02:04.010 --> 00:02:06.509
+then it goes back to the docking station and
+
+00:02:06.510 --> 00:02:10.289
+the state of that the next time step is guaranteed to be high.
+
+00:02:10.289 --> 00:02:15.525
+Say it collects no cans along the way and gets a reward of zero.
+
+00:02:15.525 --> 00:02:19.200
+And if it searches, well, that's risky.
+
+00:02:19.199 --> 00:02:23.289
+It's possible that it gets away with this and then at the next time step,
+
+00:02:23.289 --> 00:02:27.724
+the battery is still low but not entirely depleted.
+
+00:02:27.724 --> 00:02:31.829
+But it's probably more likely that the robot depletes its battery,
+
+00:02:31.830 --> 00:02:37.195
+has to be rescued and is carried to a docking station to be charged.
+
+00:02:37.194 --> 00:02:41.219
+So the charge on its battery at the next time step is high.
+
+00:02:41.219 --> 00:02:45.120
+So the robot depletes its battery with 80 percent probability
+
+00:02:45.120 --> 00:02:50.034
+and otherwise gets away with that risky action with 20 percent probability.
+
+00:02:50.034 --> 00:02:51.314
+As for the reward,
+
+00:02:51.314 --> 00:02:53.444
+if the robot needs to be rescued,
+
+00:02:53.444 --> 00:02:57.060
+we want to make sure we're punishing the robot in this case,
+
+00:02:57.060 --> 00:03:00.659
+so say we don't look at all at the number of cans it was able to
+
+00:03:00.659 --> 00:03:05.865
+collect and we just give the robot a reward of negative three for that.
+
+00:03:05.865 --> 00:03:08.125
+But if the robot gets away with it,
+
+00:03:08.125 --> 00:03:12.539
+he collects four cans and get the reward of four.
+
+00:03:12.539 --> 00:03:17.425
+This picture completely characterizes one method that
+
+00:03:17.425 --> 00:03:22.679
+the environment could use to decide the next state in reward at any point in time.
+
+00:03:22.680 --> 00:03:26.849
+To see this, let's look at a concrete example.
+
+00:03:26.849 --> 00:03:31.844
+Say for instance, the last state was high and the agent decided to search.
+
+00:03:31.844 --> 00:03:34.469
+Then, the environment would flip
+
+00:03:34.469 --> 00:03:39.240
+a theoretical coin with 70 percent probability of landing heads,
+
+00:03:39.240 --> 00:03:40.770
+and if that coin landed heads,
+
+00:03:40.770 --> 00:03:43.020
+the environment would decide that the next state was
+
+00:03:43.020 --> 00:03:46.575
+high and the agent would get a reward four.
+
+00:03:46.574 --> 00:03:49.289
+Otherwise, if it landed tails,
+
+00:03:49.289 --> 00:03:53.759
+the next state would be low and the reward would be four.
+
+00:03:53.759 --> 00:04:00.780
+As another example, if the last state was low and the agent decided to search,
+
+00:04:00.780 --> 00:04:03.569
+the environment would again flip
+
+00:04:03.569 --> 00:04:08.159
+a theoretical coin now with 80 percent probability of landing heads.
+
+00:04:08.159 --> 00:04:09.704
+If it landed heads,
+
+00:04:09.705 --> 00:04:12.120
+the environment would decide the next state was
+
+00:04:12.120 --> 00:04:16.560
+high and the agent would get a reward of negative three.
+
+00:04:16.560 --> 00:04:18.480
+Otherwise, if it landed tails,
+
+00:04:18.480 --> 00:04:23.075
+the next state would be low and the reward would be four.
+
+00:04:23.074 --> 00:04:25.469
+But what's important to emphasize here is
+
+00:04:25.470 --> 00:04:29.780
+how little information the environment uses to make decisions.
+
+00:04:29.779 --> 00:04:32.924
+It doesn't care what situation was presented to the agent
+
+00:04:32.925 --> 00:04:36.845
+10 or 100 or even two steps prior.
+
+00:04:36.845 --> 00:04:41.610
+And it doesn't look at the actions that the agent took prior to the last one.
+
+00:04:41.610 --> 00:04:45.629
+And how well the agent is doing or how much reward it's collected
+
+00:04:45.629 --> 00:04:51.115
+has no effect on how the environment chooses to respond to the agent.
+
+00:04:51.115 --> 00:04:54.300
+Of course, it's possible to design environments that
+
+00:04:54.300 --> 00:04:58.129
+have much more complex procedures for interacting with the agent,
+
+00:04:58.129 --> 00:05:00.634
+but this is how it's done in reinforcement learning,
+
+00:05:00.634 --> 00:05:03.409
+and you'll see soon for yourself in
+
+00:05:03.410 --> 00:05:08.000
+your implementations just how powerful this framework is.
+

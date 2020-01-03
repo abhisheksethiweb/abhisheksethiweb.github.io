@@ -1,0 +1,127 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:04.349
+We've discussed the diverse applications of Reinforcement Learning.
+
+00:00:04.349 --> 00:00:07.195
+Each has a defining agent and environment,
+
+00:00:07.195 --> 00:00:09.120
+and each agent has a goal.
+
+00:00:09.119 --> 00:00:14.910
+Ranging from a car learning to drive itself to an agent learning to play Atari games.
+
+00:00:14.910 --> 00:00:16.740
+It's truly amazing that all of
+
+00:00:16.739 --> 00:00:21.954
+these very different goals can be addressed with the same theoretical framework.
+
+00:00:21.954 --> 00:00:24.869
+So far, we've made sense of the idea of reward from
+
+00:00:24.870 --> 00:00:28.710
+the perspective of a puppy that interacts with its owner.
+
+00:00:28.710 --> 00:00:31.170
+In this case, the state did in the timestep was
+
+00:00:31.170 --> 00:00:34.380
+the command that the owner communicated to the puppy,
+
+00:00:34.380 --> 00:00:36.480
+the action was the puppy's response,
+
+00:00:36.479 --> 00:00:39.309
+and the reward was just the number of treats.
+
+00:00:39.310 --> 00:00:42.405
+And like a good Reinforcement Learning Agent,
+
+00:00:42.405 --> 00:00:45.105
+the puppy seeks to maximize that reward.
+
+00:00:45.104 --> 00:00:48.464
+In this case, the idea of reward comes naturally.
+
+00:00:48.465 --> 00:00:52.075
+And it lines up well with the way we think about teaching a puppy.
+
+00:00:52.075 --> 00:00:56.295
+But in fact, the Reinforcement Learning Framework has any and
+
+00:00:56.295 --> 00:01:02.125
+all agents formulate their goals in terms of maximizing expected cumulative reward.
+
+00:01:02.125 --> 00:01:07.305
+But what could reward mean in the context of something like a robot learning to walk?
+
+00:01:07.305 --> 00:01:10.470
+Maybe we could think of the environment as a type of trainer that
+
+00:01:10.469 --> 00:01:14.444
+watches the robots movements and rewards it for having good walking form.
+
+00:01:14.444 --> 00:01:17.549
+But then the reward that it gives has the
+
+00:01:17.549 --> 00:01:21.375
+potential to be highly subjective and not scientific at all.
+
+00:01:21.375 --> 00:01:22.995
+I mean, what makes a walk good?
+
+00:01:22.995 --> 00:01:24.450
+And what makes it bad?
+
+00:01:24.450 --> 00:01:26.549
+And how do we address this?
+
+00:01:26.549 --> 00:01:29.909
+In general, how do we specify reward to
+
+00:01:29.909 --> 00:01:34.109
+describe any of a number of potential goals that our agents could have?
+
+00:01:34.109 --> 00:01:36.355
+Well before we answer this question,
+
+00:01:36.355 --> 00:01:38.180
+let's take one step back.
+
+00:01:38.180 --> 00:01:41.520
+It's important to note that the word "Reinforcement" and
+
+00:01:41.519 --> 00:01:46.164
+"Reinforcement Learning" is a term originally from behavioral science.
+
+00:01:46.165 --> 00:01:49.470
+It refers to a stimulus that's delivered immediately after
+
+00:01:49.469 --> 00:01:53.605
+behavior to make the behavior more likely to occur in the future.
+
+00:01:53.605 --> 00:01:57.040
+The fact that this name is borrowed is no coincidence.
+
+00:01:57.040 --> 00:02:00.359
+In fact, it's an important to defining hypothesis and
+
+00:02:00.359 --> 00:02:04.560
+reinforcement learning that we can always formulate an agents goal,
+
+00:02:04.560 --> 00:02:09.170
+along the lines of maximizing expected cumulative reward.
+
+00:02:09.169 --> 00:02:13.109
+And we call this hypothesis, the "Reward Hypothesis".
+
+00:02:13.110 --> 00:02:17.055
+If this still seems weird or uncomfortable to you, you are not alone.
+
+00:02:17.055 --> 00:02:20.000
+But allow me to convince you in the next video.
+

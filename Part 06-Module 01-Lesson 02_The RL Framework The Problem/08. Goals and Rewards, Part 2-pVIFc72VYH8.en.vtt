@@ -1,0 +1,208 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:03.145
+So far, we've been trying to frame the idea of a humanoid
+
+00:00:03.145 --> 00:00:06.640
+learning to walk in the context of reinforcement learning.
+
+00:00:06.639 --> 00:00:08.429
+We've detailed the states in actions,
+
+00:00:08.429 --> 00:00:11.099
+and we still need to specify the rewards.
+
+00:00:11.099 --> 00:00:15.699
+And the reward structure from the DeepMind paper is surprisingly intuitive.
+
+00:00:15.699 --> 00:00:19.230
+This line is pulled from the appendix of the DeepMind paper,
+
+00:00:19.230 --> 00:00:22.835
+and describes how the reward is decided at every time step?
+
+00:00:22.835 --> 00:00:27.785
+Each term communicates to the agent some part of what we'd like it to accomplish.
+
+00:00:27.785 --> 00:00:30.365
+So let's look at each term individually.
+
+00:00:30.364 --> 00:00:32.969
+To begin, at every time step,
+
+00:00:32.969 --> 00:00:36.759
+the agent receives a reward proportional to its forward velocity.
+
+00:00:36.759 --> 00:00:38.344
+So if moves faster,
+
+00:00:38.344 --> 00:00:40.699
+it gets more reward, but up to a limit.
+
+00:00:40.700 --> 00:00:43.880
+Here denoted Vmax, but it's penalized by
+
+00:00:43.880 --> 00:00:47.740
+an amount proportional to the force applied to each joint.
+
+00:00:47.740 --> 00:00:50.429
+So if the agent applies more force to the joints,
+
+00:00:50.429 --> 00:00:53.225
+then more reward is taken away as punishment.
+
+00:00:53.225 --> 00:00:57.632
+Since the researchers also wanted the humanoid to focus on moving forward,
+
+00:00:57.631 --> 00:01:02.640
+the agent is also penalized for moving left, right, or vertically.
+
+00:01:02.640 --> 00:01:07.875
+It was also penalized if the humanoid moved its body away from the center of the track.
+
+00:01:07.875 --> 00:01:12.549
+So the agent will try to keep the humanoid as close to the center as possible.
+
+00:01:12.549 --> 00:01:14.039
+At every time step,
+
+00:01:14.040 --> 00:01:19.885
+the agent also receives some positive reward if the humanoid has not yet fallen.
+
+00:01:19.885 --> 00:01:23.984
+They frame the problem as an episodic task where if the human falls,
+
+00:01:23.984 --> 00:01:26.025
+then the episode is terminated.
+
+00:01:26.025 --> 00:01:29.190
+At this point, whatever cumulative reward the agent
+
+00:01:29.189 --> 00:01:32.564
+had at that time point is all it's ever going to get.
+
+00:01:32.564 --> 00:01:35.084
+In this way, the reward signal is designed,
+
+00:01:35.084 --> 00:01:39.149
+so if the robot focused entirely on maximizing this reward,
+
+00:01:39.150 --> 00:01:42.510
+it would also coincidentally learn to walk.
+
+00:01:42.510 --> 00:01:47.400
+To see this, first note that if the robot falls, the episode terminates.
+
+00:01:47.400 --> 00:01:51.835
+And that's a missed opportunity to collect more of this positive reward.
+
+00:01:51.834 --> 00:01:55.494
+And in general, if the robot walks for ten time steps,
+
+00:01:55.495 --> 00:01:57.915
+that's only 10 opportunities to get reward.
+
+00:01:57.915 --> 00:02:00.450
+And if it stays walking for 100,
+
+00:02:00.450 --> 00:02:03.375
+that's a lot more time to collect more reward.
+
+00:02:03.375 --> 00:02:05.834
+So if we get the reward in this way,
+
+00:02:05.834 --> 00:02:09.715
+the agent will try to keep from falling for as long as possible.
+
+00:02:09.715 --> 00:02:14.474
+Next, since the reward is proportional to the forward velocity,
+
+00:02:14.474 --> 00:02:19.109
+this will ensure the robot also feels pressured to walk as quickly as possible,
+
+00:02:19.110 --> 00:02:21.375
+in the direction of the walking track,
+
+00:02:21.375 --> 00:02:26.735
+but it also makes sense to penalize the agent for applying too much force to the joints.
+
+00:02:26.735 --> 00:02:28.740
+This is because otherwise,
+
+00:02:28.740 --> 00:02:32.805
+we could end up with a situation where the humanoid walks to erratically.
+
+00:02:32.805 --> 00:02:34.939
+By penalizing large forces,
+
+00:02:34.939 --> 00:02:38.155
+we can try to keep the movements more smooth and elegant.
+
+00:02:38.155 --> 00:02:42.685
+Likewise, we want to keep the agent on the track and moving forward.
+
+00:02:42.685 --> 00:02:46.500
+Otherwise, who knows where it could end up walking off to.
+
+00:02:46.500 --> 00:02:51.094
+Of course, the robot can't focus just on walking fast,
+
+00:02:51.094 --> 00:02:53.509
+or just on moving forward,
+
+00:02:53.509 --> 00:02:56.284
+or only on walking smoothly,
+
+00:02:56.284 --> 00:03:00.310
+or just on walking for as long as possible.
+
+00:03:00.310 --> 00:03:04.625
+These are four somewhat competing requirements that the agent has to balance for
+
+00:03:04.625 --> 00:03:09.865
+all time steps towards its goal of maximizing expected cumulative reward.
+
+00:03:09.865 --> 00:03:14.655
+And Google DeepMind demonstrated that from this very simple reward function,
+
+00:03:14.655 --> 00:03:19.340
+the agent is able to learn how to walk in a very human like fashion.
+
+00:03:19.340 --> 00:03:22.009
+In fact, this rewards function is so simple
+
+00:03:22.009 --> 00:03:24.979
+that it may seem that deciding reward is quite straightforward,
+
+00:03:24.979 --> 00:03:28.155
+but in general, this is not the case.
+
+00:03:28.155 --> 00:03:31.844
+Of course, there are some counterexamples to this.
+
+00:03:31.844 --> 00:03:35.115
+For instance, if you're teaching an agent to play a video game,
+
+00:03:35.115 --> 00:03:37.715
+the reward is just the score on the screen.
+
+00:03:37.715 --> 00:03:41.200
+And if you're teaching an agent to play Backgammon, well,
+
+00:03:41.199 --> 00:03:43.854
+the reward is delivered only at the end of the game,
+
+00:03:43.854 --> 00:03:46.884
+and you could construct it to be positive if the agent wins,
+
+00:03:46.884 --> 00:03:48.834
+and negative, if it loses.
+
+00:03:48.835 --> 00:03:51.400
+The fact, that the reward is so simple is
+
+00:03:51.400 --> 00:03:55.000
+precisely what makes this research from DeepMind so fascinating.
+

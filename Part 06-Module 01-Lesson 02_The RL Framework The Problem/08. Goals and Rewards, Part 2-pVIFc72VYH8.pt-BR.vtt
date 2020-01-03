@@ -1,0 +1,326 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.201 --> 00:00:04.189
+Até agora tentamos enquadrar a ideia
+de um humanoide que aprende a andar
+
+00:00:04.222 --> 00:00:06.482
+no contexto
+da aprendizagem por reforço.
+
+00:00:06.515 --> 00:00:08.265
+Detalhamos
+os estados e as ações
+
+00:00:08.298 --> 00:00:11.191
+e ainda falta especificar
+as recompensas.
+
+00:00:11.224 --> 00:00:13.636
+E a estrutura da recompensa
+do artigo da DeepMind
+
+00:00:13.669 --> 00:00:15.905
+é surpreendentemente
+intuitiva.
+
+00:00:15.938 --> 00:00:19.195
+Esta linha foi retirada do apêndice
+do artigo da DeepMind
+
+00:00:19.228 --> 00:00:22.853
+e descreve como a recompensa é
+decidida a cada instante de tempo.
+
+00:00:22.886 --> 00:00:25.088
+Cada termo comunica
+ao agente
+
+00:00:25.121 --> 00:00:27.858
+uma parte do que gostaríamos
+que ele conseguisse fazer.
+
+00:00:27.891 --> 00:00:30.698
+Então vamos ver
+cada termo individualmente.
+
+00:00:30.731 --> 00:00:32.769
+Para começar,
+a cada instante de tempo
+
+00:00:32.802 --> 00:00:36.815
+o agente recebe uma recompensa
+proporcional à velocidade do avanço.
+
+00:00:36.848 --> 00:00:39.524
+Se ele se deslocar mais rápido,
+maior será a recompensa,
+
+00:00:39.557 --> 00:00:42.544
+mas até certo ponto,
+representado aqui por Vmax.
+
+00:00:42.577 --> 00:00:45.039
+Mas ele é penalizado
+numa medida proporcional
+
+00:00:45.072 --> 00:00:47.561
+à força exercida
+sobre cada articulação.
+
+00:00:47.594 --> 00:00:50.422
+Se o agente exercer mais força
+sobre as articulações,
+
+00:00:50.455 --> 00:00:53.328
+perderá mais recompensas
+como punição.
+
+00:00:53.361 --> 00:00:55.670
+Como os pesquisadores queriam
+que os humanoides
+
+00:00:55.703 --> 00:00:57.530
+aprendessem a andar
+para a frente,
+
+00:00:57.563 --> 00:00:59.194
+o agente também é penalizado
+
+00:00:59.227 --> 00:01:02.455
+se andar para a esquerda,
+para a direita ou na vertical.
+
+00:01:02.488 --> 00:01:03.804
+Ele também é penalizado
+
+00:01:03.837 --> 00:01:08.060
+se o humanoide afastar seu corpo
+do centro da pista.
+
+00:01:08.093 --> 00:01:10.273
+Então o agente tenta manter
+o humanoide
+
+00:01:10.306 --> 00:01:12.622
+o mais perto possível
+do centro.
+
+00:01:12.655 --> 00:01:13.906
+A cada instante de tempo,
+
+00:01:13.939 --> 00:01:16.935
+o agente também recebe
+uma recompensa positiva
+
+00:01:16.968 --> 00:01:19.685
+se o humanoide
+ainda não tiver caído.
+
+00:01:19.718 --> 00:01:22.388
+O problema foi caracterizado
+como uma tarefa episódica
+
+00:01:22.421 --> 00:01:26.210
+em que, se o humanoide cair,
+o episódio se encerra.
+
+00:01:26.243 --> 00:01:30.404
+Nesse momento, todas as recompensas
+cumulativas que o agente tiver
+
+00:01:30.437 --> 00:01:32.573
+será tudo
+o que ele receberá.
+
+00:01:32.606 --> 00:01:34.917
+Deste modo,
+o sinal de recompensa é criado,
+
+00:01:34.950 --> 00:01:39.147
+então, se o robô se concentrou
+em maximizar essa recompensa,
+
+00:01:39.180 --> 00:01:42.537
+ele também, coincidentemente,
+aprendeu a andar.
+
+00:01:42.570 --> 00:01:45.666
+Para ver isso, primeiro observe
+que, se o robô cair,
+
+00:01:45.699 --> 00:01:47.390
+o episódio se encerra,
+
+00:01:47.423 --> 00:01:49.088
+o que é
+uma oportunidade perdida
+
+00:01:49.121 --> 00:01:52.051
+de acumular
+mais recompensas positivas.
+
+00:01:52.084 --> 00:01:55.268
+Em geral, se o robô andar
+por dez instantes de tempo,
+
+00:01:55.301 --> 00:01:57.952
+só terá dez oportunidades
+de ganhar recompensas.
+
+00:01:57.985 --> 00:02:00.601
+E, se ele andar
+por 100 instantes de tempo,
+
+00:02:00.634 --> 00:02:03.551
+terá muito mais tempo
+para acumular mais recompensas.
+
+00:02:03.584 --> 00:02:05.848
+Então, se dermos recompensas
+dessa maneira,
+
+00:02:05.881 --> 00:02:10.024
+o agente tentará não cair
+pelo máximo de tempo possível.
+
+00:02:10.057 --> 00:02:14.564
+Em seguida, como a recompensa é
+proporcional à velocidade do avanço,
+
+00:02:14.597 --> 00:02:18.834
+o robô também se sentirá pressionado
+a andar o mais rápido possível
+
+00:02:18.867 --> 00:02:21.273
+na direção
+da pista de caminhada.
+
+00:02:21.306 --> 00:02:24.034
+Mas também é sensato
+penalizar o agente
+
+00:02:24.067 --> 00:02:26.736
+por exercer força excessiva
+sobre as articulações.
+
+00:02:26.769 --> 00:02:30.430
+Caso contrário, poderíamos
+acabar provocando uma situação
+
+00:02:30.463 --> 00:02:33.041
+em que o humanoide anda
+de forma muito errática.
+
+00:02:33.074 --> 00:02:34.739
+Ao penalizar
+forças excessivas,
+
+00:02:34.772 --> 00:02:38.306
+podemos tentar manter os movimentos
+mais suaves e elegantes.
+
+00:02:38.339 --> 00:02:40.984
+Do mesmo modo, queremos manter
+o agente na pista,
+
+00:02:41.017 --> 00:02:42.805
+andando para a frente.
+
+00:02:42.838 --> 00:02:46.300
+Do contrário, como vamos saber
+onde ele vai parar?
+
+00:02:46.830 --> 00:02:51.177
+Claro, o robô não pode se concentrar
+somente em andar rápido,
+
+00:02:51.210 --> 00:02:53.524
+somente em andar
+para a frente,
+
+00:02:53.557 --> 00:02:56.482
+somente
+em andar suavemente
+
+00:02:56.515 --> 00:03:00.047
+ou somente em andar
+pelo maior tempo possível.
+
+00:03:00.080 --> 00:03:02.620
+Estes são quatro requisitos
+concorrentes
+
+00:03:02.653 --> 00:03:05.592
+que o agente deve balancear
+em todos os instantes de tempo
+
+00:03:05.625 --> 00:03:10.178
+para atingir o objetivo de maximizar
+a recompensa cumulativa esperada.
+
+00:03:10.211 --> 00:03:12.169
+E a Google DeepMind
+demonstrou
+
+00:03:12.202 --> 00:03:14.607
+que, a partir dessa simples
+função de recompensa,
+
+00:03:14.640 --> 00:03:16.747
+o agente é capaz
+de aprender a andar
+
+00:03:16.780 --> 00:03:19.123
+de um jeito bem parecido
+com o dos humanos.
+
+00:03:19.156 --> 00:03:21.875
+Aliás, essa função de recompensa
+é tão simples
+
+00:03:21.908 --> 00:03:25.533
+que pode parecer
+que escolher a recompensa é fácil.
+
+00:03:25.566 --> 00:03:27.992
+Mas, em geral,
+é bem diferente.
+
+00:03:28.486 --> 00:03:31.734
+É claro que há
+alguns contraexemplos.
+
+00:03:31.767 --> 00:03:34.981
+Por exemplo, se você ensinar
+um agente a jogar um videogame,
+
+00:03:35.014 --> 00:03:37.515
+a recompensa é só a pontuação
+que está na tela.
+
+00:03:38.137 --> 00:03:40.603
+E, se você ensinar um agente
+a jogar gamão,
+
+00:03:40.636 --> 00:03:43.795
+a recompensa só será fornecida
+no final do jogo,
+
+00:03:43.828 --> 00:03:46.774
+e ela pode ser positiva,
+caso o agente vença,
+
+00:03:46.807 --> 00:03:48.877
+e negativa, caso ele perca.
+
+00:03:48.910 --> 00:03:51.159
+O fato de a recompensa ser
+tão simples
+
+00:03:51.192 --> 00:03:55.127
+é o que torna essa pesquisa
+da DeepMind tão fascinante.
+

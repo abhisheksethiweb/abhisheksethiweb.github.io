@@ -1,0 +1,322 @@
+<!-- udacimak v1.2.0 -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Quiz: Pole-Balancing</title>
+  <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../assets/css/plyr.css">
+  <link rel="stylesheet" href="../assets/css/katex.min.css">
+  <link rel="stylesheet" href="../assets/css/jquery.mCustomScrollbar.min.css">
+  <link rel="stylesheet" href="../assets/css/styles.css">
+  <link rel="shortcut icon" type="image/png" href="../assets/img/udacimak.png" />
+</head>
+
+<body>
+  <div class="wrapper">
+    <nav id="sidebar">
+  <div class="sidebar-header">
+    <h3>The RL Framework: The Problem</h3>
+  </div>
+
+  <ul class="sidebar-list list-unstyled CTAs">
+    <li>
+      <a href="../index.html" class="article">Back to Home</a>
+    </li>
+  </ul>
+
+  <ul class="sidebar-list list-unstyled components">
+    <li class="">
+      <a href="01. Introduction.html">01. Introduction</a>
+    </li>
+    <li class="">
+      <a href="02. The Setting, Revisited.html">02. The Setting, Revisited</a>
+    </li>
+    <li class="">
+      <a href="03. Episodic vs. Continuing Tasks.html">03. Episodic vs. Continuing Tasks</a>
+    </li>
+    <li class="">
+      <a href="04. Quiz Test Your Intuition.html">04. Quiz: Test Your Intuition</a>
+    </li>
+    <li class="">
+      <a href="05. Quiz Episodic or Continuing.html">05. Quiz: Episodic or Continuing?</a>
+    </li>
+    <li class="">
+      <a href="06. The Reward Hypothesis.html">06. The Reward Hypothesis</a>
+    </li>
+    <li class="">
+      <a href="07. Goals and Rewards, Part 1.html">07. Goals and Rewards, Part 1</a>
+    </li>
+    <li class="">
+      <a href="08. Goals and Rewards, Part 2.html">08. Goals and Rewards, Part 2</a>
+    </li>
+    <li class="">
+      <a href="09. Quiz Goals and Rewards.html">09. Quiz: Goals and Rewards</a>
+    </li>
+    <li class="">
+      <a href="10. Cumulative Reward.html">10. Cumulative Reward</a>
+    </li>
+    <li class="">
+      <a href="11. Discounted Return.html">11. Discounted Return</a>
+    </li>
+    <li class="">
+      <a href="12. Quiz Pole-Balancing.html">12. Quiz: Pole-Balancing</a>
+    </li>
+    <li class="">
+      <a href="13. MDPs, Part 1.html">13. MDPs, Part 1</a>
+    </li>
+    <li class="">
+      <a href="14. MDPs, Part 2.html">14. MDPs, Part 2</a>
+    </li>
+    <li class="">
+      <a href="15. Quiz One-Step Dynamics, Part 1.html">15. Quiz: One-Step Dynamics, Part 1</a>
+    </li>
+    <li class="">
+      <a href="16. Quiz One-Step Dynamics, Part 2.html">16. Quiz: One-Step Dynamics, Part 2</a>
+    </li>
+    <li class="">
+      <a href="17. MDPs, Part 3.html">17. MDPs, Part 3</a>
+    </li>
+    <li class="">
+      <a href="18. Finite MDPs.html">18. Finite MDPs</a>
+    </li>
+    <li class="">
+      <a href="19. Summary.html">19. Summary</a>
+    </li>
+  </ul>
+
+  <ul class="sidebar-list list-unstyled CTAs">
+    <li>
+      <a href="../index.html" class="article">Back to Home</a>
+    </li>
+  </ul>
+</nav>
+
+    <div id="content">
+      <header class="container-fluild header">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <div class="align-items-middle">
+                <button type="button" id="sidebarCollapse" class="btn btn-toggle-sidebar">
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                </button>
+
+                <h1 style="display: inline-block">12. Quiz: Pole-Balancing</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main class="container">
+        <div class="row">
+          <div class="col-12">
+            <div class="ud-atom">
+  <h3></h3>
+  <div>
+  <h1 id="quiz-pole-balancing">Quiz: Pole-Balancing</h1>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <figure class="figure">
+    <img src="img/1omsg2-mkguagky1c64uflw.gif" alt="Source: https://medium.com/@tuzzer/cart-pole-balancing-with-q-learning-b54c6068d947" class="img img-fluid">
+    <figcaption class="figure-caption">
+      <p>Source: <a href="https://medium.com/@tuzzer/cart-pole-balancing-with-q-learning-b54c6068d947" target="_blank">https://medium.com/@tuzzer/cart-pole-balancing-with-q-learning-b54c6068d947</a></p>
+    </figcaption>
+  </figure>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <p>In this classic reinforcement learning task, a cart is positioned on a frictionless track, and a pole is attached to the top of the cart.  The objective is to keep the pole from falling over by moving the cart either left or right, and without falling off the track.</p>
+<p>In the <a href="https://gym.openai.com/envs/CartPole-v0/" target="_blank">OpenAI Gym implementation</a>, the agent applies a force of +1 or -1 to the cart at every time step.  It is formulated as an episodic task, where the episode ends when (1) the pole falls more than 20.9 degrees from vertical, (2) the cart moves more than 2.4 units from the center of the track, or (3) when more than 200 time steps have elapsed.  The agent receives a reward of +1 for every time step, including the final step of the episode.  You can read more about this environment in <a href="https://github.com/openai/gym/wiki/CartPole-v0" target="_blank">OpenAI's github</a>.  This task also appears in Example 3.4 of the textbook.</p>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <form>
+    <fieldset>
+      <legend><p>Recall that the agent receives a reward of +1 for every time step, including the final step of the episode.  Which discount rates would encourage the agent to keep the pole balanced for as long as possible?  (Select all that apply.)</p></legend>
+    </fieldset>
+
+    <div>
+      <input type="checkbox" value="a1506011490603" name="406910" id="a1506011490603">
+      <label for="a1506011490603"><p>The discount rate is 1.</p></label>
+    </div>
+    <div>
+      <input type="checkbox" value="a1506011550023" name="406910" id="a1506011550023">
+      <label for="a1506011550023"><p>The discount rate is 0.9.</p></label>
+    </div>
+    <div>
+      <input type="checkbox" value="a1506011557015" name="406910" id="a1506011557015">
+      <label for="a1506011557015"><p>The discount rate is 0.5.</p></label>
+    </div>
+  </form>
+
+  <details>
+    <summary><strong>SOLUTION:</strong></summary>
+    <ul>
+      <li>The discount rate is 1.</li>
+      <li>The discount rate is 0.9.</li>
+      <li>The discount rate is 0.5.</li>
+  </ul>
+  </details>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <form>
+    <fieldset>
+      <legend><p>Say that the reward signal is amended to only give reward to the agent at the end of an episode.  So, the reward is 0 for every time step, with the exception of the final time step.  When the episode terminates, the agent receives a reward of <strong>-1</strong>.  Which discount rates would encourage the agent to keep the pole balanced for as long as possible?  (Select all that apply.)</p></legend>
+    </fieldset>
+
+    <div>
+      <input type="checkbox" value="a1506010589234" name="406908" id="a1506010589234">
+      <label for="a1506010589234"><p>The discount rate is 1.</p></label>
+    </div>
+    <div>
+      <input type="checkbox" value="a1506010753876" name="406908" id="a1506010753876">
+      <label for="a1506010753876"><p>The discount rate is 0.9.</p></label>
+    </div>
+    <div>
+      <input type="checkbox" value="a1506010791315" name="406908" id="a1506010791315">
+      <label for="a1506010791315"><p>The discount rate is 0.5.</p></label>
+    </div>
+    <div>
+      <input type="checkbox" value="a1506011008269" name="406908" id="a1506011008269">
+      <label for="a1506011008269"><p>(None of these discount rates would help the agent, and there is a problem with the reward signal.)</p></label>
+    </div>
+  </form>
+
+  <details>
+    <summary><strong>SOLUTION:</strong></summary>
+    <ul>
+      <li>The discount rate is 0.9.</li>
+      <li>The discount rate is 0.5.</li>
+  </ul>
+  </details>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <form>
+    <fieldset>
+      <legend><p>Say that the reward signal is amended to only give reward to the agent at the end of an episode.  So, the reward is 0 for every time step, with the exception of the final time step.  When the episode terminates, the agent receives a reward of <strong>+1</strong>.  Which discount rates would encourage the agent to keep the pole balanced for as long as possible?  (Select all that apply.)</p></legend>
+    </fieldset>
+
+    <div>
+      <input type="checkbox" value="a1506011149157" name="406909" id="a1506011149157">
+      <label for="a1506011149157"><p>The discount rate is 1.</p></label>
+    </div>
+    <div>
+      <input type="checkbox" value="a1506011178437" name="406909" id="a1506011178437">
+      <label for="a1506011178437"><p>The discount rate is 0.9.</p></label>
+    </div>
+    <div>
+      <input type="checkbox" value="a1506011183458" name="406909" id="a1506011183458">
+      <label for="a1506011183458"><p>The discount rate is 0.5.</p></label>
+    </div>
+    <div>
+      <input type="checkbox" value="a1506011187980" name="406909" id="a1506011187980">
+      <label for="a1506011187980"><p>(None of these discount rates would help the agent, and there is a problem with the reward signal.)</p></label>
+    </div>
+  </form>
+
+  <details>
+    <summary><strong>SOLUTION:</strong></summary>
+    <ul>
+      <li>(None of these discount rates would help the agent, and there is a problem with the reward signal.)</li>
+  </ul>
+  </details>
+</div>
+
+</div>
+<div class="divider"></div>
+          </div>
+        </div>
+      </main>
+
+      <footer class="footer">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <p class="text-center">
+                <a href="https://github.com/udacimak/udacimak#readme" target="_blank">udacimak v1.2.0</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </div>
+
+
+  <script src="../assets/js/jquery-3.3.1.min.js"></script>
+  <script src="../assets/js/plyr.polyfilled.min.js"></script>
+  <script src="../assets/js/bootstrap.min.js"></script>
+  <script src="../assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+  <script src="../assets/js/katex.min.js"></script>
+  <script>
+    // Initialize Plyr video players
+    const players = Array.from(document.querySelectorAll('video')).map(p => new Plyr(p));
+
+    // render math equations
+    let elMath = document.getElementsByClassName('mathquill');
+    for (let i = 0, len = elMath.length; i < len; i += 1) {
+      const el = elMath[i];
+
+      katex.render(el.textContent, el, {
+        throwOnError: false
+      });
+    }
+
+    // this hack will make sure Bootstrap tabs work when using Handlebars
+    if ($('#question-tabs').length && $('#user-answer-tabs').length) {
+      $("#question-tabs a.nav-link").on('click', function () {
+        $("#question-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+      $("#user-answer-tabs a.nav-link").on('click', function () {
+        $("#user-answer-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    } else {
+      $("a.nav-link").on('click', function () {
+        $(".tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    }
+
+    // side bar events
+    $(document).ready(function () {
+      $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+      });
+
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar, #content').toggleClass('active');
+        $('.collapse.in').toggleClass('in');
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+      });
+    });
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,176 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:02.312 --> 00:00:03.832
+Agora que já vimos
+um exemplo,
+
+00:00:03.862 --> 00:00:07.008
+você deve ter a intuição
+necessária para compreender
+
+00:00:07.038 --> 00:00:10.312
+a definição formal da estrutura
+da aprendizagem por reforço.
+
+00:00:11.033 --> 00:00:15.057
+Formalmente, um Processo de Decisão
+de Markov, ou PDM,
+
+00:00:15.087 --> 00:00:16.904
+é definido
+pelo conjunto de estados,
+
+00:00:16.934 --> 00:00:19.640
+o conjunto de ações
+e o conjunto de recompensas
+
+00:00:19.670 --> 00:00:22.689
+junto com a dinâmica de um
+único passo do ambiente
+
+00:00:22.723 --> 00:00:24.681
+e a taxa de desconto.
+
+00:00:24.711 --> 00:00:27.561
+Nós detalhamos as ações de estado,
+as recompensas
+
+00:00:27.591 --> 00:00:30.152
+e a dinâmica de um único passo
+do ambiente,
+
+00:00:30.182 --> 00:00:33.344
+mas também precisamos falar
+da taxa de desconto.
+
+00:00:33.744 --> 00:00:37.465
+E, para isso, é importante notar
+que detalhamos
+
+00:00:37.495 --> 00:00:39.577
+uma tarefa contínua.
+
+00:00:40.040 --> 00:00:42.664
+Então vai ser útil fazer
+com que o fator de desconto
+
+00:00:42.694 --> 00:00:45.169
+seja menor do que 1,
+porque, do contrário,
+
+00:00:45.199 --> 00:00:49.528
+o agente teria que buscar
+infinitamente no futuro ilimitado.
+
+00:00:49.558 --> 00:00:53.072
+É comum estabelecer
+a taxa de desconto em 0,9,
+
+00:00:53.102 --> 00:00:55.600
+e essa parece
+ser uma boa escolha aqui.
+
+00:00:56.304 --> 00:00:59.824
+Durante este curso, você terá
+a oportunidade e suas implementações
+
+00:00:59.854 --> 00:01:02.176
+para construir uma intuição
+a respeito de como configurar
+
+00:01:02.206 --> 00:01:03.406
+a taxa de desconto.
+
+00:01:04.063 --> 00:01:06.649
+Mas é importante notar
+que a taxa de desconto
+
+00:01:06.679 --> 00:01:08.728
+é sempre estabelecida
+como um número
+
+00:01:08.758 --> 00:01:11.425
+muito mais perto de 1
+do que de 0.
+
+00:01:11.455 --> 00:01:16.320
+Do contrário, o agente não consegue
+enxergar um erro.
+
+00:01:16.350 --> 00:01:19.992
+Agora, você especificou
+completamente o seu primeiro PDM.
+
+00:01:20.440 --> 00:01:23.313
+No geral, quando você tiver
+um problema do mundo real,
+
+00:01:23.343 --> 00:01:26.401
+vai precisar
+especificar o PDM.
+
+00:01:26.431 --> 00:01:29.272
+Agora, vamos especificar completa
+e formalmente o problema
+
+00:01:29.302 --> 00:01:31.680
+que você quer
+que o seu agente resolva.
+
+00:01:32.152 --> 00:01:35.656
+Essa estrutura funciona com tarefas
+contínuas e episódicas,
+
+00:01:35.686 --> 00:01:38.536
+e sempre que você tiver
+um problema que queira resolver
+
+00:01:38.566 --> 00:01:40.224
+com aprendizagem
+por reforço,
+
+00:01:40.254 --> 00:01:42.256
+quer ele envolva um carro
+que dirija sozinho,
+
+00:01:42.286 --> 00:01:44.920
+um robô que ande, ou um agente
+investidor do mercado de ações,
+
+00:01:45.220 --> 00:01:46.694
+essa é a estrutura
+que você vai usar.
+
+00:01:47.901 --> 00:01:50.005
+O agente vai conhecer
+os estados e as ações
+
+00:01:50.040 --> 00:01:52.413
+junto com o fator
+de desconto.
+
+00:01:52.448 --> 00:01:55.925
+Já o conjunto de recompensas
+e a dinâmica de um único passo
+
+00:01:55.960 --> 00:01:58.135
+vão especificar
+como o ambiente funciona
+
+00:01:58.170 --> 00:02:00.533
+e serão desconhecidas
+pelo agente.
+
+00:02:00.568 --> 00:02:02.908
+Apesar de não ter
+essa informação,
+
+00:02:02.943 --> 00:02:06.173
+o agente ainda vai precisar
+aprender com a interação
+
+00:02:06.208 --> 00:02:08.157
+como alcançar seu objetivo.
+

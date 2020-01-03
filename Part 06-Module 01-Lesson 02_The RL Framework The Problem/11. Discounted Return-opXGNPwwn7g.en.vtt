@@ -1,0 +1,256 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:03.720
+We've discussed how an agent might choose actions with the goal of
+
+00:00:03.720 --> 00:00:08.425
+maximizing expected return but we need to dig a bit deeper.
+
+00:00:08.425 --> 00:00:10.920
+For instance, consider our puppy agent,
+
+00:00:10.919 --> 00:00:15.718
+how does he predict how much reward he could get at any point in the future?
+
+00:00:15.718 --> 00:00:18.245
+Puppies can live for decades.
+
+00:00:18.245 --> 00:00:22.230
+Can he really be expected to have just as much of an idea of
+
+00:00:22.230 --> 00:00:27.074
+how much reward he'll get now as he does five years from now?
+
+00:00:27.074 --> 00:00:30.689
+Does it make more sense to consider that it's not entirely
+
+00:00:30.690 --> 00:00:34.905
+clear what the future holds especially if the puppy is still learning,
+
+00:00:34.905 --> 00:00:38.865
+proposing, and testing hypotheses and changing his strategy?
+
+00:00:38.865 --> 00:00:42.030
+It's unlikely that he'll know one thousand times steps
+
+00:00:42.030 --> 00:00:45.679
+in advance what his reward potential is likely to be.
+
+00:00:45.679 --> 00:00:49.049
+In general, the puppy is likely to have a much better idea of what's
+
+00:00:49.049 --> 00:00:53.399
+likely to happen in the near future than he does for a distant time points.
+
+00:00:53.399 --> 00:00:54.839
+Along these lines then,
+
+00:00:54.840 --> 00:00:58.960
+should present reward carry the same weight as future reward?
+
+00:00:58.960 --> 00:01:03.224
+Maybe it makes more sense to value rewards that come sooner more highly,
+
+00:01:03.223 --> 00:01:06.229
+since those rewards are more predictable.
+
+00:01:06.230 --> 00:01:07.650
+That is, if I told you,
+
+00:01:07.650 --> 00:01:10.050
+"I'll either definitely give you a marshmallow
+
+00:01:10.049 --> 00:01:13.625
+now or probably give you one a day from now."
+
+00:01:13.625 --> 00:01:16.609
+Wouldn't you prefer to just have it now?
+
+00:01:16.609 --> 00:01:18.879
+Whatever today's marshmallow is worth to you,
+
+00:01:18.879 --> 00:01:23.280
+tomorrow's marshmallow is probably only worth a percentage of that to you.
+
+00:01:23.280 --> 00:01:27.519
+Say, 90 percent or 10 percent less than today's marshmallow.
+
+00:01:27.519 --> 00:01:31.239
+After all, there's a chance you might not even get it.
+
+00:01:31.239 --> 00:01:35.049
+If we continue the trend with the day after tomorrow's marshmallow,
+
+00:01:35.049 --> 00:01:37.209
+which is even less guaranteed,
+
+00:01:37.209 --> 00:01:40.929
+well, it would make sense that it's worth even less.
+
+00:01:40.930 --> 00:01:46.260
+This situation motivates the idea of discounting and discounted return.
+
+00:01:46.260 --> 00:01:51.140
+Remember that the goal of the agent is always to maximize cumulative reward.
+
+00:01:51.140 --> 00:01:52.900
+And towards this end,
+
+00:01:52.900 --> 00:01:55.305
+at an arbitrary time step t,
+
+00:01:55.305 --> 00:01:58.930
+it can choose the action that maximizes the return.
+
+00:01:58.930 --> 00:02:01.930
+And currently, each time step from t plus
+
+00:02:01.930 --> 00:02:06.005
+one onward has an equal say in how the agent should make decisions.
+
+00:02:06.004 --> 00:02:09.069
+What if instead, we wanted time steps that
+
+00:02:09.069 --> 00:02:12.449
+occurred earlier in time to have a much greater say.
+
+00:02:12.449 --> 00:02:15.709
+Well, then instead of maximizing this sum,
+
+00:02:15.710 --> 00:02:19.840
+the idea is that we'll maximize a different sum with rewards
+
+00:02:19.840 --> 00:02:24.420
+that are farther along in time are multiplied by smaller values.
+
+00:02:24.419 --> 00:02:27.750
+We refer to this sum as discounted return.
+
+00:02:27.750 --> 00:02:31.764
+By discounted, we mean that we'll change the goal to care more about
+
+00:02:31.764 --> 00:02:36.489
+immediate rewards rather than rewards that are received further in the future.
+
+00:02:36.490 --> 00:02:39.335
+But how do we choose what values to use here?
+
+00:02:39.335 --> 00:02:43.090
+Well, in practice, we'll define what's called a discount rate,
+
+00:02:43.090 --> 00:02:46.080
+which is always denoted by the Greek letter gamma,
+
+00:02:46.080 --> 00:02:49.485
+and is always a number between zero and one.
+
+00:02:49.485 --> 00:02:51.390
+Then, as for the values,
+
+00:02:51.389 --> 00:02:54.509
+the first term is multiplied by gamma.
+
+00:02:54.509 --> 00:02:57.500
+The second term is multiplied by gamma square.
+
+00:02:57.500 --> 00:03:01.175
+Then, gamma to the third power and so on.
+
+00:03:01.175 --> 00:03:03.175
+In this way, we have a nice T.K.
+
+00:03:03.175 --> 00:03:09.175
+where rewards that occur earlier in time are always multiplied by a larger number.
+
+00:03:09.175 --> 00:03:13.420
+It's important to note that this gamma is not something that's learned by the agent.
+
+00:03:13.419 --> 00:03:18.009
+It's something that you set to refine the goal that you have for the agent.
+
+00:03:18.009 --> 00:03:21.789
+So how exactly might you set the value of gamma?
+
+00:03:21.789 --> 00:03:26.164
+Let's begin by looking at what happens when we set gamma to one.
+
+00:03:26.164 --> 00:03:31.764
+So we plug in one everywhere we see gamma and we see it yields the original,
+
+00:03:31.764 --> 00:03:36.074
+completely un-discounted return from the previous videos.
+
+00:03:36.074 --> 00:03:39.209
+And what about when gamma is set to zero?
+
+00:03:39.210 --> 00:03:41.469
+In this case, every term in this sum
+
+00:03:41.469 --> 00:03:46.275
+disappears with the exception of the most immediate reward.
+
+00:03:46.275 --> 00:03:48.925
+In this way, we see that the larger you make gamma,
+
+00:03:48.925 --> 00:03:51.939
+the more the agent cares about the distant future.
+
+00:03:51.939 --> 00:03:54.564
+And as gamma gets smaller and smaller,
+
+00:03:54.564 --> 00:03:57.513
+we get increasingly extreme discounting,
+
+00:03:57.513 --> 00:03:59.020
+where in the most extreme case,
+
+00:03:59.020 --> 00:04:03.430
+the agent only cares about the most immediate reward.
+
+00:04:03.430 --> 00:04:08.860
+It's important to note that discounting is particularly relevant to continuing tasks.
+
+00:04:08.860 --> 00:04:10.990
+Remember that a continuing task is one where
+
+00:04:10.990 --> 00:04:14.185
+the agent environment interaction goes on without end.
+
+00:04:14.185 --> 00:04:17.774
+In this case, if the agent wants to maximize
+
+00:04:17.774 --> 00:04:23.254
+cumulative reward while it's a pretty difficult task if the feature is limitless.
+
+00:04:23.254 --> 00:04:29.300
+So we use discounting to avoid having to look too far into the limitless future.
+
+00:04:29.300 --> 00:04:32.860
+But it's important to note that with or without discounting,
+
+00:04:32.860 --> 00:04:35.035
+the goal is always the same.
+
+00:04:35.035 --> 00:04:38.820
+It's always to maximize cumulative reward.
+
+00:04:38.819 --> 00:04:43.870
+The discount rate comes in when the agent chooses actions at an arbitrary time step.
+
+00:04:43.870 --> 00:04:48.600
+It uses the discount rate as part of its program for picking actions.
+
+00:04:48.600 --> 00:04:53.200
+And that program is more interested in securing rewards that come sooner
+
+00:04:53.199 --> 00:04:58.180
+and are more likely than the rewards that come later and are less likely.
+
+00:04:58.180 --> 00:05:04.110
+You'll learn more about how exactly the agent should select actions in the next lesson.
+
+00:05:04.110 --> 00:05:09.000
+For now, we'll focus on fully specifying the reinforcement learning problem.
+

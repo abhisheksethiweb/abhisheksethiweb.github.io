@@ -1,0 +1,148 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:02.580
+So far, you've just started a conversation to
+
+00:00:02.580 --> 00:00:05.419
+set the stage for what we'd like to accomplish.
+
+00:00:05.419 --> 00:00:07.799
+We'll use the remainder of this lesson to specify
+
+00:00:07.799 --> 00:00:11.294
+a rigorous definition for the reinforcement learning problem.
+
+00:00:11.294 --> 00:00:17.004
+For context, we'll work with the example of a recycling robot from the Sutton textbook.
+
+00:00:17.004 --> 00:00:21.750
+So consider a robot that's designed for picking up empty soda cans.
+
+00:00:21.750 --> 00:00:27.600
+The robot is equipped with arms to grab the cans and runs on a rechargeable battery.
+
+00:00:27.600 --> 00:00:31.200
+There's a docking station set up in one corner of the room and
+
+00:00:31.199 --> 00:00:36.299
+the robot has to sit at the station if it needs to recharge its battery.
+
+00:00:36.299 --> 00:00:38.774
+Say, you're trying to program this robot to collect
+
+00:00:38.774 --> 00:00:42.269
+empty soda cans without human intervention.
+
+00:00:42.270 --> 00:00:44.730
+In particular, you want the robot to be able to
+
+00:00:44.729 --> 00:00:47.954
+decide for itself when it needs to recharge its battery.
+
+00:00:47.954 --> 00:00:50.519
+And whenever it doesn't need to recharge,
+
+00:00:50.520 --> 00:00:55.650
+you want it to focus on collecting as many soda cans as possible.
+
+00:00:55.649 --> 00:00:59.685
+So let's see if we can frame this as a reinforcement learning problem.
+
+00:00:59.685 --> 00:01:02.510
+We'll begin with the actions.
+
+00:01:02.509 --> 00:01:07.155
+We'll say the robot is capable of executing three potential actions.
+
+00:01:07.155 --> 00:01:09.224
+It can search the room for cans,
+
+00:01:09.224 --> 00:01:13.064
+it can head to the docking station to recharge its battery,
+
+00:01:13.064 --> 00:01:17.745
+or it can stay put in the hopes that someone brings it a can.
+
+00:01:17.745 --> 00:01:22.590
+We refer to the set of possible actions as the action space,
+
+00:01:22.590 --> 00:01:26.909
+and it's common to denote it with a script A. All right.
+
+00:01:26.909 --> 00:01:29.289
+What about the states?
+
+00:01:29.290 --> 00:01:31.440
+Remember, the states are just the context
+
+00:01:31.439 --> 00:01:35.009
+provided to the agent for making intelligent actions.
+
+00:01:35.010 --> 00:01:36.450
+So the state, in this case,
+
+00:01:36.450 --> 00:01:39.420
+could be the charge left on the robot's battery.
+
+00:01:39.420 --> 00:01:44.115
+For simplicity, we'll assume that the battery has one of two states.
+
+00:01:44.114 --> 00:01:47.324
+One corresponding to a high amount of charge left,
+
+00:01:47.325 --> 00:01:50.975
+and the other corresponding to a low amount of charge.
+
+00:01:50.974 --> 00:01:53.309
+We refer to the set of possible states as
+
+00:01:53.310 --> 00:01:56.930
+the state space and it's common to denote with a script S.
+
+00:01:56.930 --> 00:02:00.670
+So intuition tells us that if
+
+00:02:00.670 --> 00:02:04.519
+the robot has a high amount of charge left on its battery,
+
+00:02:04.519 --> 00:02:07.572
+we'd like it to know to actively search for the room for cans.
+
+00:02:07.572 --> 00:02:11.189
+Searching the room should use up a lot of energy but this
+
+00:02:11.189 --> 00:02:16.245
+doesn't matter so much because the battery has a lot of charge anyway.
+
+00:02:16.245 --> 00:02:18.219
+But if the state is low,
+
+00:02:18.219 --> 00:02:21.419
+searching for cans has pretty high risk because
+
+00:02:21.419 --> 00:02:24.329
+the battery could get depleted mid-search and
+
+00:02:24.330 --> 00:02:27.150
+then the robot would be stranded and that wouldn't be so
+
+00:02:27.150 --> 00:02:30.879
+good because we don't want to have to come to its rescue.
+
+00:02:30.879 --> 00:02:32.694
+So if the battery is low,
+
+00:02:32.694 --> 00:02:38.409
+maybe we'd like the robot to know to wait for a can or to go to recharge its battery.
+
+00:02:38.409 --> 00:02:40.289
+In the next few concepts,
+
+00:02:40.289 --> 00:02:43.109
+we'll set up the problem with the ultimate goal of having
+
+00:02:43.110 --> 00:02:46.480
+the robots control equipment learn this behavior.
+

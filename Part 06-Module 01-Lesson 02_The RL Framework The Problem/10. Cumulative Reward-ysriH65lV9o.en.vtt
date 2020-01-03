@@ -1,0 +1,187 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:04.469
+We've seen that the reinforcement learning framework gives us a way to study
+
+00:00:04.469 --> 00:00:09.504
+how an agent can learn to accomplish a goal from interacting with its environment.
+
+00:00:09.505 --> 00:00:13.500
+This framework works for many real world applications and simplifies
+
+00:00:13.500 --> 00:00:18.780
+the interaction into three signals that are passed between agent and environment.
+
+00:00:18.780 --> 00:00:23.960
+The state signal is the environment's way of presenting a situation to the agent.
+
+00:00:23.960 --> 00:00:28.530
+The agent then responds with an action which influences the environment.
+
+00:00:28.530 --> 00:00:31.679
+And the environment responds with the reward which gives
+
+00:00:31.679 --> 00:00:37.454
+some indication of whether the agent has responded appropriately to the environment.
+
+00:00:37.454 --> 00:00:43.239
+Also built into the framework is the agent's goal which is to maximize cumulative reward.
+
+00:00:43.240 --> 00:00:47.645
+But what exactly does this mean and how does the agent accomplish this?
+
+00:00:47.645 --> 00:00:49.960
+Towards its goal, what do you think?
+
+00:00:49.960 --> 00:00:54.255
+Could the agent just maximize the reward and each time step?
+
+00:00:54.255 --> 00:00:56.969
+The short answer to that question is, no.
+
+00:00:56.969 --> 00:01:00.789
+But I think a long answer would be a lot more satisfying.
+
+00:01:00.789 --> 00:01:04.609
+So let's try to understand this with the walking robot example.
+
+00:01:04.609 --> 00:01:06.239
+Remember that in this case,
+
+00:01:06.239 --> 00:01:09.420
+the goal of the robot was to stay walking forward for as
+
+00:01:09.420 --> 00:01:14.820
+long and as quickly as possible while also exerting minimal effort.
+
+00:01:14.819 --> 00:01:16.439
+In this case, if the robot tried to
+
+00:01:16.439 --> 00:01:19.834
+maximize the reward it received at a single time step,
+
+00:01:19.834 --> 00:01:23.099
+that would look like trying to move as quickly as possible with
+
+00:01:23.099 --> 00:01:27.099
+as little effort without falling immediately.
+
+00:01:27.099 --> 00:01:31.199
+That could work well in the short term but it's possible, for instance,
+
+00:01:31.200 --> 00:01:35.844
+that the agents movement gets it moving quickly without falling initially.
+
+00:01:35.844 --> 00:01:38.370
+But that first movement was de-stabilising
+
+00:01:38.370 --> 00:01:41.969
+enough that it doomed the agent to fall in a short time.
+
+00:01:41.969 --> 00:01:45.674
+In this way, if the agent focused on individual time steps,
+
+00:01:45.674 --> 00:01:49.344
+it could learn actions that maximize initial rewards.
+
+00:01:49.344 --> 00:01:52.049
+But then the episode terminates quite quickly.
+
+00:01:52.049 --> 00:01:54.944
+And so the cumulative reward is quite small.
+
+00:01:54.944 --> 00:01:57.269
+And still worse, in this case,
+
+00:01:57.269 --> 00:02:00.354
+the agent will not have learned to walk.
+
+00:02:00.355 --> 00:02:01.545
+In this example then,
+
+00:02:01.545 --> 00:02:06.254
+it's clear that the agent cannot focus on individual time steps and instead,
+
+00:02:06.254 --> 00:02:08.775
+needs to keep all time steps in mind.
+
+00:02:08.775 --> 00:02:13.289
+But this also holds true for reinforcement learning agents in general.
+
+00:02:13.289 --> 00:02:18.030
+Actions have short and long term consequences and the agent needs
+
+00:02:18.030 --> 00:02:23.289
+to gain some understanding of the complex effects its actions have on the environment.
+
+00:02:23.289 --> 00:02:26.155
+Along these lines in the walking robot example,
+
+00:02:26.155 --> 00:02:30.280
+the agent always has reward at all time steps in mind,
+
+00:02:30.280 --> 00:02:34.430
+it will learn to choose movement designed for long term stability.
+
+00:02:34.430 --> 00:02:40.080
+So in this way, the robot moves a bit slowly to sacrifice a little bit of reward
+
+00:02:40.080 --> 00:02:42.990
+but it will payoff because it will avoid falling for
+
+00:02:42.990 --> 00:02:47.000
+longer and collect higher cumulative reward.
+
+00:02:47.000 --> 00:02:49.185
+But now, what does all of this mean when the agent
+
+00:02:49.185 --> 00:02:51.914
+chooses an action at an arbitrary time step?
+
+00:02:51.914 --> 00:02:55.734
+How exactly does it keep all time steps in mind?
+
+00:02:55.735 --> 00:02:59.315
+Well, if we're looking at some time step, t,
+
+00:02:59.314 --> 00:03:02.099
+it's important to note that the rewards for
+
+00:03:02.099 --> 00:03:06.884
+all previous time steps have already been decided as they're in the past.
+
+00:03:06.884 --> 00:03:11.144
+Only future rewards are inside the agent's control.
+
+00:03:11.145 --> 00:03:15.090
+We refer to the sum of rewards from the next time step
+
+00:03:15.090 --> 00:03:19.604
+onward as the return and denote it with a capital G,
+
+00:03:19.604 --> 00:03:21.794
+and at an arbitrary time step,
+
+00:03:21.794 --> 00:03:27.530
+the agent will always choose an action towards the goal of maximizing the return.
+
+00:03:27.530 --> 00:03:34.349
+But it's actually more accurate to say that the agent seeks to maximize expected return.
+
+00:03:34.349 --> 00:03:37.530
+This is because it's generally the case that the agent can't
+
+00:03:37.530 --> 00:03:42.219
+predict with complete certainty what the future reward is likely to be.
+
+00:03:42.219 --> 00:03:46.085
+So it has to rely on a prediction or an estimate.
+
+00:03:46.085 --> 00:03:49.375
+We'll massage this a bit when we talk about discounted return.
+
+00:03:49.375 --> 00:03:51.000
+But this is the main idea.
+

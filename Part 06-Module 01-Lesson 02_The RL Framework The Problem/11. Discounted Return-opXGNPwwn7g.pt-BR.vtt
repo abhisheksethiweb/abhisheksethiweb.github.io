@@ -1,0 +1,409 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.001 --> 00:00:02.840
+Nós discutimos
+como um agente escolhe ações
+
+00:00:02.873 --> 00:00:05.858
+com o objetivo de maximizar
+o retorno esperado,
+
+00:00:05.891 --> 00:00:08.193
+mas precisamos investigar
+um pouco melhor.
+
+00:00:08.226 --> 00:00:10.886
+Por exemplo, considere
+o nosso agente cachorro.
+
+00:00:10.919 --> 00:00:13.402
+Como ele prevê
+a recompensa que pode obter
+
+00:00:13.435 --> 00:00:15.813
+em qualquer momento
+do futuro?
+
+00:00:15.846 --> 00:00:18.099
+Um cachorro pode viver
+por muitas décadas.
+
+00:00:18.132 --> 00:00:19.768
+Podemos realmente esperar
+
+00:00:19.801 --> 00:00:24.486
+que ele saiba a recompensa
+que receberá hoje
+
+00:00:24.519 --> 00:00:26.776
+assim como saberá
+daqui a cinco anos?
+
+00:00:26.809 --> 00:00:29.203
+Será que não é
+mais sensato considerar
+
+00:00:29.236 --> 00:00:32.385
+que não é totalmente claro
+o que podemos esperar do futuro?
+
+00:00:32.418 --> 00:00:34.642
+Se o cachorro ainda estiver
+aprendendo,
+
+00:00:34.675 --> 00:00:38.837
+propondo e testando hipóteses
+e mudando sua estratégia,
+
+00:00:38.870 --> 00:00:40.421
+é improvável que ele saberá
+
+00:00:40.454 --> 00:00:42.587
+com mil instantes de tempo
+de antecedência
+
+00:00:42.620 --> 00:00:45.411
+qual será
+sua provável recompensa.
+
+00:00:45.444 --> 00:00:48.609
+Em geral, o cachorro terá
+uma noção muito melhor
+
+00:00:48.642 --> 00:00:53.449
+do que acontecerá no futuro próximo
+do que num futuro muito distante.
+
+00:00:53.482 --> 00:00:54.635
+Deste modo,
+
+00:00:54.668 --> 00:00:58.783
+será que a recompensa presente tem
+o mesmo peso da recompensa futura?
+
+00:00:58.816 --> 00:01:01.228
+Talvez seja melhor
+priorizar as recompensas
+
+00:01:01.261 --> 00:01:03.164
+que são recebidas
+mais recentemente,
+
+00:01:03.197 --> 00:01:05.857
+já que elas são
+mais previsíveis.
+
+00:01:06.191 --> 00:01:07.494
+Ou seja, se eu disser:
+
+00:01:07.527 --> 00:01:10.512
+"Eu com certeza te darei
+um marshmallow agora
+
+00:01:10.545 --> 00:01:13.390
+ou provavelmente te darei
+um por dia a partir de hoje",
+
+00:01:13.423 --> 00:01:16.300
+você não preferiria
+ganhá-lo agora?
+
+00:01:16.333 --> 00:01:18.889
+Seja qual for o valor do marshmallow
+para você hoje,
+
+00:01:18.922 --> 00:01:23.298
+o marshmallow de amanhã valerá
+para você só uma percentagem disso -
+
+00:01:23.331 --> 00:01:27.334
+digamos que 90%, ou 10% a menos
+do valor do marshmallow de hoje.
+
+00:01:27.367 --> 00:01:30.676
+Afinal de contas, há uma chance
+de você não ganhá-lo.
+
+00:01:31.033 --> 00:01:34.979
+Se aplicarmos essa lógica
+ao marshmallow de depois de amanhã,
+
+00:01:35.012 --> 00:01:37.120
+que é ainda menos garantido,
+
+00:01:37.153 --> 00:01:40.656
+é sensato dizer
+que ele valerá ainda menos.
+
+00:01:40.689 --> 00:01:42.931
+Essa situação está
+por trás da ideia
+
+00:01:42.964 --> 00:01:45.525
+do desconto
+e do retorno descontado.
+
+00:01:46.082 --> 00:01:47.953
+Lembre-se
+que o objetivo do agente
+
+00:01:47.986 --> 00:01:51.311
+é sempre maximizar
+a recompensa cumulativa.
+
+00:01:51.344 --> 00:01:55.335
+E, na direção dessa finalidade,
+num instante de tempo arbitrário t,
+
+00:01:55.368 --> 00:01:58.942
+ele pode escolher a ação
+que maximiza o retorno.
+
+00:01:58.975 --> 00:02:02.433
+E, nesse momento, todos os instantes
+de tempo, de t+1 em diante,
+
+00:02:02.466 --> 00:02:05.869
+têm a mesma influência
+no modo como o agente toma decisões.
+
+00:02:05.902 --> 00:02:07.533
+E se, em vez disso,
+
+00:02:07.566 --> 00:02:10.530
+quisermos instantes de tempo
+que ocorreram antes no tempo
+
+00:02:10.563 --> 00:02:12.375
+para que tenham
+uma influência maior?
+
+00:02:12.408 --> 00:02:15.725
+Então, em vez
+de maximizar a soma,
+
+00:02:15.758 --> 00:02:18.807
+a ideia é maximizar
+uma soma diferente
+
+00:02:18.840 --> 00:02:21.448
+em que as recompensas
+de um passado mais distante
+
+00:02:21.481 --> 00:02:24.360
+são multiplicadas
+por valores menores.
+
+00:02:24.393 --> 00:02:27.813
+Nós chamamos essa soma
+de retorno descontado.
+
+00:02:27.846 --> 00:02:30.601
+Por "descontado" queremos dizer
+que mudaremos o objetivo
+
+00:02:30.634 --> 00:02:33.051
+para priorizar
+as recompensas imediatas,
+
+00:02:33.084 --> 00:02:36.320
+e não às que são recebidas
+num futuro mais distante.
+
+00:02:36.353 --> 00:02:39.349
+Mas como escolhemos os valores
+que devemos usar aqui?
+
+00:02:39.382 --> 00:02:43.182
+Bom, na prática, definiremos
+a chamada "taxa de desconto",
+
+00:02:43.215 --> 00:02:46.141
+que é sempre representada
+pela letra grega gama
+
+00:02:46.174 --> 00:02:49.271
+e é sempre um número
+entre 0 e 1.
+
+00:02:49.304 --> 00:02:51.287
+Em seguida,
+quanto aos valores,
+
+00:02:51.320 --> 00:02:54.241
+o primeiro termo é multiplicado
+por gama,
+
+00:02:54.274 --> 00:02:57.199
+o segundo termo é multiplicado
+por gama ao quadrado,
+
+00:02:57.232 --> 00:03:00.947
+o terceiro, por gama ao cubo
+e assim por diante.
+
+00:03:00.980 --> 00:03:03.008
+Desse modo obtemos
+um bom declínio,
+
+00:03:03.041 --> 00:03:05.395
+em que as recompensas
+que ocorrem antes no tempo
+
+00:03:05.428 --> 00:03:08.285
+são sempre multiplicadas
+por um número maior.
+
+00:03:08.910 --> 00:03:13.221
+É importante notar que o gama não é
+algo que é aprendido pelo agente.
+
+00:03:13.254 --> 00:03:15.587
+É algo que você define
+para refinar o objetivo
+
+00:03:15.620 --> 00:03:17.587
+que você tem para o agente.
+
+00:03:18.124 --> 00:03:21.649
+Então como você deve definir
+o valor do gama?
+
+00:03:21.682 --> 00:03:26.208
+Vamos começar vendo o que acontece
+quando definimos gama como 1.
+
+00:03:26.241 --> 00:03:29.450
+Nós inserimos 1
+em todo lugar que houver gamas
+
+00:03:29.483 --> 00:03:33.828
+e vemos que ele gera
+o retorno não descontado original
+
+00:03:33.861 --> 00:03:35.872
+dos vídeos anteriores.
+
+00:03:35.905 --> 00:03:39.027
+E se o gama for definido
+como 0?
+
+00:03:39.060 --> 00:03:42.479
+Nesse caso, todos os termos
+da soma desaparecem,
+
+00:03:42.512 --> 00:03:45.997
+com exceção
+da recompensa mais imediata.
+
+00:03:46.030 --> 00:03:48.847
+Assim, quanto maior for o valor
+definido para gama,
+
+00:03:48.880 --> 00:03:52.063
+mais o agente se importará
+com o futuro distante.
+
+00:03:52.096 --> 00:03:54.455
+E, à medida que o gama
+diminuir cada vez mais,
+
+00:03:54.488 --> 00:03:57.179
+nós vamos obter
+descontos cada vez maiores,
+
+00:03:57.212 --> 00:03:58.811
+e, no caso mais extremo,
+
+00:03:58.844 --> 00:04:02.661
+o agente só se importará
+com a recompensa mais imediata.
+
+00:04:03.223 --> 00:04:06.691
+É importante notar que o desconto
+é especialmente relevante
+
+00:04:06.724 --> 00:04:08.610
+nas tarefas contínuas.
+
+00:04:08.643 --> 00:04:10.382
+Lembre-se
+que uma tarefa contínua
+
+00:04:10.415 --> 00:04:12.891
+é uma tarefa em que a interação
+agente-ambiente
+
+00:04:12.924 --> 00:04:15.054
+continua indefinidamente.
+
+00:04:15.087 --> 00:04:19.174
+Neste caso, se o agente quiser
+maximizar a recompensa cumulativa,
+
+00:04:19.207 --> 00:04:22.914
+será uma tarefa bem difícil,
+caso o futuro seja ilimitado.
+
+00:04:23.225 --> 00:04:24.989
+Então usamos o desconto
+
+00:04:25.022 --> 00:04:29.287
+para não termos que olhar
+muito adiante no futuro ilimitado.
+
+00:04:29.320 --> 00:04:32.690
+Mas é importante notar
+que, com ou sem desconto,
+
+00:04:32.723 --> 00:04:34.826
+o objetivo é sempre o mesmo.
+
+00:04:34.859 --> 00:04:38.251
+É sempre maximizar
+a recompensa cumulativa.
+
+00:04:38.793 --> 00:04:41.847
+A taxa de desconto entra em cena
+quando o agente escolhe ações
+
+00:04:41.880 --> 00:04:44.017
+num instante de tempo
+arbitrário.
+
+00:04:44.050 --> 00:04:45.680
+Ele usa a taxa de desconto
+
+00:04:45.713 --> 00:04:48.401
+como parte do seu plano
+de escolher ações.
+
+00:04:48.434 --> 00:04:52.174
+E esse plano está mais voltado
+para assegurar as recompensas
+
+00:04:52.207 --> 00:04:54.538
+que aparecem mais cedo
+e são mais prováveis
+
+00:04:54.571 --> 00:04:57.668
+do que as que aparecem mais tarde
+e são mais improváveis.
+
+00:04:58.920 --> 00:05:02.474
+Você aprenderá mais sobre
+como o agente deve selecionar ações
+
+00:05:02.507 --> 00:05:03.876
+na próxima lição.
+
+00:05:03.909 --> 00:05:06.461
+Por enquanto, vamos especificar
+integralmente
+
+00:05:06.494 --> 00:05:08.707
+o problema
+da aprendizagem por reforço.
+

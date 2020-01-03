@@ -1,0 +1,301 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.302 --> 00:00:02.904
+Nós vimos que o framework
+de aprendizagem por reforço
+
+00:00:02.937 --> 00:00:06.603
+nos permite estudar como um agente
+aprende a alcançar um objetivo
+
+00:00:06.636 --> 00:00:09.113
+ao interagir com o ambiente.
+
+00:00:09.146 --> 00:00:12.472
+Esse framework funciona
+com muitas aplicações do mundo real
+
+00:00:12.505 --> 00:00:15.471
+e resume a interação
+a três sinais,
+
+00:00:15.504 --> 00:00:18.626
+que são passados
+entre o agente e o ambiente.
+
+00:00:19.096 --> 00:00:21.256
+O sinal "estado" é
+a maneira do ambiente
+
+00:00:21.289 --> 00:00:23.818
+de apresentar uma situação
+para o agente.
+
+00:00:23.851 --> 00:00:28.786
+O agente então responde com uma ação
+que influencia o ambiente.
+
+00:00:28.819 --> 00:00:31.138
+E o ambiente responde
+com a recompensa,
+
+00:00:31.171 --> 00:00:36.563
+que indica se o agente respondeu
+de forma adequada ao ambiente.
+
+00:00:37.451 --> 00:00:40.140
+No framework também há
+o objetivo do agente,
+
+00:00:40.173 --> 00:00:43.393
+que é maximizar
+a recompensa cumulativa.
+
+00:00:43.426 --> 00:00:47.896
+Mas o que exatamente isso significa
+e como o agente consegue fazer isso?
+
+00:00:47.929 --> 00:00:49.892
+Quanto ao objetivo,
+o que você acha?
+
+00:00:49.925 --> 00:00:52.154
+O agente é capaz
+de maximizar a recompensa
+
+00:00:52.187 --> 00:00:53.713
+a cada instante de tempo?
+
+00:00:54.141 --> 00:00:56.867
+A resposta curta para esta pergunta
+é "não",
+
+00:00:56.900 --> 00:01:00.609
+mas acho que uma resposta longa
+seria muito mais satisfatória.
+
+00:01:00.642 --> 00:01:04.056
+Então vamos tentar entender isso
+através do exemplo do robô que anda.
+
+00:01:04.554 --> 00:01:06.097
+Lembre-se que, neste caso,
+
+00:01:06.130 --> 00:01:08.892
+o objetivo do robô é
+continuar andando para a frente
+
+00:01:08.925 --> 00:01:11.647
+pelo máximo de tempo possível
+e o mais rápido possível,
+
+00:01:11.680 --> 00:01:14.552
+fazendo
+o menor esforço possível.
+
+00:01:14.585 --> 00:01:17.034
+Nesse caso,
+se o robô tentar maximizar
+
+00:01:17.067 --> 00:01:19.894
+a recompensa que recebeu
+num único instante de tempo,
+
+00:01:19.927 --> 00:01:22.698
+seria como tentar andar
+o mais rápido possível
+
+00:01:22.731 --> 00:01:26.931
+com o mínimo de esforço,
+sem cair de imediato.
+
+00:01:26.964 --> 00:01:29.405
+Isso poderia funcionar bem
+no curto prazo,
+
+00:01:29.438 --> 00:01:32.334
+mas é possível, por exemplo,
+que o movimento do agente
+
+00:01:32.367 --> 00:01:35.676
+faça com que ele ande rápido
+sem cair inicialmente.
+
+00:01:35.709 --> 00:01:38.668
+Mas esse movimento inicial
+pode ser desestabilizador,
+
+00:01:38.701 --> 00:01:41.753
+a ponto de fazer o agente cair
+num curto espaço de tempo.
+
+00:01:41.786 --> 00:01:45.584
+Assim, se o agente se concentrasse
+em instantes de tempo individuais,
+
+00:01:45.617 --> 00:01:49.283
+poderia aprender ações
+que maximizem recompensas iniciais,
+
+00:01:49.316 --> 00:01:51.881
+mas o episódio se encerra
+muito rápido,
+
+00:01:51.914 --> 00:01:55.108
+então a recompensa cumulativa
+é muito pequena.
+
+00:01:55.141 --> 00:02:00.238
+E o pior nesse caso é que o agente
+não terá aprendido a andar.
+
+00:02:00.271 --> 00:02:03.403
+Neste exemplo, é óbvio que o agente
+não consegue se concentrar
+
+00:02:03.436 --> 00:02:05.227
+em instantes de tempo
+individuais.
+
+00:02:05.260 --> 00:02:08.689
+Em vez disso, ele tem que memorizar
+todos os instantes de tempo.
+
+00:02:08.722 --> 00:02:10.128
+Mas isso também é verdade
+
+00:02:10.161 --> 00:02:13.088
+para os agentes de aprendizagem
+por reforço em geral.
+
+00:02:13.121 --> 00:02:16.409
+As ações têm consequências
+de curto e de longo prazo,
+
+00:02:16.442 --> 00:02:19.272
+e o agente precisa
+aprender a assimilar
+
+00:02:19.305 --> 00:02:23.203
+os efeitos complexos
+que suas ações têm no ambiente.
+
+00:02:23.236 --> 00:02:25.921
+Desse ponto de vista,
+no exemplo do robô que anda,
+
+00:02:25.954 --> 00:02:28.204
+se o agente sempre se concentrar
+na recompensa
+
+00:02:28.237 --> 00:02:30.079
+em todos
+os instantes de tempo,
+
+00:02:30.112 --> 00:02:31.811
+aprenderá a escolher
+os movimentos
+
+00:02:31.844 --> 00:02:34.303
+criados para garantir
+estabilidade de longo prazo.
+
+00:02:34.336 --> 00:02:37.394
+Por isso o robô anda
+um pouco devagar,
+
+00:02:37.427 --> 00:02:40.081
+para sacrificar um pouco
+a recompensa,
+
+00:02:40.114 --> 00:02:41.321
+mas valerá a pena,
+
+00:02:41.354 --> 00:02:43.750
+porque evitará por mais tempo
+que ele caia
+
+00:02:43.783 --> 00:02:46.789
+e fará com que ele acumule
+uma maior recompensa cumulativa.
+
+00:02:46.822 --> 00:02:49.958
+Mas o que isso significa
+quando o agente escolhe uma ação
+
+00:02:49.991 --> 00:02:51.858
+num instante de tempo
+arbitrário?
+
+00:02:51.891 --> 00:02:55.627
+Como ele consegue memorizar
+todos os instantes de tempo?
+
+00:02:55.660 --> 00:02:59.301
+Bom, se analisarmos
+um instante de tempo t,
+
+00:02:59.334 --> 00:03:03.420
+é importante notar que a recompensa
+dos instantes de tempo anteriores
+
+00:03:03.453 --> 00:03:06.922
+já foram decididos,
+visto que ocorreram no passado.
+
+00:03:06.955 --> 00:03:10.911
+Só as recompensas futuras estão
+sob o controle do agente.
+
+00:03:10.944 --> 00:03:13.418
+Nós chamamos
+a soma das recompensas
+
+00:03:13.451 --> 00:03:17.070
+do próximo instante de tempo
+em diante de "retorno"
+
+00:03:17.103 --> 00:03:19.619
+e o representamos
+com G maiúsculo.
+
+00:03:19.652 --> 00:03:24.289
+E, num instante de tempo arbitrário,
+o agente sempre escolherá uma ação
+
+00:03:24.322 --> 00:03:27.482
+na direção do objetivo
+de maximizar a recompensa.
+
+00:03:27.515 --> 00:03:29.876
+Mas é mais correto dizer
+
+00:03:29.909 --> 00:03:34.052
+que o agente espera maximizar
+o retorno esperado.
+
+00:03:34.085 --> 00:03:36.317
+A razão disso é
+que, em geral,
+
+00:03:36.350 --> 00:03:39.242
+o agente não pode prever
+com certeza absoluta
+
+00:03:39.275 --> 00:03:41.919
+qual será
+a provável recompensa futura.
+
+00:03:41.952 --> 00:03:45.975
+Então ele tem que se basear
+numa previsão ou numa estimativa.
+
+00:03:46.008 --> 00:03:49.210
+Veremos isso melhor quando falarmos
+de retorno descontado,
+
+00:03:49.243 --> 00:03:50.988
+mas essa é a ideia geral.
+

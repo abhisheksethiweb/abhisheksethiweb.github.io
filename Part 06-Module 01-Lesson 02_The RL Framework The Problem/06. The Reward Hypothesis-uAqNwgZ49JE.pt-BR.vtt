@@ -1,0 +1,187 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.180 --> 00:00:04.315
+Nós falamos das diversas aplicações
+da aprendizagem por reforço.
+
+00:00:04.348 --> 00:00:07.065
+Cada uma tem um agente
+e um ambiente determinantes,
+
+00:00:07.098 --> 00:00:09.052
+e cada agente tem
+um objetivo,
+
+00:00:09.085 --> 00:00:11.559
+desde um carro
+que aprende a dirigir sozinho
+
+00:00:11.592 --> 00:00:14.675
+a um agente que aprende a jogar
+jogos de Atari.
+
+00:00:14.708 --> 00:00:18.079
+É incrível
+como objetivos tão diferentes
+
+00:00:18.112 --> 00:00:21.748
+podem ser alcançados
+através do mesmo framework teórico.
+
+00:00:21.781 --> 00:00:24.547
+Até agora, abordamos
+a ideia da recompensa
+
+00:00:24.580 --> 00:00:28.518
+pela perspectiva de um cachorro
+que interage com o dono.
+
+00:00:28.551 --> 00:00:30.803
+Nesse caso, o estado
+em cada instante de tempo
+
+00:00:30.836 --> 00:00:34.172
+era o comando
+que o dono comunicava ao cachorro,
+
+00:00:34.205 --> 00:00:36.380
+a ação era
+a resposta do cachorro,
+
+00:00:36.413 --> 00:00:39.374
+e a recompensa era
+somente o número de prêmios.
+
+00:00:39.407 --> 00:00:42.242
+E, como todo bom agente
+de aprendizagem por reforço,
+
+00:00:42.275 --> 00:00:45.269
+o cachorro tenta maximizar
+essa recompensa.
+
+00:00:45.302 --> 00:00:48.398
+Nesse caso, a ideia de recompensa
+surge naturalmente
+
+00:00:48.431 --> 00:00:51.975
+e está bem alinhada com o nosso modo
+de ensinar um cachorro.
+
+00:00:52.338 --> 00:00:55.202
+Mas, na verdade, no framework
+de aprendizagem por reforço,
+
+00:00:55.235 --> 00:00:58.076
+todos os agentes formulam
+seus objetivos
+
+00:00:58.109 --> 00:01:02.398
+de modo a maximizar
+a recompensa cumulativa esperada.
+
+00:01:02.431 --> 00:01:03.728
+Mas o que é recompensa
+
+00:01:03.761 --> 00:01:07.355
+no contexto de algo como um robô
+que está aprendendo a andar?
+
+00:01:07.388 --> 00:01:10.138
+Podemos pensar no ambiente
+como uma espécie de treinador
+
+00:01:10.171 --> 00:01:11.794
+que observa
+os movimentos do robô
+
+00:01:11.827 --> 00:01:14.618
+e o recompensa
+pelo bom jeito de andar.
+
+00:01:14.651 --> 00:01:16.944
+Mas então a recompensa
+que o treinador dá
+
+00:01:16.977 --> 00:01:21.167
+pode vir a ser muito subjetiva
+e nada científica.
+
+00:01:21.200 --> 00:01:24.401
+Afinal de contas, o que define
+um jeito de andar bom ou ruim?
+
+00:01:24.434 --> 00:01:26.344
+E como resolvemos
+essa questão?
+
+00:01:26.887 --> 00:01:29.583
+Em geral, como podemos especificar
+uma recompensa
+
+00:01:29.616 --> 00:01:34.421
+para descrever um dos muitos
+objetivos possíveis do nosso agente?
+
+00:01:34.454 --> 00:01:38.371
+Antes de responder a essa pergunta,
+vamos voltar um pouco.
+
+00:01:38.404 --> 00:01:39.504
+É importante destacar
+
+00:01:39.537 --> 00:01:42.554
+que a palavra "reforço"
+em "aprendizagem por reforço"
+
+00:01:42.587 --> 00:01:45.996
+é um termo oriundo
+da ciência comportamental.
+
+00:01:46.029 --> 00:01:47.463
+Ele se refere a um estímulo
+
+00:01:47.496 --> 00:01:50.235
+que é transmitido
+logo após o comportamento
+
+00:01:50.268 --> 00:01:53.463
+para aumentar a chance de
+o comportamento ocorrer no futuro.
+
+00:01:53.496 --> 00:01:56.907
+O fato de esse termo ter sido
+emprestado não é uma coincidência.
+
+00:01:56.940 --> 00:01:59.968
+Aliás, é importante
+definir uma hipótese
+
+00:02:00.001 --> 00:02:01.602
+na aprendizagem por reforço
+
+00:02:01.635 --> 00:02:04.460
+que sempre nos permita formular
+o objetivo de um agente
+
+00:02:04.493 --> 00:02:09.287
+de modo a maximizar
+a recompensa cumulativa esperada.
+
+00:02:09.320 --> 00:02:12.887
+E chamamos essa hipótese
+de hipótese da recompensa.
+
+00:02:12.920 --> 00:02:15.721
+Se você continua achando isso
+estranho ou confuso,
+
+00:02:15.754 --> 00:02:17.057
+você não é o único,
+
+00:02:17.090 --> 00:02:20.034
+mas vou convencer você
+no próximo vídeo.
+

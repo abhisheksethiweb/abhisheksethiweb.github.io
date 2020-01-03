@@ -1,0 +1,379 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.436 --> 00:00:03.309
+Estamos trabalhando com o exemplo
+do robô de reciclagem
+
+00:00:03.344 --> 00:00:05.909
+e já detalhamos
+os estados e as ações.
+
+00:00:06.426 --> 00:00:10.341
+Neste exemplo, lembre que o estado
+corresponde à carga restante
+
+00:00:10.376 --> 00:00:11.964
+na bateria do robô.
+
+00:00:12.300 --> 00:00:15.541
+Há dois estados em potencial:
+alta e fraca.
+
+00:00:15.852 --> 00:00:17.837
+Como primeiro passo,
+considere o caso
+
+00:00:17.872 --> 00:00:20.260
+em que a carga da bateria
+esteja alta.
+
+00:00:20.295 --> 00:00:23.052
+Assim, o robô pode escolher
+entre esperar, procurar
+
+00:00:23.087 --> 00:00:24.372
+ou recarregar.
+
+00:00:24.925 --> 00:00:28.108
+Mas, na verdade, recarregar
+não faz muito sentido
+
+00:00:28.143 --> 00:00:30.421
+se a bateria
+já estiver alta,
+
+00:00:30.456 --> 00:00:34.085
+então vamos dizer que as únicas
+opções sejam procurar ou esperar.
+
+00:00:34.906 --> 00:00:38.268
+Certo, se o agente
+escolher procurar,
+
+00:00:38.303 --> 00:00:42.197
+no próximo instante de tempo
+o estado pode ser alto ou fraco.
+
+00:00:42.973 --> 00:00:47.060
+Digamos que haja uma probabilidade
+de 70% de permanecer alto,
+
+00:00:47.095 --> 00:00:51.084
+então há uma chance de 30%
+da bateria ficar fraca.
+
+00:00:51.119 --> 00:00:53.812
+Em ambos os casos, vamos dizer
+que a decisão de procurar
+
+00:00:54.228 --> 00:00:58.117
+levou o robô a coletar
+exatamente 4 latas.
+
+00:00:58.152 --> 00:01:01.517
+E, alinhado com isso,
+o ambiente dá ao agente
+
+00:01:01.552 --> 00:01:03.644
+uma recompensa de 4.
+
+00:01:04.436 --> 00:01:06.892
+A outra opção é esperar.
+
+00:01:06.927 --> 00:01:10.612
+Se a bateria do robô estiver alta
+e ele decidir esperar,
+
+00:01:10.647 --> 00:01:13.468
+como esperar não consome
+nenhuma bateria,
+
+00:01:13.503 --> 00:01:17.931
+diremos que é garantido
+que a bateria permaneça alta
+
+00:01:17.966 --> 00:01:19.956
+no próximo instante
+de tempo.
+
+00:01:19.991 --> 00:01:21.948
+Neste caso,
+vamos supor que,
+
+00:01:21.983 --> 00:01:25.012
+como o robô não estava
+procurando ativamente,
+
+00:01:25.047 --> 00:01:27.245
+ele coletou menos latas.
+
+00:01:27.280 --> 00:01:30.293
+Digamos que ele conseguiu
+apenas uma lata.
+
+00:01:31.146 --> 00:01:34.812
+De novo, alinhado com isso,
+o ambiente deu ao agente
+
+00:01:34.847 --> 00:01:36.689
+uma recompensa de 1.
+
+00:01:38.058 --> 00:01:40.333
+Vamos para o caso
+em que a bateria está fraca.
+
+00:01:40.922 --> 00:01:43.389
+De novo, o robô tem
+três opções.
+
+00:01:44.234 --> 00:01:46.860
+Se a bateria estiver fraca
+e ele escolher esperar
+
+00:01:46.895 --> 00:01:48.500
+que pessoas
+levem latas até ele,
+
+00:01:48.535 --> 00:01:50.388
+isso não consome
+nenhuma bateria,
+
+00:01:50.423 --> 00:01:53.676
+então o estado no instante
+de tempo seguinte será fraco.
+
+00:01:54.476 --> 00:01:58.140
+E assim como quando o robô
+espera com a bateria alta,
+
+00:01:58.175 --> 00:02:00.764
+o agente recebe
+uma recompensa de 1.
+
+00:02:02.802 --> 00:02:05.852
+Se o robô recarregar,
+ele volta à docking station
+
+00:02:06.396 --> 00:02:09.900
+e o estado no instante de tempo
+seguinte será alto com certeza.
+
+00:02:10.476 --> 00:02:13.059
+Digamos que ele não colete
+nenhuma lata no caminho
+
+00:02:13.094 --> 00:02:15.195
+e receba uma recompensa
+de zero.
+
+00:02:15.859 --> 00:02:18.612
+Agora, se ele procurar
+será arriscado.
+
+00:02:19.076 --> 00:02:21.684
+É possível
+que ele consiga se virar
+
+00:02:21.719 --> 00:02:25.012
+e que, no próximo instante de tempo,
+a bateria permaneça fraca,
+
+00:02:25.047 --> 00:02:27.629
+mas não completamente
+descarregada.
+
+00:02:28.100 --> 00:02:31.868
+Mas é mais provável que o robô
+esgote a bateria dele,
+
+00:02:31.903 --> 00:02:35.084
+precise ser resgatado e seja
+carregado até uma docking station
+
+00:02:35.119 --> 00:02:36.691
+para ser recarregado.
+
+00:02:37.276 --> 00:02:39.709
+Então a carga na bateria dele
+no próximo instante de tempo
+
+00:02:39.744 --> 00:02:41.164
+será alta.
+
+00:02:41.199 --> 00:02:45.267
+Digamos que haja uma probabilidade
+de 80% da bateria esgotar.
+
+00:02:45.302 --> 00:02:47.916
+Do contrário, ele consegue contornar
+essa ação arriscada
+
+00:02:47.951 --> 00:02:50.012
+com uma probabilidade
+de 20%.
+
+00:02:50.047 --> 00:02:53.476
+Quanto às recompensas,
+se o robô precisar ser resgatado,
+
+00:02:53.511 --> 00:02:57.044
+queremos garantir
+que o robô seja punido,
+
+00:02:57.412 --> 00:03:01.692
+então ignoramos o número
+de latas que ele conseguiu coletar
+
+00:03:01.727 --> 00:03:05.308
+e apenas damos ao robô
+uma recompensa de -3 por isso.
+
+00:03:06.180 --> 00:03:08.036
+Mas se o robô contornar
+a situação,
+
+00:03:08.071 --> 00:03:11.539
+ele coleta 4 latas e recebe
+uma recompensa de 4.
+
+00:03:13.795 --> 00:03:17.131
+Esse cenário caracteriza
+completamente um método
+
+00:03:17.166 --> 00:03:19.315
+que o ambiente pode usar
+para decidir
+
+00:03:19.350 --> 00:03:22.964
+o estado e a recompensa seguintes
+em qualquer instante de tempo.
+
+00:03:22.999 --> 00:03:26.628
+Para ver isso, vamos examinar
+um exemplo concreto.
+
+00:03:26.663 --> 00:03:29.308
+Digamos que o último
+estado tenha sido alto
+
+00:03:29.343 --> 00:03:31.507
+e que o agente
+tenha decidido procurar.
+
+00:03:32.347 --> 00:03:35.644
+Então, teoricamente, o ambiente
+jogaria cara ou coroa
+
+00:03:35.679 --> 00:03:39.076
+com uma probabilidade de 70%
+de dar cara
+
+00:03:39.111 --> 00:03:42.089
+e, se desse cara,
+o ambiente decidiria
+
+00:03:42.122 --> 00:03:43.824
+que o estado seguinte
+seria alto,
+
+00:03:43.870 --> 00:03:46.556
+e o agente receberia
+uma recompensa de 4.
+
+00:03:46.972 --> 00:03:49.131
+Do contrário,
+se desse coroa,
+
+00:03:49.166 --> 00:03:51.307
+o estado seguinte
+seria fraco,
+
+00:03:51.342 --> 00:03:53.492
+e a recompensa seria 4.
+
+00:03:54.377 --> 00:03:58.235
+Como outro exemplo,
+se o último estado fosse fraco,
+
+00:03:58.270 --> 00:04:00.547
+e o agente decidisse
+procurar,
+
+00:04:01.064 --> 00:04:05.003
+o ambiente, teoricamente, jogaria
+cara ou coroa de novo,
+
+00:04:05.038 --> 00:04:08.468
+agora com uma probabilidade
+de 80% de dar cara.
+
+00:04:08.503 --> 00:04:12.779
+Se desse cara, o ambiente decidiria
+que o estado seguinte seria alto,
+
+00:04:12.814 --> 00:04:16.427
+e o agente receberia
+uma recompensa de -3.
+
+00:04:16.462 --> 00:04:20.324
+Do contrário, de desse coroa,
+o estado seguinte seria fraco,
+
+00:04:20.359 --> 00:04:22.412
+e a recompensa seria 4.
+
+00:04:23.404 --> 00:04:28.051
+Mas é importante enfatizar
+como o ambiente usa pouca informação
+
+00:04:28.086 --> 00:04:29.859
+para tomar decisões.
+
+00:04:29.894 --> 00:04:32.965
+Ele não se importa com qual situação
+foi apresentada ao agente,
+
+00:04:33.000 --> 00:04:36.627
+dez, cem ou até dois
+passos atrás.
+
+00:04:37.010 --> 00:04:39.387
+E ele não considera as ações
+tomadas pelo agente
+
+00:04:39.422 --> 00:04:42.067
+antes da última.
+
+00:04:42.102 --> 00:04:45.715
+O quão bem o agente está se saindo
+ou quantas recompensas ele coletou
+
+00:04:45.750 --> 00:04:48.644
+não causam o menor efeito
+em como o ambiente escolhe
+
+00:04:48.679 --> 00:04:50.988
+responder ao agente.
+
+00:04:51.023 --> 00:04:54.067
+É claro que é possível
+projetar ambientes
+
+00:04:54.102 --> 00:04:58.027
+que tenham procedimentos mais
+complexos de interação com o agente,
+
+00:04:58.062 --> 00:05:00.819
+mas é assim que funciona
+na aprendizagem por reforço,
+
+00:05:00.854 --> 00:05:04.635
+e logo você verá
+nas suas implementações
+
+00:05:04.670 --> 00:05:06.995
+o quão poderosa
+essa estrutura é.
+

@@ -1,0 +1,115 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:05.370
+So, I'd like to talk to you about some research that I find particularly interesting.
+
+00:00:05.370 --> 00:00:08.144
+And I think it's a great example to illustrate
+
+00:00:08.144 --> 00:00:11.309
+the reward hypothesis that was introduced in the previous video.
+
+00:00:11.310 --> 00:00:16.740
+Google DeepMind recently addressed the problem of teaching a robot to walk.
+
+00:00:16.739 --> 00:00:18.629
+Among other problem domains,
+
+00:00:18.629 --> 00:00:21.929
+they worked with a physical simulation of a humanoid robot and they
+
+00:00:21.929 --> 00:00:26.594
+managed to apply some nice reinforcement learning to get great results.
+
+00:00:26.594 --> 00:00:28.904
+As you learned in an earlier video,
+
+00:00:28.905 --> 00:00:31.830
+in order to frame this as a reinforcement learning problem,
+
+00:00:31.829 --> 00:00:35.549
+we'll have to specify the state's actions and rewards.
+
+00:00:35.549 --> 00:00:41.789
+We'll dedicate two videos to this example and we'll begin by detailing the actions.
+
+00:00:41.789 --> 00:00:46.619
+These are the decisions that need to be made in order for the robot to walk.
+
+00:00:46.619 --> 00:00:48.929
+Now, the humanoid has several joints,
+
+00:00:48.929 --> 00:00:51.269
+and the actions are just the forces that
+
+00:00:51.270 --> 00:00:54.540
+the robot applies to its joints in order to move.
+
+00:00:54.539 --> 00:00:57.450
+Because the robot has an intelligent method
+
+00:00:57.450 --> 00:01:00.249
+for deciding these forces at every point in time,
+
+00:01:00.249 --> 00:01:03.215
+that will be sufficient to get it walking.
+
+00:01:03.215 --> 00:01:05.115
+And what about the states?
+
+00:01:05.114 --> 00:01:10.694
+The states are the context provided to the agent for choosing intelligent actions.
+
+00:01:10.694 --> 00:01:14.069
+In this context, the state at any point in time
+
+00:01:14.069 --> 00:01:18.314
+contain the current positions and velocities of all of the joints,
+
+00:01:18.314 --> 00:01:23.849
+along with some measurements about the surface that the robot was standing on.
+
+00:01:23.849 --> 00:01:27.397
+These measurements captured how flat or inclined the ground was,
+
+00:01:27.397 --> 00:01:31.144
+if there was a large step along the path and so on.
+
+00:01:31.144 --> 00:01:34.994
+The researchers at Google DeepMind also added contact sensor data,
+
+00:01:34.995 --> 00:01:40.730
+so that it could determine if the robot was still walking or if it had fallen over.
+
+00:01:40.730 --> 00:01:44.609
+The idea is that based on the information in the state,
+
+00:01:44.609 --> 00:01:48.355
+the agent has to plan its next action.
+
+00:01:48.355 --> 00:01:50.924
+After all, if there's a step along the path,
+
+00:01:50.924 --> 00:01:56.015
+that will require a different type of movement than if the ground were completely flat.
+
+00:01:56.015 --> 00:01:58.920
+We'll design the reward as a feedback mechanism that
+
+00:01:58.920 --> 00:02:02.850
+tells the agent that it has chosen the appropriate movements.
+
+00:02:02.849 --> 00:02:06.347
+The reward will be our way of telling the agent, "Good job,
+
+00:02:06.347 --> 00:02:09.074
+for not running into that wall or too bad,
+
+00:02:09.074 --> 00:02:11.589
+you missed that step and fell down."
+
+00:02:11.590 --> 00:02:16.000
+That's just the main idea and we'll go into depth in the next video.
+

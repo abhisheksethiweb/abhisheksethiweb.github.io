@@ -1,0 +1,106 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:01.270 --> 00:00:03.964
+Now that we've looked at an example,
+
+00:00:03.964 --> 00:00:07.070
+you should have the necessary intuition to understand
+
+00:00:07.070 --> 00:00:10.699
+the formal definition of the reinforcement learning framework.
+
+00:00:10.699 --> 00:00:17.000
+So, formally, a Markov decision process or MDP is defined by the set of states,
+
+00:00:17.000 --> 00:00:18.283
+the set of actions,
+
+00:00:18.283 --> 00:00:20.720
+and the set of rewards along with
+
+00:00:20.719 --> 00:00:24.704
+the one-step dynamics of the environment and the discount rate.
+
+00:00:24.704 --> 00:00:27.769
+We've detail the states actions, rewards,
+
+00:00:27.769 --> 00:00:29.960
+and one-step dynamics of the environment,
+
+00:00:29.960 --> 00:00:33.942
+but we will also need to talk about the discount rate.
+
+00:00:33.942 --> 00:00:35.299
+And towards this end,
+
+00:00:35.299 --> 00:00:39.489
+it is important to notice that we've detailed a continuing task.
+
+00:00:39.490 --> 00:00:45.140
+So, it will prove useful to make the discount factor less than one because otherwise,
+
+00:00:45.140 --> 00:00:49.460
+the agent would have to look infinitely far into the limitless future.
+
+00:00:49.460 --> 00:00:55.310
+It's common to set the discount rate to 0.9 And that feels like a good choice here.
+
+00:00:55.310 --> 00:00:58.850
+Throughout this course, you'll have the opportunity and
+
+00:00:58.850 --> 00:01:03.545
+your implementations to build some intuition for how to set the discount rate.
+
+00:01:03.545 --> 00:01:06.935
+But it's important to note now that the discount rate is
+
+00:01:06.935 --> 00:01:11.325
+always set to some number much closer to one than to zero.
+
+00:01:11.325 --> 00:01:15.975
+Otherwise, the agent becomes excessively short-sighted to a fault.
+
+00:01:15.974 --> 00:01:20.399
+And now, you have fully specified your first MDP.
+
+00:01:20.400 --> 00:01:23.375
+In general, when you have a real world problem in mind,
+
+00:01:23.375 --> 00:01:26.959
+you will need to specify the MDP and that will
+
+00:01:26.959 --> 00:01:32.149
+fully and formally define the problem that you want to your agent to solve.
+
+00:01:32.150 --> 00:01:35.705
+This framework works for continuing and episodic tasks
+
+00:01:35.704 --> 00:01:40.025
+and whenever you have a problem that you want to solve with reinforcement learning,
+
+00:01:40.025 --> 00:01:43.290
+whether it entails a self-driving car, a walking robot,
+
+00:01:43.290 --> 00:01:44.600
+or a stock trading agent,
+
+00:01:44.599 --> 00:01:47.390
+this is the framework that you will use.
+
+00:01:47.390 --> 00:01:52.515
+The agent will know the states and actions along with the discount factor.
+
+00:01:52.515 --> 00:01:55.754
+As for the set up rewards and the one-step dynamics,
+
+00:01:55.754 --> 00:02:00.339
+those specify how the environment works and will be unknown to the agent.
+
+00:02:00.340 --> 00:02:02.840
+Despite not having this information,
+
+00:02:02.840 --> 00:02:08.280
+the agent will still have to learn from interaction how to accomplish its goal.
+

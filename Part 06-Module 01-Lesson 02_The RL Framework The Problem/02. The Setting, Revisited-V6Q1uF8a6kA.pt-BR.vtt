@@ -1,0 +1,280 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.001 --> 00:00:02.706
+Lembra do cachorrinho
+da lição anterior?
+
+00:00:02.739 --> 00:00:06.704
+Ele desempenha o papel de um agente
+que aprende, por tentativa e erro,
+
+00:00:06.737 --> 00:00:10.109
+como se comportar em um ambiente
+para maximizar recompensas.
+
+00:00:10.809 --> 00:00:15.122
+Mas o que queremos dizer em geral
+com "aprendizado por reforço"?
+
+00:00:15.155 --> 00:00:18.056
+Talvez você se surpreenda ao saber
+que não muda muita coisa
+
+00:00:18.089 --> 00:00:22.335
+quando trocamos o cachorro
+por um carro autodirigido, um robô
+
+00:00:22.368 --> 00:00:26.324
+ou um agente mais genérico
+de aprendizagem por reforço.
+
+00:00:26.357 --> 00:00:30.300
+Em particular, o framework geral
+é caracterizado por um agente
+
+00:00:30.333 --> 00:00:33.434
+que está aprendendo
+a interagir com o ambiente.
+
+00:00:33.467 --> 00:00:37.364
+Consideramos que o tempo avança
+em instantes de tempo discretos.
+
+00:00:37.397 --> 00:00:42.101
+No instante de tempo inicial,
+o agente observa o ambiente.
+
+00:00:42.134 --> 00:00:44.569
+Pense nessa observação
+como uma situação
+
+00:00:44.602 --> 00:00:47.028
+que o ambiente apresenta
+ao agente.
+
+00:00:47.061 --> 00:00:51.035
+Em seguida, ele deve selecionar
+uma ação adequada como resposta.
+
+00:00:51.960 --> 00:00:55.290
+No instante de tempo seguinte,
+em resposta à ação do agente,
+
+00:00:55.323 --> 00:00:59.116
+o ambiente apresenta
+uma nova situação ao agente.
+
+00:00:59.619 --> 00:01:02.907
+Ao mesmo tempo, o ambiente
+dá ao agente uma recompensa,
+
+00:01:02.940 --> 00:01:05.993
+que indica se o agente
+
+00:01:06.026 --> 00:01:09.625
+respondeu de forma adequada
+ao ambiente.
+
+00:01:09.658 --> 00:01:12.315
+Esse processo continua
+e, a cada instante de tempo,
+
+00:01:12.348 --> 00:01:16.389
+o ambiente envia ao agente
+uma observação e uma recompensa.
+
+00:01:16.422 --> 00:01:20.090
+Em resposta, o agente
+tem que escolher uma ação.
+
+00:01:21.619 --> 00:01:25.533
+Em geral, nós não temos que supor
+que o ambiente mostrará ao agente
+
+00:01:25.566 --> 00:01:29.082
+todas as informações que ele precisa
+para fazer boas decisões,
+
+00:01:29.115 --> 00:01:33.433
+mas fazer isso simplifica muito
+os nossos cálculos.
+
+00:01:33.466 --> 00:01:35.708
+Então, neste curso,
+nós vamos considerar
+
+00:01:35.741 --> 00:01:37.999
+que o agente será capaz
+de observar plenamente
+
+00:01:38.032 --> 00:01:40.814
+qualquer estado
+em que o ambiente estiver.
+
+00:01:40.847 --> 00:01:45.289
+E, em vez de dizer que o agente
+recebeu uma observação,
+
+00:01:45.322 --> 00:01:49.145
+a partir de agora, diremos que ele
+recebeu o estado do ambiente.
+
+00:01:49.928 --> 00:01:52.532
+Mas vamos tornar essa descrição
+um pouco mais clara
+
+00:01:52.565 --> 00:01:54.196
+incluindo algumas notações,
+
+00:01:54.229 --> 00:01:58.035
+começando de novo do início,
+no instante de tempo 0.
+
+00:01:59.090 --> 00:02:02.195
+Primeiro o agente recebe
+o estado do ambiente,
+
+00:02:02.228 --> 00:02:07.906
+que chamaremos de S0,
+onde 0 é o instante de tempo 0.
+
+00:02:07.939 --> 00:02:13.553
+Depois, com base nessa observação,
+o agente escolhe uma ação, A0,
+
+00:02:13.586 --> 00:02:17.118
+no instante de tempo seguinte,
+que aqui é o instante de tempo 1.
+
+00:02:17.151 --> 00:02:21.763
+E, como consequência direta
+da ação escolhida pelo agente, A0,
+
+00:02:21.796 --> 00:02:24.828
+e do estado anterior
+do ambiente, S0,
+
+00:02:24.861 --> 00:02:28.330
+o ambiente transita
+para um novo estado, S1,
+
+00:02:28.363 --> 00:02:31.957
+e dá uma recompensa, R1,
+para o agente.
+
+00:02:32.726 --> 00:02:36.387
+O agente então escolhe
+uma ação, A1.
+
+00:02:36.420 --> 00:02:39.156
+No instante de tempo 2,
+o processo continua,
+
+00:02:39.189 --> 00:02:42.508
+em que o ambiente passa
+a recompensa e o estado.
+
+00:02:42.541 --> 00:02:47.356
+Em seguida, o agente responde
+com uma ação e assim por diante.
+
+00:02:47.389 --> 00:02:50.325
+À medida que o agente interage
+com o ambiente,
+
+00:02:50.358 --> 00:02:52.203
+essa interação se manifesta
+
+00:02:52.236 --> 00:02:56.013
+como uma sequência de estados,
+ações e recompensas.
+
+00:02:56.046 --> 00:02:58.681
+Dito isso,
+a recompensa sempre será
+
+00:02:58.714 --> 00:03:01.406
+a quantidade mais relevante
+para o agente.
+
+00:03:01.439 --> 00:03:04.265
+Mais especificamente,
+todo agente tem o objetivo
+
+00:03:04.298 --> 00:03:07.611
+de maximizar
+a recompensa cumulativa esperada,
+
+00:03:07.644 --> 00:03:11.050
+ou a soma das recompensas obtidas
+em todos os instantes de tempo.
+
+00:03:11.083 --> 00:03:14.977
+Ou seja, ele tenta descobrir
+uma estratégia para escolher ações
+
+00:03:15.010 --> 00:03:18.455
+em que a recompensa cumulativa
+provavelmente será bem alta.
+
+00:03:18.780 --> 00:03:21.068
+E o agente só consegue
+alcançar seu objetivo
+
+00:03:21.101 --> 00:03:23.591
+interagindo com o ambiente.
+
+00:03:23.624 --> 00:03:25.842
+Isso é porque,
+a cada instante de tempo,
+
+00:03:25.875 --> 00:03:30.123
+o ambiente decide quanta recompensa
+o agente vai receber.
+
+00:03:30.156 --> 00:03:34.460
+Em outras palavras, o agente
+deve seguir as regras do ambiente.
+
+00:03:34.493 --> 00:03:37.543
+Mas, através da interação,
+o agente pode aprender essas regras
+
+00:03:37.576 --> 00:03:40.715
+e escolher as ações adequadas
+para alcançar seu objetivo.
+
+00:03:40.748 --> 00:03:44.602
+E isso é o que tentaremos fazer
+neste curso.
+
+00:03:44.635 --> 00:03:47.103
+Mas é importante enfatizar
+que tudo isso
+
+00:03:47.136 --> 00:03:50.511
+é só um modelo matemático
+para um problema do mundo real.
+
+00:03:50.544 --> 00:03:52.294
+Então, se você pensar
+num problema
+
+00:03:52.327 --> 00:03:55.517
+que pode ser resolvido
+através da aprendizagem por reforço,
+
+00:03:55.550 --> 00:03:59.466
+terá que especificar os estados,
+as ações e as recompensas.
+
+00:03:59.499 --> 00:04:02.253
+E terá que decidir
+as regras do ambiente.
+
+00:04:02.286 --> 00:04:06.213
+Neste curso, você verá
+muitos exemplos de como fazer isso.
+

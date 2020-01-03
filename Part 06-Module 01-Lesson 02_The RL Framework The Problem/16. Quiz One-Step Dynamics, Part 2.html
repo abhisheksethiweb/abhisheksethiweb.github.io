@@ -1,0 +1,437 @@
+<!-- udacimak v1.2.0 -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Quiz: One-Step Dynamics, Part 2</title>
+  <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../assets/css/plyr.css">
+  <link rel="stylesheet" href="../assets/css/katex.min.css">
+  <link rel="stylesheet" href="../assets/css/jquery.mCustomScrollbar.min.css">
+  <link rel="stylesheet" href="../assets/css/styles.css">
+  <link rel="shortcut icon" type="image/png" href="../assets/img/udacimak.png" />
+</head>
+
+<body>
+  <div class="wrapper">
+    <nav id="sidebar">
+  <div class="sidebar-header">
+    <h3>The RL Framework: The Problem</h3>
+  </div>
+
+  <ul class="sidebar-list list-unstyled CTAs">
+    <li>
+      <a href="../index.html" class="article">Back to Home</a>
+    </li>
+  </ul>
+
+  <ul class="sidebar-list list-unstyled components">
+    <li class="">
+      <a href="01. Introduction.html">01. Introduction</a>
+    </li>
+    <li class="">
+      <a href="02. The Setting, Revisited.html">02. The Setting, Revisited</a>
+    </li>
+    <li class="">
+      <a href="03. Episodic vs. Continuing Tasks.html">03. Episodic vs. Continuing Tasks</a>
+    </li>
+    <li class="">
+      <a href="04. Quiz Test Your Intuition.html">04. Quiz: Test Your Intuition</a>
+    </li>
+    <li class="">
+      <a href="05. Quiz Episodic or Continuing.html">05. Quiz: Episodic or Continuing?</a>
+    </li>
+    <li class="">
+      <a href="06. The Reward Hypothesis.html">06. The Reward Hypothesis</a>
+    </li>
+    <li class="">
+      <a href="07. Goals and Rewards, Part 1.html">07. Goals and Rewards, Part 1</a>
+    </li>
+    <li class="">
+      <a href="08. Goals and Rewards, Part 2.html">08. Goals and Rewards, Part 2</a>
+    </li>
+    <li class="">
+      <a href="09. Quiz Goals and Rewards.html">09. Quiz: Goals and Rewards</a>
+    </li>
+    <li class="">
+      <a href="10. Cumulative Reward.html">10. Cumulative Reward</a>
+    </li>
+    <li class="">
+      <a href="11. Discounted Return.html">11. Discounted Return</a>
+    </li>
+    <li class="">
+      <a href="12. Quiz Pole-Balancing.html">12. Quiz: Pole-Balancing</a>
+    </li>
+    <li class="">
+      <a href="13. MDPs, Part 1.html">13. MDPs, Part 1</a>
+    </li>
+    <li class="">
+      <a href="14. MDPs, Part 2.html">14. MDPs, Part 2</a>
+    </li>
+    <li class="">
+      <a href="15. Quiz One-Step Dynamics, Part 1.html">15. Quiz: One-Step Dynamics, Part 1</a>
+    </li>
+    <li class="">
+      <a href="16. Quiz One-Step Dynamics, Part 2.html">16. Quiz: One-Step Dynamics, Part 2</a>
+    </li>
+    <li class="">
+      <a href="17. MDPs, Part 3.html">17. MDPs, Part 3</a>
+    </li>
+    <li class="">
+      <a href="18. Finite MDPs.html">18. Finite MDPs</a>
+    </li>
+    <li class="">
+      <a href="19. Summary.html">19. Summary</a>
+    </li>
+  </ul>
+
+  <ul class="sidebar-list list-unstyled CTAs">
+    <li>
+      <a href="../index.html" class="article">Back to Home</a>
+    </li>
+  </ul>
+</nav>
+
+    <div id="content">
+      <header class="container-fluild header">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <div class="align-items-middle">
+                <button type="button" id="sidebarCollapse" class="btn btn-toggle-sidebar">
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                </button>
+
+                <h1 style="display: inline-block">16. Quiz: One-Step Dynamics, Part 2</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main class="container">
+        <div class="row">
+          <div class="col-12">
+            <div class="ud-atom">
+  <h3></h3>
+  <div>
+  <h1 id="quiz-one-step-dynamics">Quiz: One-Step Dynamics</h1>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <p>It will prove convenient to represent the environment's dynamics using mathematical notation.  In this concept, we will introduce this notation (which can be used for any reinforcement learning task) and use the recycling robot as an example.</p>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <figure class="figure">
+    <img src="img/screen-shot-2017-09-21-at-12.20.30-pm.png" alt="" class="img img-fluid">
+    <figcaption class="figure-caption">
+      
+    </figcaption>
+  </figure>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <p>At an arbitrary time step <span class="mathquill ud-math">t</span>, the agent-environment interaction has evolved as a sequence of states, actions, and rewards</p>
+<p><span class="mathquill ud-math">(S_0, A_0, R_1, S_1, A_1, \ldots, R_{t-1}, S_{t-1}, A_{t-1}, R_t, S_t, A_t)</span>.</p>
+<p>When the environment responds to the agent at time step <span class="mathquill ud-math">t+1</span>, it considers only the state and action at the previous time step (<span class="mathquill ud-math">S_t, A_t</span>).  </p>
+<p>In particular, it does not care what state was presented to the agent more than one step prior.  (<em>In other words</em>, the environment does not consider any of <span class="mathquill ud-math">{ S_0, \ldots, S_{t-1}  }</span>.)  </p>
+<p>And, it does not look at the actions that the agent took prior to the last one.  (<em>In other words</em>, the environment does not consider any of <span class="mathquill ud-math">{ A_0, \ldots, A_{t-1} }</span>.) </p>
+<p>Furthermore, how well the agent is doing, or how much reward it is collecting, has no effect on how the environment chooses to respond to the agent.   (<em>In other words</em>, the environment does not consider any of <span class="mathquill ud-math">{ R_0, \ldots, R_t } </span>.) </p>
+<p>Because of this, we can completely define how the environment decides the state and reward by specifying </p>
+<p><span class="mathquill ud-math">p(s',r|s,a) \doteq \mathbb{P}(S_{t+1}=s', R_{t+1}=r|S_t = s, A_t=a)</span> </p>
+<p>for each possible <span class="mathquill ud-math">s', r, s, \text{and } a</span>.  These conditional probabilities are said to specify the <strong>one-step dynamics</strong> of the environment.</p>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <h2 id="an-example">An Example</h2>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <p>Let's return to the case that <span class="mathquill ud-math">S_t = \text{high}</span>, and <span class="mathquill ud-math">A_t = \text{search}</span>.</p>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <figure class="figure">
+    <img src="img/screen-shot-2017-09-21-at-12.20.50-pm.png" alt="" class="img img-fluid">
+    <figcaption class="figure-caption">
+      
+    </figcaption>
+  </figure>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <p>Then, when the environment responds to the agent at the next time step,</p>
+<ul>
+<li><p>with 70% probability, the next state is high and the reward is 4.  In other words, <span class="mathquill ud-math">p(\text{high}, 4|\text{high},\text{search}) = \mathbb{P}(S_{t+1}=\text{high}, R_{t+1}=4|S_{t} = \text{high}, A_{t}=\text{search}) = 0.7</span>.</p></li>
+<li><p>with 30% probability, the next state is low and the reward is 4.  In other words, <span class="mathquill ud-math">p(\text{low}, 4|\text{high},\text{search}) = \mathbb{P}(S_{t+1}=\text{low}, R_{t+1}=4|S_{t} = \text{high}, A_{t}=\text{search}) = 0.3</span>.</p></li>
+</ul>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <h2 id="question-1">Question 1</h2>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <p>What is <span class="mathquill ud-math">p(\text{high}, -3|\text{low},\text{search})</span>?</p>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <div>
+    <p><strong>QUESTION:</strong> <p>Enter the correct numerical value.</p></p>
+    <div class="" form-group">
+      <label for="answer"><strong>ANSWER:</strong></label>
+      <textarea class="form-control" id="answer"></textarea>
+    </div>
+  </div>
+
+  <details>
+    <summary><strong>SOLUTION:</strong></summary>
+    <p><i>NOTE: The solutions are expressed in RegEx pattern. Udacity uses these patterns to check the given answer</i></p>
+
+  </details>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <h2 id="question-2">Question 2</h2>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <p>What is <span class="mathquill ud-math">p(\text{high}, 0|\text{low},\text{recharge})</span>?</p>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <div>
+    <p><strong>QUESTION:</strong> <p>Enter the correct numerical value.</p></p>
+    <div class="" form-group">
+      <label for="answer"><strong>ANSWER:</strong></label>
+      <textarea class="form-control" id="answer"></textarea>
+    </div>
+  </div>
+
+  <details>
+    <summary><strong>SOLUTION:</strong></summary>
+    <p><i>NOTE: The solutions are expressed in RegEx pattern. Udacity uses these patterns to check the given answer</i></p>
+
+  </details>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <h2 id="questions-3-and-4">Questions 3 and 4</h2>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <p>Consider the following probabilities:</p>
+<ul>
+<li>(1) <span class="mathquill ud-math">p(\text{low}, 1|\text{low},\text{search})</span></li>
+<li>(2) <span class="mathquill ud-math">p(\text{high}, 0|\text{low},\text{recharge})</span></li>
+<li>(3) <span class="mathquill ud-math">p(\text{high}, 1|\text{low},\text{wait})</span></li>
+<li>(4) <span class="mathquill ud-math">p(\text{high}, 1|\text{high},\text{wait})</span></li>
+<li>(5) <span class="mathquill ud-math">p(\text{high}, 1|\text{high},\text{search})</span></li>
+</ul>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <form>
+    <fieldset>
+      <legend><p>Which of the above probabilities is equal to 0?  (Select all that apply.)</p></legend>
+    </fieldset>
+
+    <div>
+      <input type="checkbox" value="a1506021484354" name="407028" id="a1506021484354">
+      <label for="a1506021484354"><p>(1)</p></label>
+    </div>
+    <div>
+      <input type="checkbox" value="a1506021488876" name="407028" id="a1506021488876">
+      <label for="a1506021488876"><p>(2)</p></label>
+    </div>
+    <div>
+      <input type="checkbox" value="a1506021491215" name="407028" id="a1506021491215">
+      <label for="a1506021491215"><p>(3)</p></label>
+    </div>
+    <div>
+      <input type="checkbox" value="a1506021494586" name="407028" id="a1506021494586">
+      <label for="a1506021494586"><p>(4)</p></label>
+    </div>
+    <div>
+      <input type="checkbox" value="a1506021497090" name="407028" id="a1506021497090">
+      <label for="a1506021497090"><p>(5)</p></label>
+    </div>
+  </form>
+
+  <details>
+    <summary><strong>SOLUTION:</strong></summary>
+    <ul>
+      <li>(1)</li>
+      <li>(3)</li>
+      <li>(5)</li>
+  </ul>
+  </details>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <form>
+    <fieldset>
+      <legend><p>Which of the above probabilities is equal to 1?  (Select all that apply.)</p></legend>
+    </fieldset>
+
+    <div>
+      <input type="checkbox" value="a1506021926940" name="407031" id="a1506021926940">
+      <label for="a1506021926940"><p>(1)</p></label>
+    </div>
+    <div>
+      <input type="checkbox" value="a1506021948123" name="407031" id="a1506021948123">
+      <label for="a1506021948123"><p>(2)</p></label>
+    </div>
+    <div>
+      <input type="checkbox" value="a1506021950145" name="407031" id="a1506021950145">
+      <label for="a1506021950145"><p>(3)</p></label>
+    </div>
+    <div>
+      <input type="checkbox" value="a1506021952447" name="407031" id="a1506021952447">
+      <label for="a1506021952447"><p>(4)</p></label>
+    </div>
+    <div>
+      <input type="checkbox" value="a1506021954753" name="407031" id="a1506021954753">
+      <label for="a1506021954753"><p>(5)</p></label>
+    </div>
+  </form>
+
+  <details>
+    <summary><strong>SOLUTION:</strong></summary>
+    <ul>
+      <li>(2)</li>
+      <li>(4)</li>
+  </ul>
+  </details>
+</div>
+
+</div>
+<div class="divider"></div>
+          </div>
+        </div>
+      </main>
+
+      <footer class="footer">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <p class="text-center">
+                <a href="https://github.com/udacimak/udacimak#readme" target="_blank">udacimak v1.2.0</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </div>
+
+
+  <script src="../assets/js/jquery-3.3.1.min.js"></script>
+  <script src="../assets/js/plyr.polyfilled.min.js"></script>
+  <script src="../assets/js/bootstrap.min.js"></script>
+  <script src="../assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+  <script src="../assets/js/katex.min.js"></script>
+  <script>
+    // Initialize Plyr video players
+    const players = Array.from(document.querySelectorAll('video')).map(p => new Plyr(p));
+
+    // render math equations
+    let elMath = document.getElementsByClassName('mathquill');
+    for (let i = 0, len = elMath.length; i < len; i += 1) {
+      const el = elMath[i];
+
+      katex.render(el.textContent, el, {
+        throwOnError: false
+      });
+    }
+
+    // this hack will make sure Bootstrap tabs work when using Handlebars
+    if ($('#question-tabs').length && $('#user-answer-tabs').length) {
+      $("#question-tabs a.nav-link").on('click', function () {
+        $("#question-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+      $("#user-answer-tabs a.nav-link").on('click', function () {
+        $("#user-answer-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    } else {
+      $("a.nav-link").on('click', function () {
+        $(".tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    }
+
+    // side bar events
+    $(document).ready(function () {
+      $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+      });
+
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar, #content').toggleClass('active');
+        $('.collapse.in').toggleClass('in');
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+      });
+    });
+  </script>
+</body>
+
+</html>

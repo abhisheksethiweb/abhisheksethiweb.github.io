@@ -1,0 +1,100 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:02.160
+In this course, many of
+
+00:00:02.160 --> 00:00:06.200
+the real world situations we'll consider will have a well-defined ending point.
+
+00:00:06.200 --> 00:00:09.630
+For instance, say we're teaching an agent to play a game.
+
+00:00:09.630 --> 00:00:13.485
+Then, the interaction ends when the agent wins or loses.
+
+00:00:13.484 --> 00:00:17.480
+Or we might be running a simulation to teach a car to drive.
+
+00:00:17.480 --> 00:00:20.550
+Then, the interaction ends if the car crashes.
+
+00:00:20.550 --> 00:00:23.880
+Of course, not all reinforcement learning tasks have
+
+00:00:23.879 --> 00:00:28.924
+a well-defined ending point but those that do are called episodic tasks.
+
+00:00:28.925 --> 00:00:32.420
+And in this case, we'll refer to a complete sequence of
+
+00:00:32.420 --> 00:00:36.109
+interaction from start to finish as an episode.
+
+00:00:36.109 --> 00:00:37.387
+When the episode ends,
+
+00:00:37.387 --> 00:00:42.689
+the agent looks at the total amount of reward it received to figure out how well it did.
+
+00:00:42.689 --> 00:00:47.149
+It's then able to start from scratch as if it has been completely reborn into
+
+00:00:47.149 --> 00:00:52.445
+the same environment but now with the added knowledge of what happened in its past life.
+
+00:00:52.445 --> 00:00:56.509
+In this way, as time passes over its many lives,
+
+00:00:56.509 --> 00:00:59.089
+the agent makes better and better decisions
+
+00:00:59.090 --> 00:01:02.730
+and you'll see this for yourself in your coding implementations.
+
+00:01:02.729 --> 00:01:06.935
+Once your agents have spent enough time getting to know the environment,
+
+00:01:06.935 --> 00:01:12.055
+they should be able to pick a strategy where the cumulative reward is quite high.
+
+00:01:12.055 --> 00:01:15.755
+In other words, in the context of a game playing agent,
+
+00:01:15.754 --> 00:01:19.109
+it should be able to achieve a higher score.
+
+00:01:19.109 --> 00:01:23.325
+So episodic tasks are tasks with a well-defined ending point.
+
+00:01:23.325 --> 00:01:27.109
+We'll also look at tasks that go on forever, without end.
+
+00:01:27.109 --> 00:01:29.659
+And those are called continuing tasks.
+
+00:01:29.659 --> 00:01:33.259
+For instance, an algorithm that buys and sells stocks in response to
+
+00:01:33.260 --> 00:01:38.850
+the financial market would be best modeled as an agent in the continuing tasks.
+
+00:01:38.849 --> 00:01:41.734
+In this case, the agent lives forever.
+
+00:01:41.734 --> 00:01:44.689
+So it has to learn the best way to choose actions
+
+00:01:44.689 --> 00:01:48.629
+while simultaneously interacting with the environment.
+
+00:01:48.629 --> 00:01:50.959
+The algorithms for this case are slightly more
+
+00:01:50.959 --> 00:01:54.739
+complex and will be covered a bit later in the course.
+
+00:01:54.739 --> 00:01:59.000
+But for now, let's dig deeper into this idea of reward.
+

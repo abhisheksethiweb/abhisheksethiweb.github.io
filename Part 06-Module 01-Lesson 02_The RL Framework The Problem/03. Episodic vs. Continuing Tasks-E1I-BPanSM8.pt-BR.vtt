@@ -1,0 +1,151 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.492 --> 00:00:03.847
+Neste curso, muitas das situações
+do mundo real que vamos considerar
+
+00:00:03.880 --> 00:00:06.036
+terá um ponto final
+bem definido.
+
+00:00:06.069 --> 00:00:09.344
+Por exemplo, digamos que vamos
+ensinar um agente a jogar um jogo.
+
+00:00:09.377 --> 00:00:13.450
+Nesse caso, a interação terminará
+quando o agente vencer ou perder.
+
+00:00:13.483 --> 00:00:17.320
+Ou suponha que faremos uma simulação
+para ensinar um carro a dirigir.
+
+00:00:17.353 --> 00:00:20.414
+A interação terminará
+se o carro bater.
+
+00:00:20.712 --> 00:00:23.452
+Claro, nem todas as tarefas
+de aprendizagem por reforço
+
+00:00:23.485 --> 00:00:25.330
+têm um ponto final
+bem definido,
+
+00:00:25.363 --> 00:00:29.071
+mas as que têm são chamadas
+de "tarefas episódicas".
+
+00:00:29.104 --> 00:00:32.966
+Nesse caso, chamaremos
+uma sequência completa de interação,
+
+00:00:32.999 --> 00:00:35.804
+do início ao fim,
+de "episódio".
+
+00:00:35.837 --> 00:00:37.223
+Quando o episódio termina,
+
+00:00:37.256 --> 00:00:40.458
+o agente analisa a quantidade total
+de recompensa que recebeu
+
+00:00:40.491 --> 00:00:42.663
+para saber como foi
+seu desempenho.
+
+00:00:42.696 --> 00:00:44.807
+Ele pode então
+começar do zero,
+
+00:00:44.840 --> 00:00:48.141
+como se tivesse renascido totalmente
+no mesmo ambiente,
+
+00:00:48.174 --> 00:00:52.305
+mas agora ciente do que aconteceu
+na sua vida passada.
+
+00:00:52.731 --> 00:00:56.342
+Assim, à medida que o tempo passar
+em suas muitas vidas,
+
+00:00:56.375 --> 00:00:58.944
+o agente tomará decisões
+cada vez melhores,
+
+00:00:58.977 --> 00:01:02.519
+e você constatará isso
+na implementação do seu código.
+
+00:01:02.982 --> 00:01:06.873
+Quando seu agente tiver passado
+um bom tempo conhecendo o ambiente,
+
+00:01:06.906 --> 00:01:08.915
+será capaz de escolher
+uma estratégia
+
+00:01:08.948 --> 00:01:11.613
+em que a recompensa cumulativa
+é bem alta.
+
+00:01:12.336 --> 00:01:15.687
+Em outras palavras, no contexto
+de um agente que joga um jogo,
+
+00:01:15.720 --> 00:01:19.061
+ele deve ser capaz de alcançar
+uma pontuação mais alta.
+
+00:01:19.094 --> 00:01:23.224
+Então tarefas episódicas são tarefas
+com um ponto final bem definido.
+
+00:01:23.257 --> 00:01:26.882
+Nós também veremos tarefas
+que continuam indefinidamente,
+
+00:01:26.915 --> 00:01:29.558
+que são chamadas
+de tarefas contínuas.
+
+00:01:29.591 --> 00:01:32.405
+Por exemplo, um algoritmo
+que compra e vende ações
+
+00:01:32.438 --> 00:01:34.371
+em resposta
+ao mercado financeiro
+
+00:01:34.404 --> 00:01:38.148
+seria um agente melhor modelado
+em uma tarefa contínua.
+
+00:01:38.974 --> 00:01:41.694
+Nesse caso,
+o agente vive para sempre,
+
+00:01:41.727 --> 00:01:44.492
+então tem que aprender
+a melhor forma de escolher ações,
+
+00:01:44.525 --> 00:01:48.429
+enquanto interage
+com o ambiente.
+
+00:01:48.462 --> 00:01:51.446
+O algoritmo para esse caso é
+um pouco mais complexo
+
+00:01:51.479 --> 00:01:54.210
+e será abordado
+um pouco mais adiante no curso.
+
+00:01:54.869 --> 00:01:58.861
+Por enquanto, vamos analisar melhor
+a ideia de recompensa.
+

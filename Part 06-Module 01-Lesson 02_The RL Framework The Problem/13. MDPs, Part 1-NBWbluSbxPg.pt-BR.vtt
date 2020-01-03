@@ -1,0 +1,220 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.318 --> 00:00:03.222
+Até agora, apenas começamos
+a conversar para nos preparar
+
+00:00:03.257 --> 00:00:05.262
+para atingir
+o nosso objetivo.
+
+00:00:05.297 --> 00:00:07.710
+Vamos usar o restante desta aula
+para especificar
+
+00:00:07.745 --> 00:00:08.976
+uma definição rigorosa
+
+00:00:09.012 --> 00:00:10.974
+para o problema
+de aprendizagem por reforço.
+
+00:00:11.774 --> 00:00:14.718
+Vamos trabalhar com o exemplo
+do robô de reciclagem
+
+00:00:14.753 --> 00:00:16.495
+do livro didático de Sutton.
+
+00:00:16.926 --> 00:00:19.734
+Considere um robô projetado
+para coletar
+
+00:00:19.769 --> 00:00:21.510
+latas de refrigerante
+vazias.
+
+00:00:21.756 --> 00:00:24.454
+O robô é equipado com braços
+para pegar as latas
+
+00:00:24.489 --> 00:00:27.037
+e funciona
+com uma bateria recarregável.
+
+00:00:27.574 --> 00:00:30.526
+Há uma docking station
+em um canto do cômodo,
+
+00:00:31.045 --> 00:00:35.269
+e o robô deve permanecer nela
+se precisar recarregar sua bateria.
+
+00:00:36.237 --> 00:00:39.822
+Imagine que você quer programá-lo
+para coletar latas de refrigerante
+
+00:00:39.857 --> 00:00:42.278
+sem intervenção humana.
+
+00:00:42.313 --> 00:00:45.758
+Em particular, você quer que ele
+consiga decidir sozinho
+
+00:00:45.793 --> 00:00:48.102
+a hora de recarregar
+a bateria dele.
+
+00:00:48.137 --> 00:00:50.493
+E, sempre que ele
+não precisar recarregar,
+
+00:00:50.528 --> 00:00:52.197
+você quer que ele
+se concentre em coletar
+
+00:00:52.232 --> 00:00:54.902
+o maior número
+de latas possível.
+
+00:00:55.594 --> 00:00:57.262
+Vamos ver se podemos
+encaixá-lo
+
+00:00:57.297 --> 00:00:59.526
+em um problema
+de aprendizagem por reforço.
+
+00:00:59.561 --> 00:01:01.966
+Vamos começar com as ações.
+
+00:01:02.516 --> 00:01:06.926
+Digamos que o robô seja capaz
+de executar três ações potenciais.
+
+00:01:07.326 --> 00:01:09.318
+Ele pode procurar
+por latas no cômodo,
+
+00:01:09.353 --> 00:01:13.357
+pode se dirigir à docking station
+para recarregar a bateria,
+
+00:01:13.392 --> 00:01:17.287
+ou pode ficar parado, esperando
+que alguém entregue uma lata.
+
+00:01:18.262 --> 00:01:20.789
+Nos referimos ao conjunto
+de ações possíveis
+
+00:01:20.824 --> 00:01:22.381
+como espaço de ação,
+
+00:01:22.416 --> 00:01:25.549
+e é comum referir-se
+a ele com um A maiúsculo.
+
+00:01:26.293 --> 00:01:28.894
+Certo, mas e quanto
+aos estados?
+
+00:01:29.326 --> 00:01:32.557
+Lembre-se de que os estados
+são o contexto fornecido ao agente
+
+00:01:32.592 --> 00:01:35.108
+para que ele execute
+ações inteligentes.
+
+00:01:35.143 --> 00:01:39.032
+O estado, neste caso, pode ser
+a carga restante na bateria do robô.
+
+00:01:39.969 --> 00:01:42.135
+Para simplificar,
+vamos presumir que a bateria
+
+00:01:42.174 --> 00:01:44.334
+tenha um de dois estados.
+
+00:01:44.369 --> 00:01:47.382
+Um corresponde a uma quantidade
+alta de carga restante,
+
+00:01:47.417 --> 00:01:50.421
+e o outro corresponde
+a uma quantidade baixa de carga.
+
+00:01:51.006 --> 00:01:53.141
+Nos referimos ao conjunto
+de estados possíveis
+
+00:01:53.176 --> 00:01:54.542
+como espaço de estado,
+
+00:01:54.577 --> 00:01:57.725
+e é comum referir-se a ele
+com um S maiúsculo.
+
+00:01:58.325 --> 00:02:01.718
+Nossa intuição nos diz
+que se o robô tiver
+
+00:02:01.753 --> 00:02:04.381
+uma quantidade alta
+de carga restante na bateria,
+
+00:02:04.416 --> 00:02:07.989
+queremos que ele saiba procurar
+ativamente por latas no cômodo.
+
+00:02:08.262 --> 00:02:10.782
+Procurar
+deve gastar muita energia,
+
+00:02:10.817 --> 00:02:15.109
+mas isso não importa muito,
+porque a bateria tem muita carga.
+
+00:02:16.197 --> 00:02:21.029
+Mas, se o estado for baixo,
+procurar por latas é um risco alto,
+
+00:02:21.064 --> 00:02:24.077
+porque a bateria pode acabar
+no meio da busca,
+
+00:02:24.112 --> 00:02:27.518
+deixando o robô encalhado,
+e isso não seria muito bom,
+
+00:02:27.553 --> 00:02:30.780
+porque não queremos
+ter que ir resgatá-lo.
+
+00:02:31.053 --> 00:02:32.709
+Então, se a bateria
+estiver fraca,
+
+00:02:32.744 --> 00:02:35.765
+talvez queiramos que o robô
+saiba esperar por uma lata,
+
+00:02:35.800 --> 00:02:38.213
+ou que ele vá
+recarregar sua bateria.
+
+00:02:39.117 --> 00:02:41.558
+Nos próximos conceitos,
+vamos configurar o problema
+
+00:02:41.593 --> 00:02:44.749
+com o objetivo final de fazer
+o equipamento de controle do robô
+
+00:02:44.784 --> 00:02:46.436
+aprender esse comportamento.
+

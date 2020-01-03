@@ -1,0 +1,184 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.351 --> 00:00:02.767
+Quero falar para você
+de uma pesquisa
+
+00:00:02.800 --> 00:00:05.424
+que eu acho
+especialmente interessante.
+
+00:00:05.457 --> 00:00:07.968
+E acho que é um ótimo exemplo
+para ilustrar
+
+00:00:08.001 --> 00:00:11.566
+a hipótese da recompensa que foi
+apresentada no vídeo anterior.
+
+00:00:12.267 --> 00:00:14.621
+A Google DeepMind
+há pouco abordou o problema
+
+00:00:14.654 --> 00:00:16.860
+de ensinar um robô a andar.
+
+00:00:16.893 --> 00:00:18.411
+Entre outros aspectos,
+
+00:00:18.444 --> 00:00:21.501
+eles trabalharam na simulação física
+de um robô humanoide
+
+00:00:21.534 --> 00:00:24.237
+e conseguiram aplicar
+a aprendizagem por reforço
+
+00:00:24.270 --> 00:00:26.065
+para obter
+ótimos resultados.
+
+00:00:26.724 --> 00:00:28.721
+Como você aprendeu
+num vídeo anterior,
+
+00:00:28.754 --> 00:00:31.703
+para tratar isso como um problema
+de aprendizagem por reforço,
+
+00:00:31.736 --> 00:00:35.465
+teremos que especificar os estados,
+as ações e as recompensas.
+
+00:00:35.498 --> 00:00:37.829
+Dedicaremos dois vídeos
+a este exemplo
+
+00:00:37.862 --> 00:00:40.830
+e começaremos
+detalhando as ações.
+
+00:00:41.629 --> 00:00:43.735
+Elas são as decisões
+que devem ser tomadas
+
+00:00:43.768 --> 00:00:46.372
+para fazer o robô andar.
+
+00:00:46.405 --> 00:00:48.928
+O humanoide tem
+várias articulações,
+
+00:00:48.961 --> 00:00:52.876
+e as ações são as forças que o robô
+exerce sobre as articulações
+
+00:00:52.909 --> 00:00:54.763
+para conseguir andar.
+
+00:00:54.796 --> 00:00:57.317
+Como o robô tem
+um método inteligente
+
+00:00:57.350 --> 00:01:00.347
+para determinar essas forças
+em todos os instantes de tempo,
+
+00:01:00.380 --> 00:01:02.827
+isso será suficiente
+para fazê-lo andar.
+
+00:01:03.301 --> 00:01:05.142
+E quanto aos estados?
+
+00:01:05.175 --> 00:01:07.862
+Os estados são o contexto
+fornecido ao agente
+
+00:01:07.895 --> 00:01:10.795
+por escolher
+ações inteligentes.
+
+00:01:10.828 --> 00:01:13.906
+Nesse contexto, o estado,
+em qualquer instante de tempo,
+
+00:01:13.939 --> 00:01:18.419
+contém as posições e velocidades
+atuais de todas as articulações
+
+00:01:18.452 --> 00:01:23.644
+e algumas medidas da superfície
+sobre a qual o robô se encontra.
+
+00:01:23.677 --> 00:01:27.237
+Essas medidas captam
+se o chão estava plano ou inclinado,
+
+00:01:27.270 --> 00:01:31.011
+se havia um degrau grande
+no caminho e assim por diante.
+
+00:01:31.044 --> 00:01:33.422
+Os pesquisadores da DeepMind
+também incluíram
+
+00:01:33.455 --> 00:01:34.847
+dados do sensor de contato,
+
+00:01:34.880 --> 00:01:37.836
+para que pudessem identificar
+se o robô ainda estava andando
+
+00:01:37.869 --> 00:01:39.666
+ou se tinha caído no chão.
+
+00:01:40.543 --> 00:01:44.608
+A ideia é que, com base
+nas informações sobre o estado,
+
+00:01:44.641 --> 00:01:48.195
+o agente tem que planejar
+sua próxima ação.
+
+00:01:48.228 --> 00:01:50.893
+Afinal, se houver um degrau
+no meio caminho,
+
+00:01:50.926 --> 00:01:53.097
+isso exigirá
+um tipo de movimento diferente
+
+00:01:53.130 --> 00:01:55.936
+do que se o chão for
+totalmente plano.
+
+00:01:55.969 --> 00:01:58.633
+Criaremos a recompensa
+como um mecanismo de feedback
+
+00:01:58.666 --> 00:02:02.563
+que dirá ao agente que ele escolheu
+os movimentos adequados.
+
+00:02:02.596 --> 00:02:05.663
+A recompensa será uma maneira
+de dizermos ao agente:
+
+00:02:05.696 --> 00:02:07.757
+"Muito bem
+por não bater naquela parede!"
+
+00:02:07.790 --> 00:02:11.355
+ou "Que pena que você não viu
+aquele degrau e caiu no chão..."
+
+00:02:11.388 --> 00:02:12.727
+Essa é só a ideia geral,
+
+00:02:12.760 --> 00:02:15.414
+e vamos explorá-la melhor
+no próximo vídeo.
+
