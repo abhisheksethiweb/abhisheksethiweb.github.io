@@ -1,0 +1,217 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:04.049
+We've seen that a CNN is composed of several layers.
+
+00:00:04.049 --> 00:00:08.429
+We, as deep learning professionals, design the architecture.
+
+00:00:08.429 --> 00:00:12.314
+This involves setting numerous hyper parameters such as the size of our windows,
+
+00:00:12.314 --> 00:00:14.320
+the stride, and the padding.
+
+00:00:14.320 --> 00:00:16.088
+After setting our architecture,
+
+00:00:16.088 --> 00:00:19.320
+we choose a last function and an optimizer.
+
+00:00:19.320 --> 00:00:22.710
+Then, we set the model to train and we wait.
+
+00:00:22.710 --> 00:00:25.489
+The state of the art CNN architectures that we've
+
+00:00:25.489 --> 00:00:29.004
+discussed and that are available in Keras are
+
+00:00:29.004 --> 00:00:31.769
+a result of careful experimentation with near
+
+00:00:31.768 --> 00:00:36.004
+countless architectures and extensive hyper parameter tuning.
+
+00:00:36.005 --> 00:00:41.130
+They are a result of many years of expertise and months of dedicated work.
+
+00:00:41.130 --> 00:00:44.625
+They've been trained on the very large ImageNet database.
+
+00:00:44.625 --> 00:00:49.390
+And often took weeks to train and that's on state of the art GPUs.
+
+00:00:49.390 --> 00:00:53.923
+This begs the question of how to adapt these CNN architectures that have learned
+
+00:00:53.923 --> 00:00:59.604
+so much about how to find patterns in image data towards our own classification tasks.
+
+00:00:59.604 --> 00:01:02.819
+Instead of constructing a CNN from scratch,
+
+00:01:02.820 --> 00:01:08.174
+how can we take that learned understanding and pass it on to a new deep learning model?
+
+00:01:08.174 --> 00:01:12.769
+This is best accomplished through a technique called transfer learning.
+
+00:01:12.769 --> 00:01:14.219
+But you may be wondering,
+
+00:01:14.218 --> 00:01:18.673
+if you take a CNN that has been trained on the ImageNet database,
+
+00:01:18.674 --> 00:01:21.465
+well that CNN has learned to distinguish between
+
+00:01:21.465 --> 00:01:25.439
+the 1000 different categories that are present in ImageNet.
+
+00:01:25.438 --> 00:01:28.199
+Most of those categories are animals,
+
+00:01:28.200 --> 00:01:31.650
+fruits, and vegetables, or everyday objects.
+
+00:01:31.650 --> 00:01:34.230
+Now, see that the image database that you're interested
+
+00:01:34.230 --> 00:01:37.290
+in has no overlap with those image categories.
+
+00:01:37.290 --> 00:01:41.185
+Is it still possible to use that pre-trained CNNs knowledge?
+
+00:01:41.185 --> 00:01:44.340
+Is it even relevant to this new task?
+
+00:01:44.340 --> 00:01:48.275
+The answer is most definitely yes.
+
+00:01:48.275 --> 00:01:51.540
+In fact, we saw in the previous video that
+
+00:01:51.540 --> 00:01:56.650
+the convolutional filters in a trained CNN are arranged in a hierarchy.
+
+00:01:56.650 --> 00:02:02.319
+The filters in the first layer often detect edges or blobs of color.
+
+00:02:02.319 --> 00:02:07.269
+The second layer might detect circles, stripes, and rectangles.
+
+00:02:07.269 --> 00:02:09.908
+These are still all very general features that are
+
+00:02:09.908 --> 00:02:13.478
+useful to analyzing any image in any dataset.
+
+00:02:13.479 --> 00:02:19.069
+The filters in the final convolutional layers are much more specific.
+
+00:02:19.068 --> 00:02:21.158
+If there were birds in the training data set,
+
+00:02:21.158 --> 00:02:23.769
+there are filters that can detect birds.
+
+00:02:23.770 --> 00:02:25.911
+If there were cars or bicycles,
+
+00:02:25.911 --> 00:02:28.514
+there are filters to detect wheels and so on.
+
+00:02:28.514 --> 00:02:33.189
+We'll see that it's then useful to remove the final layers of the network that
+
+00:02:33.188 --> 00:02:38.484
+are very specific to the training data set while keeping the earlier layers.
+
+00:02:38.485 --> 00:02:44.305
+Then, we can add one or two more and train only the final layers.
+
+00:02:44.305 --> 00:02:48.460
+This is one technique for transfer learning but your method will depend on
+
+00:02:48.460 --> 00:02:50.740
+both the size of your dataset and
+
+00:02:50.740 --> 00:02:54.705
+the level of similarity it shares with the ImageNet database.
+
+00:02:54.705 --> 00:02:58.405
+For instance, the technique we just mentioned will work well
+
+00:02:58.405 --> 00:03:03.000
+if your data set is relatively small and very similar to ImageNet.
+
+00:03:03.000 --> 00:03:05.723
+We should also mention that Sebastian Thrun,
+
+00:03:05.723 --> 00:03:07.584
+along with the team at Stanford,
+
+00:03:07.585 --> 00:03:13.669
+recently used transfer learning to develop a CNN to diagnose skin cancer.
+
+00:03:13.669 --> 00:03:18.340
+The CNN classifies lesions as either benign or malignant and
+
+00:03:18.340 --> 00:03:24.033
+achieves better performance than dermatologists for diagnosing some forms of skin cancer.
+
+00:03:24.033 --> 00:03:25.495
+To construct his model,
+
+00:03:25.495 --> 00:03:27.610
+he used a transfer learning approach with
+
+00:03:27.610 --> 00:03:32.320
+the inception architecture pre-trained on the ImageNet database.
+
+00:03:32.319 --> 00:03:33.840
+As a first step,
+
+00:03:33.840 --> 00:03:37.525
+he removed the final densely connected classification layer
+
+00:03:37.525 --> 00:03:40.754
+and added a new fully connected layer.
+
+00:03:40.753 --> 00:03:43.816
+This layer had far fewer categories,
+
+00:03:43.817 --> 00:03:47.155
+one for each type of disease class that he wanted to detect.
+
+00:03:47.155 --> 00:03:50.188
+As for all the other layers in the network,
+
+00:03:50.188 --> 00:03:54.655
+their parameters were initialized with their pre-trained values.
+
+00:03:54.655 --> 00:03:57.400
+Then, during training the parameters were
+
+00:03:57.400 --> 00:04:01.750
+further optimized to fit to the database of skin lesions.
+
+00:04:01.750 --> 00:04:04.568
+In this case, the model truly benefited from
+
+00:04:04.568 --> 00:04:08.573
+the headstart that it was given from pre-training on ImageNet.
+
+00:04:08.574 --> 00:04:11.465
+This approach with fine tuning the parameters in
+
+00:04:11.465 --> 00:04:15.115
+a network with a different final classification layer,
+
+00:04:15.115 --> 00:04:21.149
+works best if your data set is quite large and very different from the ImageNet database.
+

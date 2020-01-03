@@ -1,0 +1,205 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.367 --> 00:00:03.833
+Nós vimos que as CNN alcançam
+desempenho perfeito
+
+00:00:03.867 --> 00:00:08.833
+e às vezes surpreendentes
+na classificação de objetos.
+
+00:00:08.867 --> 00:00:12.433
+Nós vimos algumas técnicas
+de arquitetura de CNN,
+
+00:00:12.467 --> 00:00:16.333
+e tivemos bons resultados
+nas imagens de amostra.
+
+00:00:16.367 --> 00:00:17.633
+Mas, no fim do dia,
+
+00:00:17.667 --> 00:00:22.333
+nós ainda não compreendemos
+como as CNNs descobrem padrões
+
+00:00:22.367 --> 00:00:24.367
+em pixels de imagens brutas.
+
+00:00:24.401 --> 00:00:27.933
+Se você já treinou
+suas CNNs,
+
+00:00:27.967 --> 00:00:30.367
+você viu que algumas
+arquiteturas funcionam
+
+00:00:30.401 --> 00:00:32.433
+e outras não.
+
+00:00:32.467 --> 00:00:35.167
+Se não está claro para você
+por que isso acontece,
+
+00:00:35.201 --> 00:00:38.333
+também não está claro
+para os especialistas.
+
+00:00:39.033 --> 00:00:40.500
+No começo desta lição,
+
+00:00:40.534 --> 00:00:43.433
+eu falei sobre visualização
+de mapas de ativação
+
+00:00:43.467 --> 00:00:47.000
+e camadas convolucionais
+como técnica de investigação
+
+00:00:47.034 --> 00:00:50.133
+para entender como uma CNN
+está funcionando.
+
+00:00:50.167 --> 00:00:53.167
+Existem muitas implementações
+sobre isso na internet.
+
+00:00:53.201 --> 00:00:56.033
+Esta é uma delas
+e, como você pode ver,
+
+00:00:56.067 --> 00:00:58.433
+ela passa o vídeo
+da sua webcam
+
+00:00:58.467 --> 00:01:01.400
+por uma CNN treinada
+em tempo real.
+
+00:01:01.434 --> 00:01:03.367
+Se você quiser brincar
+com isto,
+
+00:01:03.401 --> 00:01:05.467
+confira os links abaixo.
+
+00:01:06.300 --> 00:01:09.500
+Outra técnica
+para entender as CNNs
+
+00:01:09.534 --> 00:01:12.967
+pega os filtros
+das camadas convolucionais
+
+00:01:13.001 --> 00:01:17.567
+e constrói imagens
+que maximizam as ativações.
+
+00:01:17.601 --> 00:01:20.633
+Você pode começar com uma imagem
+com ruído aleatório
+
+00:01:20.667 --> 00:01:23.867
+e mudar os pixels
+gradualmente
+
+00:01:23.901 --> 00:01:26.600
+e, a cada passo,
+alterá-los para valores
+
+00:01:26.634 --> 00:01:29.467
+para tornar o filtro
+mais ativado.
+
+00:01:29.501 --> 00:01:32.633
+Ao fazer isso,
+as primeiras três camadas
+
+00:01:32.667 --> 00:01:34.567
+são bem genéricas.
+
+00:01:34.601 --> 00:01:38.700
+A primeira pode incluir
+cor ou detecção de limite,
+
+00:01:38.734 --> 00:01:42.533
+e a segunda,
+círculos ou listras.
+
+00:01:42.567 --> 00:01:44.833
+Os filtros seguintes da rede
+
+00:01:44.867 --> 00:01:48.567
+são ativados por padrões
+muito mais complicados.
+
+00:01:48.601 --> 00:01:51.667
+Os pesquisadores do Google
+foram criativos com isto.
+
+00:01:51.701 --> 00:01:54.400
+Eles desenvolveram uma técnica
+chamada de Deep Dreams,
+
+00:01:54.434 --> 00:01:57.933
+na qual substituem
+a imagem inicial por uma foto.
+
+00:01:57.967 --> 00:02:02.400
+Imagine a foto de uma árvore,
+mas pode ser qualquer foto.
+
+00:02:02.434 --> 00:02:05.600
+Você investiga um dos filtros
+mais interessantes,
+
+00:02:05.634 --> 00:02:09.133
+talvez um que seja utilizado
+para detectar prédios.
+
+00:02:09.167 --> 00:02:11.000
+Seguimos a mesma técnica,
+
+00:02:11.034 --> 00:02:14.667
+alterando
+o arranjo inicial de pixels,
+
+00:02:14.701 --> 00:02:18.533
+e criamos uma imagem
+que parece com uma árvore
+
+00:02:18.567 --> 00:02:21.133
+ou um híbrido de prédio.
+
+00:02:21.167 --> 00:02:23.800
+Se você quiser
+codificar isto no Keras,
+
+00:02:23.834 --> 00:02:27.167
+você pode utilizar
+os links abaixo.
+
+00:02:27.201 --> 00:02:30.233
+Existem muitas outras técnicas
+para visualizar
+
+00:02:30.267 --> 00:02:32.033
+o que uma CNN aprende.
+
+00:02:32.067 --> 00:02:34.267
+Nós só vimos a superfície,
+
+00:02:34.301 --> 00:02:38.100
+mas você deve explorar mais
+nesta área.
+
+00:02:38.134 --> 00:02:42.267
+Se conseguirmos entender mais
+sobre o que a CNN aprende,
+
+00:02:42.301 --> 00:02:44.800
+nós podemos ajudá-la
+a ter melhor desempenho.
+

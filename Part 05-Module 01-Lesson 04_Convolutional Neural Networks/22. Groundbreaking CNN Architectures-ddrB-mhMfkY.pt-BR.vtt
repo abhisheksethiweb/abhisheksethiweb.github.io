@@ -1,0 +1,232 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.300 --> 00:00:03.033
+ImageNet é um banco de dados
+com mais de 10 milhões
+
+00:00:03.067 --> 00:00:04.700
+de imagens rotuladas à mão
+
+00:00:04.734 --> 00:00:08.300
+retiradas de mil categorias
+diferentes de imagem.
+
+00:00:08.334 --> 00:00:10.800
+Desde 2010,
+o projeto ImageNet
+
+00:00:10.834 --> 00:00:13.100
+tem organizado a competição
+
+00:00:13.134 --> 00:00:15.600
+de reconhecimento visual
+em larga escala,
+
+00:00:15.634 --> 00:00:18.500
+uma competição anual
+na qual equipes tentam construir
+
+00:00:18.534 --> 00:00:21.300
+a melhor CNN
+de reconhecimento de objeto
+
+00:00:21.334 --> 00:00:23.133
+e classificação.
+
+00:00:23.167 --> 00:00:26.333
+A primeira inovação
+ocorreu em 2012.
+
+00:00:26.367 --> 00:00:28.633
+A rede chamada AlexNet
+
+00:00:28.667 --> 00:00:32.300
+foi desenvolvida por uma equipe
+na Universidade de Toronto.
+
+00:00:33.033 --> 00:00:36.600
+Utilizando as melhores GPUs
+disponíveis em 2012,
+
+00:00:36.634 --> 00:00:40.633
+a equipe AlexNet treinou
+a rede em uma semana.
+
+00:00:40.667 --> 00:00:42.533
+AlexNet foi
+pioneira na utilização
+
+00:00:42.567 --> 00:00:45.000
+da função de ativação ReLU
+
+00:00:45.034 --> 00:00:48.867
+e no dropout como técnica
+para evitar o superajuste.
+
+00:00:49.600 --> 00:00:52.300
+Em 2014, duas equipes
+
+00:00:52.334 --> 00:00:55.100
+quase empataram
+na competição.
+
+00:00:55.967 --> 00:00:59.900
+Uma das redes,
+chamada VGG Net,
+
+00:00:59.934 --> 00:01:03.200
+frequentemente
+chamada somente de VGG,
+
+00:01:03.234 --> 00:01:07.533
+surgiu da equipe de geometria
+visual da universidade de Oxford.
+
+00:01:08.200 --> 00:01:12.767
+A VGG possui duas versões
+chamadas de VGG 16
+
+00:01:12.801 --> 00:01:14.967
+e VGG 19,
+
+00:01:15.001 --> 00:01:19.167
+com 16 e 19 camadas
+respectivamente.
+
+00:01:19.201 --> 00:01:22.800
+Ambas possuem arquitetura
+simples e elegante,
+
+00:01:22.834 --> 00:01:26.667
+com uma sequência longa
+de convoluções de 3x3
+
+00:01:26.701 --> 00:01:29.367
+separadas por camadas
+pooling de 2x2
+
+00:01:29.401 --> 00:01:33.200
+e finalizadas com três camadas
+totalmente conectadas.
+
+00:01:33.234 --> 00:01:36.400
+A VGG foi pioneira
+na utilização
+
+00:01:36.434 --> 00:01:39.733
+de três pequenas janelas
+convolucionais de 3x3,
+
+00:01:39.767 --> 00:01:44.933
+diferente das janelas maiores
+da AlexNet de 11x11.
+
+00:01:45.567 --> 00:01:48.200
+Em 2015,
+o vencedor da ImageNet
+
+00:01:48.234 --> 00:01:52.133
+foi uma rede da Microsoft
+Research chamada de ResNet.
+
+00:01:52.167 --> 00:01:54.667
+A ResNet se parece
+com a VGG,
+
+00:01:54.701 --> 00:01:57.800
+mas não tem a mesma estrutura
+que se repete
+
+00:01:57.834 --> 00:01:59.800
+camada após camada.
+
+00:01:59.834 --> 00:02:03.133
+Assim como a VGG,
+ResNet possui versões diferentes
+
+00:02:03.167 --> 00:02:05.300
+que variam
+na quantidade de camadas.
+
+00:02:05.334 --> 00:02:10.067
+A maior possui 152 camadas.
+
+00:02:10.800 --> 00:02:14.267
+Pesquisadores tentaram tornar
+suas CNNs profundas assim,
+
+00:02:14.301 --> 00:02:17.700
+mas encontravam problema,
+pois, ao adicionar camadas,
+
+00:02:17.734 --> 00:02:23.133
+o desempenho chegava
+a um ponto e depois caía.
+
+00:02:23.167 --> 00:02:27.267
+Isso é devido ao problema
+de dissipação do gradiente,
+
+00:02:27.301 --> 00:02:31.833
+que surgiu ao treinarmos a rede
+usando a propagação de retorno.
+
+00:02:31.867 --> 00:02:37.600
+O sinal de gradiente precisa
+passar por toda a rede.
+
+00:02:37.634 --> 00:02:39.533
+Quanto mais profunda
+se torna a rede,
+
+00:02:39.567 --> 00:02:44.767
+o sinal pode se enfraquecer
+antes de chegar ao destino.
+
+00:02:44.801 --> 00:02:47.267
+A equipe ResNet
+adicionou conexões
+
+00:02:47.301 --> 00:02:50.900
+à CNN profunda
+que pulava camadas,
+
+00:02:50.934 --> 00:02:54.033
+assim o sinal de gradiente
+andava menos.
+
+00:02:54.767 --> 00:02:57.200
+ResNet teve desempenho
+de um super-humano
+
+00:02:57.234 --> 00:02:58.933
+ao classificar imagens
+
+00:02:58.967 --> 00:03:00.767
+do banco de dados ImageNet.
+
+00:03:01.433 --> 00:03:05.633
+No Keras, é simples
+importar a ResNet 50
+
+00:03:05.667 --> 00:03:08.733
+A VGG 16 e a VGG 19
+
+00:03:08.767 --> 00:03:11.833
+também são facilmente
+acessíveis no Keras,
+
+00:03:11.867 --> 00:03:14.300
+além de outras duas
+arquiteturas
+
+00:03:14.334 --> 00:03:17.233
+conhecidas
+como Inception e Exception.
+
+00:03:17.267 --> 00:03:20.367
+Mostraremos como fazer isso
+no próximo vídeo.
+

@@ -1,0 +1,425 @@
+<!-- udacimak v1.2.0 -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Quiz: Dimensionality</title>
+  <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../assets/css/plyr.css">
+  <link rel="stylesheet" href="../assets/css/katex.min.css">
+  <link rel="stylesheet" href="../assets/css/jquery.mCustomScrollbar.min.css">
+  <link rel="stylesheet" href="../assets/css/styles.css">
+  <link rel="shortcut icon" type="image/png" href="../assets/img/udacimak.png" />
+</head>
+
+<body>
+  <div class="wrapper">
+    <nav id="sidebar">
+  <div class="sidebar-header">
+    <h3>Convolutional Neural Networks</h3>
+  </div>
+
+  <ul class="sidebar-list list-unstyled CTAs">
+    <li>
+      <a href="../index.html" class="article">Back to Home</a>
+    </li>
+  </ul>
+
+  <ul class="sidebar-list list-unstyled components">
+    <li class="">
+      <a href="01. Introducing Alexis.html">01. Introducing Alexis</a>
+    </li>
+    <li class="">
+      <a href="02. Applications of CNNs.html">02. Applications of CNNs</a>
+    </li>
+    <li class="">
+      <a href="03. How Computers Interpret Images.html">03. How Computers Interpret Images</a>
+    </li>
+    <li class="">
+      <a href="04. MLPs for Image Classification.html">04. MLPs for Image Classification</a>
+    </li>
+    <li class="">
+      <a href="05. Categorical Cross-Entropy.html">05. Categorical Cross-Entropy</a>
+    </li>
+    <li class="">
+      <a href="06. Model Validation in Keras.html">06. Model Validation in Keras</a>
+    </li>
+    <li class="">
+      <a href="07. When do MLPs (not) work well .html">07. When do MLPs (not) work well? </a>
+    </li>
+    <li class="">
+      <a href="08. Mini project Training an MLP on MNIST.html">08. Mini project: Training an MLP on MNIST</a>
+    </li>
+    <li class="">
+      <a href="09. Local Connectivity.html">09. Local Connectivity</a>
+    </li>
+    <li class="">
+      <a href="10. Convolutional Layers (Part 1).html">10. Convolutional Layers (Part 1)</a>
+    </li>
+    <li class="">
+      <a href="11. Convolutional Layers (Part 2).html">11. Convolutional Layers (Part 2)</a>
+    </li>
+    <li class="">
+      <a href="12. Stride and Padding.html">12. Stride and Padding</a>
+    </li>
+    <li class="">
+      <a href="13. Convolutional Layers in Keras.html">13. Convolutional Layers in Keras</a>
+    </li>
+    <li class="">
+      <a href="14. Quiz Dimensionality.html">14. Quiz: Dimensionality</a>
+    </li>
+    <li class="">
+      <a href="15. Pooling Layers.html">15. Pooling Layers</a>
+    </li>
+    <li class="">
+      <a href="16. Max Pooling Layers in Keras.html">16. Max Pooling Layers in Keras</a>
+    </li>
+    <li class="">
+      <a href="17. CNNs for Image Classification.html">17. CNNs for Image Classification</a>
+    </li>
+    <li class="">
+      <a href="18. CNNs in Keras Practical Example.html">18. CNNs in Keras: Practical Example</a>
+    </li>
+    <li class="">
+      <a href="19. Mini project CNNs in Keras.html">19. Mini project: CNNs in Keras</a>
+    </li>
+    <li class="">
+      <a href="20. Image Augmentation in Keras.html">20. Image Augmentation in Keras</a>
+    </li>
+    <li class="">
+      <a href="21. Mini project Image Augmentation in Keras.html">21. Mini project: Image Augmentation in Keras</a>
+    </li>
+    <li class="">
+      <a href="22. Groundbreaking CNN Architectures.html">22. Groundbreaking CNN Architectures</a>
+    </li>
+    <li class="">
+      <a href="23. Visualizing CNNs (Part 1).html">23. Visualizing CNNs (Part 1)</a>
+    </li>
+    <li class="">
+      <a href="24. Visualizing CNNs (Part 2).html">24. Visualizing CNNs (Part 2)</a>
+    </li>
+    <li class="">
+      <a href="25. Transfer Learning.html">25. Transfer Learning</a>
+    </li>
+    <li class="">
+      <a href="26. Transfer Learning in Keras.html">26. Transfer Learning in Keras</a>
+    </li>
+  </ul>
+
+  <ul class="sidebar-list list-unstyled CTAs">
+    <li>
+      <a href="../index.html" class="article">Back to Home</a>
+    </li>
+  </ul>
+</nav>
+
+    <div id="content">
+      <header class="container-fluild header">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <div class="align-items-middle">
+                <button type="button" id="sidebarCollapse" class="btn btn-toggle-sidebar">
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                </button>
+
+                <h1 style="display: inline-block">14. Quiz: Dimensionality</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main class="container">
+        <div class="row">
+          <div class="col-12">
+            <div class="ud-atom">
+  <h3></h3>
+  <div>
+  <figure class="figure">
+    <img src="img/convolution-schematic.gif" alt="__Convolution with 3x3 window and stride 1__
+
+Image source: http://deeplearning.stanford.edu/wiki/index.php/Feature_extraction_using_convolution" class="img img-fluid">
+    <figcaption class="figure-caption">
+      <p><strong>Convolution with 3x3 window and stride 1</strong></p>
+<p>Image source: <a href="http://deeplearning.stanford.edu/wiki/index.php/Feature_extraction_using_convolution" target="_blank">http://deeplearning.stanford.edu/wiki/index.php/Feature_extraction_using_convolution</a></p>
+    </figcaption>
+  </figure>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <h1 id="dimensionality">Dimensionality</h1>
+<p>Just as with neural networks, we create a CNN in Keras by first creating a <code>Sequential</code> model.</p>
+<p>We add layers to the network by using the <code>.add()</code> method.</p>
+<p>Copy and paste the following code into a Python executable named <code>conv-dims.py</code>:</p>
+<pre><code class="python language-python">from keras.models import Sequential
+from keras.layers import Conv2D
+
+model = Sequential()
+model.add(Conv2D(filters=16, kernel_size=2, strides=2, padding='valid', 
+    activation='relu', input_shape=(200, 200, 1)))
+model.summary()</code></pre>
+<p>We will not train this CNN; instead, we'll use the executable to study how the dimensionality of the convolutional layer changes, as a function of the supplied arguments.</p>
+<p>Run <code>python path/to/conv-dims.py</code> and look at the output. It should appear as follows:</p>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <figure class="figure">
+    <img src="img/conv-dims.png" alt="" class="img img-fluid">
+    <figcaption class="figure-caption">
+      
+    </figcaption>
+  </figure>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <p>Do the dimensions of the convolutional layer line up with your expectations?  </p>
+<p>Feel free to change the values assigned to the arguments (<code>filters</code>, <code>kernel_size</code>, etc) in your <code>conv-dims.py</code> file.  </p>
+<p>Take note of  how the <strong>number of parameters</strong> in the convolutional layer changes. This corresponds to the value under <code>Param #</code> in the printed output.  In the figure above, the convolutional layer has <code>80</code> parameters.</p>
+<p>Also notice how the <strong>shape</strong> of the convolutional layer changes.  This corresponds to the value under <code>Output Shape</code> in the printed output.  In the figure above, <code>None</code> corresponds to the batch size, and the convolutional layer has a height of <code>100</code>, width of <code>100</code>, and depth of <code>16</code>.</p>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <h3 id="formula-number-of-parameters-in-a-convolutional-layer">Formula: Number of Parameters in a Convolutional Layer</h3>
+<p>The number of parameters in a convolutional layer depends on the supplied values of <code>filters</code>, <code>kernel_size</code>, and <code>input_shape</code>.  Let's define a few variables:</p>
+<ul>
+<li><code>K</code> - the number of filters in the convolutional layer </li>
+<li><code>F</code> - the height and width of the convolutional filters</li>
+<li><code>D_in</code> - the depth of the previous layer</li>
+</ul>
+<p>Notice that <code>K</code> = <code>filters</code>, and <code>F</code> = <code>kernel_size</code>.  Likewise, <code>D_in</code> is the last value in the <code>input_shape</code> tuple.</p>
+<p>Since there are <code>F*F*D_in</code> weights per filter, and the convolutional layer is composed of <code>K</code> filters, the total number of weights in the convolutional layer is <code>K*F*F*D_in</code>.  Since there is one bias term per filter, the convolutional layer has <code>K</code> biases.  Thus, the <em>_ number of parameters_</em> in the convolutional layer is given by <code>K*F*F*D_in + K</code>.</p>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <h3 id="formula-shape-of-a-convolutional-layer">Formula: Shape of a Convolutional Layer</h3>
+<p>The shape of a convolutional layer depends on the supplied values of <code>kernel_size</code>, <code>input_shape</code>, <code>padding</code>, and <code>stride</code>.  Let's define a few variables:</p>
+<ul>
+<li><code>K</code> - the number of filters in the convolutional layer</li>
+<li><code>F</code> - the height and width of the convolutional filters</li>
+<li><code>S</code> - the stride of the convolution</li>
+<li><code>H_in</code> - the height of the previous layer </li>
+<li><code>W_in</code> - the width of the previous layer</li>
+</ul>
+<p>Notice that <code>K</code> = <code>filters</code>, <code>F</code> = <code>kernel_size</code>, and <code>S</code> = <code>stride</code>.  Likewise, <code>H_in</code> and <code>W_in</code> are the first and second value of the <code>input_shape</code> tuple, respectively.</p>
+<p>The <strong>depth</strong> of the convolutional layer will always equal the number of filters <code>K</code>. </p>
+<p>If <code>padding = 'same'</code>, then the spatial dimensions of the convolutional layer are the following:</p>
+<ul>
+<li><strong>height</strong> = ceil(float(<code>H_in</code>) / float(<code>S</code>))</li>
+<li><strong>width</strong> = ceil(float(<code>W_in</code>) / float(<code>S</code>))</li>
+</ul>
+<p>If <code>padding = 'valid'</code>, then the spatial dimensions of the convolutional layer are the following:</p>
+<ul>
+<li><strong>height</strong> = ceil(float(<code>H_in</code> - <code>F</code> + 1) / float(<code>S</code>))</li>
+<li><strong>width</strong> = ceil(float(<code>W_in</code> - <code>F</code> + 1) / float(<code>S</code>))</li>
+</ul>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <h1 id="quiz">Quiz</h1>
+<p>Please change the <code>conv-dims.py</code> file, so that it appears as follows:</p>
+<pre><code class="python language-python">from keras.models import Sequential
+from keras.layers import Conv2D
+
+model = Sequential()
+model.add(Conv2D(filters=32, kernel_size=3, strides=2, padding='same', 
+    activation='relu', input_shape=(128, 128, 3)))
+model.summary()</code></pre>
+<p>Run <code>python path/to/conv-dims.py</code>, and use the output to answer the questions below.</p>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <form>
+    <fieldset>
+      <legend><p>How many parameters does the convolutional layer have?</p></legend>
+    </fieldset>
+
+      <div>
+        <input type="radio" value="a1494523970948" name="310178" id="a1494523970948">
+        <label for="a1494523970948"><p>902</p></label>
+      </div>
+      <div>
+        <input type="radio" value="a1494523979905" name="310178" id="a1494523979905">
+        <label for="a1494523979905"><p>306</p></label>
+      </div>
+      <div>
+        <input type="radio" value="a1494523984948" name="310178" id="a1494523984948">
+        <label for="a1494523984948"><p>896</p></label>
+      </div>
+      <div>
+        <input type="radio" value="a1494523993610" name="310178" id="a1494523993610">
+        <label for="a1494523993610"><p>1034</p></label>
+      </div>
+  </form>
+
+  <details>
+    <summary><strong>SOLUTION:</strong></summary>
+    896
+  </details>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <form>
+    <fieldset>
+      <legend><p>What is the depth of the convolutional layer?</p></legend>
+    </fieldset>
+
+      <div>
+        <input type="radio" value="a1494524042602" name="310180" id="a1494524042602">
+        <label for="a1494524042602"><p>3</p></label>
+      </div>
+      <div>
+        <input type="radio" value="a1494524071259" name="310180" id="a1494524071259">
+        <label for="a1494524071259"><p>16</p></label>
+      </div>
+      <div>
+        <input type="radio" value="a1494524073167" name="310180" id="a1494524073167">
+        <label for="a1494524073167"><p>32</p></label>
+      </div>
+      <div>
+        <input type="radio" value="a1494524074579" name="310180" id="a1494524074579">
+        <label for="a1494524074579"><p>64</p></label>
+      </div>
+  </form>
+
+  <details>
+    <summary><strong>SOLUTION:</strong></summary>
+    32
+  </details>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <form>
+    <fieldset>
+      <legend><p>What is the width of the convolutional layer?</p></legend>
+    </fieldset>
+
+      <div>
+        <input type="radio" value="a1494524146228" name="310182" id="a1494524146228">
+        <label for="a1494524146228"><p>3</p></label>
+      </div>
+      <div>
+        <input type="radio" value="a1494524158985" name="310182" id="a1494524158985">
+        <label for="a1494524158985"><p>16</p></label>
+      </div>
+      <div>
+        <input type="radio" value="a1494524165039" name="310182" id="a1494524165039">
+        <label for="a1494524165039"><p>32</p></label>
+      </div>
+      <div>
+        <input type="radio" value="a1494524166160" name="310182" id="a1494524166160">
+        <label for="a1494524166160"><p>64</p></label>
+      </div>
+  </form>
+
+  <details>
+    <summary><strong>SOLUTION:</strong></summary>
+    64
+  </details>
+</div>
+
+</div>
+<div class="divider"></div>
+          </div>
+        </div>
+      </main>
+
+      <footer class="footer">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <p class="text-center">
+                <a href="https://github.com/udacimak/udacimak#readme" target="_blank">udacimak v1.2.0</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </div>
+
+
+  <script src="../assets/js/jquery-3.3.1.min.js"></script>
+  <script src="../assets/js/plyr.polyfilled.min.js"></script>
+  <script src="../assets/js/bootstrap.min.js"></script>
+  <script src="../assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+  <script src="../assets/js/katex.min.js"></script>
+  <script>
+    // Initialize Plyr video players
+    const players = Array.from(document.querySelectorAll('video')).map(p => new Plyr(p));
+
+    // render math equations
+    let elMath = document.getElementsByClassName('mathquill');
+    for (let i = 0, len = elMath.length; i < len; i += 1) {
+      const el = elMath[i];
+
+      katex.render(el.textContent, el, {
+        throwOnError: false
+      });
+    }
+
+    // this hack will make sure Bootstrap tabs work when using Handlebars
+    if ($('#question-tabs').length && $('#user-answer-tabs').length) {
+      $("#question-tabs a.nav-link").on('click', function () {
+        $("#question-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+      $("#user-answer-tabs a.nav-link").on('click', function () {
+        $("#user-answer-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    } else {
+      $("a.nav-link").on('click', function () {
+        $(".tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    }
+
+    // side bar events
+    $(document).ready(function () {
+      $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+      });
+
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar, #content').toggleClass('active');
+        $('.collapse.in').toggleClass('in');
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+      });
+    });
+  </script>
+</body>
+
+</html>

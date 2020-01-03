@@ -1,0 +1,267 @@
+<!-- udacimak v1.2.0 -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Convolutional Layers in Keras</title>
+  <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../assets/css/plyr.css">
+  <link rel="stylesheet" href="../assets/css/katex.min.css">
+  <link rel="stylesheet" href="../assets/css/jquery.mCustomScrollbar.min.css">
+  <link rel="stylesheet" href="../assets/css/styles.css">
+  <link rel="shortcut icon" type="image/png" href="../assets/img/udacimak.png" />
+</head>
+
+<body>
+  <div class="wrapper">
+    <nav id="sidebar">
+  <div class="sidebar-header">
+    <h3>Convolutional Neural Networks</h3>
+  </div>
+
+  <ul class="sidebar-list list-unstyled CTAs">
+    <li>
+      <a href="../index.html" class="article">Back to Home</a>
+    </li>
+  </ul>
+
+  <ul class="sidebar-list list-unstyled components">
+    <li class="">
+      <a href="01. Introducing Alexis.html">01. Introducing Alexis</a>
+    </li>
+    <li class="">
+      <a href="02. Applications of CNNs.html">02. Applications of CNNs</a>
+    </li>
+    <li class="">
+      <a href="03. How Computers Interpret Images.html">03. How Computers Interpret Images</a>
+    </li>
+    <li class="">
+      <a href="04. MLPs for Image Classification.html">04. MLPs for Image Classification</a>
+    </li>
+    <li class="">
+      <a href="05. Categorical Cross-Entropy.html">05. Categorical Cross-Entropy</a>
+    </li>
+    <li class="">
+      <a href="06. Model Validation in Keras.html">06. Model Validation in Keras</a>
+    </li>
+    <li class="">
+      <a href="07. When do MLPs (not) work well .html">07. When do MLPs (not) work well? </a>
+    </li>
+    <li class="">
+      <a href="08. Mini project Training an MLP on MNIST.html">08. Mini project: Training an MLP on MNIST</a>
+    </li>
+    <li class="">
+      <a href="09. Local Connectivity.html">09. Local Connectivity</a>
+    </li>
+    <li class="">
+      <a href="10. Convolutional Layers (Part 1).html">10. Convolutional Layers (Part 1)</a>
+    </li>
+    <li class="">
+      <a href="11. Convolutional Layers (Part 2).html">11. Convolutional Layers (Part 2)</a>
+    </li>
+    <li class="">
+      <a href="12. Stride and Padding.html">12. Stride and Padding</a>
+    </li>
+    <li class="">
+      <a href="13. Convolutional Layers in Keras.html">13. Convolutional Layers in Keras</a>
+    </li>
+    <li class="">
+      <a href="14. Quiz Dimensionality.html">14. Quiz: Dimensionality</a>
+    </li>
+    <li class="">
+      <a href="15. Pooling Layers.html">15. Pooling Layers</a>
+    </li>
+    <li class="">
+      <a href="16. Max Pooling Layers in Keras.html">16. Max Pooling Layers in Keras</a>
+    </li>
+    <li class="">
+      <a href="17. CNNs for Image Classification.html">17. CNNs for Image Classification</a>
+    </li>
+    <li class="">
+      <a href="18. CNNs in Keras Practical Example.html">18. CNNs in Keras: Practical Example</a>
+    </li>
+    <li class="">
+      <a href="19. Mini project CNNs in Keras.html">19. Mini project: CNNs in Keras</a>
+    </li>
+    <li class="">
+      <a href="20. Image Augmentation in Keras.html">20. Image Augmentation in Keras</a>
+    </li>
+    <li class="">
+      <a href="21. Mini project Image Augmentation in Keras.html">21. Mini project: Image Augmentation in Keras</a>
+    </li>
+    <li class="">
+      <a href="22. Groundbreaking CNN Architectures.html">22. Groundbreaking CNN Architectures</a>
+    </li>
+    <li class="">
+      <a href="23. Visualizing CNNs (Part 1).html">23. Visualizing CNNs (Part 1)</a>
+    </li>
+    <li class="">
+      <a href="24. Visualizing CNNs (Part 2).html">24. Visualizing CNNs (Part 2)</a>
+    </li>
+    <li class="">
+      <a href="25. Transfer Learning.html">25. Transfer Learning</a>
+    </li>
+    <li class="">
+      <a href="26. Transfer Learning in Keras.html">26. Transfer Learning in Keras</a>
+    </li>
+  </ul>
+
+  <ul class="sidebar-list list-unstyled CTAs">
+    <li>
+      <a href="../index.html" class="article">Back to Home</a>
+    </li>
+  </ul>
+</nav>
+
+    <div id="content">
+      <header class="container-fluild header">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <div class="align-items-middle">
+                <button type="button" id="sidebarCollapse" class="btn btn-toggle-sidebar">
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                </button>
+
+                <h1 style="display: inline-block">13. Convolutional Layers in Keras</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main class="container">
+        <div class="row">
+          <div class="col-12">
+            <div class="ud-atom">
+  <h3></h3>
+  <div>
+  <figure class="figure">
+    <img src="img/full-padding-no-strides-transposed.gif" alt="__Convolution with 3x3 window and stride 1__
+
+Image source: http://iamaaditya.github.io/2016/03/one-by-one-convolution/" class="img img-fluid">
+    <figcaption class="figure-caption">
+      <p><strong>Convolution with 3x3 window and stride 1</strong></p>
+<p>Image source: <a href="http://iamaaditya.github.io/2016/03/one-by-one-convolution/" target="_blank">http://iamaaditya.github.io/2016/03/one-by-one-convolution/</a></p>
+    </figcaption>
+  </figure>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <h1 id="convolutional-layers-in-keras">Convolutional Layers in Keras</h1>
+<p>To create a convolutional layer in Keras, you must first import the necessary module:</p>
+<pre><code class="python language-python">from keras.layers import Conv2D</code></pre>
+<p>Then, you can create a convolutional layer by using the following format:</p>
+<pre><code class="python language-python">Conv2D(filters, kernel_size, strides, padding, activation='relu', input_shape)</code></pre>
+<h3 id="arguments">Arguments</h3>
+<p>You must pass the following arguments:</p>
+<ul>
+<li><code>filters</code> - The number of filters.</li>
+<li><code>kernel_size</code> - Number specifying both the height and width of the (square) convolution window.</li>
+</ul>
+<p>There are some additional, optional arguments that you might like to tune:</p>
+<ul>
+<li><code>strides</code> - The stride of the convolution.  If you don't specify anything, <code>strides</code> is set to <code>1</code>.</li>
+<li><code>padding</code> - One of <code>'valid'</code> or <code>'same'</code>.  If you don't specify anything, <code>padding</code> is set to <code>'valid'</code>.</li>
+<li><code>activation</code> - Typically <code>'relu'</code>. If you don't specify anything, no activation is applied.  You are <strong>strongly encouraged</strong> to add a ReLU activation function to <strong>every</strong> convolutional layer in your networks.</li>
+</ul>
+<p><strong>NOTE</strong>: It is possible to represent both <code>kernel_size</code> and <code>strides</code> as either a number or a tuple.</p>
+<p>When using your convolutional layer as the first layer (appearing after the input layer) in a model, you must provide an additional <code>input_shape</code> argument:</p>
+<ul>
+<li><code>input_shape</code> - Tuple specifying the height, width, and depth (in that order) of the input.</li>
+</ul>
+<p><strong>NOTE</strong>: Do <em><strong>not</strong></em> include the <code>input_shape</code> argument if the convolutional layer is <em>not</em> the first layer in your network.</p>
+<p>There are many other tunable arguments that you can set to change the behavior of your convolutional layers.  To read more about these, we recommend perusing the official <a href="https://keras.io/layers/convolutional/" target="_blank">documentation</a>.</p>
+<h3 id="example-1">Example #1</h3>
+<p>Say I'm constructing a CNN, and my input layer accepts grayscale images that are 200 by 200 pixels (corresponding to a 3D array with height 200, width 200, and depth 1).  Then, say I'd like the next layer to be a convolutional layer with 16 filters, each with a width and height of 2.  When performing the convolution, I'd like the filter to jump two pixels at a time.  I also don't want the filter to extend outside of the image boundaries; in other words, I don't want to pad the image with zeros.  Then, to construct this convolutional layer, I would use the following line of code:</p>
+<pre><code class="python language-python">Conv2D(filters=16, kernel_size=2, strides=2, activation='relu', input_shape=(200, 200, 1))</code></pre>
+<h3 id="example-2">Example #2</h3>
+<p>Say I'd like the next layer in my CNN to be a convolutional layer that takes the layer constructed in Example 1 as input.  Say I'd like my new layer to have 32 filters, each with a height and width of 3.  When performing the convolution, I'd like the filter to jump 1 pixel at a time.  I want the convolutional layer to see all regions of the previous layer, and so I don't mind if the filter hangs over the edge of the previous layer when it's performing the convolution.  Then, to construct this convolutional layer, I would use the following line of code:</p>
+<pre><code class="python language-python">Conv2D(filters=32, kernel_size=3, padding='same', activation='relu')</code></pre>
+<h3 id="example-3">Example #3</h3>
+<p>If you look up code online, it is also common to see convolutional layers in Keras in this format:</p>
+<pre><code class="python language-python">Conv2D(64, (2,2), activation='relu')</code></pre>
+<p>In this case, there are 64 filters, each with a size of 2x2, and the layer has a ReLU activation function.  The other arguments in the layer use the default values, so the convolution uses a stride of 1, and the padding has been set to 'valid'.</p>
+</div>
+
+</div>
+<div class="divider"></div>
+          </div>
+        </div>
+      </main>
+
+      <footer class="footer">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <p class="text-center">
+                <a href="https://github.com/udacimak/udacimak#readme" target="_blank">udacimak v1.2.0</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </div>
+
+
+  <script src="../assets/js/jquery-3.3.1.min.js"></script>
+  <script src="../assets/js/plyr.polyfilled.min.js"></script>
+  <script src="../assets/js/bootstrap.min.js"></script>
+  <script src="../assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+  <script src="../assets/js/katex.min.js"></script>
+  <script>
+    // Initialize Plyr video players
+    const players = Array.from(document.querySelectorAll('video')).map(p => new Plyr(p));
+
+    // render math equations
+    let elMath = document.getElementsByClassName('mathquill');
+    for (let i = 0, len = elMath.length; i < len; i += 1) {
+      const el = elMath[i];
+
+      katex.render(el.textContent, el, {
+        throwOnError: false
+      });
+    }
+
+    // this hack will make sure Bootstrap tabs work when using Handlebars
+    if ($('#question-tabs').length && $('#user-answer-tabs').length) {
+      $("#question-tabs a.nav-link").on('click', function () {
+        $("#question-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+      $("#user-answer-tabs a.nav-link").on('click', function () {
+        $("#user-answer-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    } else {
+      $("a.nav-link").on('click', function () {
+        $(".tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    }
+
+    // side bar events
+    $(document).ready(function () {
+      $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+      });
+
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar, #content').toggleClass('active');
+        $('.collapse.in').toggleClass('in');
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+      });
+    });
+  </script>
+</body>
+
+</html>

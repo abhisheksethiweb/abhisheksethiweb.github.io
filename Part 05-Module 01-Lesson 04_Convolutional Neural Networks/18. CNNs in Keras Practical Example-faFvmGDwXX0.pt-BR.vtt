@@ -1,0 +1,332 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.333 --> 00:00:02.633
+CIFAR-10 é um conjunto
+de dados popular
+
+00:00:02.667 --> 00:00:05.533
+com 60 mil imagens
+minúsculas,
+
+00:00:05.567 --> 00:00:09.000
+cada uma representando
+um objeto de uma das 10 classes.
+
+00:00:09.633 --> 00:00:11.667
+Nós utilizaremos este
+conjunto de dados
+
+00:00:11.701 --> 00:00:13.467
+para classificar imagens.
+
+00:00:13.501 --> 00:00:17.033
+Você pode seguir no bloco
+de anotações do Jupyter
+
+00:00:17.067 --> 00:00:18.667
+do link abaixo.
+
+00:00:18.701 --> 00:00:22.567
+É relativamente fácil importar
+este conjunto de dados no Keras.
+
+00:00:22.601 --> 00:00:25.167
+Nós precisamos importar
+um módulo Python
+
+00:00:25.201 --> 00:00:27.300
+e usar uma linha de código
+
+00:00:27.334 --> 00:00:29.000
+para obter as imagens
+
+00:00:29.034 --> 00:00:32.033
+junto com os rótulos
+correspondentes.
+
+00:00:32.067 --> 00:00:36.400
+Vejamos um pequeno subconjunto
+das imagens de treinamento.
+
+00:00:36.434 --> 00:00:40.367
+Como esperado,
+há navios, cachorros e cavalos
+
+00:00:40.401 --> 00:00:43.400
+junto com outras categorias
+de objetos esperados
+
+00:00:43.434 --> 00:00:45.100
+de um conjunto de dados.
+
+00:00:45.134 --> 00:00:48.467
+Como antes, nós adicionamos
+o passo de pré-processamento
+
+00:00:48.501 --> 00:00:53.267
+de dividir todo pixel
+de toda imagem por 255.
+
+00:00:54.000 --> 00:00:56.400
+Agora cada arranjo de imagem
+possui entradas
+
+00:00:56.434 --> 00:00:58.600
+entre zero e um.
+
+00:00:58.634 --> 00:01:01.033
+Nós também rompemos
+um conjunto de validação
+
+00:01:01.067 --> 00:01:04.167
+para termos 45 mil
+imagens de treinamento
+
+00:01:04.201 --> 00:01:06.967
+e 5.000 imagens
+de validação.
+
+00:01:07.001 --> 00:01:11.200
+Nós separamos 10 mil imagens
+para testar a precisão da rede
+
+00:01:11.234 --> 00:01:12.867
+após o treinamento.
+
+00:01:12.901 --> 00:01:15.067
+Cada imagem é
+realmente minúscula,
+
+00:01:15.101 --> 00:01:18.900
+com apenas 32 pixels de altura
+e 32 pixels de largura.
+
+00:01:18.934 --> 00:01:22.533
+Elas são imagens coloridas
+interpretadas pelo computador
+
+00:01:22.567 --> 00:01:25.333
+como um arranjo
+com profundidade igual a três.
+
+00:01:25.367 --> 00:01:29.967
+O primeiro modelo a ser treinado
+será o de uma rede neural normal.
+
+00:01:30.001 --> 00:01:34.000
+Nós precisamos transformar
+cada imagem em um vetor,
+
+00:01:34.034 --> 00:01:37.600
+e as informações espaciais
+serão perdidas.
+
+00:01:37.634 --> 00:01:39.500
+Então nós a passamos
+para uma MLP
+
+00:01:39.534 --> 00:01:41.333
+com duas camadas ocultas.
+
+00:01:42.133 --> 00:01:44.100
+Perceba a quantidade
+de parâmetros,
+
+00:01:44.134 --> 00:01:46.833
+são mais de 3,5 milhões.
+
+00:01:46.867 --> 00:01:48.998
+Você acha que isso
+funcionará bem?
+
+00:01:49.467 --> 00:01:55.000
+Suposições aleatórias acertam
+uma em cada dez, ou 10%.
+
+00:01:55.700 --> 00:01:57.967
+Você acha que a MLP
+vai superar isto?
+
+00:01:58.001 --> 00:02:00.200
+Se sim, em quanto?
+
+00:02:00.234 --> 00:02:04.500
+Usaremos a mesma função
+de perda e otimizador de antes,
+
+00:02:05.233 --> 00:02:07.967
+então nós treinamos o modelo
+por 20 epochs
+
+00:02:08.001 --> 00:02:12.133
+e salvamos os pesos com melhor
+precisão de validação.
+
+00:02:12.167 --> 00:02:14.100
+Se você rodar
+o bloco de notas,
+
+00:02:14.134 --> 00:02:16.333
+aumente
+a quantidade de epochs
+
+00:02:16.367 --> 00:02:19.233
+ou modifique
+outros hiperparâmetros.
+
+00:02:19.267 --> 00:02:21.067
+Uma vez finalizado
+o treinamento,
+
+00:02:21.101 --> 00:02:24.300
+nós podemos carregar os pesos
+do modelo salvo
+
+00:02:24.334 --> 00:02:27.267
+e obter cerca de 40%
+de precisão
+
+00:02:27.301 --> 00:02:29.033
+no conjunto de treinamento.
+
+00:02:29.067 --> 00:02:30.933
+É melhor do que
+a suposição aleatória,
+
+00:02:30.967 --> 00:02:34.400
+mas uma CNN pode
+se sair bem melhor.
+
+00:02:34.434 --> 00:02:36.833
+Vamos abrir
+o outro bloco de notas.
+
+00:02:36.867 --> 00:02:40.733
+Os passos de importação
+e pré-processamento são iguais.
+
+00:02:40.767 --> 00:02:42.933
+Nós definimos
+a arquitetura da CNN
+
+00:02:42.967 --> 00:02:45.333
+no quinto passo
+do bloco de anotações.
+
+00:02:45.367 --> 00:02:49.633
+A CNN será parecida
+com a do vídeo anterior.
+
+00:02:49.667 --> 00:02:52.900
+A imagem é passada
+por camadas convolucionais
+
+00:02:52.934 --> 00:02:54.600
+e de max pooling
+
+00:02:54.634 --> 00:02:57.533
+projetadas para remover
+as informações espaciais,
+
+00:02:57.567 --> 00:02:59.167
+então nós achatamos a imagem
+
+00:02:59.201 --> 00:03:01.967
+e adicionamos algumas camadas
+totalmente conectadas.
+
+00:03:02.600 --> 00:03:06.433
+A única diferença
+são as camadas dropout.
+
+00:03:06.467 --> 00:03:09.533
+Nós as adicionamos
+para minimizar o superajuste.
+
+00:03:09.567 --> 00:03:13.100
+Perceba que esta rede
+tem muito menos parâmetros
+
+00:03:13.134 --> 00:03:15.267
+do que a MLP que treinamos.
+
+00:03:15.301 --> 00:03:17.467
+Mas ela fará melhor trabalho
+
+00:03:17.501 --> 00:03:19.733
+na tarefa de classificação.
+
+00:03:19.767 --> 00:03:24.033
+Vamos utilizar a mesma
+função de perda e otimizador.
+
+00:03:24.067 --> 00:03:26.400
+Nós treinamos
+o modelo por 100 epochs
+
+00:03:26.434 --> 00:03:29.033
+com tamanho de lote
+igual a 32,
+
+00:03:29.067 --> 00:03:30.733
+usamos os pesos do modelo
+
+00:03:30.767 --> 00:03:33.633
+com melhor precisão
+de validação
+
+00:03:33.667 --> 00:03:36.867
+e vemos que a CNN
+obtém precisão de teste
+
+00:03:36.901 --> 00:03:39.900
+de quase 66%.
+
+00:03:39.934 --> 00:03:44.600
+Este é um ótimo progresso
+na MLP que treinamos.
+
+00:03:44.634 --> 00:03:49.733
+É claro que podemos ajustar
+e otimizar mais a CNN.
+
+00:03:49.767 --> 00:03:53.733
+Você pode fazer isso,
+será um ótimo aprendizado.
+
+00:03:53.767 --> 00:03:56.200
+Em 2015,
+
+00:03:56.234 --> 00:03:58.033
+houve uma competição
+na internet
+
+00:03:58.067 --> 00:04:00.200
+na qual cientistas
+de dados competiram
+
+00:04:00.234 --> 00:04:04.033
+para classificar imagens
+no banco de dados CIFAR-10.
+
+00:04:04.067 --> 00:04:06.633
+A arquitetura vencedora
+foi uma CNN
+
+00:04:06.667 --> 00:04:10.133
+que alcançou mais de 95%
+de precisão de teste.
+
+00:04:10.167 --> 00:04:13.867
+Ela levou 90 horas
+para treinar em uma GPU.
+
+00:04:13.901 --> 00:04:16.200
+Se você quiser ler
+sobre essa arquitetura,
+
+00:04:16.234 --> 00:04:18.300
+confira o link abaixo.
+

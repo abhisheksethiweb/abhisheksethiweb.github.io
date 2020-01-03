@@ -1,0 +1,178 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:02.370
+By the end of the last video,
+
+00:00:02.370 --> 00:00:06.298
+our data was processed and our model was specified.
+
+00:00:06.299 --> 00:00:09.539
+Currently, all of the 600,000 or so
+
+00:00:09.538 --> 00:00:13.719
+weights have random values and so the model has random predictions.
+
+00:00:13.720 --> 00:00:15.118
+By training the model,
+
+00:00:15.118 --> 00:00:18.605
+we'll modify these weights and improve the predictions.
+
+00:00:18.605 --> 00:00:20.535
+But before training the model,
+
+00:00:20.535 --> 00:00:24.179
+we'll need to specify a loss function.
+
+00:00:24.178 --> 00:00:27.854
+Since we're constructing a multiclass classifier,
+
+00:00:27.855 --> 00:00:32.380
+we'll use categorical cross-entropy loss.
+
+00:00:32.380 --> 00:00:36.149
+This loss function checks to see if our model has done a good job with
+
+00:00:36.149 --> 00:00:41.603
+classifying an image by comparing the models prediction to the true label.
+
+00:00:41.603 --> 00:00:43.649
+Remember that the true labels are one-hot
+
+00:00:43.649 --> 00:00:47.975
+encoded and each label is a vector with 10 entries.
+
+00:00:47.975 --> 00:00:51.000
+The model outputs a vector also with 10 entries.
+
+00:00:51.000 --> 00:00:54.795
+Say the model returns this prediction for instance,
+
+00:00:54.795 --> 00:00:57.689
+here it predicts that there's an eight in the image with
+
+00:00:57.689 --> 00:01:03.975
+90% probability and the three in the image with 10% probability.
+
+00:01:03.975 --> 00:01:08.530
+In fact, you can also think of the label vector in terms of probabilities.
+
+00:01:08.530 --> 00:01:15.129
+It knows that there's a 100% probability that the image depicts a three.
+
+00:01:15.129 --> 00:01:19.813
+The categorical cross-entropy loss looks at these two vectors
+
+00:01:19.813 --> 00:01:25.689
+and returns a lower value if the two vectors agree regarding what's in the image.
+
+00:01:25.688 --> 00:01:29.573
+In this case, the model is pretty sure that the digit is an eight,
+
+00:01:29.573 --> 00:01:33.465
+but the label knows for certain it's a three.
+
+00:01:33.465 --> 00:01:37.245
+Thus, will return a higher value for the loss.
+
+00:01:37.245 --> 00:01:40.459
+If the model later returns this output,
+
+00:01:40.459 --> 00:01:45.909
+where it changes to being 90% sure that the image depicts a three,
+
+00:01:45.909 --> 00:01:50.536
+the categorical cross-entropy loss will be lower.
+
+00:01:50.537 --> 00:01:55.974
+So to summarize, we've seen that if the models predictions agree with the label,
+
+00:01:55.974 --> 00:01:57.880
+the loss is lower.
+
+00:01:57.879 --> 00:02:00.199
+And this is what we want in a good model.
+
+00:02:00.200 --> 00:02:03.155
+We want its predictions to agree with the label.
+
+00:02:03.155 --> 00:02:06.405
+We'll try to find the model parameters that
+
+00:02:06.405 --> 00:02:09.519
+give us predictions that minimize the loss function.
+
+00:02:09.519 --> 00:02:11.974
+In the previous lesson,
+
+00:02:11.974 --> 00:02:13.658
+you were encouraged to think of
+
+00:02:13.658 --> 00:02:17.709
+the loss function as a surface that resembles a mountain range.
+
+00:02:17.710 --> 00:02:20.675
+Then to minimize this function,
+
+00:02:20.675 --> 00:02:25.724
+we need only find a way to descend to the lowest valley.
+
+00:02:25.723 --> 00:02:30.839
+The standard method for descending a loss function is called gradient descent.
+
+00:02:30.840 --> 00:02:33.628
+You've been introduced to a number of ways to perform
+
+00:02:33.628 --> 00:02:39.579
+gradient descent and each method in Keras has a corresponding optimizer.
+
+00:02:39.580 --> 00:02:43.344
+The surface depicted here is an example of a loss function
+
+00:02:43.343 --> 00:02:48.818
+and all of the optimizers are racing towards the minimum of the function.
+
+00:02:48.818 --> 00:02:52.168
+As you can see, some do better than others and so
+
+00:02:52.169 --> 00:02:56.539
+you are encouraged to experiment with all of them in your code.
+
+00:02:56.538 --> 00:03:02.513
+In this lesson, the examples will always use RMSProp as an optimizer.
+
+00:03:02.514 --> 00:03:04.064
+When we compile the function,
+
+00:03:04.063 --> 00:03:07.805
+we'll specify the loss function and optimizer.
+
+00:03:07.805 --> 00:03:11.715
+By adding this additional parameter with accuracy as a metric,
+
+00:03:11.715 --> 00:03:18.039
+we'll be able to check how the accuracy of our model changes during the training process.
+
+00:03:18.038 --> 00:03:19.619
+Once we've compiled the model,
+
+00:03:19.620 --> 00:03:22.395
+we can check to see what kind of accuracy it
+
+00:03:22.395 --> 00:03:26.375
+already has on the test set before we train it.
+
+00:03:26.375 --> 00:03:29.639
+We don't expect it to perform better than random chance,
+
+00:03:29.639 --> 00:03:35.400
+which in this case would correspond to an accuracy of one in 10 or 10%.
+
+00:03:35.400 --> 00:03:39.425
+And yup, we get around 13% accuracy.
+
+00:03:39.425 --> 00:03:43.000
+We'll train it to perform much better in the next lesson.
+

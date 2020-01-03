@@ -1,0 +1,196 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:05.490
+CIFAR-10 is a popular dataset of 60,000 tiny images,
+
+00:00:05.490 --> 00:00:09.230
+each depicting an object from one of 10 classes.
+
+00:00:09.230 --> 00:00:13.800
+We'll be using this dataset to perform image classification.
+
+00:00:13.800 --> 00:00:18.955
+You're encouraged to follow along in the Jupyter notebook linked below.
+
+00:00:18.954 --> 00:00:22.500
+It's relatively easy to import this dataset in keras.
+
+00:00:22.500 --> 00:00:26.879
+We need to import one python module and then it's only one line of
+
+00:00:26.879 --> 00:00:32.129
+code to get our train and test images along with their corresponding labels.
+
+00:00:32.130 --> 00:00:36.385
+Let's visualize a small subset of these training images.
+
+00:00:36.384 --> 00:00:38.484
+As expected, there are ships,
+
+00:00:38.484 --> 00:00:44.939
+dogs and horses along with other object categories we expect to see in the dataset.
+
+00:00:44.939 --> 00:00:48.989
+As before we add the additional preprocessing step of
+
+00:00:48.990 --> 00:00:53.929
+dividing every pixel in every image by 255.
+
+00:00:53.929 --> 00:00:58.490
+So now each image array has entries between 0 and 1.
+
+00:00:58.490 --> 00:01:02.255
+We also break off a validation set so that we're left with
+
+00:01:02.255 --> 00:01:07.045
+45,000 training images and 5,000 validation images.
+
+00:01:07.045 --> 00:01:12.599
+We set aside 10,000 images for testing the accuracy of our network after training.
+
+00:01:12.599 --> 00:01:15.104
+Each image is truly tiny,
+
+00:01:15.105 --> 00:01:19.210
+only 32 pixels high and 32 pixels wide.
+
+00:01:19.209 --> 00:01:25.579
+Each has a color image so interpreted by that computer as an array with a depth of three.
+
+00:01:25.579 --> 00:01:29.625
+The first model we'll train is a regular vanilla neural network.
+
+00:01:29.625 --> 00:01:33.209
+Recall that we'll have to first flatten each image to
+
+00:01:33.209 --> 00:01:37.689
+a vector and all of the spatial information will be lost.
+
+00:01:37.689 --> 00:01:42.295
+Then we'll feed it to an MLP with two hidden layers.
+
+00:01:42.295 --> 00:01:44.143
+Notice the number of parameters,
+
+00:01:44.143 --> 00:01:47.064
+it's over three and a half million.
+
+00:01:47.064 --> 00:01:49.569
+Do you think this approach will work well?
+
+00:01:49.569 --> 00:01:55.814
+Random guessing would correspond to an accuracy of roughly one in 10 or 10%.
+
+00:01:55.814 --> 00:01:58.045
+Do you think the MLP will beat this?
+
+00:01:58.045 --> 00:01:59.750
+If so, by how much?
+
+00:01:59.750 --> 00:02:04.965
+We'll use the same loss function and optimizer as before,
+
+00:02:04.965 --> 00:02:08.340
+then we train the model for 20 epochs where we
+
+00:02:08.340 --> 00:02:12.215
+save the weights that get the best validation accuracy.
+
+00:02:12.215 --> 00:02:14.009
+If you run the notebook yourself,
+
+00:02:14.009 --> 00:02:19.299
+feel free to increase the number of epochs or modify other hyper parameters.
+
+00:02:19.300 --> 00:02:20.955
+Once the training has finished,
+
+00:02:20.955 --> 00:02:24.090
+we can load the saved model weights.
+
+00:02:24.090 --> 00:02:29.134
+And we attain roughly 40% accuracy on the test set.
+
+00:02:29.134 --> 00:02:34.769
+It's better than random guessing but hopefully a CNN will do much better.
+
+00:02:34.770 --> 00:02:36.965
+So let's open the other notebook.
+
+00:02:36.965 --> 00:02:40.969
+All of the importing and pre-processing steps are the same.
+
+00:02:40.969 --> 00:02:45.564
+We define the CNN architecture in Step Five of the notebook.
+
+00:02:45.564 --> 00:02:50.009
+The CNN should look very familiar from the previous video.
+
+00:02:50.009 --> 00:02:52.319
+The image is first fed through a sequence of
+
+00:02:52.319 --> 00:02:57.794
+convolutional and max pooling layers designed to squeeze out the spatial information.
+
+00:02:57.794 --> 00:03:02.814
+Then we flatten the image and add a couple of fully connected layers.
+
+00:03:02.814 --> 00:03:06.437
+The only thing that should look different is the dropout layers,
+
+00:03:06.437 --> 00:03:09.734
+we have added those to minimize overfitting.
+
+00:03:09.735 --> 00:03:15.264
+Notice that this network uses far fewer parameters than the MLP we just trained,
+
+00:03:15.264 --> 00:03:19.860
+but hopefully it will do a much better job on the classification task.
+
+00:03:19.860 --> 00:03:24.095
+Let's continue to use the same loss function and optimizer.
+
+00:03:24.094 --> 00:03:29.205
+We train the model for 100 epochs with the batch size of 32.
+
+00:03:29.205 --> 00:03:34.260
+We load the model weights that got the best validation accuracy and we
+
+00:03:34.259 --> 00:03:40.215
+see that our CNN gets a test accuracy of about 66%.
+
+00:03:40.215 --> 00:03:44.620
+This is an excellent improvement over the MLP we just trained.
+
+00:03:44.620 --> 00:03:49.784
+Of course, there's plenty of room to tinker with and optimize the CNN further.
+
+00:03:49.784 --> 00:03:51.270
+We encourage you to do this.
+
+00:03:51.270 --> 00:03:53.950
+It's a great learning experience.
+
+00:03:53.949 --> 00:03:56.394
+We should mention that in 2015,
+
+00:03:56.395 --> 00:03:59.400
+there was an online competition where data scientists
+
+00:03:59.400 --> 00:04:03.855
+competed to classify images in the CIFAR-10 database.
+
+00:04:03.854 --> 00:04:10.099
+The winning architecture was a CNN and achieved over 95% test accuracy.
+
+00:04:10.099 --> 00:04:13.854
+It took 90 hours to train on a GPU.
+
+00:04:13.854 --> 00:04:16.394
+If you'd like to read about this architecture,
+
+00:04:16.394 --> 00:04:19.279
+please check out the link below.
+

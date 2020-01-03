@@ -1,0 +1,289 @@
+<!-- udacimak v1.2.0 -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Max Pooling Layers in Keras</title>
+  <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../assets/css/plyr.css">
+  <link rel="stylesheet" href="../assets/css/katex.min.css">
+  <link rel="stylesheet" href="../assets/css/jquery.mCustomScrollbar.min.css">
+  <link rel="stylesheet" href="../assets/css/styles.css">
+  <link rel="shortcut icon" type="image/png" href="../assets/img/udacimak.png" />
+</head>
+
+<body>
+  <div class="wrapper">
+    <nav id="sidebar">
+  <div class="sidebar-header">
+    <h3>Convolutional Neural Networks</h3>
+  </div>
+
+  <ul class="sidebar-list list-unstyled CTAs">
+    <li>
+      <a href="../index.html" class="article">Back to Home</a>
+    </li>
+  </ul>
+
+  <ul class="sidebar-list list-unstyled components">
+    <li class="">
+      <a href="01. Introducing Alexis.html">01. Introducing Alexis</a>
+    </li>
+    <li class="">
+      <a href="02. Applications of CNNs.html">02. Applications of CNNs</a>
+    </li>
+    <li class="">
+      <a href="03. How Computers Interpret Images.html">03. How Computers Interpret Images</a>
+    </li>
+    <li class="">
+      <a href="04. MLPs for Image Classification.html">04. MLPs for Image Classification</a>
+    </li>
+    <li class="">
+      <a href="05. Categorical Cross-Entropy.html">05. Categorical Cross-Entropy</a>
+    </li>
+    <li class="">
+      <a href="06. Model Validation in Keras.html">06. Model Validation in Keras</a>
+    </li>
+    <li class="">
+      <a href="07. When do MLPs (not) work well .html">07. When do MLPs (not) work well? </a>
+    </li>
+    <li class="">
+      <a href="08. Mini project Training an MLP on MNIST.html">08. Mini project: Training an MLP on MNIST</a>
+    </li>
+    <li class="">
+      <a href="09. Local Connectivity.html">09. Local Connectivity</a>
+    </li>
+    <li class="">
+      <a href="10. Convolutional Layers (Part 1).html">10. Convolutional Layers (Part 1)</a>
+    </li>
+    <li class="">
+      <a href="11. Convolutional Layers (Part 2).html">11. Convolutional Layers (Part 2)</a>
+    </li>
+    <li class="">
+      <a href="12. Stride and Padding.html">12. Stride and Padding</a>
+    </li>
+    <li class="">
+      <a href="13. Convolutional Layers in Keras.html">13. Convolutional Layers in Keras</a>
+    </li>
+    <li class="">
+      <a href="14. Quiz Dimensionality.html">14. Quiz: Dimensionality</a>
+    </li>
+    <li class="">
+      <a href="15. Pooling Layers.html">15. Pooling Layers</a>
+    </li>
+    <li class="">
+      <a href="16. Max Pooling Layers in Keras.html">16. Max Pooling Layers in Keras</a>
+    </li>
+    <li class="">
+      <a href="17. CNNs for Image Classification.html">17. CNNs for Image Classification</a>
+    </li>
+    <li class="">
+      <a href="18. CNNs in Keras Practical Example.html">18. CNNs in Keras: Practical Example</a>
+    </li>
+    <li class="">
+      <a href="19. Mini project CNNs in Keras.html">19. Mini project: CNNs in Keras</a>
+    </li>
+    <li class="">
+      <a href="20. Image Augmentation in Keras.html">20. Image Augmentation in Keras</a>
+    </li>
+    <li class="">
+      <a href="21. Mini project Image Augmentation in Keras.html">21. Mini project: Image Augmentation in Keras</a>
+    </li>
+    <li class="">
+      <a href="22. Groundbreaking CNN Architectures.html">22. Groundbreaking CNN Architectures</a>
+    </li>
+    <li class="">
+      <a href="23. Visualizing CNNs (Part 1).html">23. Visualizing CNNs (Part 1)</a>
+    </li>
+    <li class="">
+      <a href="24. Visualizing CNNs (Part 2).html">24. Visualizing CNNs (Part 2)</a>
+    </li>
+    <li class="">
+      <a href="25. Transfer Learning.html">25. Transfer Learning</a>
+    </li>
+    <li class="">
+      <a href="26. Transfer Learning in Keras.html">26. Transfer Learning in Keras</a>
+    </li>
+  </ul>
+
+  <ul class="sidebar-list list-unstyled CTAs">
+    <li>
+      <a href="../index.html" class="article">Back to Home</a>
+    </li>
+  </ul>
+</nav>
+
+    <div id="content">
+      <header class="container-fluild header">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <div class="align-items-middle">
+                <button type="button" id="sidebarCollapse" class="btn btn-toggle-sidebar">
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                </button>
+
+                <h1 style="display: inline-block">16. Max Pooling Layers in Keras</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main class="container">
+        <div class="row">
+          <div class="col-12">
+            <div class="ud-atom">
+  <h3></h3>
+  <div>
+  <figure class="figure">
+    <img src="img/maxpool.jpeg" alt="__Max pooling with 2x2 window and stride 2__
+
+Image source: http://cs231n.github.io/convolutional-networks/" class="img img-fluid">
+    <figcaption class="figure-caption">
+      <p><strong>Max pooling with 2x2 window and stride 2</strong></p>
+<p>Image source: <a href="http://cs231n.github.io/convolutional-networks/" target="_blank">http://cs231n.github.io/convolutional-networks/</a></p>
+    </figcaption>
+  </figure>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <h1 id="max-pooling-layers-in-keras">Max Pooling Layers in Keras</h1>
+<p>To create a max pooling layer in Keras, you must first import the necessary module:</p>
+<pre><code>from keras.layers import MaxPooling2D</code></pre>
+<p>Then, you can create a convolutional layer by using the following format:</p>
+<pre><code>MaxPooling2D(pool_size, strides, padding)</code></pre>
+<h3 id="arguments">Arguments</h3>
+<p>You must include the following argument:</p>
+<ul>
+<li><code>pool_size</code> - Number specifying the height and width of the pooling window.</li>
+</ul>
+<p>There are some additional, optional arguments that you might like to tune:</p>
+<ul>
+<li><code>strides</code> - The vertical and horizontal stride.  If you don't specify anything, <code>strides</code> will default to <code>pool_size</code>.</li>
+<li><code>padding</code> - One of <code>'valid'</code> or <code>'same'</code>.  If you don't specify anything, <code>padding</code> is set to <code>'valid'</code>.</li>
+</ul>
+<p><strong>NOTE</strong>: It is possible to represent both <code>pool_size</code> and <code>strides</code> as either a number or a tuple.</p>
+<p>You are also encouraged to read the official <a href="https://keras.io/layers/pooling/#maxpooling2d" target="_blank">documentation</a>.</p>
+<h3 id="example">Example</h3>
+<p>Say I'm constructing a CNN, and I'd like to reduce the dimensionality of a convolutional layer by following it with a max pooling layer.  Say the convolutional layer has size <code>(100, 100, 15)</code>, and I'd like the max pooling layer to have size <code>(50, 50, 15)</code>.  I can do this by using a 2x2 window in my max pooling layer, with a stride of 2, which could be constructed in the following line of code:</p>
+<pre><code>    MaxPooling2D(pool_size=2, strides=2)</code></pre>
+<p>If you'd instead like to use a stride of 1, but still keep the size of the window at 2x2, then you'd use:</p>
+<pre><code>    MaxPooling2D(pool_size=2, strides=1)</code></pre>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <h3 id="checking-the-dimensionality-of-max-pooling-layers">Checking the Dimensionality of Max Pooling Layers</h3>
+<p>Copy and paste the following code into a Python executable named <code>pool-dims.py</code>:</p>
+<pre><code class="python language-python">from keras.models import Sequential
+from keras.layers import MaxPooling2D
+
+model = Sequential()
+model.add(MaxPooling2D(pool_size=2, strides=2, input_shape=(100, 100, 15)))
+model.summary()</code></pre>
+<p>Run <code>python path/to/pool-dims.py</code> and look at the output. It should appear as follows:</p>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <figure class="figure">
+    <img src="img/pooling-dims.png" alt="" class="img img-fluid">
+    <figcaption class="figure-caption">
+      
+    </figcaption>
+  </figure>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <p>Feel free to change the arguments in your <code>pool-dims.py</code> file, and check how the shape of the max pooling layer changes.</p>
+</div>
+
+</div>
+<div class="divider"></div>
+          </div>
+        </div>
+      </main>
+
+      <footer class="footer">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <p class="text-center">
+                <a href="https://github.com/udacimak/udacimak#readme" target="_blank">udacimak v1.2.0</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </div>
+
+
+  <script src="../assets/js/jquery-3.3.1.min.js"></script>
+  <script src="../assets/js/plyr.polyfilled.min.js"></script>
+  <script src="../assets/js/bootstrap.min.js"></script>
+  <script src="../assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+  <script src="../assets/js/katex.min.js"></script>
+  <script>
+    // Initialize Plyr video players
+    const players = Array.from(document.querySelectorAll('video')).map(p => new Plyr(p));
+
+    // render math equations
+    let elMath = document.getElementsByClassName('mathquill');
+    for (let i = 0, len = elMath.length; i < len; i += 1) {
+      const el = elMath[i];
+
+      katex.render(el.textContent, el, {
+        throwOnError: false
+      });
+    }
+
+    // this hack will make sure Bootstrap tabs work when using Handlebars
+    if ($('#question-tabs').length && $('#user-answer-tabs').length) {
+      $("#question-tabs a.nav-link").on('click', function () {
+        $("#question-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+      $("#user-answer-tabs a.nav-link").on('click', function () {
+        $("#user-answer-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    } else {
+      $("a.nav-link").on('click', function () {
+        $(".tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    }
+
+    // side bar events
+    $(document).ready(function () {
+      $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+      });
+
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar, #content').toggleClass('active');
+        $('.collapse.in').toggleClass('in');
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+      });
+    });
+  </script>
+</body>
+
+</html>

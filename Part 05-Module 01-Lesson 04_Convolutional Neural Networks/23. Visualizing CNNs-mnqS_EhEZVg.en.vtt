@@ -1,0 +1,139 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:04.168
+We've seen that CNNs achieve state-of-the-art and
+
+00:00:04.168 --> 00:00:08.893
+sometimes superhuman performance in object classification tasks.
+
+00:00:08.894 --> 00:00:12.689
+We've explored some techniques for building CNN architectures,
+
+00:00:12.689 --> 00:00:16.129
+and we've gotten some good performance on toy datasets.
+
+00:00:16.129 --> 00:00:17.730
+But at the end of the day,
+
+00:00:17.730 --> 00:00:20.730
+we don't really have a strong understanding of how
+
+00:00:20.730 --> 00:00:24.570
+these CNNs discover patterns in raw image pixels.
+
+00:00:24.570 --> 00:00:27.929
+If you've already taken the time to train your own CNNs,
+
+00:00:27.928 --> 00:00:32.608
+you've noticed that some architectures work while some just don't.
+
+00:00:32.609 --> 00:00:35.054
+And if it's not clear to you why that's the case,
+
+00:00:35.054 --> 00:00:38.240
+it's probably not truly clear to the experts either.
+
+00:00:38.240 --> 00:00:40.600
+Earlier in this lesson,
+
+00:00:40.600 --> 00:00:44.755
+I mentioned visualizing the activation maps and convolutional layers
+
+00:00:44.755 --> 00:00:50.365
+as one technique for digging deeper into understanding how a CNN is working.
+
+00:00:50.365 --> 00:00:53.274
+There are many implementations of this online.
+
+00:00:53.274 --> 00:00:54.520
+This is one of them,
+
+00:00:54.520 --> 00:00:56.034
+and as you can see,
+
+00:00:56.033 --> 00:01:01.420
+it's designed to pass your webcam's video through a trained CNN in real time.
+
+00:01:01.420 --> 00:01:03.173
+If you'd like to play around with this,
+
+00:01:03.173 --> 00:01:06.215
+you're encouraged to check out the links below.
+
+00:01:06.215 --> 00:01:11.370
+Another technique designed for understanding CNNs involves taking the filters from
+
+00:01:11.370 --> 00:01:17.739
+our convolutional layers and constructing images that maximize their activations.
+
+00:01:17.739 --> 00:01:24.070
+You can start with an image containing random noise and then gradually amend the pixels,
+
+00:01:24.069 --> 00:01:29.443
+and each step changing them to values that make the filter more highly activated.
+
+00:01:29.444 --> 00:01:34.745
+When you do this, you'll notice that the first three layers are pretty general.
+
+00:01:34.745 --> 00:01:38.780
+The first layer might include color or edge detectors,
+
+00:01:38.780 --> 00:01:42.245
+where the second layer detects circles or stripes.
+
+00:01:42.245 --> 00:01:48.707
+The filters later in the network are activated by much more complicated patterns.
+
+00:01:48.706 --> 00:01:51.908
+Researchers at Google got creative with this.
+
+00:01:51.909 --> 00:01:54.415
+They designed a technique called deep dreams
+
+00:01:54.415 --> 00:01:58.040
+where they replace the starting image with a picture.
+
+00:01:58.040 --> 00:01:59.777
+Say we have a picture of a tree,
+
+00:01:59.777 --> 00:02:02.358
+but you can use a picture of anything here.
+
+00:02:02.358 --> 00:02:05.738
+Then, you could investigate one of the more interesting filters,
+
+00:02:05.739 --> 00:02:09.009
+maybe one that looks like it's used for detecting a building.
+
+00:02:09.008 --> 00:02:11.888
+When you follow the same technique where the only thing
+
+00:02:11.889 --> 00:02:14.632
+you've changed is the starting array of pixels,
+
+00:02:14.632 --> 00:02:21.014
+you end up creating an image that looks like some sort of tree or building hybrid.
+
+00:02:21.014 --> 00:02:23.799
+If you'd like to code this yourself in Keras,
+
+00:02:23.799 --> 00:02:27.354
+you're encouraged to pursue this in the links below.
+
+00:02:27.354 --> 00:02:32.134
+There are many other techniques for visualizing what a CNN learns.
+
+00:02:32.133 --> 00:02:34.283
+We've only scratched the surface with this,
+
+00:02:34.283 --> 00:02:38.468
+but you're definitely encouraged to explore more in this area.
+
+00:02:38.468 --> 00:02:42.323
+The idea is that if we can understand more of what a CNN learns,
+
+00:02:42.324 --> 00:02:45.000
+we can help it to perform even better.
+

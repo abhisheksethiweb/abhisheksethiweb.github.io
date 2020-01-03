@@ -1,0 +1,403 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:05.849
+In this lesson, we've investigated two new types of layers for deep networks.
+
+00:00:05.849 --> 00:00:10.800
+We began with convolutional layers which detect regional patterns in an image.
+
+00:00:10.800 --> 00:00:13.200
+Max pooling layers appear after
+
+00:00:13.199 --> 00:00:17.600
+convolutional layers to reduce the dimensionality of our arrays.
+
+00:00:17.600 --> 00:00:19.020
+These arrays along with
+
+00:00:19.019 --> 00:00:25.019
+the familiar fully connected layers are often the only layers that you'll find in a CNN.
+
+00:00:25.019 --> 00:00:31.199
+In this video, we'll discuss how to arrange these layers to design a CNN architecture.
+
+00:00:31.199 --> 00:00:34.914
+We'll focus on CNNs for image classification.
+
+00:00:34.914 --> 00:00:39.884
+In this case, our CNN must accept an image array as input.
+
+00:00:39.884 --> 00:00:43.724
+If we're going to work with messy real world images,
+
+00:00:43.725 --> 00:00:47.304
+there's a complication that we haven't yet discussed.
+
+00:00:47.304 --> 00:00:51.405
+If I go online and collect thousands or millions of images,
+
+00:00:51.405 --> 00:00:55.439
+well it's pretty much guaranteed that they'll all be different sizes.
+
+00:00:55.439 --> 00:01:02.170
+Similar to MLPs, the CNNs we'll discuss will require a fixed size input.
+
+00:01:02.170 --> 00:01:05.820
+Thus, we'll have to pick an image size and resize all of
+
+00:01:05.819 --> 00:01:10.224
+our images to that same size before doing anything else.
+
+00:01:10.224 --> 00:01:15.079
+It's very common to resize each image to a square with
+
+00:01:15.079 --> 00:01:17.944
+the spatial dimensions equal to a power of two
+
+00:01:17.944 --> 00:01:22.224
+or else a number that's divisible by a large power of two.
+
+00:01:22.224 --> 00:01:24.289
+In this video and the next,
+
+00:01:24.290 --> 00:01:31.885
+we'll work with a dataset composed of images that have all been resized to 32 by 32.
+
+00:01:31.885 --> 00:01:37.290
+Recall that any image is interpreted by the computer as a three dimensional array.
+
+00:01:37.290 --> 00:01:42.800
+Color images had some height and width and pixels along with red,
+
+00:01:42.799 --> 00:01:46.685
+green and blue channels corresponding to a depth of three.
+
+00:01:46.685 --> 00:01:50.405
+Grayscale images, while technically two dimensional,
+
+00:01:50.405 --> 00:01:54.795
+can also be thought of as having their own width and height with a depth of one.
+
+00:01:54.795 --> 00:01:58.924
+For both of these cases with color or grayscale images,
+
+00:01:58.924 --> 00:02:05.049
+the input array will always be much taller and wider than it is deep.
+
+00:02:05.049 --> 00:02:09.229
+Our CNN architecture will be designed with the goal of taking
+
+00:02:09.229 --> 00:02:14.814
+that array and gradually making it much deeper than it is tall or wide.
+
+00:02:14.814 --> 00:02:19.609
+Convolutional layers will be used to make the array deeper as it passes through
+
+00:02:19.610 --> 00:02:25.795
+the network and max pooling layers will be used to decrease the spatial dimensions.
+
+00:02:25.794 --> 00:02:31.375
+We'll get into the details of why we want to do this a little later in the video.
+
+00:02:31.375 --> 00:02:33.155
+But to see how this works,
+
+00:02:33.155 --> 00:02:37.969
+consider following the input layer with a sequence of convolutional layers.
+
+00:02:37.969 --> 00:02:41.270
+Recall from the video on convolutional layers that
+
+00:02:41.270 --> 00:02:46.215
+this stack will discover hierarchies of spatial patterns in the image.
+
+00:02:46.215 --> 00:02:52.534
+Each of the convolutional layers requires us to specify a number of hyperparameters.
+
+00:02:52.534 --> 00:02:56.599
+For instance, the filters are often square and range from
+
+00:02:56.599 --> 00:03:01.909
+the size of two by two at the smallest to five by five at the largest.
+
+00:03:01.909 --> 00:03:08.525
+The stride is generally set to one which you might recall is the default in keras.
+
+00:03:08.525 --> 00:03:11.240
+As for padding, it's believed that you will
+
+00:03:11.240 --> 00:03:14.585
+get better results if you set your padding to 'same.'
+
+00:03:14.585 --> 00:03:17.580
+This is not the default in keras.
+
+00:03:17.580 --> 00:03:23.810
+But this combination of setting the stride equal to one and the padding equal to same
+
+00:03:23.810 --> 00:03:27.090
+has the effect that the convolutional layer has
+
+00:03:27.090 --> 00:03:31.155
+the width and height that is the same as the previous layer.
+
+00:03:31.155 --> 00:03:33.080
+As for the number of filters,
+
+00:03:33.080 --> 00:03:35.930
+recall that this parameter controls the depth of
+
+00:03:35.930 --> 00:03:42.060
+our convolutional layers since the layer has one activation map for each filter.
+
+00:03:42.060 --> 00:03:48.379
+Often, we will have the number of filters slowly increase in the sequence.
+
+00:03:48.379 --> 00:03:51.729
+So the first convolutional layer might have 16 filters.
+
+00:03:51.729 --> 00:03:54.064
+The second will have 32.
+
+00:03:54.064 --> 00:03:57.585
+The third 64 and so on.
+
+00:03:57.585 --> 00:04:00.140
+Of course, for the first convolutional layer,
+
+00:04:00.139 --> 00:04:03.844
+we'll have to add the additional parameter of the input shape.
+
+00:04:03.844 --> 00:04:05.639
+In this toy example,
+
+00:04:05.639 --> 00:04:10.534
+assume our dataset is composed of 32 by 32 color images.
+
+00:04:10.534 --> 00:04:16.709
+And we'll use the 'relu' activation function in all of our convolutional layers.
+
+00:04:16.709 --> 00:04:18.604
+If we follow this process,
+
+00:04:18.605 --> 00:04:21.710
+we have a method for gradually increasing
+
+00:04:21.709 --> 00:04:25.614
+the depth of our array without modifying the height and width.
+
+00:04:25.615 --> 00:04:29.345
+The input, just like all the layers in this sequence,
+
+00:04:29.345 --> 00:04:32.005
+has a height and width of 32,
+
+00:04:32.004 --> 00:04:40.284
+but the depth increases from the input layers depth of three to 16 to 32 to 64.
+
+00:04:40.285 --> 00:04:42.980
+Recall that. Yes, we wanted to increase
+
+00:04:42.980 --> 00:04:47.775
+the depth but we also wanted to decrease the height and width.
+
+00:04:47.774 --> 00:04:50.745
+This is where max pooling layers will come in.
+
+00:04:50.745 --> 00:04:56.300
+They generally follow every one or two convolutional layers in the sequence.
+
+00:04:56.300 --> 00:04:57.650
+The most common setting,
+
+00:04:57.649 --> 00:05:01.914
+we'll use filters of size two with a stride of two.
+
+00:05:01.915 --> 00:05:04.754
+This has the effect of making the spatial dimensions
+
+00:05:04.754 --> 00:05:08.264
+half of what they were from the previous layer.
+
+00:05:08.264 --> 00:05:12.990
+In this way, the combination of convolutional and max pooling layers
+
+00:05:12.990 --> 00:05:16.050
+accomplishes our goal of attaining an array that is
+
+00:05:16.050 --> 00:05:19.925
+quite deep with very small spatial dimensions.
+
+00:05:19.925 --> 00:05:22.290
+Let's double check this by entering the code
+
+00:05:22.290 --> 00:05:25.225
+in keras and seeing how the dimensions change.
+
+00:05:25.225 --> 00:05:28.740
+As promised, the convolutional layers expand the depth of
+
+00:05:28.740 --> 00:05:33.490
+the arrays from three to 16 to 32 and finally, 64.
+
+00:05:33.490 --> 00:05:37.350
+The max pooling layers decrease the spatial dimensions from
+
+00:05:37.350 --> 00:05:41.655
+32 to 16 to eight and finally, four.
+
+00:05:41.654 --> 00:05:46.875
+This sequence of layers discovers the spatial patterns contained in the image.
+
+00:05:46.875 --> 00:05:53.399
+It gradually takes the spatial data and converts the array to a representation that
+
+00:05:53.399 --> 00:05:56.384
+instead encodes the content of the image
+
+00:05:56.384 --> 00:06:00.480
+where all of the spatial information is eventually lost.
+
+00:06:00.480 --> 00:06:02.240
+In the original image,
+
+00:06:02.240 --> 00:06:06.569
+it's quite relevant which pixel is next to what other pixel.
+
+00:06:06.569 --> 00:06:11.879
+When you look at how the image has been transformed at the end of this long sequence,
+
+00:06:11.879 --> 00:06:16.475
+it's no longer important what entry in the array is next to what other entry.
+
+00:06:16.475 --> 00:06:22.830
+Instead, the array can answer such questions as: are there wheels in the image?
+
+00:06:22.829 --> 00:06:25.629
+Are there eyes in the image?
+
+00:06:25.629 --> 00:06:29.339
+What about furry legs or tails?
+
+00:06:29.339 --> 00:06:31.859
+Once we get to a representation where there's
+
+00:06:31.860 --> 00:06:35.415
+no more spatial information left to discover in the image,
+
+00:06:35.415 --> 00:06:38.970
+we can flatten the array to a vector and feed it to
+
+00:06:38.970 --> 00:06:44.995
+one or more fully connected layers to determine what object is contained in the image.
+
+00:06:44.995 --> 00:06:49.634
+For instance, if wheels were found in the last max pooling layer,
+
+00:06:49.634 --> 00:06:53.564
+this fully connected layer will transform that information
+
+00:06:53.564 --> 00:06:58.230
+to predict that a car is present in the image with higher probability.
+
+00:06:58.230 --> 00:07:00.560
+If there were eyes,
+
+00:07:00.560 --> 00:07:02.694
+furry legs and a tail,
+
+00:07:02.694 --> 00:07:06.459
+the output layer would take that information and deduce
+
+00:07:06.459 --> 00:07:10.534
+that a dog is likely present in the image.
+
+00:07:10.535 --> 00:07:13.310
+But of course, to emphasize all of
+
+00:07:13.310 --> 00:07:17.480
+this understanding in the model is not pre-specified by us.
+
+00:07:17.480 --> 00:07:22.520
+It is learned by the model during training and through back propagation.
+
+00:07:22.519 --> 00:07:27.274
+This architecture that we're specifying here just gives the model a structure that will
+
+00:07:27.274 --> 00:07:30.079
+allow it to train better so that it has
+
+00:07:30.079 --> 00:07:33.919
+the potential to classify objects more accurately.
+
+00:07:33.920 --> 00:07:37.000
+Let's enter this architecture in keras.
+
+00:07:37.000 --> 00:07:40.725
+Here, I've added only three lines of code.
+
+00:07:40.725 --> 00:07:44.600
+First, I flatten the final max pooling layer to a vector.
+
+00:07:44.600 --> 00:07:47.660
+Then, two dense layers are added.
+
+00:07:47.660 --> 00:07:53.900
+The last layer has a soft max activation function so that it returns probabilities.
+
+00:07:53.899 --> 00:07:56.959
+In this case, I've given the final dense layer 10
+
+00:07:56.959 --> 00:08:01.924
+nodes since our dataset will have 10 different object classes.
+
+00:08:01.925 --> 00:08:03.329
+It's also common to give
+
+00:08:03.329 --> 00:08:09.175
+hidden fully connected layers and CNN architectures a relu activation function.
+
+00:08:09.175 --> 00:08:11.060
+And so I've done that here.
+
+00:08:11.060 --> 00:08:15.685
+We'll work more with this architecture in the next video.
+
+00:08:15.685 --> 00:08:20.024
+The ideas that I presented here should just be used to get you started.
+
+00:08:20.024 --> 00:08:21.929
+To arrive at your own models,
+
+00:08:21.930 --> 00:08:24.870
+you'll have to take a hands on approach with trying
+
+00:08:24.870 --> 00:08:29.050
+out many architectures and different hyperparameters.
+
+00:08:29.050 --> 00:08:31.530
+Deep learning is a hands on field,
+
+00:08:31.529 --> 00:08:37.174
+so don't be afraid to get your hands dirty and don't be afraid to break the rules.
+
+00:08:37.174 --> 00:08:39.649
+Try out as many things as you can,
+
+00:08:39.649 --> 00:08:42.029
+ask questions and experiment to answer
+
+00:08:42.029 --> 00:08:45.919
+your questions rather than just thinking deep thoughts.
+
+00:08:45.919 --> 00:08:48.284
+If this is your first time training CNNs,
+
+00:08:48.284 --> 00:08:51.139
+it will take some time to develop your intuition.
+
+00:08:51.139 --> 00:08:56.759
+But keep trying. Don't get too discouraged if your early ideas fail.
+

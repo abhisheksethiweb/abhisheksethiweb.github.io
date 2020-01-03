@@ -1,0 +1,351 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.367 --> 00:00:04.067
+Vimos que a CNN é composta
+por várias camadas.
+
+00:00:04.101 --> 00:00:06.334
+Nós, como profissionais
+de Deep Learning,
+
+00:00:06.368 --> 00:00:08.234
+projetamos a arquitetura.
+
+00:00:08.268 --> 00:00:10.734
+Nós configuramos
+hiperparâmetros
+
+00:00:10.768 --> 00:00:14.267
+tais como o tamanho das janelas,
+as etapas e padding.
+
+00:00:14.301 --> 00:00:16.000
+Após configurar
+a arquitetura,
+
+00:00:16.034 --> 00:00:19.200
+nós escolhemos
+a função de perda e o otimizador.
+
+00:00:19.234 --> 00:00:22.634
+Então nós configuramos o modelo
+para treinar e esperamos.
+
+00:00:22.668 --> 00:00:26.167
+As arquiteturas CNNs perfeitas
+que vimos
+
+00:00:26.201 --> 00:00:28.434
+e que estão
+disponíveis no Keras,
+
+00:00:28.468 --> 00:00:31.234
+são o resultado
+de experimentação cuidadosa
+
+00:00:31.268 --> 00:00:33.100
+com inúmeras arquiteturas
+
+00:00:33.134 --> 00:00:35.734
+e muitos ajustes
+de hiperparâmetros.
+
+00:00:35.768 --> 00:00:38.868
+Elas são o resultado de anos
+de estudos
+
+00:00:38.902 --> 00:00:41.167
+e meses de trabalho duro.
+
+00:00:41.201 --> 00:00:44.634
+Elas foram treinadas no grande
+banco de dados ImageNet
+
+00:00:44.668 --> 00:00:46.601
+e levaram semanas
+para serem treinadas.
+
+00:00:46.635 --> 00:00:49.234
+Elas estão
+nos melhores GPUs.
+
+00:00:49.268 --> 00:00:53.133
+Isso nos faz pensar sobre
+como adaptar as arquiteturas
+
+00:00:53.167 --> 00:00:56.868
+que descobrem padrões
+em dados de imagem
+
+00:00:56.902 --> 00:00:59.834
+para a tarefa
+de classificação.
+
+00:00:59.868 --> 00:01:02.601
+Em vez de construir uma CNN,
+
+00:01:02.635 --> 00:01:04.901
+como podemos utilizar
+o entendimento aprendido
+
+00:01:04.935 --> 00:01:07.567
+e passá-lo para um novo
+modelo Deep Learning?
+
+00:01:08.200 --> 00:01:10.300
+Isso é feito por uma técnica
+
+00:01:10.334 --> 00:01:12.634
+chamada de transferência
+de aprendizado.
+
+00:01:12.668 --> 00:01:14.434
+Você deve estar
+se perguntando:
+
+00:01:14.468 --> 00:01:18.467
+se você pegar uma CNN treinada
+no banco de dados ImageNet,
+
+00:01:18.501 --> 00:01:23.167
+ela aprendeu a distinguir
+entre as 1.000 categorias
+
+00:01:23.201 --> 00:01:25.334
+presentes no ImageNet.
+
+00:01:25.368 --> 00:01:28.067
+A maioria das categorias
+são animais,
+
+00:01:28.101 --> 00:01:31.434
+frutas, vegetais
+e objetos do dia a dia.
+
+00:01:31.468 --> 00:01:34.501
+O banco de dados
+que te interessa
+
+00:01:34.535 --> 00:01:37.234
+não se sobrepõe
+com essas categorias de imagem.
+
+00:01:37.268 --> 00:01:41.100
+Nós podemos continuar utilizando
+esse CNN pré-treinado?
+
+00:01:41.134 --> 00:01:44.067
+Ela é relevante
+para esta nova tarefa?
+
+00:01:44.101 --> 00:01:48.467
+A resposta é: com certeza.
+
+00:01:48.501 --> 00:01:51.400
+Na verdade, vimos
+no vídeo anterior
+
+00:01:51.434 --> 00:01:54.234
+que os filtros convolucionais
+em uma CNN treinada
+
+00:01:54.268 --> 00:01:56.634
+são organizados
+em uma hierarquia.
+
+00:01:56.668 --> 00:02:00.000
+Os filtros na primeira camada
+geralmente detectam limites
+
+00:02:00.034 --> 00:02:02.100
+ou manchas de cores,
+
+00:02:02.134 --> 00:02:07.000
+e a segunda camada pode detectar
+círculos, listras e retângulos.
+
+00:02:07.034 --> 00:02:10.834
+Estes são recursos genéricos
+úteis para analisar
+
+00:02:10.868 --> 00:02:13.434
+qualquer imagem
+do conjunto de dados.
+
+00:02:14.067 --> 00:02:16.767
+Os filtros nas últimas
+camadas convolucionais
+
+00:02:16.801 --> 00:02:18.901
+são muito mais específicos.
+
+00:02:18.935 --> 00:02:21.334
+Se houver pássaros
+nos dados de treinamento,
+
+00:02:21.368 --> 00:02:23.801
+haverá filtros que podem
+detectar pássaros.
+
+00:02:23.835 --> 00:02:25.968
+Se houver carros
+ou bicicletas,
+
+00:02:26.002 --> 00:02:28.868
+haverá filtros para detectar
+rodas e assim por diante.
+
+00:02:28.902 --> 00:02:32.968
+Será útil remover
+as últimas camadas da rede,
+
+00:02:33.002 --> 00:02:35.634
+que são específicas
+do conjunto de treinamento,
+
+00:02:35.668 --> 00:02:38.334
+e manter as camadas
+mais recentes.
+
+00:02:38.368 --> 00:02:41.133
+Nós podemos adicionar
+mais uma ou duas
+
+00:02:41.167 --> 00:02:44.001
+e treinar somente
+as últimas camadas.
+
+00:02:44.035 --> 00:02:46.534
+Isto é transferência
+de aprendizado,
+
+00:02:46.568 --> 00:02:50.167
+mas o seu método dependerá
+do tamanho do conjunto de dados
+
+00:02:50.201 --> 00:02:54.567
+e do nível de similaridade
+com o banco de dados ImageNet.
+
+00:02:54.601 --> 00:02:58.267
+Por exemplo, a técnica
+que acabamos de citar será boa
+
+00:02:58.301 --> 00:03:00.367
+se os dados forem
+relativamente pequenos
+
+00:03:00.401 --> 00:03:03.033
+e muito parecidos
+com os da ImageNet.
+
+00:03:03.067 --> 00:03:05.601
+Devemos dizer
+que Sebastian Thrun,
+
+00:03:05.635 --> 00:03:07.400
+junto com uma equipe
+em Stanford,
+
+00:03:07.434 --> 00:03:09.267
+usou a transferência
+de aprendizado
+
+00:03:09.301 --> 00:03:13.467
+para desenvolver uma CNN
+para diagnosticar câncer de pele.
+
+00:03:13.501 --> 00:03:18.067
+A CNN classifica lesões
+como benignas ou malignas
+
+00:03:18.101 --> 00:03:20.734
+e tem melhor desempenho
+do que os dermatologistas
+
+00:03:20.768 --> 00:03:24.067
+na hora de diagnosticar algumas
+formas de câncer de pele.
+
+00:03:24.101 --> 00:03:25.400
+Para construir o modelo,
+
+00:03:25.434 --> 00:03:27.367
+ele usou
+a transferência de aprendizado
+
+00:03:27.401 --> 00:03:29.234
+com a arquitetura
+de Inception
+
+00:03:29.268 --> 00:03:32.334
+pré-treinada
+no banco de dados ImageNet.
+
+00:03:32.368 --> 00:03:33.701
+Como primeiro passo,
+
+00:03:33.735 --> 00:03:37.534
+ele removeu a última camada
+de classificação conectada
+
+00:03:37.568 --> 00:03:40.567
+e adicionou uma camada
+totalmente conectada.
+
+00:03:40.601 --> 00:03:43.601
+Esta camada tem
+bem menos categorias,
+
+00:03:43.635 --> 00:03:45.567
+uma para cada tipo
+de classe de doença
+
+00:03:45.601 --> 00:03:47.601
+que ele queria detectar.
+
+00:03:47.635 --> 00:03:50.001
+Para as outras
+camadas da rede,
+
+00:03:50.035 --> 00:03:52.100
+os parâmetros foram
+inicializados
+
+00:03:52.134 --> 00:03:54.367
+com valores pré-treinados.
+
+00:03:54.401 --> 00:03:58.400
+Então, durante o treinamento,
+os parâmetros foram otimizados
+
+00:03:58.434 --> 00:04:01.667
+para se ajustar ao banco
+de dados de lesões de pele.
+
+00:04:01.701 --> 00:04:06.033
+Neste caso, o modelo
+se beneficiou do pontapé dado
+
+00:04:06.067 --> 00:04:08.534
+pelo pré-treinamento
+do ImageNet.
+
+00:04:08.568 --> 00:04:12.267
+Esta abordagem de afinação
+dos parâmetros de uma rede
+
+00:04:12.301 --> 00:04:15.234
+com uma última camada
+de classificação diferente,
+
+00:04:15.268 --> 00:04:18.001
+funciona melhor se o conjunto
+de dados for bem grande
+
+00:04:18.035 --> 00:04:21.000
+e diferente do banco
+de dados ImageNet.
+

@@ -1,0 +1,659 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.433 --> 00:00:04.233
+Nesta lição nós investigamos
+dois tipos de camadas
+
+00:00:04.267 --> 00:00:05.733
+para redes profundas.
+
+00:00:05.767 --> 00:00:08.133
+Nós começamos
+com as convolucionais,
+
+00:00:08.167 --> 00:00:10.867
+que detectam padrões
+regionais em uma imagem,
+
+00:00:10.901 --> 00:00:12.367
+e as camadas max pooling,
+
+00:00:12.401 --> 00:00:14.533
+que aparecem após
+as camadas convolucionais
+
+00:00:14.567 --> 00:00:17.300
+para diminuir
+a dimensão dos arranjos.
+
+00:00:17.334 --> 00:00:18.500
+Estes arranjos,
+
+00:00:18.534 --> 00:00:21.433
+junto com as camadas
+totalmente conectadas,
+
+00:00:21.467 --> 00:00:25.033
+costumam ser as únicas
+camadas em uma CNN.
+
+00:00:25.067 --> 00:00:28.567
+Neste vídeo, veremos
+como organizar as camadas
+
+00:00:28.601 --> 00:00:31.467
+para projetar
+uma arquitetura CNN.
+
+00:00:31.501 --> 00:00:34.833
+Nós focaremos nas CNNs
+para a classificação de imagem.
+
+00:00:34.867 --> 00:00:37.867
+Neste caso,
+a CNN deve aceitar
+
+00:00:37.901 --> 00:00:40.367
+um arranjo de imagem
+como entrada.
+
+00:00:40.401 --> 00:00:43.867
+Ao trabalharmos com imagens
+bagunçadas do mundo real,
+
+00:00:43.901 --> 00:00:47.267
+há uma complicação
+que ainda não discutimos.
+
+00:00:47.301 --> 00:00:51.333
+Se eu buscar na internet
+milhares ou milhões de imagens,
+
+00:00:51.367 --> 00:00:55.067
+elas terão
+tamanhos diferentes.
+
+00:00:55.900 --> 00:00:59.100
+Parecido com as MLPs,
+as CNNs exigirão
+
+00:00:59.134 --> 00:01:02.433
+um tamanho fixo de entrada.
+
+00:01:02.467 --> 00:01:04.833
+Nós temos que optar
+por um tamanho de imagem
+
+00:01:04.867 --> 00:01:07.733
+e alterar todas as imagens
+para o mesmo tamanho
+
+00:01:07.767 --> 00:01:10.267
+antes de fazermos
+qualquer coisa.
+
+00:01:10.301 --> 00:01:13.167
+É muito comum alterar
+o tamanho de cada imagem
+
+00:01:13.201 --> 00:01:14.867
+para um quadrado,
+
+00:01:14.901 --> 00:01:17.933
+com dimensões espaciais
+com poder de dois
+
+00:01:17.967 --> 00:01:22.267
+ou com um número que seja
+divisível por um poder de dois.
+
+00:01:22.301 --> 00:01:25.800
+Nos próximos dois vídeos
+nós veremos um conjunto de dados
+
+00:01:25.834 --> 00:01:28.733
+composto por imagens
+que foram redimensionadas
+
+00:01:28.767 --> 00:01:31.700
+para 32x32.
+
+00:01:31.734 --> 00:01:35.100
+Qualquer imagem é
+interpretada pelo computador
+
+00:01:35.134 --> 00:01:37.633
+como um arranjo
+tridimensional.
+
+00:01:37.667 --> 00:01:41.367
+Imagens coloridas possuem
+altura e largura em pixels
+
+00:01:41.401 --> 00:01:44.233
+além dos canais vermelho,
+verde e azul
+
+00:01:44.267 --> 00:01:47.000
+que possuem profundidade
+igual a três.
+
+00:01:47.034 --> 00:01:50.533
+Imagens em escala de cinza,
+tecnicamente bidimensionais,
+
+00:01:50.567 --> 00:01:53.467
+também podem ter
+largura e altura
+
+00:01:53.501 --> 00:01:55.033
+com profundidade igual a um.
+
+00:01:55.067 --> 00:01:56.500
+Em ambos os casos,
+
+00:01:56.534 --> 00:01:58.900
+nas imagens coloridas
+ou em escala de cinza,
+
+00:01:58.934 --> 00:02:02.100
+o arranjo de entrada
+sempre será bem mais alto
+
+00:02:02.134 --> 00:02:04.933
+e mais largo
+do que profundo.
+
+00:02:04.967 --> 00:02:07.700
+A arquitetura da CNN
+será projetada
+
+00:02:07.734 --> 00:02:09.933
+a fim de pegar o arranjo
+
+00:02:09.967 --> 00:02:12.333
+e torná-lo gradualmente
+mais profundo
+
+00:02:12.367 --> 00:02:14.233
+do que alto e largo.
+
+00:02:14.933 --> 00:02:18.733
+Camadas convolucionais
+tornarão o arranjo mais profundo
+
+00:02:18.767 --> 00:02:20.733
+conforme ele passa
+pela rede.
+
+00:02:20.767 --> 00:02:22.433
+As camadas de max pooling
+
+00:02:22.467 --> 00:02:25.533
+diminuirão
+as dimensões espaciais.
+
+00:02:25.567 --> 00:02:28.967
+Nós veremos por que
+queremos fazer isso
+
+00:02:29.001 --> 00:02:31.500
+um pouco mais à frente.
+
+00:02:31.534 --> 00:02:33.233
+Para ver como isto funciona,
+
+00:02:33.267 --> 00:02:35.300
+observe a seguinte
+camada de entrada
+
+00:02:35.334 --> 00:02:38.167
+com uma sequência
+de camadas convolucionais.
+
+00:02:38.201 --> 00:02:41.033
+Vimos no vídeo sobre
+camadas convolucionais
+
+00:02:41.067 --> 00:02:46.100
+que este empilhamento descobrirá
+hierarquias de padrões espaciais.
+
+00:02:46.134 --> 00:02:49.767
+Cada camada convolucional
+exige especificar
+
+00:02:49.801 --> 00:02:52.467
+a quantidade
+de hiperparâmetros.
+
+00:02:52.501 --> 00:02:55.767
+Por exemplo, os filtros
+frequentemente são quadrados
+
+00:02:55.801 --> 00:03:01.633
+que vão de 2x2, o menor,
+a 5x5, o maior.
+
+00:03:01.667 --> 00:03:04.833
+A etapa geralmente
+é configurada como um,
+
+00:03:04.867 --> 00:03:07.867
+que é o padrão do Keras.
+
+00:03:08.700 --> 00:03:12.267
+O padding, você pode ter
+melhores resultados
+
+00:03:12.301 --> 00:03:14.800
+configurando o padding
+como "same".
+
+00:03:14.834 --> 00:03:17.667
+Este não é
+o padrão do Keras.
+
+00:03:17.701 --> 00:03:21.400
+Esta combinação de configurar
+a etapa como um
+
+00:03:21.434 --> 00:03:24.000
+e o padding como "same",
+
+00:03:24.034 --> 00:03:26.767
+faz com que
+a camada convolucional
+
+00:03:26.801 --> 00:03:31.233
+tenha largura e altura
+iguais as da camada anterior.
+
+00:03:31.267 --> 00:03:33.100
+Para a quantidade de filtros,
+
+00:03:33.134 --> 00:03:34.667
+lembre-se de que
+este parâmetro
+
+00:03:34.701 --> 00:03:37.867
+controla a profundidade
+das camadas convolucionais,
+
+00:03:37.901 --> 00:03:41.767
+pois a camada possui um mapa
+de ativação para cada filtro.
+
+00:03:42.567 --> 00:03:48.167
+Geralmente a quantidade
+de filtros aumentará lentamente.
+
+00:03:48.201 --> 00:03:51.733
+A primeira camada convolucional
+pode ter 16 filtros,
+
+00:03:51.767 --> 00:03:53.867
+a segunda terá 32,
+
+00:03:53.901 --> 00:03:57.700
+a terceira, 64,
+e assim por diante.
+
+00:03:57.734 --> 00:04:00.133
+Para a primeira
+camada convolucional,
+
+00:04:00.167 --> 00:04:04.000
+nós adicionaremos o parâmetro
+adicional da forma de entrada.
+
+00:04:04.034 --> 00:04:05.733
+Nesta amostra,
+
+00:04:05.767 --> 00:04:10.767
+o conjunto de dados é composto
+por imagens coloridas de 32x32.
+
+00:04:10.801 --> 00:04:13.400
+Nós utilizaremos a função
+de ativação ReLU
+
+00:04:13.434 --> 00:04:16.033
+em todas as camadas
+convolucionais.
+
+00:04:16.667 --> 00:04:18.467
+Seguindo este processo,
+
+00:04:18.501 --> 00:04:21.700
+nós teremos um método
+para aumentar gradualmente
+
+00:04:21.734 --> 00:04:23.100
+a profundidade do arranjo
+
+00:04:23.134 --> 00:04:25.867
+sem modificar
+a altura e a largura.
+
+00:04:25.901 --> 00:04:29.367
+A entrada, assim como as camadas
+desta sequência,
+
+00:04:29.401 --> 00:04:32.433
+possui altura e largura
+iguais a 32,
+
+00:04:32.467 --> 00:04:37.233
+mas a profundidade aumenta
+de 3 para 16,
+
+00:04:37.267 --> 00:04:40.167
+para 32 e para 64.
+
+00:04:40.201 --> 00:04:44.067
+Nós queríamos aumentar
+a profundidade,
+
+00:04:44.101 --> 00:04:47.667
+mas também queríamos diminuir
+a altura e a largura.
+
+00:04:47.701 --> 00:04:50.700
+É aqui que as camadas
+max pooling entram.
+
+00:04:50.734 --> 00:04:52.067
+Elas geralmente seguem
+
+00:04:52.101 --> 00:04:55.967
+uma ou duas camadas
+convolucionais da sequência.
+
+00:04:56.001 --> 00:04:57.633
+A configuração mais comum
+
+00:04:57.667 --> 00:04:59.733
+usa filtros com tamanhos
+iguais a dois
+
+00:04:59.767 --> 00:05:01.700
+com etapas de dois.
+
+00:05:01.734 --> 00:05:04.633
+Isso faz com que
+as dimensões espaciais
+
+00:05:04.667 --> 00:05:07.967
+tenham metade do tamanho
+da camada anterior.
+
+00:05:08.001 --> 00:05:11.300
+Desta forma, a combinação
+de camadas convolucionais
+
+00:05:11.334 --> 00:05:15.700
+e max pooling alcança a meta
+de obter um arranjo
+
+00:05:15.734 --> 00:05:19.800
+que seja profundo, mas que tenha
+poucas dimensões espaciais.
+
+00:05:19.834 --> 00:05:22.933
+Vamos conferir isso
+entrando o código no Keras
+
+00:05:22.967 --> 00:05:25.567
+para ver como as dimensões
+se alteraram.
+
+00:05:25.601 --> 00:05:27.633
+Como prometido,
+as camadas convolucionais
+
+00:05:27.667 --> 00:05:30.767
+expandiram as profundidades
+dos arranjos de 3 para 16,
+
+00:05:30.801 --> 00:05:33.633
+para 32 e para 64.
+
+00:05:33.667 --> 00:05:37.000
+A camada max pooling diminuiu
+a dimensão espacial
+
+00:05:37.034 --> 00:05:42.067
+de 32 para 16,
+para 8 e para 4.
+
+00:05:42.101 --> 00:05:46.967
+A sequência de camadas descobriu
+os padrões espaciais da imagem.
+
+00:05:47.001 --> 00:05:50.233
+Ela pega os dados espaciais
+
+00:05:50.267 --> 00:05:53.167
+e converte o arranjo
+em uma representação
+
+00:05:53.201 --> 00:05:56.467
+que codifica
+o conteúdo da imagem.
+
+00:05:56.501 --> 00:06:00.800
+Toda a informação espacial
+acaba sendo perdida.
+
+00:06:00.834 --> 00:06:03.367
+Na imagem original,
+é importante saber
+
+00:06:03.401 --> 00:06:06.800
+qual pixel fica próximo
+do outro pixel.
+
+00:06:06.834 --> 00:06:09.633
+Ao ver como a imagem
+foi transformada
+
+00:06:09.667 --> 00:06:11.833
+ao fim da longa sequência,
+
+00:06:11.867 --> 00:06:14.567
+não importa mais
+qual entrada do arranjo
+
+00:06:14.601 --> 00:06:16.567
+fica próxima
+da outra entrada.
+
+00:06:16.601 --> 00:06:20.733
+O arranjo pode responder
+às perguntas:
+
+00:06:20.767 --> 00:06:23.000
+há rodas na imagem?
+
+00:06:23.034 --> 00:06:25.633
+há olhos na imagem?
+
+00:06:25.667 --> 00:06:28.333
+e pernas peludas ou rabos?
+
+00:06:29.100 --> 00:06:31.333
+Uma vez obtida
+a representação,
+
+00:06:31.367 --> 00:06:35.467
+na qual não existe informação
+espacial na imagem,
+
+00:06:35.501 --> 00:06:37.900
+nós podemos transformar
+o arranjo em um vetor
+
+00:06:37.934 --> 00:06:41.300
+e fornecê-lo para uma
+ou mais camadas conectadas
+
+00:06:41.334 --> 00:06:44.900
+para determinar
+o objeto da imagem.
+
+00:06:44.934 --> 00:06:49.700
+Por exemplo, se encontramos rodas
+na última camada max pooling,
+
+00:06:49.734 --> 00:06:53.500
+a camada totalmente conectada
+transformará a informação
+
+00:06:53.534 --> 00:06:56.300
+para prever que há
+um carro na imagem,
+
+00:06:56.334 --> 00:06:58.667
+com probabilidade mais alta.
+
+00:06:58.701 --> 00:07:02.900
+Se houver olhos,
+pernas peludas e rabo,
+
+00:07:02.934 --> 00:07:05.667
+a camada de saída pegará
+estas informações
+
+00:07:05.701 --> 00:07:10.567
+e deduzirá que pode haver
+um cachorro na imagem.
+
+00:07:10.601 --> 00:07:14.800
+É importante lembrar
+que o entendimento do modelo
+
+00:07:14.834 --> 00:07:17.200
+não é pré-especificado
+por nós,
+
+00:07:17.234 --> 00:07:19.833
+ele é aprendido pelo modelo
+durante o treinamento
+
+00:07:19.867 --> 00:07:22.333
+e pela propagação
+de retorno.
+
+00:07:22.367 --> 00:07:24.967
+A arquitetura que estamos
+especificando aqui
+
+00:07:25.001 --> 00:07:29.267
+fornece uma estrutura ao modelo
+que o permitirá treinar melhor.
+
+00:07:29.301 --> 00:07:33.867
+Assim ele poderá classificar
+os objetos de forma mais precisa.
+
+00:07:33.901 --> 00:07:37.333
+Vamos entrar
+estas arquiteturas no Keras.
+
+00:07:37.367 --> 00:07:40.467
+Aqui eu adicionei
+três linhas de códigos.
+
+00:07:40.501 --> 00:07:44.900
+Eu transformei a última
+camada max pooling em um vetor,
+
+00:07:44.934 --> 00:07:48.000
+e duas camadas densas
+foram adicionadas.
+
+00:07:48.034 --> 00:07:51.233
+A última possui função
+de ativação softmax,
+
+00:07:51.267 --> 00:07:53.800
+então ela retorna
+probabilidades.
+
+00:07:53.834 --> 00:07:57.400
+Neste caso, eu dei 10 nós
+à última camada densa,
+
+00:07:57.434 --> 00:08:01.567
+pois o conjunto de dados
+terá 10 classes de objetos.
+
+00:08:01.601 --> 00:08:05.200
+Também é comum dar às camadas
+totalmente conectadas ocultas
+
+00:08:05.234 --> 00:08:09.067
+e à arquitetura CNN
+uma função de ativação ReLU.
+
+00:08:09.101 --> 00:08:11.200
+Eu fiz isso aqui.
+
+00:08:11.234 --> 00:08:15.567
+Nós veremos mais sobre isso
+no próximo vídeo.
+
+00:08:15.601 --> 00:08:20.233
+As ideias que eu apresentei aqui
+são só o começo.
+
+00:08:20.267 --> 00:08:22.133
+Para criar os seus modelos,
+
+00:08:22.167 --> 00:08:24.100
+você precisa praticar
+
+00:08:24.134 --> 00:08:28.267
+testando várias arquiteturas
+e diferentes hiperparâmetros.
+
+00:08:29.133 --> 00:08:31.600
+Deep learning
+é um campo prático,
+
+00:08:31.634 --> 00:08:34.233
+então não tenha medo
+de sujar as mãos
+
+00:08:34.267 --> 00:08:37.133
+e de quebrar as regras.
+
+00:08:37.167 --> 00:08:39.433
+Experimente
+o máximo possível,
+
+00:08:39.467 --> 00:08:42.600
+pergunte e tente responder
+às suas perguntas
+
+00:08:42.634 --> 00:08:45.700
+em vez de ficar só supondo.
+
+00:08:45.734 --> 00:08:48.300
+Se esta for a primeira vez
+que treina CNNs,
+
+00:08:48.334 --> 00:08:51.067
+você levará um tempo
+para desenvolver a intuição,
+
+00:08:51.101 --> 00:08:52.400
+mas continue tentando.
+
+00:08:52.434 --> 00:08:55.900
+Não desanime
+se suas ideias falharem.
+

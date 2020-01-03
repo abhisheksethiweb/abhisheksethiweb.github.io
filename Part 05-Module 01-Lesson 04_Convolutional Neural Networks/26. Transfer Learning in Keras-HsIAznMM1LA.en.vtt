@@ -1,0 +1,226 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:02.173
+As part of the project for this lesson,
+
+00:00:02.173 --> 00:00:05.423
+you'll write a CNN to classify dog breeds.
+
+00:00:05.424 --> 00:00:10.589
+The data set that we give you contains 8351 images,
+
+00:00:10.589 --> 00:00:15.750
+each depicting a dog from one of 133 different breeds.
+
+00:00:15.750 --> 00:00:21.628
+The goal is to create an algorithm that can predict breed just from a dog's picture.
+
+00:00:21.629 --> 00:00:26.565
+In this video, we'll show you how to use transfer learning for this task.
+
+00:00:26.565 --> 00:00:31.785
+We'll use the VGG-16 model pre-trained on the ImageNet data set.
+
+00:00:31.785 --> 00:00:35.579
+The dog data set is relatively small and it
+
+00:00:35.579 --> 00:00:40.289
+has significant overlap with a subset of the ImageNet categories.
+
+00:00:40.289 --> 00:00:43.185
+We learn from the previous video that in this case,
+
+00:00:43.185 --> 00:00:46.009
+we should slice off the end of the network and add
+
+00:00:46.009 --> 00:00:50.590
+a new classification layer with 133 nodes.
+
+00:00:50.590 --> 00:00:53.967
+We then train only the weights in this layer,
+
+00:00:53.966 --> 00:00:57.344
+freezing all the weights in the other layers.
+
+00:00:57.344 --> 00:00:59.405
+There are many ways to accomplish this in Keras,
+
+00:00:59.405 --> 00:01:03.298
+the most computationally efficient way will
+
+00:01:03.298 --> 00:01:08.063
+use the fact that the weights and the pre-trained network will never change.
+
+00:01:08.063 --> 00:01:09.863
+So we can take each image,
+
+00:01:09.864 --> 00:01:17.665
+pass it through the network and stop at the last VGG-16 max pooling layer.
+
+00:01:17.665 --> 00:01:21.915
+This turns each image into another 3D array,
+
+00:01:21.915 --> 00:01:26.174
+which we can then save as part of a new dataset.
+
+00:01:26.174 --> 00:01:28.739
+Then, when we go to code our network,
+
+00:01:28.739 --> 00:01:35.114
+we'll use this new data set as input and our network in Keras will have two layers,
+
+00:01:35.114 --> 00:01:38.665
+an input and an output layer.
+
+00:01:38.665 --> 00:01:43.109
+This new dataset is imported in line 3 of the notebook.
+
+00:01:43.108 --> 00:01:49.128
+We have passed each image through the network for you to save you some time.
+
+00:01:49.129 --> 00:01:55.159
+We will henceforth, refer to this new dataset as composed of bottleneck features.
+
+00:01:55.159 --> 00:01:58.094
+Going by what we learned in the previous video,
+
+00:01:58.093 --> 00:02:03.483
+we need to create a model that takes a 7 by 7 by 512 array,
+
+00:02:03.483 --> 00:02:09.525
+flattens it to a vector and feeds it to a dense layer with a soft Max.
+
+00:02:09.525 --> 00:02:11.490
+That's what we've done here.
+
+00:02:11.490 --> 00:02:13.664
+We'll also summarize the model,
+
+00:02:13.663 --> 00:02:18.809
+and we see that this model has more than 3 million parameters.
+
+00:02:18.810 --> 00:02:21.610
+It would take quite some time to train.
+
+00:02:21.610 --> 00:02:22.965
+We won't train it here,
+
+00:02:22.965 --> 00:02:26.354
+but you're welcome to try it out on your own if you like.
+
+00:02:26.354 --> 00:02:32.085
+We'll instead, do some dimensionality reduction through a global average pooling layer,
+
+00:02:32.085 --> 00:02:35.504
+which we'll also refer to as a gap layer.
+
+00:02:35.503 --> 00:02:40.590
+We'll see that this greatly reduces the number of parameters that we'll need to train.
+
+00:02:40.590 --> 00:02:43.514
+The previous model had over three million,
+
+00:02:43.514 --> 00:02:47.205
+but this one has under 70000.
+
+00:02:47.205 --> 00:02:49.560
+Next, we compile the model;
+
+00:02:49.560 --> 00:02:51.193
+when we train the model,
+
+00:02:51.193 --> 00:02:54.668
+it works lightning fast, even on CPU.
+
+00:02:54.669 --> 00:02:58.560
+This is because our model only has two layers.
+
+00:02:58.560 --> 00:03:01.468
+If we didn't pre-compute the bottleneck features,
+
+00:03:01.468 --> 00:03:05.008
+our training process would be much slower because we'd have to
+
+00:03:05.008 --> 00:03:10.468
+pass every image through a deep neural network at every epic.
+
+00:03:10.468 --> 00:03:12.448
+Next, we load the weights that got
+
+00:03:12.449 --> 00:03:18.210
+the best validation accuracy and when we check the accuracy on the test set,
+
+00:03:18.210 --> 00:03:22.349
+we see that we get around 46%.
+
+00:03:22.348 --> 00:03:27.899
+This doesn't sound too impressive until you consider that random guessing would
+
+00:03:27.900 --> 00:03:34.074
+yield an accuracy of roughly 1 in 133 or less than 1%.
+
+00:03:34.074 --> 00:03:38.469
+But you'll have the opportunity to optimize further in the notebook.
+
+00:03:38.468 --> 00:03:42.188
+These gap layers haven't been around for long.
+
+00:03:42.188 --> 00:03:44.878
+In fact, the first paper to propose
+
+00:03:44.878 --> 00:03:48.788
+their use in CNNs was published a couple of years ago.
+
+00:03:48.788 --> 00:03:51.889
+Even more recently, in mid 2016,
+
+00:03:51.889 --> 00:03:57.718
+researchers at MIT demonstrated that CNNs with gap layers
+
+00:03:57.718 --> 00:03:58.948
+that have been trained for
+
+00:03:58.949 --> 00:04:04.514
+a classification task can also be used for object localization.
+
+00:04:04.514 --> 00:04:10.830
+In other words, the CNNs not only tell us what object is contained in the image,
+
+00:04:10.830 --> 00:04:15.344
+they also tell us where the object is in the image.
+
+00:04:15.343 --> 00:04:18.120
+If you'd like to try out some code that uses
+
+00:04:18.120 --> 00:04:22.785
+a pre-trained ResNet-50 model to localize objects and images,
+
+00:04:22.785 --> 00:04:25.420
+please check out the links below.
+
+00:04:25.420 --> 00:04:27.605
+And that's all for now.
+
+00:04:27.605 --> 00:04:31.350
+In the project, you'll have the opportunity to write your own CNNs from
+
+00:04:31.350 --> 00:04:36.860
+scratch in addition to training models that make use of transfer learning.
+
+00:04:36.860 --> 00:04:42.338
+You're encouraged to try out as many architectures and ideas as you can.
+
+00:04:42.338 --> 00:04:45.658
+Once you've trained your CNN to identify dog breeds,
+
+00:04:45.658 --> 00:04:49.095
+we'll guide you towards using your model in an end to end
+
+00:04:49.095 --> 00:04:54.230
+algorithmic pipeline that could be incorporated into a fun online app.
+
+00:04:54.230 --> 00:04:56.329
+We can't wait to see what you create.
+

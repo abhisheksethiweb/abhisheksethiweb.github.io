@@ -1,0 +1,369 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.133 --> 00:00:02.167
+Como parte do projeto
+desta lição,
+
+00:00:02.201 --> 00:00:05.300
+você escreverá uma CNN
+para classificar raças de cães.
+
+00:00:05.334 --> 00:00:10.567
+O conjunto de dados
+possui 8.351 imagens,
+
+00:00:10.601 --> 00:00:15.467
+cada uma representa um cachorro
+de uma das 133 raças.
+
+00:00:15.501 --> 00:00:19.100
+O objetivo é criar um algoritmo
+que prevê a raça
+
+00:00:19.134 --> 00:00:21.333
+a partir da foto
+de um cachorro.
+
+00:00:21.367 --> 00:00:24.533
+Neste vídeo, veremos como usar
+a transferência de aprendizado
+
+00:00:24.567 --> 00:00:26.367
+para esta tarefa.
+
+00:00:26.401 --> 00:00:29.067
+Nós utilizaremos
+o modelo VGG 16
+
+00:00:29.101 --> 00:00:31.933
+pré-treinado no conjunto
+de dados ImageNet.
+
+00:00:31.967 --> 00:00:35.000
+O conjunto de dados de cão
+é relativamente pequeno
+
+00:00:35.034 --> 00:00:37.000
+e possui sobreposições
+
+00:00:37.034 --> 00:00:40.133
+com um subconjunto
+das categorias do ImageNet.
+
+00:00:40.167 --> 00:00:43.167
+Vimos no vídeo anterior que,
+neste caso,
+
+00:00:43.201 --> 00:00:45.433
+nós devemos remover
+o final da rede
+
+00:00:45.467 --> 00:00:47.667
+e adicionar uma nova
+camada de classificação
+
+00:00:47.701 --> 00:00:50.500
+com 133 nós.
+
+00:00:50.534 --> 00:00:53.900
+Nós treinamos somente os pesos
+nesta camada,
+
+00:00:53.934 --> 00:00:57.300
+congelando os pesos
+das outras camadas.
+
+00:00:57.334 --> 00:01:00.367
+Há muitas maneiras
+de realizar isto no Keras,
+
+00:01:00.401 --> 00:01:04.167
+a mais eficiente
+computacionalmente assumirá
+
+00:01:04.201 --> 00:01:07.933
+que os pesos da rede
+pré-treinada nunca mudarão.
+
+00:01:07.967 --> 00:01:09.833
+Então podemos pegar
+cada imagem,
+
+00:01:09.867 --> 00:01:11.900
+passá-la pela rede
+
+00:01:11.934 --> 00:01:17.533
+e parar na última camada
+max pooling VGG 16.
+
+00:01:17.567 --> 00:01:22.167
+Isso transforma cada imagem
+em outro arranjo em 3D,
+
+00:01:22.201 --> 00:01:26.267
+que podemos salvar como parte
+de um novo banco de dados.
+
+00:01:26.301 --> 00:01:28.833
+E, na hora de codificar
+a nossa rede,
+
+00:01:28.867 --> 00:01:32.000
+nós utilizaremos este novo
+conjunto de dados como entrada
+
+00:01:32.034 --> 00:01:35.200
+e a rede, no Keras,
+terá duas camadas,
+
+00:01:35.234 --> 00:01:38.433
+uma de entrada
+e outra de saída.
+
+00:01:38.467 --> 00:01:41.933
+O novo conjunto de dados
+é importado na linha três
+
+00:01:41.967 --> 00:01:43.433
+do bloco de anotações.
+
+00:01:43.467 --> 00:01:46.833
+Nós passamos toda imagem
+pela rede para você
+
+00:01:46.867 --> 00:01:48.967
+para ganhar tempo.
+
+00:01:49.001 --> 00:01:52.100
+Nós vamos nos referir
+a este novo conjunto de dados
+
+00:01:52.134 --> 00:01:55.200
+como sendo composto
+por recursos de obstrução.
+
+00:01:55.234 --> 00:01:57.933
+A partir do que aprendemos
+no vídeo anterior,
+
+00:01:57.967 --> 00:02:03.500
+nós precisamos criar um modelo
+que pega um arranjo de 7x7x512
+
+00:02:03.534 --> 00:02:05.567
+o transforma em um vetor
+
+00:02:05.601 --> 00:02:09.267
+e o fornece para uma camada
+densa com uma softmax.
+
+00:02:09.301 --> 00:02:11.300
+É isso que nós fizemos aqui.
+
+00:02:11.334 --> 00:02:13.667
+Nós também resumimos
+o modelo
+
+00:02:13.701 --> 00:02:18.700
+e vemos que ele possui mais
+de 3 milhões de parâmetros.
+
+00:02:18.734 --> 00:02:21.433
+Isso levaria muito tempo
+para treinar.
+
+00:02:21.467 --> 00:02:23.000
+Nós não o treinaremos aqui,
+
+00:02:23.034 --> 00:02:26.367
+mas você pode tentar
+se quiser.
+
+00:02:26.401 --> 00:02:29.467
+Nós faremos
+uma redução de dimensão
+
+00:02:29.501 --> 00:02:32.233
+através de uma camada
+pooling de média global,
+
+00:02:32.267 --> 00:02:35.500
+que chamaremos
+de camada GAP.
+
+00:02:35.534 --> 00:02:38.700
+Vemos que isso reduz
+a quantidade de parâmetros
+
+00:02:38.734 --> 00:02:40.633
+que precisaremos treinar.
+
+00:02:40.667 --> 00:02:43.533
+O modelo anterior tinha
+mais de 3 milhões,
+
+00:02:43.567 --> 00:02:47.067
+mas este tem menos de 70.000.
+
+00:02:47.101 --> 00:02:49.867
+Agora nós compilamos
+o modelo.
+
+00:02:49.901 --> 00:02:52.633
+Ao treinar o modelo,
+ele vai rápido,
+
+00:02:52.667 --> 00:02:54.600
+até mesmo na CPU.
+
+00:02:54.634 --> 00:02:58.233
+Isso é porque o modelo
+só tem duas camadas.
+
+00:02:58.267 --> 00:03:01.333
+Se não pré-computássemos
+os recursos de obstrução,
+
+00:03:01.367 --> 00:03:04.233
+o processo de treinamento
+seria bem mais lento,
+
+00:03:04.267 --> 00:03:06.500
+pois teríamos que passar
+toda imagem
+
+00:03:06.534 --> 00:03:08.267
+por uma rede neural
+profunda
+
+00:03:08.301 --> 00:03:10.333
+em cada epoch.
+
+00:03:10.367 --> 00:03:15.267
+Agora nós carregamos os pesos
+com melhor precisão de validação.
+
+00:03:15.301 --> 00:03:18.367
+Ao checar a precisão
+do conjunto de teste,
+
+00:03:18.401 --> 00:03:21.567
+nós acertamos 46%.
+
+00:03:22.200 --> 00:03:24.767
+Isso não parece
+muito impressionante
+
+00:03:24.801 --> 00:03:27.500
+até você se lembrar de que
+a suposição aleatória
+
+00:03:27.534 --> 00:03:31.667
+tinha precisão
+de uma em 133,
+
+00:03:31.701 --> 00:03:34.067
+ou menos de 1%.
+
+00:03:34.101 --> 00:03:38.233
+Você poderá otimizar mais
+no bloco de anotações.
+
+00:03:38.867 --> 00:03:41.967
+As camadas GAP não existem
+há muito tempo.
+
+00:03:42.001 --> 00:03:46.133
+Na verdade, o primeiro trabalho
+a propor o uso nas CNNs
+
+00:03:46.167 --> 00:03:49.067
+foi publicado
+há alguns anos.
+
+00:03:49.101 --> 00:03:52.500
+Mais recentemente,
+na metade de 2016,
+
+00:03:52.534 --> 00:03:54.533
+pesquisadores do MIT
+
+00:03:54.567 --> 00:03:57.667
+demonstraram que as CNNs
+com camadas GAP
+
+00:03:57.701 --> 00:04:00.467
+que foram treinadas
+para a classificação
+
+00:04:00.501 --> 00:04:04.167
+também podem ser utilizadas
+para a localização de objetos.
+
+00:04:04.201 --> 00:04:05.733
+Em outras palavras,
+
+00:04:05.767 --> 00:04:10.767
+as CNNs não dizem somente
+quais objetos estão na imagem,
+
+00:04:10.801 --> 00:04:15.300
+mas também nos dizem
+onde eles estão.
+
+00:04:15.334 --> 00:04:17.400
+Se você quiser experimentar
+alguns códigos
+
+00:04:17.434 --> 00:04:20.333
+que utilizam um modelo
+ResNet 50 pré-treinado
+
+00:04:20.367 --> 00:04:22.767
+para localizar
+objetos em imagens,
+
+00:04:22.801 --> 00:04:25.000
+confira os links abaixo.
+
+00:04:25.667 --> 00:04:27.400
+Isso é tudo.
+
+00:04:27.434 --> 00:04:32.067
+No projeto, você poderá escrever
+sua própria CNN
+
+00:04:32.101 --> 00:04:33.933
+além de modelos
+de treinamento
+
+00:04:33.967 --> 00:04:36.633
+com transferência
+de aprendizado.
+
+00:04:36.667 --> 00:04:41.900
+Você pode testar quantas
+arquiteturas e ideias quiser.
+
+00:04:41.934 --> 00:04:45.600
+Após treinar a sua CNN para
+identificar raça de cachorro,
+
+00:04:45.634 --> 00:04:47.833
+nós mostraremos
+como utilizar o modelo
+
+00:04:47.867 --> 00:04:50.167
+em um canal algorítmico
+de ponta a ponta
+
+00:04:50.201 --> 00:04:54.067
+que pode ser incorporado
+em um aplicativo divertido.
+
+00:04:54.101 --> 00:04:56.267
+Nós queremos ver
+o que você consegue criar.
+

@@ -1,0 +1,304 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:03.359
+When we design an algorithm to classify objects and
+
+00:00:03.359 --> 00:00:07.955
+images we have to deal with a lot of irrelevant information.
+
+00:00:07.955 --> 00:00:10.259
+We really only want our algorithm to
+
+00:00:10.259 --> 00:00:13.544
+determine if an object is present in the image or not.
+
+00:00:13.544 --> 00:00:17.713
+The size of the object doesn't matter neither does the angle.
+
+00:00:17.713 --> 00:00:21.018
+Or if I move it all the way to the right side of the image,
+
+00:00:21.018 --> 00:00:23.788
+it's still an image with an avocado.
+
+00:00:23.789 --> 00:00:27.300
+In other words, we can say that we want our algorithm to
+
+00:00:27.300 --> 00:00:31.579
+learn an invariant representation of the image.
+
+00:00:31.579 --> 00:00:36.829
+We don't want our model to change its prediction based on the size of the object.
+
+00:00:36.829 --> 00:00:39.615
+This is called scale invariance.
+
+00:00:39.615 --> 00:00:43.868
+Likewise, we don't want the angle of the object to matter.
+
+00:00:43.868 --> 00:00:46.585
+This is called rotation invariance.
+
+00:00:46.585 --> 00:00:49.170
+If I shift the image a little to the left or to
+
+00:00:49.170 --> 00:00:53.262
+the right well it's still an image with an avocado,
+
+00:00:53.262 --> 00:00:56.439
+and this is called translation invariance.
+
+00:00:56.439 --> 00:01:02.084
+CNNs do have some built in translation invariance.
+
+00:01:02.084 --> 00:01:07.480
+To see this, you'll need to first recall how we calculate max pooling layers.
+
+00:01:07.480 --> 00:01:09.644
+Remember that at each window location,
+
+00:01:09.644 --> 00:01:13.500
+we took the maximum of the pixels contained in the window.
+
+00:01:13.500 --> 00:01:17.430
+This maximum value can occur anywhere within the window.
+
+00:01:17.430 --> 00:01:21.030
+The value of the max pooling node would be the same,
+
+00:01:21.030 --> 00:01:24.989
+if we translated the image a little to the left, to the right,
+
+00:01:24.989 --> 00:01:30.299
+up, down as long as the maximum value stays within the window.
+
+00:01:30.299 --> 00:01:34.275
+The effect of applying many max pooling layers in a sequence,
+
+00:01:34.275 --> 00:01:37.305
+each one following a convolutional layer
+
+00:01:37.305 --> 00:01:40.709
+is that we could translate the object quite far to the left,
+
+00:01:40.709 --> 00:01:42.030
+to the top of the image,
+
+00:01:42.030 --> 00:01:47.189
+to the bottom of the image and still our network will be able to make sense of it all.
+
+00:01:47.188 --> 00:01:50.158
+This is truly a non-trivial problem.
+
+00:01:50.159 --> 00:01:53.694
+Recall that the computer only sees a matrix of pixels.
+
+00:01:53.694 --> 00:01:56.715
+And transforming an object scale, rotation,
+
+00:01:56.715 --> 00:02:01.144
+or position in the image has a huge effect on the pixel values.
+
+00:02:01.144 --> 00:02:04.620
+We, as humans, can see the difference in images quite
+
+00:02:04.620 --> 00:02:07.019
+clearly but how do you think you do
+
+00:02:07.019 --> 00:02:10.145
+if you were just given the corresponding array of numbers.
+
+00:02:10.145 --> 00:02:12.659
+Thankfully, there's a technique that works well for
+
+00:02:12.658 --> 00:02:16.275
+making our algorithms more statistically invariant,
+
+00:02:16.275 --> 00:02:20.093
+but it will feel a little bit like cheating.
+
+00:02:20.093 --> 00:02:21.900
+The idea is this,
+
+00:02:21.900 --> 00:02:25.710
+if you want your CNN to be rotation invariant,
+
+00:02:25.710 --> 00:02:29.120
+well then you can just add some images to your training set
+
+00:02:29.120 --> 00:02:33.389
+created by doing random rotations on your training images.
+
+00:02:33.389 --> 00:02:35.925
+If you want more translation invariance,
+
+00:02:35.925 --> 00:02:39.300
+you can also just add new images created
+
+00:02:39.300 --> 00:02:43.050
+by doing random translations of your training images.
+
+00:02:43.050 --> 00:02:48.599
+When we do this, we see that we have expanded the training set by augmenting the data.
+
+00:02:48.598 --> 00:02:53.783
+Data augmentation will also help us to avoid overfitting.
+
+00:02:53.783 --> 00:02:57.538
+This is because the model is seeing many new images.
+
+00:02:57.538 --> 00:03:00.448
+Thus, it should be better at generalizing
+
+00:03:00.449 --> 00:03:04.129
+and we should get better performance on the test dataset.
+
+00:03:04.128 --> 00:03:07.533
+Let's augment the training data and see if our 10 data
+
+00:03:07.533 --> 00:03:12.063
+set from the previous video and see if we can improve our test accuracy.
+
+00:03:12.063 --> 00:03:16.408
+We'll be using a Jupyter notebook that you can download below.
+
+00:03:16.408 --> 00:03:18.318
+After importing the data,
+
+00:03:18.318 --> 00:03:23.068
+we import a python class called ImageDataGenerator.
+
+00:03:23.068 --> 00:03:26.549
+This class will do all of the augmentation for us.
+
+00:03:26.550 --> 00:03:29.909
+We just need to tell it what kind of augmentation we want.
+
+00:03:29.908 --> 00:03:31.429
+In this line of code,
+
+00:03:31.429 --> 00:03:34.710
+I create an augmented image generator that
+
+00:03:34.710 --> 00:03:38.889
+will randomly shift my images vertically and horizontally.
+
+00:03:38.889 --> 00:03:43.805
+It will also randomly horizontally flip my images.
+
+00:03:43.805 --> 00:03:46.185
+Now that the configuration is specified,
+
+00:03:46.185 --> 00:03:48.750
+I need to fit it to my data.
+
+00:03:48.750 --> 00:03:52.080
+Let's see what some of these augmented images look like.
+
+00:03:52.080 --> 00:03:54.629
+We'll visualize augmentations of
+
+00:03:54.628 --> 00:04:00.614
+only the first 12 training images which I've stored in the array extreme subset.
+
+00:04:00.615 --> 00:04:03.284
+We now just need to call the flow function.
+
+00:04:03.283 --> 00:04:06.948
+We'll get more into the details of that in a few minutes.
+
+00:04:06.949 --> 00:04:11.375
+For now, let's check out the outputted augmented images.
+
+00:04:11.375 --> 00:04:15.400
+Try to match them to their corresponding original image.
+
+00:04:15.400 --> 00:04:18.841
+Can you see how the augmented images have been created?
+
+00:04:18.841 --> 00:04:22.454
+Which ones have been shifted and which have been flipped?
+
+00:04:22.454 --> 00:04:25.014
+Before using these augmented images,
+
+00:04:25.014 --> 00:04:28.028
+we'll need to define our CNN architecture.
+
+00:04:28.028 --> 00:04:31.425
+We'll use the model from the previous video.
+
+00:04:31.425 --> 00:04:33.853
+We'll compile the model as before.
+
+00:04:33.853 --> 00:04:38.279
+But now when we go to fit our CNN to the augmented training data,
+
+00:04:38.279 --> 00:04:41.018
+the commands are a little bit different.
+
+00:04:41.019 --> 00:04:46.079
+The training step looks mostly the same except for three differences.
+
+00:04:46.079 --> 00:04:50.430
+First, fit has been changed to fit generator.
+
+00:04:50.430 --> 00:04:53.910
+Whenever you're fitting your CNN augmented images that
+
+00:04:53.910 --> 00:04:57.569
+are being generated by the ImageDataGenerator class,
+
+00:04:57.569 --> 00:05:01.550
+you always change the fit command to fit_generator.
+
+00:05:01.550 --> 00:05:05.110
+Second in place of the training data we have
+
+00:05:05.110 --> 00:05:09.595
+this flow command that has been executed on our training set.
+
+00:05:09.595 --> 00:05:14.300
+It makes the data generator create batches of augmented images.
+
+00:05:14.300 --> 00:05:19.584
+Remember that we visualized one of these batches in the previous step in the notebook.
+
+00:05:19.584 --> 00:05:22.778
+You'll always pass in the train set with
+
+00:05:22.778 --> 00:05:28.894
+the corresponding labels along with the number of images that you want in a batch.
+
+00:05:28.894 --> 00:05:34.750
+Third, we're required to specify a variable that encodes the number of steps per epoch.
+
+00:05:34.750 --> 00:05:41.785
+It's typically set to the number of unique samples in a set divided by the batch size.
+
+00:05:41.785 --> 00:05:43.295
+By running this code so,
+
+00:05:43.295 --> 00:05:45.009
+we can train the model.
+
+00:05:45.009 --> 00:05:49.120
+And we load the weights that got the best validation accuracy.
+
+00:05:49.120 --> 00:05:50.829
+When we test the model,
+
+00:05:50.829 --> 00:05:55.040
+we get a test accuracy of over 68 percent.
+
+00:05:55.040 --> 00:06:01.050
+This is an improvement over the model we trained without augmentation in the last video.
+
+00:06:01.050 --> 00:06:04.720
+In fact, augmentation is used extensively in
+
+00:06:04.720 --> 00:06:10.000
+real world applications to boost the performance of CNN models.
+

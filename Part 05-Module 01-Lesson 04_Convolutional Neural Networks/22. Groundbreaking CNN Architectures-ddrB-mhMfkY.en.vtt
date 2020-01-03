@@ -1,0 +1,142 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:04.589
+ImageNet is a database of over 10 million hand labeled images,
+
+00:00:04.589 --> 00:00:08.349
+drawn from 1000 different image categories.
+
+00:00:08.349 --> 00:00:11.429
+Since 2010, the ImageNet project has held
+
+00:00:11.429 --> 00:00:15.615
+the ImageNet large scale visual recognition competition,
+
+00:00:15.615 --> 00:00:18.570
+an annual competition where teams try to build
+
+00:00:18.570 --> 00:00:23.445
+the best CNN for object recognition and classification.
+
+00:00:23.445 --> 00:00:26.489
+The first breakthrough was in 2012.
+
+00:00:26.489 --> 00:00:28.574
+The network called AlexNet,
+
+00:00:28.574 --> 00:00:32.859
+was developed by a team at the University of Toronto.
+
+00:00:32.859 --> 00:00:36.539
+Using the best GPUs available in 2012,
+
+00:00:36.539 --> 00:00:40.804
+the AlexNet team trained the network in about a week.
+
+00:00:40.804 --> 00:00:42.840
+AlexNet pioneered the use of
+
+00:00:42.840 --> 00:00:49.554
+the ReLU activation function and dropout as a technique for avoiding overfitting.
+
+00:00:49.554 --> 00:00:55.844
+In 2014, two different groups nearly tied in the image net competition.
+
+00:00:55.844 --> 00:00:59.670
+One of those networks was called VGG Net,
+
+00:00:59.670 --> 00:01:03.195
+often referred to as just VGG.
+
+00:01:03.195 --> 00:01:08.385
+And it came from the visual geometry group at Oxford University.
+
+00:01:08.385 --> 00:01:14.984
+VGG has two versions termed VGG 16 and VGG 19,
+
+00:01:14.983 --> 00:01:19.348
+with 16 and 19 total layers, respectively.
+
+00:01:19.349 --> 00:01:22.799
+Both versions have a simple and elegant architecture,
+
+00:01:22.799 --> 00:01:26.625
+which is just a long sequence of three by three convolutions,
+
+00:01:26.625 --> 00:01:33.495
+broken up by two by two pulling layers and finished with three fully connected layers.
+
+00:01:33.495 --> 00:01:37.620
+VGG pioneered the exclusive use of small three by
+
+00:01:37.620 --> 00:01:45.254
+three convolution windows to contrast AlexNet's much larger 11 by 11 windows.
+
+00:01:45.254 --> 00:01:51.914
+In 2015, the ImageNet winner was a network from Microsoft Research called ResNet,
+
+00:01:51.914 --> 00:01:54.745
+ResNet is kind of like VGG,
+
+00:01:54.745 --> 00:01:59.954
+and not the same structure is repeated again and again for layer after layer.
+
+00:01:59.953 --> 00:02:05.354
+Also like VGG, ResNet has different versions that vary in their number of layers.
+
+00:02:05.355 --> 00:02:10.830
+The largest having a groundbreaking 152 layers.
+
+00:02:10.830 --> 00:02:14.340
+Previous researchers tried to make their CNNs this deep,
+
+00:02:14.340 --> 00:02:17.745
+but they ran into a problem where as they were adding layers,
+
+00:02:17.745 --> 00:02:23.250
+performance increased up to a point after which performance quickly declined.
+
+00:02:23.250 --> 00:02:27.330
+This is partially due to what's known as the vanishing gradient problem,
+
+00:02:27.330 --> 00:02:32.219
+which arises when we go to train the network through back propagation.
+
+00:02:32.218 --> 00:02:37.818
+The main idea, is that the gradient signal has to be pushed through the entire network.
+
+00:02:37.818 --> 00:02:39.598
+The deeper the network becomes,
+
+00:02:39.598 --> 00:02:44.968
+the more likely that the signal gets weakened before it gets where it needs to go.
+
+00:02:44.968 --> 00:02:47.728
+The ResNet team added connections to
+
+00:02:47.729 --> 00:02:49.620
+their very deep CNN that
+
+00:02:49.620 --> 00:02:54.843
+skipped layers so the gradient signal has a shorter route to travel.
+
+00:02:54.843 --> 00:03:01.060
+ResNet achieved superhuman performance in classifying images in the ImageNet database.
+
+00:03:01.060 --> 00:03:05.986
+In Keras, it's a simple task to import ResNet 50.
+
+00:03:05.986 --> 00:03:10.168
+Both VGG 16 and VGG 19 are also easily
+
+00:03:10.169 --> 00:03:14.520
+accessed through Keras in addition to two other architectures,
+
+00:03:14.520 --> 00:03:17.014
+named inception and exception.
+
+00:03:17.014 --> 00:03:21.000
+We'll show you how to do this in the next video.
+
