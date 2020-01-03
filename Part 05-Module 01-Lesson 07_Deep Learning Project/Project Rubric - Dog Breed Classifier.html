@@ -1,0 +1,440 @@
+<!-- udacimak v1.2.0 -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Dog Breed Classifier</title>
+  <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../assets/css/plyr.css">
+  <link rel="stylesheet" href="../assets/css/katex.min.css">
+  <link rel="stylesheet" href="../assets/css/jquery.mCustomScrollbar.min.css">
+  <link rel="stylesheet" href="../assets/css/styles.css">
+  <link rel="shortcut icon" type="image/png" href="../assets/img/udacimak.png" />
+</head>
+
+<body>
+  <div class="wrapper">
+    <nav id="sidebar">
+  <div class="sidebar-header">
+    <h3>Deep Learning Project</h3>
+  </div>
+
+  <ul class="sidebar-list list-unstyled CTAs">
+    <li>
+      <a href="../index.html" class="article">Back to Home</a>
+    </li>
+  </ul>
+
+  <ul class="sidebar-list list-unstyled components">
+    <li class="">
+      <a href="01. Dog Breed Recognition Project.html">01. Dog Breed Recognition Project</a>
+    </li>
+    <li class="">
+      <a href="02. Dog Breed Workspace.html">02. Dog Breed Workspace</a>
+    </li>
+    <li class="">
+      <a href="Project Description - Dog Breed Classifier.html">Project Description - Dog Breed Classifier</a>
+    </li>
+    <li class="">
+      <a href="Project Rubric - Dog Breed Classifier.html">Project Rubric - Dog Breed Classifier</a>
+    </li>
+  </ul>
+
+  <ul class="sidebar-list list-unstyled CTAs">
+    <li>
+      <a href="../index.html" class="article">Back to Home</a>
+    </li>
+  </ul>
+</nav>
+
+    <div id="content">
+      <header class="container-fluild header">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <div class="align-items-middle">
+                <button type="button" id="sidebarCollapse" class="btn btn-toggle-sidebar">
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                </button>
+
+                <h1 style="display: inline-block">Dog Breed Classifier</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main class="container">
+        <div class="row">
+          <div class="col-12">
+            
+      <div>
+        <h2><p>Files Submitted</p></h2>
+        <table class="table table-bordered table-hover">
+          <thead>
+            <tr class="thead-dark">
+              <th>Criteria</th>
+              <th>Meet Specification</th>
+            </tr>
+          </thead>
+          
+    <tbody>
+      
+      <tr scope="row">
+        <td>
+          <p>Submission Files</p>
+        </td>
+        <td>
+          <p>The submission includes all required files.</p>
+        </td>
+      </tr>
+    
+    </tbody>
+  
+        </table>
+
+      </div>
+    
+      <div>
+        <h2><p>Step 1: Detect Humans</p></h2>
+        <table class="table table-bordered table-hover">
+          <thead>
+            <tr class="thead-dark">
+              <th>Criteria</th>
+              <th>Meet Specification</th>
+            </tr>
+          </thead>
+          
+    <tbody>
+      
+      <tr scope="row">
+        <td>
+          <p><strong>Question 1:</strong> Assess the Human Face Detector</p>
+        </td>
+        <td>
+          <p>The submission returns the percentage of the first 100 images in the dog and human face datasets with a detected human face.</p>
+        </td>
+      </tr>
+    
+      <tr scope="row">
+        <td>
+          <p><strong>Question 2:</strong> Assess the Human Face Detector</p>
+        </td>
+        <td>
+          <p>The submission opines whether Haar cascades for face detection are an appropriate technique for human detection.</p>
+        </td>
+      </tr>
+    
+    </tbody>
+  
+        </table>
+
+      </div>
+    
+      <div>
+        <h2><p>Step 2: Detect Dogs</p></h2>
+        <table class="table table-bordered table-hover">
+          <thead>
+            <tr class="thead-dark">
+              <th>Criteria</th>
+              <th>Meet Specification</th>
+            </tr>
+          </thead>
+          
+    <tbody>
+      
+      <tr scope="row">
+        <td>
+          <p><strong>Question 3:</strong> Assess the Dog Detector</p>
+        </td>
+        <td>
+          <p>The submission returns the percentage of the first 100 images in the dog and human face datasets with a detected dog. </p>
+        </td>
+      </tr>
+    
+    </tbody>
+  
+        </table>
+
+      </div>
+    
+      <div>
+        <h2><p>Step 3: Create a CNN to Classify Dog Breeds (from Scratch)</p></h2>
+        <table class="table table-bordered table-hover">
+          <thead>
+            <tr class="thead-dark">
+              <th>Criteria</th>
+              <th>Meet Specification</th>
+            </tr>
+          </thead>
+          
+    <tbody>
+      
+      <tr scope="row">
+        <td>
+          <p>Model Architecture</p>
+        </td>
+        <td>
+          <p>The submission specifies a CNN architecture.</p>
+        </td>
+      </tr>
+    
+      <tr scope="row">
+        <td>
+          <p>Train the Model </p>
+        </td>
+        <td>
+          <p>The submission specifies the number of epochs used to train the algorithm.</p>
+        </td>
+      </tr>
+    
+      <tr scope="row">
+        <td>
+          <p>Test the Model</p>
+        </td>
+        <td>
+          <p>The trained model attains at least 1% accuracy on the test set.</p>
+        </td>
+      </tr>
+    
+    </tbody>
+  
+        </table>
+
+      </div>
+    
+      <div>
+        <h2><p>Step 5: Create a CNN to Classify Dog Breeds</p></h2>
+        <table class="table table-bordered table-hover">
+          <thead>
+            <tr class="thead-dark">
+              <th>Criteria</th>
+              <th>Meet Specification</th>
+            </tr>
+          </thead>
+          
+    <tbody>
+      
+      <tr scope="row">
+        <td>
+          <p>Obtain Bottleneck Features</p>
+        </td>
+        <td>
+          <p>The submission downloads the bottleneck features corresponding to one of the Keras pre-trained models (VGG-19, ResNet-50, Inception, or Xception).</p>
+        </td>
+      </tr>
+    
+      <tr scope="row">
+        <td>
+          <p>Model Architecture</p>
+        </td>
+        <td>
+          <p>The submission specifies a model architecture.</p>
+        </td>
+      </tr>
+    
+      <tr scope="row">
+        <td>
+          <p><strong>Question 5</strong>: Model Architecture</p>
+        </td>
+        <td>
+          <p>The submission details why the chosen architecture succeeded in the classification task and why earlier attempts were not as successful.</p>
+        </td>
+      </tr>
+    
+      <tr scope="row">
+        <td>
+          <p>Compile the Model</p>
+        </td>
+        <td>
+          <p>The submission compiles the architecture by specifying the loss function and optimizer. </p>
+        </td>
+      </tr>
+    
+      <tr scope="row">
+        <td>
+          <p>Train the Model</p>
+        </td>
+        <td>
+          <p>The submission uses model checkpointing to train the model and saves the model weights with the best validation loss. </p>
+        </td>
+      </tr>
+    
+      <tr scope="row">
+        <td>
+          <p>Load the Model with the Best Validation Loss</p>
+        </td>
+        <td>
+          <p>The submission loads the model weights that attained the least validation loss.</p>
+        </td>
+      </tr>
+    
+      <tr scope="row">
+        <td>
+          <p>Test the Model</p>
+        </td>
+        <td>
+          <p>Accuracy on the test set is 60% or greater.</p>
+        </td>
+      </tr>
+    
+      <tr scope="row">
+        <td>
+          <p>Predict Dog Breed with the Model</p>
+        </td>
+        <td>
+          <p>The submission includes a function that takes a file path to an image as input and returns the dog breed that is predicted by the CNN.</p>
+        </td>
+      </tr>
+    
+    </tbody>
+  
+        </table>
+
+      </div>
+    
+      <div>
+        <h2><p>Step 6: Write Your Algorithm</p></h2>
+        <table class="table table-bordered table-hover">
+          <thead>
+            <tr class="thead-dark">
+              <th>Criteria</th>
+              <th>Meet Specification</th>
+            </tr>
+          </thead>
+          
+    <tbody>
+      
+      <tr scope="row">
+        <td>
+          <p>Write your Algorithm</p>
+        </td>
+        <td>
+          <p>The submission uses the CNN from Step 5 to detect dog breed.  The submission has different output for each detected image type (dog, human, other) and provides either predicted actual (or resembling) dog breed.</p>
+        </td>
+      </tr>
+    
+    </tbody>
+  
+        </table>
+
+      </div>
+    
+      <div>
+        <h2><p>Step 7: Test Your Algorithm</p></h2>
+        <table class="table table-bordered table-hover">
+          <thead>
+            <tr class="thead-dark">
+              <th>Criteria</th>
+              <th>Meet Specification</th>
+            </tr>
+          </thead>
+          
+    <tbody>
+      
+      <tr scope="row">
+        <td>
+          <p>Test Your Algorithm on Sample Images!</p>
+        </td>
+        <td>
+          <p>The submission tests at least 6 images, including at least two human and two dog images.</p>
+        </td>
+      </tr>
+    
+    </tbody>
+  
+        </table>
+
+      </div>
+    
+      <div class="jumbotron">
+        <h3>Tips to make your project standout:</h3>
+        <p><p>(Presented in no particular order …)</p>
+<h4 id="1-augment-the-training-data">(1) Augment the Training Data</h4>
+<p><a href="https://blog.keras.io/building-powerful-image-classification-models-using-very-little-data.html" target="_blank">Augmenting the training and/or validation set</a> might help improve model performance. </p>
+<h4 id="2-turn-your-algorithm-into-a-web-app">(2) Turn your Algorithm into a Web App</h4>
+<p>Turn your code into a web app using <a href="http://flask.pocoo.org/" target="_blank">Flask</a> or <a href="http://webpy.org/docs/0.3/tutorial" target="_blank">web.py</a>!  </p>
+<h4 id="3-overlay-dog-ears-on-detected-human-heads">(3) Overlay Dog Ears on Detected Human Heads</h4>
+<p>Overlay a Snapchat-like filter with dog ears on detected human heads.  You can determine where to place the ears through the use of the OpenCV face detector, which returns a bounding box for the face.  If you would also like to overlay a dog nose filter, some nice tutorials for facial keypoints detection exist <a href="https://www.kaggle.com/c/facial-keypoints-detection/details/deep-learning-tutorial" target="_blank">here</a>.</p>
+<h4 id="4-add-functionality-for-dog-mutts">(4) Add Functionality for Dog Mutts</h4>
+<p>Currently, if a dog appears 51% German Shephard and 49% poodle, only the German Shephard breed is returned.  The algorithm is currently guaranteed to fail for every mixed breed dog.  Of course, if a dog is predicted as 99.5% Labrador, it is still worthwhile to round this to 100% and return a single breed; so, you will have to find a nice balance.  </p>
+<h4 id="5-experiment-with-multiple-doghuman-detectors">(5) Experiment with Multiple Dog/Human Detectors</h4>
+<p>Perform a systematic evaluation of various methods for detecting humans and dogs in images.  Provide improved methodology for the <code>face_detector</code> and <code>dog_detector</code> functions.</p></p>
+      </div>
+    
+          </div>
+        </div>
+      </main>
+
+      <footer class="footer">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <p class="text-center">
+                <a href="https://github.com/udacimak/udacimak#readme" target="_blank">udacimak v1.2.0</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </div>
+
+
+  <script src="../assets/js/jquery-3.3.1.min.js"></script>
+  <script src="../assets/js/plyr.polyfilled.min.js"></script>
+  <script src="../assets/js/bootstrap.min.js"></script>
+  <script src="../assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+  <script src="../assets/js/katex.min.js"></script>
+  <script>
+    // Initialize Plyr video players
+    const players = Array.from(document.querySelectorAll('video')).map(p => new Plyr(p));
+
+    // render math equations
+    let elMath = document.getElementsByClassName('mathquill');
+    for (let i = 0, len = elMath.length; i < len; i += 1) {
+      const el = elMath[i];
+
+      katex.render(el.textContent, el, {
+        throwOnError: false
+      });
+    }
+
+    // this hack will make sure Bootstrap tabs work when using Handlebars
+    if ($('#question-tabs').length && $('#user-answer-tabs').length) {
+      $("#question-tabs a.nav-link").on('click', function () {
+        $("#question-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+      $("#user-answer-tabs a.nav-link").on('click', function () {
+        $("#user-answer-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    } else {
+      $("a.nav-link").on('click', function () {
+        $(".tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    }
+
+    // side bar events
+    $(document).ready(function () {
+      $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+      });
+
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar, #content').toggleClass('active');
+        $('.collapse.in').toggleClass('in');
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+      });
+    });
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,177 @@
+<!-- udacimak v1.2.0 -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Dog Breed Classifier</title>
+  <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../assets/css/plyr.css">
+  <link rel="stylesheet" href="../assets/css/katex.min.css">
+  <link rel="stylesheet" href="../assets/css/jquery.mCustomScrollbar.min.css">
+  <link rel="stylesheet" href="../assets/css/styles.css">
+  <link rel="shortcut icon" type="image/png" href="../assets/img/udacimak.png" />
+</head>
+
+<body>
+  <div class="wrapper">
+    <nav id="sidebar">
+  <div class="sidebar-header">
+    <h3>Deep Learning Project</h3>
+  </div>
+
+  <ul class="sidebar-list list-unstyled CTAs">
+    <li>
+      <a href="../index.html" class="article">Back to Home</a>
+    </li>
+  </ul>
+
+  <ul class="sidebar-list list-unstyled components">
+    <li class="">
+      <a href="01. Dog Breed Recognition Project.html">01. Dog Breed Recognition Project</a>
+    </li>
+    <li class="">
+      <a href="02. Dog Breed Workspace.html">02. Dog Breed Workspace</a>
+    </li>
+    <li class="">
+      <a href="Project Description - Dog Breed Classifier.html">Project Description - Dog Breed Classifier</a>
+    </li>
+    <li class="">
+      <a href="Project Rubric - Dog Breed Classifier.html">Project Rubric - Dog Breed Classifier</a>
+    </li>
+  </ul>
+
+  <ul class="sidebar-list list-unstyled CTAs">
+    <li>
+      <a href="../index.html" class="article">Back to Home</a>
+    </li>
+  </ul>
+</nav>
+
+    <div id="content">
+      <header class="container-fluild header">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <div class="align-items-middle">
+                <button type="button" id="sidebarCollapse" class="btn btn-toggle-sidebar">
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                </button>
+
+                <h1 style="display: inline-block">Dog Breed Classifier</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main class="container">
+        <div class="row">
+          <div class="col-12">
+            
+    
+    <h2 id="project-overview">Project Overview</h2>
+<p>Welcome to the Convolutional Neural Networks (CNN) project! In this project, you will learn how to build a pipeline to process real-world, user-supplied images.  Given an image of a dog, your algorithm will identify an estimate of the canine’s breed.  If supplied an image of a human, the code will identify the resembling dog breed.  </p>
+<p>Along with exploring state-of-the-art CNN models for classification, you will make important design decisions about the user experience for your app.  Our goal is that by completing this lab, you understand the challenges involved in piecing together a series of models designed to perform various tasks in a data processing pipeline.  Each model has its strengths and weaknesses, and engineering a real-world application often involves solving many problems without a perfect answer.  Your imperfect solution will nonetheless create a fun user experience!</p>
+<h2 id="project-instructions">Project Instructions</h2>
+<p>Clone the project from the GitHub <a href="https://github.com/udacity/dog-project" target="_blank">repository</a>.  Follow the instructions in the README to complete the project.</p>
+<h2 id="evaluation">Evaluation</h2>
+<p>Your project will be reviewed by a Udacity reviewer against the CNN project <a href="https://review.udacity.com/#!/rubrics/810/view" target="_blank">rubric</a>.  Review this rubric thoroughly, and self-evaluate your project before submission.  All criteria found in the rubric must meet specifications for you to pass.</p>
+<h2 id="project-submission">Project Submission</h2>
+<p>When you are ready to submit your project, collect the following files and compress them into a single archive for upload:</p>
+<ul>
+<li>The <code>dog_app.ipynb</code> file with fully functional code, all code cells executed and displaying output, and all questions answered.</li>
+<li>An HTML or PDF export of the project notebook with the name <code>report.html</code> or <code>report.pdf</code>.</li>
+<li>Any additional images used for the project that were not supplied to you for the project. <strong>Please do not include the project data sets in the <code>dogImages/</code> or <code>lfw/</code> folders.  Likewise, please do not include the <code>bottleneck_features/</code> folder.</strong></li>
+</ul>
+<p>Alternatively, your submission could consist of the GitHub link to your repository.</p>
+<h2 id="submitting-using-the-workspace">Submitting Using the Workspace</h2>
+<p>If you used the provided workspace to complete the project, the easiest way to submit would be the following:</p>
+<ol>
+<li>Download an HTML version of the notebook to your computer using 'File: Download as…'</li>
+<li>Click on the orange Jupyter circle on the top left of the workspace.</li>
+<li>Navigate into the dog-project folder to ensure that you are using the provided dog_images, lfw, and bottleneck_features folders; this means that those folders will <em>not</em> appear in the dog-project folder.  If they do appear because you downloaded them, delete them.</li>
+<li>While in the dog-project folder, upload the HTML version of this notebook you just downloaded.  The upload button is on the top right.</li>
+<li>Navigate back to the home folder by clicking on the two dots next to the folder icon, and then open up a terminal under the 'new' tab on the top right</li>
+<li>Zip the dog-project folder with the following command in the terminal:<br />
+<code>zip -r dog-project.zip dog-project</code></li>
+<li>Download the zip file by clicking on the square next to it and selecting 'download'.  This will be the zip file you submit on this page!</li>
+</ol>
+<h3 id="ready-to-submit-your-project">Ready to submit your project?</h3>
+<p>Click on the "Submit Project" button and follow the instructions to submit!</p>
+  
+          </div>
+        </div>
+      </main>
+
+      <footer class="footer">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <p class="text-center">
+                <a href="https://github.com/udacimak/udacimak#readme" target="_blank">udacimak v1.2.0</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </div>
+
+
+  <script src="../assets/js/jquery-3.3.1.min.js"></script>
+  <script src="../assets/js/plyr.polyfilled.min.js"></script>
+  <script src="../assets/js/bootstrap.min.js"></script>
+  <script src="../assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+  <script src="../assets/js/katex.min.js"></script>
+  <script>
+    // Initialize Plyr video players
+    const players = Array.from(document.querySelectorAll('video')).map(p => new Plyr(p));
+
+    // render math equations
+    let elMath = document.getElementsByClassName('mathquill');
+    for (let i = 0, len = elMath.length; i < len; i += 1) {
+      const el = elMath[i];
+
+      katex.render(el.textContent, el, {
+        throwOnError: false
+      });
+    }
+
+    // this hack will make sure Bootstrap tabs work when using Handlebars
+    if ($('#question-tabs').length && $('#user-answer-tabs').length) {
+      $("#question-tabs a.nav-link").on('click', function () {
+        $("#question-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+      $("#user-answer-tabs a.nav-link").on('click', function () {
+        $("#user-answer-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    } else {
+      $("a.nav-link").on('click', function () {
+        $(".tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    }
+
+    // side bar events
+    $(document).ready(function () {
+      $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+      });
+
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar, #content').toggleClass('active');
+        $('.collapse.in').toggleClass('in');
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+      });
+    });
+  </script>
+</body>
+
+</html>
