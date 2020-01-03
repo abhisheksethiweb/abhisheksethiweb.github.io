@@ -1,0 +1,171 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.511 --> 00:00:02.714
+Coarse Coding
+é como o Tile Coding,
+
+00:00:03.020 --> 00:00:05.672
+mas usa um conjunto de recursos
+mais esparsos para codificar
+
+00:00:05.706 --> 00:00:07.104
+o espaço do estado.
+
+00:00:07.537 --> 00:00:11.769
+Imagine jogar um monte de círculos
+no seu espaço de estado contínuo 2D.
+
+00:00:12.281 --> 00:00:15.377
+Pegue qualquer estado "S",
+que é uma posição no espaço,
+
+00:00:15.411 --> 00:00:18.473
+e marque todos os círculos
+aos quais ele pertence.
+
+00:00:18.507 --> 00:00:21.513
+Prepare um bit vector
+com 1 para esses círculos
+
+00:00:21.547 --> 00:00:23.033
+e 0 para o resto.
+
+00:00:23.067 --> 00:00:26.393
+Essa é a sua representação
+Sparse Coding do estado.
+
+00:00:26.857 --> 00:00:30.777
+Observar um espaço 2D nos ajuda
+a visualizar a ideia básica,
+
+00:00:30.811 --> 00:00:33.266
+mas também se estende
+para dimensões maiores,
+
+00:00:33.300 --> 00:00:36.633
+onde círculos tornam-se
+esferas e hiperesferas.
+
+00:00:37.120 --> 00:00:39.792
+O Coarse Coding tem algumas
+propriedades legais.
+
+00:00:39.826 --> 00:00:44.392
+Usar círculos menores resulta
+em menos generalização no espaço.
+
+00:00:44.426 --> 00:00:47.344
+O algoritmo de aprendizagem
+precisa trabalhar um pouco mais,
+
+00:00:47.378 --> 00:00:50.713
+mas você obtém uma resolução
+melhor e mais eficaz.
+
+00:00:51.160 --> 00:00:54.064
+Círculos maiores levam
+a mais generalização
+
+00:00:54.098 --> 00:00:56.745
+e, no geral, a uma função
+de valor mais suave.
+
+00:00:57.011 --> 00:01:00.014
+Você pode usar menos círculos
+maiores para ocupar o espaço,
+
+00:01:00.048 --> 00:01:02.472
+reduzindo, assim,
+sua representação.
+
+00:01:02.506 --> 00:01:05.360
+Mas você perderia
+um pouco da resolução.
+
+00:01:05.394 --> 00:01:08.736
+Não é apenas o tamanho
+dos círculos que pode variar.
+
+00:01:08.770 --> 00:01:10.529
+Podemos modificá-los
+de outras formas,
+
+00:01:10.563 --> 00:01:12.681
+como deixando-os mais altos
+ou mais largos
+
+00:01:12.715 --> 00:01:15.078
+para obter mais resolução
+ao longo de uma dimensão
+
+00:01:15.112 --> 00:01:16.464
+em contraste com a outra.
+
+00:01:16.498 --> 00:01:20.753
+Na verdade, esta mesma técnica
+se aplica a qualquer forma.
+
+00:01:21.320 --> 00:01:23.817
+No Coarse Coding,
+assim como no Tile Coding,
+
+00:01:23.851 --> 00:01:27.417
+a representação resultante do estado
+é um vetor binário.
+
+00:01:27.451 --> 00:01:30.416
+Pense em cada tile
+ou círculo como um recurso.
+
+00:01:30.450 --> 00:01:33.368
+1 se for ativo,
+e 0 se não for.
+
+00:01:33.402 --> 00:01:37.256
+Uma extensão natural dessa ideia
+é usar a distância
+
+00:01:37.290 --> 00:01:40.609
+do centro de cada círculo
+como medida do quão ativo
+
+00:01:40.643 --> 00:01:42.191
+este recurso é.
+
+00:01:42.225 --> 00:01:46.248
+Esta medida, ou resposta,
+pode ser feita para cair suavemente
+
+00:01:46.282 --> 00:01:50.567
+usando uma curva gaussiana
+ou de sino centralizada no círculo,
+
+00:01:50.584 --> 00:01:53.673
+que é conhecida
+como "função de base radial".
+
+00:01:53.707 --> 00:01:57.737
+Os valores dos recursos resultantes
+não serão mais discretos,
+
+00:01:57.771 --> 00:02:01.128
+então teremos outro vetor
+de estado contínuo.
+
+00:02:01.328 --> 00:02:04.928
+Mas o legal é que o número
+de recursos pode ser drasticamente
+
+00:02:04.962 --> 00:02:06.609
+reduzido dessa forma.
+
+00:02:06.643 --> 00:02:09.184
+Vamos ver FBR
+mais detalhadamente adiante,
+
+00:02:09.218 --> 00:02:11.585
+quando falarmos
+sobre aproximações de funções.
+

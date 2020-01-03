@@ -1,0 +1,98 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.255 --> 00:00:03.144
+Em suma, foi isso
+que você aprendeu nesta aula:
+
+00:00:03.167 --> 00:00:05.608
+técnicas tradicionais
+de Aprendizagem por Esforço
+
+00:00:05.638 --> 00:00:08.440
+usam um PDM finito
+para modelar um ambiente,
+
+00:00:08.470 --> 00:00:10.667
+o que nos limita a ambientes
+com espaços discretos
+
+00:00:10.700 --> 00:00:12.705
+de estado e de ação.
+
+00:00:12.735 --> 00:00:14.833
+Para estender nossos algoritmos
+de aprendizagem
+
+00:00:14.867 --> 00:00:18.192
+para espaços contínuos,
+podemos fazer uma dessas coisas:
+
+00:00:18.222 --> 00:00:19.808
+discretizar o espaço
+do estado,
+
+00:00:19.838 --> 00:00:23.224
+ou tentar aproximar diretamente
+as funções de valores desejadas.
+
+00:00:23.254 --> 00:00:26.640
+Discretização pode ser feita
+com uma grade constante,
+
+00:00:26.670 --> 00:00:28.791
+Tile Coding
+ou Coarse Coding.
+
+00:00:28.821 --> 00:00:31.335
+Isso leva indiretamente
+a uma aproximação
+
+00:00:31.365 --> 00:00:33.031
+da função de valor.
+
+00:00:33.061 --> 00:00:35.800
+A aproximação direta
+de uma função de valor contínua
+
+00:00:35.833 --> 00:00:39.496
+pode ser feita definindo
+uma transformação de recurso
+
+00:00:39.526 --> 00:00:43.336
+e, depois, calculando uma combinação
+linear desses recursos.
+
+00:00:43.366 --> 00:00:47.624
+Usar transformadores não-lineares
+como funções de base radiais
+
+00:00:47.654 --> 00:00:51.288
+nos permite usar o mesmo framework
+de combinação linear
+
+00:00:51.318 --> 00:00:54.295
+para obter
+algumas relações não-lineares.
+
+00:00:54.325 --> 00:00:57.384
+Para representar relações
+não-lineares
+
+00:00:57.414 --> 00:00:59.440
+através de combinações
+de recursos,
+
+00:00:59.470 --> 00:01:01.936
+podemos aplicar uma função
+de ativação.
+
+00:01:01.966 --> 00:01:04.959
+E isso nos prepara para usar
+redes neurais profundas
+
+00:01:04.989 --> 00:01:06.607
+para Aprendizagem
+por Reforço.
+

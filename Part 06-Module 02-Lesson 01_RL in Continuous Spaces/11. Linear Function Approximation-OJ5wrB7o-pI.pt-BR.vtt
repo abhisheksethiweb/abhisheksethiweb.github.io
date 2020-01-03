@@ -1,0 +1,393 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.366 --> 00:00:03.592
+Vamos ver Aproximação de Função
+Linear mais detalhadamente
+
+00:00:03.626 --> 00:00:06.471
+e como estimar o vetor
+de parâmetro W.
+
+00:00:06.967 --> 00:00:09.647
+Como você já viu,
+uma função linear
+
+00:00:09.681 --> 00:00:11.887
+é uma soma simples
+de todos os recursos
+
+00:00:11.921 --> 00:00:14.544
+multiplicados pelos seus pesos
+correspondentes.
+
+00:00:14.578 --> 00:00:17.831
+Suponha que você tenha inicializado
+esses pesos aleatoriamente
+
+00:00:17.865 --> 00:00:21.472
+e que tenha calculado o valor
+de um estado v^(s,w).
+
+00:00:21.927 --> 00:00:25.967
+Como você ajustaria "w"
+para deixá-lo cada vez mais próximo
+
+00:00:26.001 --> 00:00:27.391
+da função verdadeira?
+
+00:00:27.815 --> 00:00:30.735
+Parece um problema
+de otimização numérica.
+
+00:00:30.769 --> 00:00:32.344
+Vamos usar
+gradiente descendente
+
+00:00:32.378 --> 00:00:35.000
+para encontrar o vetor
+de parâmetro ótimo.
+
+00:00:35.415 --> 00:00:38.863
+Primeiro, note que,
+como v^ é uma função linear,
+
+00:00:38.897 --> 00:00:41.272
+sua derivada
+em relação a "w"
+
+00:00:41.306 --> 00:00:44.167
+é simplesmente
+o vetor de recurso X(S).
+
+00:00:44.467 --> 00:00:46.576
+Isso é a parte boa
+das funções lineares
+
+00:00:46.610 --> 00:00:48.680
+e o motivo
+da popularidade delas.
+
+00:00:48.714 --> 00:00:50.247
+Vamos usar isso logo, logo.
+
+00:00:50.546 --> 00:00:54.615
+Certo, vamos pensar
+no que estamos tentando otimizar.
+
+00:00:54.649 --> 00:00:57.511
+Dissemos que queremos reduzir
+ou minimizar a diferença
+
+00:00:57.545 --> 00:00:59.904
+entre a função de valor
+verdadeira v pi
+
+00:00:59.938 --> 00:01:02.768
+e a função de valor
+aproximada v^.
+
+00:01:03.279 --> 00:01:05.959
+Vamos escrever isso
+como uma diferença de quadrados,
+
+00:01:05.993 --> 00:01:08.447
+já que não estamos interessados
+no sinal do erro,
+
+00:01:08.481 --> 00:01:12.247
+apenas queremos baixar
+a diferença para próxima de 0.
+
+00:01:12.281 --> 00:01:13.616
+Para ser mais preciso,
+
+00:01:13.650 --> 00:01:15.519
+já que domínios
+de Aprendizagem por Reforço
+
+00:01:15.553 --> 00:01:17.232
+costumam ser estocásticos,
+
+00:01:17.266 --> 00:01:19.694
+esse é o erro quadrático
+esperado.
+
+00:01:20.270 --> 00:01:24.031
+Certo. Agora, temos uma função
+objetiva para minimizar.
+
+00:01:24.776 --> 00:01:26.831
+Para fazer isso usando
+gradiente descendente,
+
+00:01:26.865 --> 00:01:29.863
+vamos encontrar o gradiente,
+ou a derivada dessa função
+
+00:01:29.897 --> 00:01:31.863
+em relação a "w".
+
+00:01:31.897 --> 00:01:34.053
+Usando a diferenciação
+da regra da cadeia,
+
+00:01:34.087 --> 00:01:37.263
+obtemos -2 vezes
+a diferença de valor
+
+00:01:37.297 --> 00:01:39.951
+vezes a derivada de v^,
+
+00:01:39.985 --> 00:01:43.823
+que já sabemos ser simplesmente
+o vetor de recurso X(S).
+
+00:01:44.455 --> 00:01:47.358
+Note que removemos
+o operador de expectativa aqui
+
+00:01:47.392 --> 00:01:51.583
+para focar no erro gradiente
+indicado por um único estado S,
+
+00:01:51.617 --> 00:01:54.334
+que assumimos ter sido
+escolhido aleatoriamente.
+
+00:01:54.719 --> 00:01:57.047
+Se conseguirmos uma amostra
+de estados o suficiente,
+
+00:01:57.081 --> 00:01:59.726
+podemos nos aproximar
+do valor esperado.
+
+00:01:59.760 --> 00:02:01.975
+Vamos aplicar isso
+à fórmula geral
+
+00:02:02.009 --> 00:02:04.150
+da regra atualizada
+do gradiente descendente,
+
+00:02:04.184 --> 00:02:06.055
+com alfa como o stepsize,
+
+00:02:06.089 --> 00:02:08.127
+ou parâmetro de taxa
+de aprendizagem.
+
+00:02:08.161 --> 00:02:10.063
+Note que este -1/2 está aqui
+
+00:02:10.097 --> 00:02:13.582
+apenas para cancelar o -2
+que obtivemos na derivada.
+
+00:02:14.152 --> 00:02:16.407
+Esta é a formulação básica
+que vamos usar
+
+00:02:16.441 --> 00:02:19.806
+para reduzir iterativamente o erro
+para cada amostra de estado
+
+00:02:19.840 --> 00:02:23.374
+até as funções aproximadas
+e verdadeiras serem quase iguais.
+
+00:02:23.408 --> 00:02:26.413
+Esta é uma explicação intuitiva
+de como o gradiente descendente
+
+00:02:26.447 --> 00:02:28.639
+otimiza o vetor de parâmetro.
+
+00:02:28.673 --> 00:02:31.543
+Em cada iteração,
+você modifica os pesos
+
+00:02:31.577 --> 00:02:35.262
+um pequeno passo para longe
+da direção do erro.
+
+00:02:35.296 --> 00:02:39.607
+Aqui, o vetor de recurso
+aponta qual é a direção ruim,
+
+00:02:39.641 --> 00:02:42.246
+para que possamos
+nos afastar dela.
+
+00:02:42.280 --> 00:02:45.718
+Até agora, só falamos
+sobre aproximar
+
+00:02:45.752 --> 00:02:47.574
+a função de valor do estado.
+
+00:02:47.608 --> 00:02:50.335
+Para resolver um problema
+de controle livre de modelos,
+
+00:02:50.369 --> 00:02:53.567
+isto é, receber ações
+em um ambiente desconhecido,
+
+00:02:53.601 --> 00:02:57.022
+precisamos aproximar
+a função de valor de ação.
+
+00:02:57.389 --> 00:03:00.326
+Podemos fazer isso definindo
+uma transformação de recurso
+
+00:03:00.360 --> 00:03:03.134
+que utilize tanto o estado
+quanto a ação,
+
+00:03:03.168 --> 00:03:05.807
+depois, podemos usar o mesmo método
+gradiente descendente,
+
+00:03:05.841 --> 00:03:08.454
+como fizemos
+para a função de valor de estado.
+
+00:03:08.838 --> 00:03:11.199
+Por fim, vamos ver o caso
+em que queremos
+
+00:03:11.233 --> 00:03:15.534
+que a função de aproximação calcule
+todos os valores de ação de uma vez.
+
+00:03:15.568 --> 00:03:19.190
+Podemos encarar isso
+como a produção de um vetor de ação.
+
+00:03:19.224 --> 00:03:24.303
+Para isso, podemos continuar usando
+a mesma transformação de recurso,
+
+00:03:24.337 --> 00:03:26.887
+incluindo tanto o vetor
+quanto a ação.
+
+00:03:26.921 --> 00:03:30.654
+Mas como geramos
+os valores de ações diferentes?
+
+00:03:31.110 --> 00:03:34.862
+Uma forma de encarar isso
+é que estamos tentando encontrar
+
+00:03:34.896 --> 00:03:39.631
+m funções de valor diferentes,
+uma para cada dimensão de ação.
+
+00:03:39.665 --> 00:03:43.214
+Mas, intuitivamente, sabemos
+que essas funções são relacionadas,
+
+00:03:43.248 --> 00:03:45.966
+então faz sentido
+calculá-las juntas.
+
+00:03:46.000 --> 00:03:48.438
+Podemos fazer isso estendendo
+o nosso vetor de peso
+
+00:03:48.472 --> 00:03:50.406
+e transformando-o
+em uma matriz.
+
+00:03:50.440 --> 00:03:54.191
+Cada coluna da matriz emula
+uma função linear separada.
+
+00:03:54.225 --> 00:03:57.733
+Mas os recursos comuns calculados
+do estado e da ação
+
+00:03:57.767 --> 00:04:00.542
+mantêm essas funções
+juntas umas às outras.
+
+00:04:00.576 --> 00:04:03.814
+Se tivermos um problema de domínio
+com um espaço de estado contínuo,
+
+00:04:03.848 --> 00:04:07.103
+mas com um espaço de ação discreto,
+o que é muito comum,
+
+00:04:07.137 --> 00:04:10.949
+podemos facilmente selecionar
+a ação com o valor máximo.
+
+00:04:10.983 --> 00:04:13.045
+Sem esse tipo
+de processamento paralelo,
+
+00:04:13.079 --> 00:04:15.822
+teríamos que passar cada ação
+uma por uma
+
+00:04:15.856 --> 00:04:17.990
+e, depois, encontrar
+o máximo delas.
+
+00:04:18.024 --> 00:04:20.910
+Se o nosso espaço de ação
+também for contínuo,
+
+00:04:20.944 --> 00:04:25.237
+essa forma nos permite produzir
+mais de um único valor de uma vez.
+
+00:04:25.271 --> 00:04:27.582
+Por exemplo, se estivéssemos
+dirigindo um carro,
+
+00:04:27.616 --> 00:04:30.230
+iríamos querer controlar tanto
+a direção quanto o acelerador
+
+00:04:30.264 --> 00:04:31.638
+ao mesmo tempo.
+
+00:04:31.672 --> 00:04:34.966
+A limitação primária da Aproximação
+de Funções Lineares
+
+00:04:35.000 --> 00:04:37.879
+é que só podemos representar
+relações lineares
+
+00:04:37.913 --> 00:04:39.838
+entre valores
+de entrada e de saída.
+
+00:04:39.872 --> 00:04:43.149
+Com valores de entrada
+de uma dimensão, isso é uma linha.
+
+00:04:43.183 --> 00:04:46.462
+Em 2D, torna-se um plano.
+E por aí vai.
+
+00:04:46.496 --> 00:04:50.094
+E se a função de valor subjacente
+tiver uma forma não-linear?
+
+00:04:50.128 --> 00:04:53.798
+Uma aproximação linear
+pode dar um resultado muito ruim.
+
+00:04:53.832 --> 00:04:57.382
+É aí que precisamos começar a olhar
+para funções não-lineares.
+

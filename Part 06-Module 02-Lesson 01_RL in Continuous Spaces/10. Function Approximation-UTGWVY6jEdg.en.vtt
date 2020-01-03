@@ -1,0 +1,154 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:03.060 --> 00:00:08.214
+So far, we've looked at ways to discretize continuous state spaces.
+
+00:00:08.214 --> 00:00:09.640
+This enables us to use
+
+00:00:09.640 --> 00:00:14.065
+existing reinforcement learning algorithms with little or no modification.
+
+00:00:14.064 --> 00:00:16.149
+But there are some limitations.
+
+00:00:16.149 --> 00:00:18.759
+When the underlying space is complicated,
+
+00:00:18.760 --> 00:00:22.600
+the number of discrete states needed can become very large.
+
+00:00:22.600 --> 00:00:25.495
+Thus, we lose the advantage of discretization.
+
+00:00:25.495 --> 00:00:29.980
+Moreover, if you think about positions in the state space that are nearby,
+
+00:00:29.980 --> 00:00:34.015
+you would expect their values to be similar, or smoothly changing.
+
+00:00:34.015 --> 00:00:37.582
+Discretization doesn't always exploit this characteristic,
+
+00:00:37.582 --> 00:00:41.030
+failing to generalize well across the space.
+
+00:00:41.030 --> 00:00:45.620
+What we're after is the true state value function v pi,
+
+00:00:45.619 --> 00:00:48.259
+or action value function q pi.
+
+00:00:48.259 --> 00:00:52.534
+Which is typically smooth and continuous over the entire space.
+
+00:00:52.534 --> 00:00:53.959
+As you can imagine,
+
+00:00:53.960 --> 00:00:59.810
+capturing this completely is practically infeasible except for some very simple problems.
+
+00:00:59.810 --> 00:01:02.554
+Our best hope is function approximation.
+
+00:01:02.554 --> 00:01:07.819
+It is still an approximation because we don't know what the true underlying function is.
+
+00:01:07.819 --> 00:01:11.419
+A general way to define such an approximation is to
+
+00:01:11.420 --> 00:01:15.379
+introduce a parameter vector W that shapes the function.
+
+00:01:15.379 --> 00:01:17.750
+Our tasks then, reduces to tweaking
+
+00:01:17.750 --> 00:01:21.665
+this parameter vector till we find the desired approximation.
+
+00:01:21.665 --> 00:01:25.910
+Note that the approximating function can either map a state to its value,
+
+00:01:25.909 --> 00:01:29.359
+or a state action pair to the corresponding q value.
+
+00:01:29.359 --> 00:01:34.265
+Another form is where we map from one state to a number of different q values,
+
+00:01:34.265 --> 00:01:36.859
+one for each action all at once.
+
+00:01:36.859 --> 00:01:40.700
+This is especially useful for q learning as we'll see later.
+
+00:01:40.700 --> 00:01:42.769
+Let's focus on this first case.
+
+00:01:42.769 --> 00:01:45.334
+Approximating a state value function.
+
+00:01:45.334 --> 00:01:50.149
+Now, we have this box here in the middle that's supposed to do some magic.
+
+00:01:50.150 --> 00:01:52.100
+And convert the state s,
+
+00:01:52.099 --> 00:01:55.759
+and parameter vector W into a scalar value.
+
+00:01:55.760 --> 00:01:58.835
+But how? The first thing we need to do
+
+00:01:58.834 --> 00:02:02.134
+is to ensure we have a vector representing the state.
+
+00:02:02.135 --> 00:02:06.740
+Your state might already be a vector in which case you don't need to do anything.
+
+00:02:06.739 --> 00:02:11.314
+In general, we'll define a transformation that converts any given state s
+
+00:02:11.314 --> 00:02:16.055
+into a feature vector X S. This also gives us more flexibility,
+
+00:02:16.055 --> 00:02:19.145
+since we don't have to operate on the raw state values.
+
+00:02:19.145 --> 00:02:22.680
+We can use any computed or derived features instead.
+
+00:02:22.680 --> 00:02:25.870
+Okay, we now have a feature vector X S,
+
+00:02:25.870 --> 00:02:27.594
+and a parameter vector W,
+
+00:02:27.594 --> 00:02:29.995
+and we want a scalar value.
+
+00:02:29.995 --> 00:02:33.039
+What do we do when we have two vectors,
+
+00:02:33.039 --> 00:02:35.057
+and want to produce a scalar?
+
+00:02:35.057 --> 00:02:38.784
+Dot Product. Yes. It's the simplest thing we could do.
+
+00:02:38.784 --> 00:02:43.914
+In fact, this is the same as computing a linear combination of features.
+
+00:02:43.914 --> 00:02:48.294
+Multiply each feature with the corresponding weight, and sum it up.
+
+00:02:48.294 --> 00:02:51.399
+This is known as linear function approximation.
+
+00:02:51.400 --> 00:02:53.439
+That is we are trying to approximate
+
+00:02:53.439 --> 00:02:56.530
+the underlying value function with a linear function.
+

@@ -1,0 +1,259 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.180 --> 00:00:05.149
+Como o nome sugere, "Discretização"
+é a conversão de um espaço contínuo
+
+00:00:05.179 --> 00:00:06.773
+em um espaço discreto.
+
+00:00:07.102 --> 00:00:10.013
+Lembra do nosso mundo contínuo
+do aspirador de pó?
+
+00:00:10.043 --> 00:00:13.381
+O que faremos será trazer
+de volta uma estrutura de grade
+
+00:00:13.411 --> 00:00:16.021
+com posições discretas
+identificadas.
+
+00:00:16.051 --> 00:00:19.293
+Note que não estamos forçando
+o nosso agente a estar
+
+00:00:19.323 --> 00:00:21.698
+exatamente no centro
+dessas posições.
+
+00:00:21.728 --> 00:00:23.838
+Como o mundo subjacente
+é contínuo,
+
+00:00:23.868 --> 00:00:25.621
+não temos controle
+sobre isso.
+
+00:00:25.955 --> 00:00:28.549
+Mas na nossa representação
+do espaço do estado,
+
+00:00:28.579 --> 00:00:31.757
+identificamos apenas certas posições
+como relevantes.
+
+00:00:31.787 --> 00:00:35.710
+Por exemplo, se o robô
+estiver a 3.1, 2.4,
+
+00:00:35.740 --> 00:00:40.349
+ou a 2.9, 1.8,
+podemos arredondar para 3, 2.
+
+00:00:40.379 --> 00:00:44.285
+Sim, isso quase sempre
+vai estar um pouco incorreto,
+
+00:00:44.315 --> 00:00:46.961
+mas, para alguns ambientes,
+discretizar o espaço do estado
+
+00:00:46.991 --> 00:00:48.565
+pode funcionar muito bem.
+
+00:00:48.595 --> 00:00:51.134
+Isso nos permite usar
+algoritmos existentes
+
+00:00:51.164 --> 00:00:53.477
+com pouca ou nenhuma
+modificação.
+
+00:00:53.507 --> 00:00:55.636
+Ações também podem
+ser discretizadas.
+
+00:00:55.666 --> 00:00:58.725
+Por exemplo, ângulos podem
+ser divididos em graus,
+
+00:00:58.755 --> 00:01:01.597
+ou atém mesmo em incrementos
+de 90 graus, se apropriado.
+
+00:01:02.077 --> 00:01:05.582
+Agora, imagine que há objetos
+neste mundo discretizado.
+
+00:01:05.612 --> 00:01:08.220
+Obstáculos que o robô
+talvez precise evitar.
+
+00:01:08.250 --> 00:01:10.013
+Com a nossa representação
+em grade,
+
+00:01:10.043 --> 00:01:13.541
+tudo o que podemos fazer é marcar
+que contenham objetos,
+
+00:01:13.571 --> 00:01:15.277
+mesmo que só um pouco.
+
+00:01:15.307 --> 00:01:17.661
+Isso é conhecido
+como "grade de ocupação".
+
+00:01:17.691 --> 00:01:21.582
+Mas a nossa escolha de discretização
+pode levar o agente a pensar
+
+00:01:21.615 --> 00:01:23.584
+que não há um caminho
+através desses obstáculos
+
+00:01:23.617 --> 00:01:26.012
+para alcançar
+alguns locais desejados.
+
+00:01:26.746 --> 00:01:30.613
+Em vez disso, se alterarmos
+a grade de acordo com os obstáculos,
+
+00:01:30.643 --> 00:01:34.302
+podemos abrir um possível caminho
+para o agente.
+
+00:01:34.332 --> 00:01:36.772
+Uma abordagem alternativa
+seria dividir a grade
+
+00:01:36.802 --> 00:01:39.244
+em células menores
+onde fosse necessário.
+
+00:01:39.274 --> 00:01:41.204
+Ainda seria uma aproximação,
+
+00:01:41.234 --> 00:01:44.638
+mas nos permitiria alocar mais
+a representação do nosso estado
+
+00:01:44.661 --> 00:01:46.309
+onde importa.
+
+00:01:46.339 --> 00:01:49.581
+Isso é melhor do que dividir
+todo o espaço em células menores,
+
+00:01:49.611 --> 00:01:51.892
+o que pode aumentar
+o número total de estados
+
+00:01:51.922 --> 00:01:55.148
+e, eventualmente, o tempo necessário
+para calcular funções de valores.
+
+00:01:55.178 --> 00:01:59.189
+Se você conhece particionamento
+binário de espaço ou Quadtrees,
+
+00:01:59.219 --> 00:02:01.565
+a ideia é exatamente
+a mesma.
+
+00:02:01.957 --> 00:02:03.557
+Mas você deve
+estar se perguntando
+
+00:02:03.587 --> 00:02:06.628
+que esse tipo de discretização
+faz sentido em domínios espaciais
+
+00:02:06.658 --> 00:02:10.468
+como gridworlds, mas e quanto
+a outros espaços de estados?
+
+00:02:11.021 --> 00:02:13.749
+Vamos mudar de direção
+e ver um domínio diferente.
+
+00:02:13.779 --> 00:02:17.204
+Hoje em dia, a maioria dos carros
+tem transmissão automática.
+
+00:02:17.234 --> 00:02:20.748
+Já se perguntou como o carro
+decide para qual marcha trocar?
+
+00:02:20.778 --> 00:02:21.965
+E quando?
+
+00:02:21.995 --> 00:02:24.788
+Este é um gráfico simplificado
+de como o consumo de combustível
+
+00:02:24.818 --> 00:02:26.701
+varia com a velocidade
+para marchas diferentes
+
+00:02:26.731 --> 00:02:28.356
+em um carro comum.
+
+00:02:28.386 --> 00:02:31.971
+Suponha que o nosso estado consiste
+apenas da velocidade do veículo
+
+00:02:32.001 --> 00:02:33.867
+e de qual marcha estamos,
+
+00:02:33.897 --> 00:02:35.900
+e a nossa recompensa
+é inversamente proporcional
+
+00:02:35.930 --> 00:02:37.676
+ao consumo de combustível.
+
+00:02:37.706 --> 00:02:39.589
+As ações disponíveis
+para o nosso agente
+
+00:02:39.619 --> 00:02:41.813
+são basicamente alternar
+para cima ou para baixo.
+
+00:02:41.843 --> 00:02:44.509
+Embora velocidade
+seja um valor contínuo,
+
+00:02:44.539 --> 00:02:46.957
+ela pode ser discretizada
+em alcances,
+
+00:02:46.987 --> 00:02:51.660
+por exemplo, uma única marcha
+pode ser a ótima em cada alcance.
+
+00:02:52.028 --> 00:02:55.132
+Note que esses alcances
+podem ter extensões diferentes,
+
+00:02:55.162 --> 00:02:58.356
+isto é, a discretização
+não é uniforme.
+
+00:02:58.386 --> 00:03:01.175
+Se houvesse outras dimensões
+para o espaço do estado,
+
+00:03:01.205 --> 00:03:02.716
+como a posição
+do acelerador,
+
+00:03:02.746 --> 00:03:05.870
+elas também poderiam
+ser subdivididas não-uniformemente.
+

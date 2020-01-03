@@ -1,0 +1,239 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:03.984 --> 00:00:06.485
+Até agora, vimos formas
+de discretizar
+
+00:00:06.519 --> 00:00:08.254
+espaços de estados
+contínuos.
+
+00:00:08.288 --> 00:00:09.500
+Isso nos permite usar
+
+00:00:09.533 --> 00:00:11.967
+algoritmos de aprendizagem
+por reforço existentes
+
+00:00:12.001 --> 00:00:14.181
+com pouca ou nenhuma
+modificação.
+
+00:00:14.215 --> 00:00:16.293
+Mas há algumas limitações.
+
+00:00:16.327 --> 00:00:18.813
+Quando o espaço subjacente
+é complicado,
+
+00:00:18.847 --> 00:00:20.899
+o número de espaços discretos
+necessários
+
+00:00:20.933 --> 00:00:22.734
+pode se tornar muito amplo.
+
+00:00:22.768 --> 00:00:25.613
+Assim, perdemos a vantagem
+da discretização.
+
+00:00:25.647 --> 00:00:29.949
+E se você pensar nas posições
+no espaço de estado próximas,
+
+00:00:29.983 --> 00:00:32.213
+o esperado seria que os valores
+delas fossem similares,
+
+00:00:32.247 --> 00:00:34.181
+ou que mudassem suavemente.
+
+00:00:34.215 --> 00:00:37.389
+A discretização nem sempre
+explora essa característica,
+
+00:00:37.423 --> 00:00:40.613
+falhando em fazer uma boa
+degeneralização ao longo do espaço.
+
+00:00:41.594 --> 00:00:45.732
+Estamos em busca da verdadeira
+função de valor "V pi",
+
+00:00:45.766 --> 00:00:48.381
+ou da função de valor
+de ação "Q pi",
+
+00:00:48.415 --> 00:00:52.685
+que costuma ser suave e contínua
+por todo o espaço.
+
+00:00:52.719 --> 00:00:55.549
+Como você pode imaginar,
+obter isso por completo
+
+00:00:55.583 --> 00:00:57.252
+é quase impraticável,
+
+00:00:57.286 --> 00:00:59.900
+com a exceção de alguns
+problemas bem simples.
+
+00:00:59.934 --> 00:01:02.693
+A nossa melhor esperança
+é a aproximação de funções.
+
+00:01:02.727 --> 00:01:05.805
+Ainda é uma aproximação,
+porque não sabemos qual é
+
+00:01:05.839 --> 00:01:08.060
+a verdadeira função
+subjacente.
+
+00:01:08.094 --> 00:01:10.788
+Uma forma geral para definir
+essa aproximação
+
+00:01:10.822 --> 00:01:15.493
+é adicionar um vetor de parâmetro W,
+que dê forma à função.
+
+00:01:15.527 --> 00:01:19.033
+A nossa tarefa passa a ser ajustar
+esse vetor de parâmetro
+
+00:01:19.067 --> 00:01:21.477
+até encontrarmos
+a aproximação desejada.
+
+00:01:21.939 --> 00:01:25.940
+Note que a função aproximada
+pode mapear um estado ao seu valor,
+
+00:01:25.974 --> 00:01:29.573
+ou um par de estados de ação
+ao seu valor Q correspondente.
+
+00:01:29.607 --> 00:01:32.356
+Outra forma é mapear
+de um estado
+
+00:01:32.390 --> 00:01:34.381
+para um número
+de diferentes valores Q,
+
+00:01:34.415 --> 00:01:36.973
+um para cada ação,
+tudo de uma vez.
+
+00:01:37.007 --> 00:01:39.332
+Isso é especialmente útil
+para Q-Learning,
+
+00:01:39.366 --> 00:01:40.949
+como veremos mais tarde.
+
+00:01:40.983 --> 00:01:42.804
+Vamos focar
+neste primeiro caso.
+
+00:01:42.838 --> 00:01:45.253
+Aproximando uma função
+valor de estado.
+
+00:01:45.287 --> 00:01:48.421
+Temos esta caixa aqui
+no meio,
+
+00:01:48.455 --> 00:01:51.916
+que deve realizar uma magia
+e converter o estado "S"
+
+00:01:51.950 --> 00:01:55.965
+e o vetor de parâmetro W
+em um valor escalar.
+
+00:01:55.999 --> 00:01:57.252
+Mas como?
+
+00:01:57.286 --> 00:01:59.567
+A primeira coisa que precisamos
+fazer é garantir
+
+00:01:59.600 --> 00:02:02.244
+que temos um vetor
+representando o estado.
+
+00:02:02.278 --> 00:02:04.549
+O seu estado pode
+já ser um vetor.
+
+00:02:04.583 --> 00:02:06.845
+Nesse caso,
+você não precisa fazer nada.
+
+00:02:06.879 --> 00:02:09.716
+No geral, vamos definir
+uma transformação que converta
+
+00:02:09.750 --> 00:02:13.708
+qualquer estado S
+em um vetor de recurso X(S).
+
+00:02:13.742 --> 00:02:16.084
+Isso também nos
+dá maior flexibilidade,
+
+00:02:16.118 --> 00:02:19.245
+já que não precisamos operar
+com valores de estado crus.
+
+00:02:19.279 --> 00:02:22.709
+Podemos usar qualquer recurso
+calculado ou derivado.
+
+00:02:22.743 --> 00:02:25.884
+Certo, temos o nosso vetor
+de recurso X(S),
+
+00:02:25.918 --> 00:02:29.445
+o nosso vetor parâmetro W,
+e queremos um valor escalar.
+
+00:02:30.764 --> 00:02:32.932
+O que fazemos quando temos
+dois vetores
+
+00:02:32.966 --> 00:02:34.939
+e queremos produzir
+um valor escalar?
+
+00:02:34.973 --> 00:02:36.133
+Produto escalar!
+
+00:02:36.167 --> 00:02:38.916
+Sim, é a coisa mais simples
+que poderíamos fazer.
+
+00:02:38.950 --> 00:02:43.964
+Isso é o mesmo que calcular
+uma combinação linear de recursos.
+
+00:02:44.509 --> 00:02:48.140
+Multiplique cada recurso
+pelo peso correspondente e some.
+
+00:02:48.575 --> 00:02:51.420
+Isso é conhecido como Aproximação
+de Função Linear.
+
+00:02:51.454 --> 00:02:54.844
+Isto é, estamos tentando aproximar
+a função valor subjacente
+
+00:02:54.878 --> 00:02:56.367
+com uma função linear.
+

@@ -1,0 +1,355 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:04.885 --> 00:00:07.317
+Bem-vindo à Aprendizagem
+Profunda por Reforço.
+
+00:00:07.351 --> 00:00:09.414
+O interesse por essa área
+
+00:00:09.448 --> 00:00:13.119
+parece ter estourado com histórias
+de sucesso, como a do AlphaGo,
+
+00:00:13.153 --> 00:00:15.367
+e plataformas,
+como a OpenAI.
+
+00:00:15.401 --> 00:00:19.406
+As pesquisas nesta área aconteciam
+em um ritmo estável desde 1980,
+
+00:00:19.440 --> 00:00:23.438
+mas elas aceleraram com os avanços
+recentes na Aprendizagem Profunda.
+
+00:00:23.472 --> 00:00:25.390
+Conforme progredirmos
+neste curso,
+
+00:00:25.424 --> 00:00:27.918
+você vai projetar agentes
+inteligentes capazes de aprender
+
+00:00:27.952 --> 00:00:30.470
+a desempenhar tarefas
+de controle complexas.
+
+00:00:30.504 --> 00:00:33.150
+Isso inclui domínios simples,
+como problemas de Física
+
+00:00:33.184 --> 00:00:35.422
+e jogos de tabuleiros,
+a videogames,
+
+00:00:35.456 --> 00:00:38.021
+em que o agente processa
+dados de pixels crus,
+
+00:00:38.055 --> 00:00:39.702
+e até mesmo robótica.
+
+00:00:39.736 --> 00:00:41.926
+A minha parte preferida
+da Aprendizagem por Reforço
+
+00:00:41.960 --> 00:00:46.151
+é assistir a um agente crescer
+e ficar cada vez melhor na tarefa.
+
+00:00:46.185 --> 00:00:48.534
+Nem sempre é fácil
+de alcançar isso,
+
+00:00:48.568 --> 00:00:52.057
+mas quando o seu agente
+aprende as nuances de uma tarefa,
+
+00:00:52.091 --> 00:00:54.846
+ele pode desempenhá-la
+perfeitamente a partir de então,
+
+00:00:54.880 --> 00:00:58.574
+e isso é a experiência
+mais recompensadora do mundo.
+
+00:00:59.181 --> 00:01:02.326
+Antes de entrarmos na Aprendizagem
+"Profunda" por Reforço,
+
+00:01:02.360 --> 00:01:05.413
+vamos revisar rapidamente
+alguns conceitos fundamentais.
+
+00:01:06.219 --> 00:01:08.828
+Problemas de Aprendizagem Profunda
+costumam ser enquadrados
+
+00:01:08.862 --> 00:01:12.238
+como "Processos de Decisão
+de Markov", ou "PDMs".
+
+00:01:12.582 --> 00:01:17.510
+Um PDM consiste em um conjunto
+de estados "S" e ações "A",
+
+00:01:17.744 --> 00:01:20.814
+junto com probabilidades "P",
+recompensas "R"
+
+00:01:20.848 --> 00:01:23.262
+e um fator de desconto gama.
+
+00:01:23.296 --> 00:01:25.958
+"P" captura a frequência
+com que transições diferentes
+
+00:01:25.992 --> 00:01:27.390
+e recompensas ocorrem,
+
+00:01:27.424 --> 00:01:30.183
+normalmente modelada como uma
+única probabilidade conjunta,
+
+00:01:30.217 --> 00:01:33.894
+em que o estado e a recompensa
+a qualquer passo tempo "T" mais 1
+
+00:01:33.928 --> 00:01:36.942
+depende apenas do estado
+e da ação ocorridos
+
+00:01:36.976 --> 00:01:39.398
+no passo tempo "T' anterior.
+
+00:01:39.814 --> 00:01:42.310
+Essa característica
+de certos ambientes
+
+00:01:42.344 --> 00:01:44.974
+é conhecida
+como "Propriedade de Markov".
+
+00:01:45.008 --> 00:01:48.542
+Há duas quantidades pelas quais
+geralmente estamos interessados.
+
+00:01:48.576 --> 00:01:53.446
+O valor de um estado, "VS",
+que tentamos estimar ou prever,
+
+00:01:53.480 --> 00:01:58.245
+e o valor de uma ação ocorrida
+em um certo estado, "Q(S, A)",
+
+00:01:58.279 --> 00:02:01.758
+que pode nos ajudar a decidir
+qual ação tomar.
+
+00:02:02.181 --> 00:02:05.645
+Esses dois mapeamentos ou funções
+são muito inter-relacionados
+
+00:02:05.679 --> 00:02:08.990
+e nos ajudam a encontrar
+uma política ótima para um problema,
+
+00:02:09.024 --> 00:02:12.846
+pi asterisco, que maximiza
+a recompensa total recebida.
+
+00:02:13.286 --> 00:02:16.781
+Como PDMs são probabilísticas
+por natureza,
+
+00:02:16.815 --> 00:02:20.007
+não podemos prever com certeza
+absoluta quais recompensas futuras
+
+00:02:20.040 --> 00:02:22.349
+vamos obter,
+ou por quanto tempo.
+
+00:02:22.383 --> 00:02:26.294
+Então, normalmente, buscamos
+pela recompensa esperada.
+
+00:02:26.328 --> 00:02:29.790
+É aqui que entra o fator
+de desconto gama.
+
+00:02:29.824 --> 00:02:32.892
+Ele é usado para atribuir um peso
+menor a recompensas futuras
+
+00:02:32.926 --> 00:02:36.069
+ao calcular valores de estado
+e de ação.
+
+00:02:36.103 --> 00:02:38.545
+Algoritmos de Aprendizagem
+por Esforço costumam
+
+00:02:38.579 --> 00:02:40.741
+ser classificados
+em dois grupos.
+
+00:02:40.775 --> 00:02:44.861
+Abordagens baseadas em modelos,
+como Iterações de Política e Valor,
+
+00:02:44.895 --> 00:02:48.165
+necessitam de um modelo de transição
+e de recompensa conhecido.
+
+00:02:48.199 --> 00:02:51.710
+Eles aplicam programação dinâmica
+para calcular iterativamente
+
+00:02:51.744 --> 00:02:54.950
+as funções de valor desejadas
+e políticas ótimas
+
+00:02:54.984 --> 00:02:56.774
+usando esse modelo.
+
+00:02:56.808 --> 00:03:00.877
+Por outro lado, abordagens livres
+de modelos, como Métodos Monte Carlo
+
+00:03:00.911 --> 00:03:02.573
+e Aprendizagem
+por Diferença Temporal,
+
+00:03:02.607 --> 00:03:05.037
+não necessitam
+de um modelo específico.
+
+00:03:05.071 --> 00:03:08.598
+Eles fazem uma amostra do ambiente
+executando ações exploratórias
+
+00:03:08.632 --> 00:03:11.792
+e usam a experiência obtida
+para estimar diretamente
+
+00:03:11.825 --> 00:03:12.960
+funções de valor.
+
+00:03:13.525 --> 00:03:15.871
+Certo, é claro
+que há mais do que isso,
+
+00:03:15.905 --> 00:03:18.606
+mas esse foi um resumo
+da Aprendizagem por Reforço.
+
+00:03:19.136 --> 00:03:22.709
+"Aprendizagem Profunda por Reforço"
+é um termo relativamente recente,
+
+00:03:22.743 --> 00:03:25.078
+em referência a abordagens
+que usam Aprendizagem Profunda,
+
+00:03:25.112 --> 00:03:27.390
+principalmente
+Redes Neurais Multicamadas,
+
+00:03:27.424 --> 00:03:29.739
+para resolver problemas
+de Aprendizagem por Reforço.
+
+00:03:29.773 --> 00:03:34.645
+Aprendizagem por Reforço costuma
+ser caracterizada por PDMS finitos,
+
+00:03:34.679 --> 00:03:37.358
+em que o número de estados
+e ações é limitado.
+
+00:03:37.392 --> 00:03:41.806
+Mas há problemas em que o espaço
+de estados e ações é muito amplo,
+
+00:03:41.840 --> 00:03:45.325
+ou até mesmo feito de valores
+numéricos contínuos e reais.
+
+00:03:45.359 --> 00:03:48.869
+Algoritmos tradicionais usam
+uma tabela ou um dicionário,
+
+00:03:48.903 --> 00:03:52.693
+ou outra estrutura finita para obter
+valores de estado e de ação.
+
+00:03:52.727 --> 00:03:55.133
+Eles não funcionam mais
+para esses problemas.
+
+00:03:55.167 --> 00:03:57.804
+Então, a primeira coisa que você
+vai aprender neste módulo
+
+00:03:57.838 --> 00:03:59.941
+é como generalizar
+esses algoritmos
+
+00:03:59.975 --> 00:04:02.733
+para trabalhar em espaços
+amplos e contínuos.
+
+00:04:02.767 --> 00:04:04.909
+Isso forma a base
+para desenvolver
+
+00:04:04.943 --> 00:04:07.182
+algoritmos de Aprendizagem
+Profunda por Reforço,
+
+00:04:07.216 --> 00:04:10.526
+incluindo técnicas de valores
+de base, como Q-Learning Profundo,
+
+00:04:10.560 --> 00:04:13.565
+e aqueles que tentam otimizar
+a política diretamente,
+
+00:04:13.599 --> 00:04:15.597
+como Gradientes de Política.
+
+00:04:15.631 --> 00:04:18.573
+Por fim, você vai ver abordagens
+mais avançadas
+
+00:04:18.607 --> 00:04:21.164
+que tentam combinar
+o melhor dos dois mundos:
+
+00:04:21.198 --> 00:04:23.053
+Métodos Actor-Critic.
+
+00:04:23.087 --> 00:04:25.421
+Pode ser difícil de entender
+esses algoritmos,
+
+00:04:25.455 --> 00:04:29.101
+então não se preocupe se você
+se sentir desafiado por eles.
+
+00:04:29.135 --> 00:04:33.005
+Pratique implementar os componentes
+principais desses algoritmos
+
+00:04:33.039 --> 00:04:36.781
+e aplique-os a vários ambientes.
+Observe o desempenho deles.
+
+00:04:36.815 --> 00:04:40.061
+Essa é a única forma de dominar
+a Aprendizagem Profunda por Reforço.
+

@@ -1,0 +1,93 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.362 --> 00:00:02.635
+Aproximação de Funções
+Não-Lineares.
+
+00:00:02.665 --> 00:00:05.922
+Esse é o principal objetivo
+desta aula.
+
+00:00:06.672 --> 00:00:09.457
+Lembre-se da nossa conversa
+sobre como podemos obter
+
+00:00:09.487 --> 00:00:13.233
+relações não-lineares entre o estado
+de entrada e o valor de saída
+
+00:00:13.263 --> 00:00:16.634
+usando Kernels arbitrários,
+como funções de base radiais,
+
+00:00:16.664 --> 00:00:18.907
+como a nossa transformação
+de recurso.
+
+00:00:18.937 --> 00:00:21.083
+Neste modelo,
+o nosso valor de saída
+
+00:00:21.113 --> 00:00:23.857
+continua linear
+em relação aos recursos.
+
+00:00:24.297 --> 00:00:25.986
+E se a nossa função
+de valor subjacente
+
+00:00:26.016 --> 00:00:29.154
+for verdadeiramente não-linear
+em relação a uma combinação
+
+00:00:29.184 --> 00:00:31.282
+desses valores de recursos?
+
+00:00:31.802 --> 00:00:34.098
+Para capturar relações
+tão complexas,
+
+00:00:34.128 --> 00:00:37.818
+vamos passar a resposta linear
+obtida usando o produto escalar
+
+00:00:37.848 --> 00:00:40.906
+através de uma função
+não-linear "F".
+
+00:00:40.936 --> 00:00:42.657
+Parece familiar?
+
+00:00:42.687 --> 00:00:47.146
+Sim, é a base
+de bases neurais artificiais.
+
+00:00:47.176 --> 00:00:51.234
+Essa função não-linear geralmente
+é chamada de "função de ativação",
+
+00:00:51.264 --> 00:00:54.225
+e aumenta muito a capacidade
+de representação
+
+00:00:54.255 --> 00:00:55.733
+do nosso aproximador.
+
+00:00:56.000 --> 00:00:58.100
+Podemos atualizar iterativamente
+os parâmetros
+
+00:00:58.133 --> 00:01:01.000
+de qualquer função dessas
+usando gradiente descendente.
+
+00:01:01.234 --> 00:01:04.633
+Taxa de aprendizagem alfa
+vezes a diferença de valor
+
+00:01:04.667 --> 00:01:08.167
+vezes a derivada da função
+em relação aos pesos.
+

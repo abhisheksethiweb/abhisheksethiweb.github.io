@@ -1,0 +1,244 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:04.049
+Let's take a closer look at linear function approximation and how to
+
+00:00:04.049 --> 00:00:08.519
+estimate the parameter vector w. As you've seen already,
+
+00:00:08.519 --> 00:00:11.105
+a linear function is a simple sum over
+
+00:00:11.105 --> 00:00:14.595
+all the features multiplied by their corresponding weights.
+
+00:00:14.595 --> 00:00:17.120
+Let's assume you have initialized these weights
+
+00:00:17.120 --> 00:00:21.825
+randomly and computed the value of a state v hat (s,w).
+
+00:00:21.824 --> 00:00:27.536
+How would you tweak w to bring the approximation closer and closer to the true function?
+
+00:00:27.536 --> 00:00:30.580
+Sounds like a numerical optimization problem.
+
+00:00:30.579 --> 00:00:34.917
+Let's use gradient descent to find the optimal parameter vector.
+
+00:00:34.917 --> 00:00:38.865
+Firstly, note that since v hat is a linear function,
+
+00:00:38.865 --> 00:00:44.469
+its derivative with respect to w is simply the feature vector x(s).
+
+00:00:44.469 --> 00:00:48.835
+This is a nice thing about linear functions and why they are so popular.
+
+00:00:48.835 --> 00:00:50.395
+We'll use this shortly.
+
+00:00:50.395 --> 00:00:54.725
+Now let's think about what we are trying to optimize.
+
+00:00:54.725 --> 00:00:57.950
+We said we want to reduce or minimize the difference between
+
+00:00:57.950 --> 00:01:01.785
+the true value function v pi and the approximate value function v hat.
+
+00:01:01.784 --> 00:01:05.844
+Let's write that down as a squared difference,
+
+00:01:05.844 --> 00:01:08.739
+since we are not concerned with the sign of the error and
+
+00:01:08.739 --> 00:01:12.084
+we simply want to drive the difference down toward zero.
+
+00:01:12.084 --> 00:01:17.203
+To be more accurate, since reinforcement learning domains are typically stochastic,
+
+00:01:17.203 --> 00:01:20.454
+this is the expected squared error.
+
+00:01:20.454 --> 00:01:24.284
+We now have an objective function to minimize.
+
+00:01:24.284 --> 00:01:26.759
+To do that using gradient descent,
+
+00:01:26.759 --> 00:01:30.290
+let's find the gradient or derivative of this function with
+
+00:01:30.290 --> 00:01:34.065
+respect to w. Using the chain rule of differentiation,
+
+00:01:34.064 --> 00:01:39.890
+we get minus two times the value difference times the derivative of v hat,
+
+00:01:39.890 --> 00:01:44.549
+which we earlier noted was simply the feature vector (x,s).
+
+00:01:44.549 --> 00:01:47.609
+Note that we remove the expectation operator here to
+
+00:01:47.609 --> 00:01:51.614
+focus on the error gradient indicated by a single state s,
+
+00:01:51.614 --> 00:01:54.659
+which we assume has been chosen stochastically.
+
+00:01:54.659 --> 00:01:57.015
+If we are able to sample enough states,
+
+00:01:57.015 --> 00:01:59.709
+we can come close to the expected value.
+
+00:01:59.709 --> 00:02:02.219
+Let's plug this in to the general form of
+
+00:02:02.219 --> 00:02:08.250
+a gradient descent update rule with alpha as a step-size or learning rate parameter.
+
+00:02:08.250 --> 00:02:10.620
+Note that the minus half here is just to
+
+00:02:10.620 --> 00:02:13.969
+cancel out the minus two we got in the derivative.
+
+00:02:13.969 --> 00:02:18.359
+This is the basic formulation we will use to iteratively reduce the error
+
+00:02:18.360 --> 00:02:23.520
+for each sample state till the approximate and true function are almost equal.
+
+00:02:23.520 --> 00:02:28.425
+Here's an intuitive explanation of how gradient descent optimizes the parameter vector.
+
+00:02:28.425 --> 00:02:35.085
+In each iteration, you change the weights a small step away from the error direction.
+
+00:02:35.085 --> 00:02:37.974
+So, the feature vector here points out
+
+00:02:37.974 --> 00:02:42.074
+what direction is bad so that we can move away from it.
+
+00:02:42.074 --> 00:02:47.369
+So far, we've only been talking about approximating the state-value function.
+
+00:02:47.370 --> 00:02:50.754
+In order to solve a model-free control problem, that is,
+
+00:02:50.754 --> 00:02:53.757
+to take actions in an unknown environment,
+
+00:02:53.758 --> 00:02:57.335
+we need to approximate the action-value function.
+
+00:02:57.335 --> 00:02:59.025
+We can do this by defining
+
+00:02:59.025 --> 00:03:03.122
+a feature transformation that utilizes both the state and action,
+
+00:03:03.122 --> 00:03:08.535
+then we can use the same gradient descent method as we did for the state-value function.
+
+00:03:08.534 --> 00:03:11.270
+Finally, let's look at the case where we wish
+
+00:03:11.270 --> 00:03:15.365
+the approximation function to compute all of the action-values at once.
+
+00:03:15.365 --> 00:03:19.175
+We can think of this as producing an action vector.
+
+00:03:19.175 --> 00:03:24.305
+For this purpose, we can continue to use the same feature transformation as before,
+
+00:03:24.305 --> 00:03:26.740
+taking in both the state and action.
+
+00:03:26.740 --> 00:03:31.189
+But now, how do we generate the different action-values?
+
+00:03:31.189 --> 00:03:34.150
+One way of thinking about it is that we are
+
+00:03:34.150 --> 00:03:37.295
+trying to find n different action-value functions,
+
+00:03:37.294 --> 00:03:39.484
+one for each action dimension.
+
+00:03:39.485 --> 00:03:43.160
+But intuitively, we know that these functions are related.
+
+00:03:43.159 --> 00:03:45.699
+So, it makes sense to compute them together.
+
+00:03:45.699 --> 00:03:50.454
+We can do this by extending our weight vector and turning it into a matrix.
+
+00:03:50.455 --> 00:03:54.451
+Each column of the matrix emulates a separate linear function,
+
+00:03:54.451 --> 00:03:57.044
+but the common features computed from the state and
+
+00:03:57.044 --> 00:04:00.694
+action keep these functions tied to each other.
+
+00:04:00.694 --> 00:04:03.805
+If we have a problem domain with a continuous state space,
+
+00:04:03.805 --> 00:04:07.105
+but a discrete action space which is very common,
+
+00:04:07.104 --> 00:04:10.674
+we can easily select the action with the maximum value.
+
+00:04:10.675 --> 00:04:13.060
+Without this sort of parallel processing,
+
+00:04:13.060 --> 00:04:17.959
+we would have to parcel each action one by one and then find their maximum.
+
+00:04:17.959 --> 00:04:20.904
+If our action space is also continuous,
+
+00:04:20.904 --> 00:04:25.179
+then this form allows us to output more than a single value at once.
+
+00:04:25.180 --> 00:04:27.610
+For example, if we were driving a car,
+
+00:04:27.610 --> 00:04:31.830
+we'd want to control both steering and throttle at the same time.
+
+00:04:31.829 --> 00:04:35.589
+The primary limitation of linear function approximation is that we
+
+00:04:35.589 --> 00:04:39.654
+can only represent linear relationships between inputs and outputs.
+
+00:04:39.654 --> 00:04:42.954
+With one-dimensional input, this is basically a line.
+
+00:04:42.954 --> 00:04:46.555
+In 2D, it becomes a plane, and so on.
+
+00:04:46.555 --> 00:04:50.000
+What if our underlying value function has a non-linear shape?
+
+00:04:50.000 --> 00:04:54.060
+A linear approximation may give a very bad result.
+
+00:04:54.060 --> 00:04:57.389
+That's when we need to start looking at non-linear functions.
+

@@ -1,0 +1,55 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:06.155
+Non-linear function approximation, this is what we've been building up to in this lesson.
+
+00:00:06.155 --> 00:00:09.030
+Recall from our previous discussion how we can
+
+00:00:09.029 --> 00:00:12.244
+capture non-linear relationships between input state and
+
+00:00:12.244 --> 00:00:15.209
+output value using arbitrary kernels like
+
+00:00:15.210 --> 00:00:18.420
+radial basis functions as our feature transformation.
+
+00:00:18.420 --> 00:00:24.100
+In this model, our output value is still linear with respect to the features.
+
+00:00:24.100 --> 00:00:26.250
+What if our underlying value function was
+
+00:00:26.250 --> 00:00:31.204
+truly non-linear with respect to a combination of these feature values?
+
+00:00:31.204 --> 00:00:34.085
+To capture such complex relationships,
+
+00:00:34.085 --> 00:00:37.829
+let's pass our linear response obtained using the dot product
+
+00:00:37.829 --> 00:00:42.405
+through some nonlinear function f. Does this look familiar?
+
+00:00:42.405 --> 00:00:46.439
+Yes, it is the basis of artificial neural networks.
+
+00:00:46.439 --> 00:00:50.399
+Such a non-linear function is generally called an activation
+
+00:00:50.399 --> 00:00:55.632
+function and immensely increases the representational capacity of our approximator.
+
+00:00:55.633 --> 00:01:01.005
+We can iteratively update the parameters of any such function using gradient descent.
+
+00:01:01.005 --> 00:01:05.040
+Learning rate alpha times value difference times
+
+00:01:05.040 --> 00:01:08.000
+the derivative of the function with respect to the weights.
+

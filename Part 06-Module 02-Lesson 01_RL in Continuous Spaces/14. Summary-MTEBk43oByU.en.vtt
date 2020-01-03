@@ -1,0 +1,58 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:03.089
+In summary, here's what you learned in this lesson.
+
+00:00:03.089 --> 00:00:07.530
+Traditional reinforcement learning techniques use a finite MDP to model
+
+00:00:07.530 --> 00:00:12.600
+an environment which limits us to environments with discrete state and action spaces.
+
+00:00:12.599 --> 00:00:16.304
+In order to extend our learning algorithms to continuous spaces,
+
+00:00:16.304 --> 00:00:18.059
+we can do one of two things.
+
+00:00:18.059 --> 00:00:23.279
+Discretize the state space or directly try to approximate desired value functions.
+
+00:00:23.280 --> 00:00:26.655
+Discretization can be performed using a constant grid,
+
+00:00:26.655 --> 00:00:28.875
+tile coding, or course coding.
+
+00:00:28.875 --> 00:00:32.899
+This indirectly leads to an approximation of the value function.
+
+00:00:32.899 --> 00:00:37.195
+Directly approximating a continuous value function can be done by first,
+
+00:00:37.195 --> 00:00:39.909
+defining a feature transformation and
+
+00:00:39.909 --> 00:00:43.194
+then computing a linear combination of those features.
+
+00:00:43.195 --> 00:00:47.755
+Using non-linear feature transforms like radial basis functions,
+
+00:00:47.755 --> 00:00:49.000
+allows us to use
+
+00:00:49.000 --> 00:00:54.310
+the same linear combination framework to capture some non-linear relationships.
+
+00:00:54.310 --> 00:00:59.469
+In order to represent non-linear relationships across combinations of features,
+
+00:00:59.469 --> 00:01:01.854
+we can apply an activation function.
+
+00:01:01.854 --> 00:01:07.129
+And this sets us up to use deep neural networks for reinforcement learning.
+

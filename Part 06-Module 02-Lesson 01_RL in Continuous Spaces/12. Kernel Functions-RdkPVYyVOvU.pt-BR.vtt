@@ -1,0 +1,162 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.367 --> 00:00:03.337
+Uma simples extensão
+para Aproximação de Funções Lineares
+
+00:00:03.371 --> 00:00:06.778
+pode nos ajudar a obter
+relações não-lineares.
+
+00:00:07.298 --> 00:00:10.714
+No centro dessa abordagem temos
+a nossa transformação de recurso.
+
+00:00:10.748 --> 00:00:13.498
+Você lembra como a definimos
+em um sentido genérico?
+
+00:00:13.532 --> 00:00:16.218
+Como algo que recebe um estado
+ou um par estado-ação
+
+00:00:16.252 --> 00:00:18.474
+e que produz
+um vetor de recurso?
+
+00:00:19.002 --> 00:00:23.034
+Cada elemento desse vetor pode ser
+produzido por uma função separada,
+
+00:00:23.068 --> 00:00:24.706
+que podem ser não-lineares.
+
+00:00:24.740 --> 00:00:29.274
+Por exemplo, suponha que o estado S
+seja um único número real.
+
+00:00:29.308 --> 00:00:33.100
+Podemos definir x1(S)=S,
+
+00:00:33.333 --> 00:00:38.967
+x2(S)=S², x3(S)=S³ etc.
+
+00:00:39.570 --> 00:00:41.626
+Elas são chamadas
+de "funções Kernel",
+
+00:00:41.660 --> 00:00:43.457
+ou "funções de base".
+
+00:00:43.491 --> 00:00:47.274
+Elas transformam o estado de entrada
+em um espaço diferente.
+
+00:00:47.308 --> 00:00:50.297
+Mas note que, como a nossa
+função de valor continua definida
+
+00:00:50.331 --> 00:00:52.650
+como uma combinação linear
+desses recursos,
+
+00:00:52.684 --> 00:00:55.754
+ainda podemos usar Aproximação
+de Função Linear.
+
+00:00:55.788 --> 00:01:00.690
+Isso permite que a função de valor
+represente relações não-lineares
+
+00:01:00.724 --> 00:01:03.762
+entre o estado de entrada
+e o valor de saída.
+
+00:01:03.796 --> 00:01:07.059
+Funções de base radial são uma forma
+muito comum de Kernels
+
+00:01:07.093 --> 00:01:08.802
+usadas para esse propósito.
+
+00:01:08.836 --> 00:01:10.416
+Você já deve ter ouvido
+falar delas.
+
+00:01:10.450 --> 00:01:13.617
+Essencialmente,
+encare o estado atual S
+
+00:01:13.651 --> 00:01:16.506
+como uma localização
+no espaço de estado contínuo,
+
+00:01:16.540 --> 00:01:19.273
+representado aqui
+como um plano retangular.
+
+00:01:19.307 --> 00:01:22.154
+Cada função de base é exibida
+como uma mancha.
+
+00:01:22.188 --> 00:01:24.970
+Quanto mais perto o estado
+estiver do centro da mancha,
+
+00:01:25.004 --> 00:01:27.713
+maior será a resposta
+que a função vai retornar.
+
+00:01:27.747 --> 00:01:29.105
+E quanto
+mais longe você for,
+
+00:01:29.139 --> 00:01:32.289
+a resposta vai cair gradualmente
+com o raio.
+
+00:01:32.323 --> 00:01:34.617
+Daí o nome
+"função de base radial".
+
+00:01:35.201 --> 00:01:37.641
+Matematicamente,
+isso pode ser obtido associando
+
+00:01:37.675 --> 00:01:40.953
+um Kernel gaussiano
+a cada função de base,
+
+00:01:40.987 --> 00:01:43.850
+com sua mediana servindo
+com o centro da mancha
+
+00:01:43.884 --> 00:01:47.913
+e o desvio padrão determinando
+o quão bruta ou suavemente
+
+00:01:47.947 --> 00:01:50.074
+a reposta cai.
+
+00:01:50.108 --> 00:01:53.569
+Então, para qualquer estado,
+podemos reduzir
+
+00:01:53.603 --> 00:01:56.232
+a representação do estado
+a um vetor de respostas
+
+00:01:56.266 --> 00:01:58.809
+dessas funções
+de base radial.
+
+00:01:58.843 --> 00:02:00.714
+Daí para frente,
+podemos usar
+
+00:02:00.748 --> 00:02:03.081
+o nosso mesmo método
+de aproximação de função.
+

@@ -1,0 +1,226 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:03.960 --> 00:00:07.195
+Welcome to Deep Reinforcement Learning.
+
+00:00:07.195 --> 00:00:11.050
+Interest in the field of reinforcement learning seems to have almost exploded
+
+00:00:11.050 --> 00:00:15.089
+with success stories like AlphaGo and platforms like OpenAI.
+
+00:00:15.089 --> 00:00:19.344
+Research in this area has been moving at a steady pace since the 1980s,
+
+00:00:19.344 --> 00:00:23.199
+but it has really taken off with recent advances in deep learning.
+
+00:00:23.199 --> 00:00:25.509
+As we progress through this module,
+
+00:00:25.510 --> 00:00:30.640
+you will design intelligent agents that can learn to carry out complex control tasks.
+
+00:00:30.640 --> 00:00:34.420
+These include simple domains like physics problems and board games to
+
+00:00:34.420 --> 00:00:39.880
+video games where the agent processes raw pixel data and even robotics.
+
+00:00:39.880 --> 00:00:42.820
+My favorite part of reinforcement learning is watching
+
+00:00:42.820 --> 00:00:46.384
+an agent grow and get better and better at a task.
+
+00:00:46.384 --> 00:00:48.789
+This is not always easy to achieve but
+
+00:00:48.789 --> 00:00:51.984
+once you can get your agent to learn the nuances of a task,
+
+00:00:51.984 --> 00:00:54.744
+it can perform it flawlessly from then on.
+
+00:00:54.744 --> 00:00:58.579
+And that is the most rewarding experience in the world.
+
+00:00:58.579 --> 00:01:02.309
+Before we dive into "Deep Reinforcement Learning",
+
+00:01:02.310 --> 00:01:05.629
+let's quickly review some fundamental concepts.
+
+00:01:05.629 --> 00:01:08.890
+Reinforcement learning problems are typically framed
+
+00:01:08.890 --> 00:01:12.265
+as Markov Decision Processes or MDPs.
+
+00:01:12.265 --> 00:01:19.704
+An MDP consists of a set of states S and actions A along with probabilities P,
+
+00:01:19.704 --> 00:01:22.885
+rewards R and a discount factor gamma.
+
+00:01:22.885 --> 00:01:27.189
+P captures how frequently different transitions and rewards occur,
+
+00:01:27.189 --> 00:01:31.239
+often modeled as a single joint probability where the state and
+
+00:01:31.239 --> 00:01:35.599
+reward at any time step t plus one depend only on the state
+
+00:01:35.599 --> 00:01:39.324
+and action taken at the previous time step t.
+
+00:01:39.325 --> 00:01:45.195
+This characteristic of certain environments is known as the Markov property.
+
+00:01:45.194 --> 00:01:48.364
+There are two quantities that we are typically interested in.
+
+00:01:48.364 --> 00:01:50.839
+The value of a state V(S),
+
+00:01:50.840 --> 00:01:53.265
+which we try to estimate or predict.
+
+00:01:53.265 --> 00:01:56.935
+And the value of an action taken in a certain state,
+
+00:01:56.935 --> 00:02:01.594
+Q(S, A) which can help us decide what action to take.
+
+00:02:01.594 --> 00:02:06.719
+These two mappings or functions are very much interrelated and help us find
+
+00:02:06.719 --> 00:02:13.344
+an optimal policy for our problem pie star that maximizes the total reward received.
+
+00:02:13.344 --> 00:02:16.740
+Note that since MDPs are probabilistic in nature,
+
+00:02:16.740 --> 00:02:18.990
+we can't predict with complete certainty
+
+00:02:18.990 --> 00:02:22.200
+what future rewards we will get and for how long.
+
+00:02:22.199 --> 00:02:26.250
+So, we typically aim for total expected reward.
+
+00:02:26.250 --> 00:02:29.854
+This is where the discount factor gamma comes into play as well.
+
+00:02:29.854 --> 00:02:32.039
+It is used to assign a lower weighted to
+
+00:02:32.039 --> 00:02:36.200
+future rewards when computing state and action values.
+
+00:02:36.200 --> 00:02:40.560
+Reinforcement learning algorithms are generally classified into two groups.
+
+00:02:40.560 --> 00:02:43.680
+Model-based approaches such as policy iteration and
+
+00:02:43.680 --> 00:02:48.330
+value iteration require a known transition and reward model.
+
+00:02:48.330 --> 00:02:51.735
+They essentially apply dynamic programming to iteratively compute
+
+00:02:51.735 --> 00:02:56.810
+the desired value functions and optimal policies using that model.
+
+00:02:56.810 --> 00:02:59.729
+On the other hand, model-free approaches including
+
+00:02:59.729 --> 00:03:05.129
+Monte Carlo Methods and Temporal-Difference Learning don't require an explicit model.
+
+00:03:05.129 --> 00:03:08.909
+They sample the environment by carrying out exploratory actions and
+
+00:03:08.909 --> 00:03:13.490
+use the experience gained to directly estimate value functions.
+
+00:03:13.491 --> 00:03:18.850
+Okay, obviously there is more to it but that's reinforcement learning in a nutshell.
+
+00:03:18.849 --> 00:03:21.019
+Deep Reinforcement Learning is
+
+00:03:21.020 --> 00:03:24.965
+a relatively recent term that refers to approaches that use deep learning,
+
+00:03:24.965 --> 00:03:29.854
+mainly, Multi-Layer Neural Networks to solve reinforcement learning problems.
+
+00:03:29.854 --> 00:03:34.039
+Now, reinforcement learning is typically characterized by finite MDPs,
+
+00:03:34.039 --> 00:03:37.219
+where the number of states and actions is limited.
+
+00:03:37.219 --> 00:03:41.120
+But there are so many problems where the space of states and actions is very
+
+00:03:41.120 --> 00:03:45.015
+large or even made of continuous real value numbers.
+
+00:03:45.014 --> 00:03:47.989
+Traditional algorithms use a table or
+
+00:03:47.990 --> 00:03:52.625
+a dictionary or other finite structure to capture state and action values.
+
+00:03:52.625 --> 00:03:54.995
+They no longer work for such problems.
+
+00:03:54.995 --> 00:03:58.250
+So, the first thing you will learn in this module is how to
+
+00:03:58.250 --> 00:04:02.629
+generalize these algorithms to work with large and continuous spaces.
+
+00:04:02.629 --> 00:04:07.939
+That lays the foundation for developing Deep Reinforcement Learning algorithms including
+
+00:04:07.939 --> 00:04:10.460
+value-based techniques like Deep Q-Learning
+
+00:04:10.460 --> 00:04:13.550
+and those that directly try to optimize the policy,
+
+00:04:13.550 --> 00:04:15.835
+such as Policy Gradients.
+
+00:04:15.835 --> 00:04:18.965
+Finally, you will look at more advanced approaches that try to
+
+00:04:18.964 --> 00:04:22.774
+combine the best of both worlds, Actor-Critic Methods.
+
+00:04:22.774 --> 00:04:25.704
+These algorithms can be hard to understand.
+
+00:04:25.704 --> 00:04:29.154
+So, don't worry if you find them challenging at first.
+
+00:04:29.154 --> 00:04:32.000
+Make sure you practice implementing the core competence
+
+00:04:32.000 --> 00:04:35.180
+of these algorithms and apply them to various environments.
+
+00:04:35.180 --> 00:04:36.879
+Observe how they perform.
+
+00:04:36.879 --> 00:04:40.000
+That is the only way to master Deep Reinforcement Learning.
+

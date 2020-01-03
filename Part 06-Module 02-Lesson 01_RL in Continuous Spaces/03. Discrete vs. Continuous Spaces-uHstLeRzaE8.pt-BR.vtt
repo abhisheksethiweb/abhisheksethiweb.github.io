@@ -1,0 +1,380 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.283 --> 00:00:02.287
+Primeiro, vamos ver
+o que queremos dizer
+
+00:00:02.321 --> 00:00:04.916
+com espaços "discretos"
+e "contínuos".
+
+00:00:05.236 --> 00:00:08.149
+Lembre-se da definição
+do Processo de Decisão de Markov,
+
+00:00:08.183 --> 00:00:11.701
+em que assumimos que o estado
+do ambiente, a qualquer momento,
+
+00:00:11.735 --> 00:00:14.508
+é projetado a partir de um conjunto
+de possíveis estados.
+
+00:00:14.542 --> 00:00:16.164
+Quando esse conjunto
+é finito,
+
+00:00:16.198 --> 00:00:18.556
+podemos considerá-lo
+um espaço de estado discreto.
+
+00:00:18.590 --> 00:00:21.869
+O mesmo vale para ações.
+Se houver um conjunto finito delas,
+
+00:00:21.903 --> 00:00:25.277
+consideramos que o ambiente
+tem um espaço de ação discreto.
+
+00:00:26.188 --> 00:00:29.237
+Ter espaços discretos simplifica
+as coisas para a gente.
+
+00:00:29.271 --> 00:00:31.460
+Para iniciantes,
+ele nos permite representar
+
+00:00:31.494 --> 00:00:34.509
+qualquer função de estados e valores
+como um dicionário
+
+00:00:34.543 --> 00:00:36.084
+ou uma tabela de pesquisa.
+
+00:00:36.118 --> 00:00:38.508
+Considere a função
+de valor de estado V,
+
+00:00:38.542 --> 00:00:41.989
+que é um mapeamento de um conjunto
+de estados a um número real.
+
+00:00:42.023 --> 00:00:44.060
+Se você codificar estados
+como números integrais,
+
+00:00:44.094 --> 00:00:46.780
+você pode codificar a função
+de valor como um dicionário
+
+00:00:46.814 --> 00:00:49.068
+usando cada estado
+como uma chave.
+
+00:00:49.102 --> 00:00:52.140
+Da mesma forma, considere
+a função de valor de ação Q,
+
+00:00:52.174 --> 00:00:55.941
+que mapeia cada par de estado-ação
+a um número real.
+
+00:00:55.975 --> 00:00:58.413
+De novo, você pode usar
+um dicionário aqui,
+
+00:00:58.447 --> 00:01:01.428
+ou armazenar a função de valor
+como uma tabela ou uma matriz,
+
+00:01:01.462 --> 00:01:03.772
+em que cada fileira
+corresponde a um estado
+
+00:01:03.806 --> 00:01:06.084
+e cada coluna, a uma ação.
+
+00:01:06.564 --> 00:01:08.732
+Espaços discretos
+também são importantes
+
+00:01:08.766 --> 00:01:11.644
+para vários algoritmos
+de Aprendizagem por Reforço.
+
+00:01:11.678 --> 00:01:13.844
+Por exemplo,
+na iteração de valores,
+
+00:01:13.878 --> 00:01:18.267
+este for loop interno passa
+por cada um dos estados
+
+00:01:18.301 --> 00:01:22.124
+e atualiza o valor correspondente
+da estimativa V(s).
+
+00:01:22.158 --> 00:01:25.461
+Isso é impossível se você
+tiver um espaço de estado infinito.
+
+00:01:25.495 --> 00:01:27.811
+O loop continuaria
+para sempre.
+
+00:01:27.845 --> 00:01:30.964
+Mesmo para espaços discretos
+com muitos estados
+
+00:01:30.998 --> 00:01:33.364
+isso pode se tornar
+impraticável.
+
+00:01:33.884 --> 00:01:35.797
+Métodos livres
+de modelos, como Q-Learning,
+
+00:01:35.831 --> 00:01:38.020
+também admitem
+espaços discretos.
+
+00:01:38.054 --> 00:01:41.717
+Aqui, este max está sendo calculado
+sobre todas as ações possíveis
+
+00:01:41.751 --> 00:01:43.284
+a partir do estado S,
+
+00:01:43.318 --> 00:01:46.364
+o que é fácil quando
+temos um conjunto finito de ações.
+
+00:01:46.398 --> 00:01:50.988
+Mas este pequeno passo torna-se
+um enorme problema de otimização
+
+00:01:51.022 --> 00:01:53.788
+se o seu espaço
+de ação for contínuo.
+
+00:01:54.053 --> 00:01:58.068
+Então, o que queremos dizer
+com "espaços contínuos"?
+
+00:01:58.102 --> 00:02:01.460
+O termo "contínuo"
+é usado em contraste com "discreto";
+
+00:02:01.494 --> 00:02:04.108
+Isto é, um espaço contínuo
+não é restrito
+
+00:02:04.142 --> 00:02:07.380
+a um conjunto de valores distintos,
+como números integrais.
+
+00:02:07.414 --> 00:02:09.948
+Em vez disso, ele pode
+receber uma variedade de valores,
+
+00:02:09.982 --> 00:02:11.707
+normalmente números reais.
+
+00:02:11.741 --> 00:02:14.367
+Isto significa que quantidades
+como valores de estados
+
+00:02:14.401 --> 00:02:17.524
+que podem ser representados
+como um gráfico de barras
+
+00:02:17.558 --> 00:02:20.300
+para um caso discreto,
+com uma barra para cada estado,
+
+00:02:20.334 --> 00:02:23.252
+agora, deverão ser encarados
+como um gráfico de densidade
+
+00:02:23.286 --> 00:02:25.036
+sobre um alcance desejado.
+
+00:02:25.070 --> 00:02:27.219
+A mesma noção
+se estende a ambientes
+
+00:02:27.253 --> 00:02:30.515
+em que o estado não é mais
+um único valor numérico real,
+
+00:02:30.549 --> 00:02:32.587
+mas sim um vetor
+de tais números
+
+00:02:32.621 --> 00:02:35.612
+Ainda nos referimos a isso
+como um espaço contínuo,
+
+00:02:35.646 --> 00:02:37.892
+apenas com mais
+de uma dimensão.
+
+00:02:38.420 --> 00:02:40.675
+Certo,
+antes de prosseguirmos,
+
+00:02:40.709 --> 00:02:43.027
+vamos tentar intuir a razão
+da importância
+
+00:02:43.061 --> 00:02:45.292
+dos espaços contínuos.
+
+00:02:45.326 --> 00:02:47.204
+De onde eles vêm?
+
+00:02:47.636 --> 00:02:50.516
+Quando você considera uma tarefa
+com alto nível de decisão,
+
+00:02:50.550 --> 00:02:53.004
+como um jogo de xadrez,
+geralmente podemos encarar
+
+00:02:53.038 --> 00:02:55.515
+o conjunto de possíveis estados
+como discretos.
+
+00:02:55.549 --> 00:02:58.772
+Qual peça está
+em qual quadrado no tabuleiro?
+
+00:02:59.099 --> 00:03:01.244
+Você não precisa se preocupar
+precisamente
+
+00:03:01.278 --> 00:03:04.156
+com o local em que cada peça
+está em cada quadrado,
+
+00:03:04.190 --> 00:03:06.028
+ou para onde
+ela está virada.
+
+00:03:06.062 --> 00:03:09.683
+Embora você possa examinar e pensar
+sobre esses detalhes,
+
+00:03:09.717 --> 00:03:12.427
+como o porquê do seu cavalo
+estar encarando a minha rainha,
+
+00:03:12.461 --> 00:03:15.556
+essas coisas não são relevantes
+para o problema que temos,
+
+00:03:15.590 --> 00:03:19.068
+e você pode abstraí-los
+no seu modelo do jogo.
+
+00:03:19.452 --> 00:03:22.380
+No geral, mundos baseados
+em grades são muito populares
+
+00:03:22.414 --> 00:03:24.124
+na Aprendizagem por Reforço.
+
+00:03:24.158 --> 00:03:26.900
+Elas nos dão uma ideia
+de como agentes podem agir
+
+00:03:26.934 --> 00:03:28.772
+em ambientes espaciais.
+
+00:03:28.806 --> 00:03:31.868
+Mas espaços físicos reais
+nem sempre são divididos
+
+00:03:31.902 --> 00:03:33.828
+perfeitamente em grades.
+
+00:03:33.862 --> 00:03:38.195
+Não há uma célula 5,3 para a qual
+o robô aspirador de pó pode ir.
+
+00:03:38.229 --> 00:03:41.659
+Ele precisa mapear
+sua posição atual para dizer
+
+00:03:41.693 --> 00:03:46.796
+que vai a 2,5m da parede a oeste
+por 1,8m da parede ao norte.
+
+00:03:47.131 --> 00:03:49.460
+Ele também precisa monitorar
+o seu destino
+
+00:03:49.494 --> 00:03:53.107
+e se virar suavemente para encarar
+a direção para a qual quer se mover.
+
+00:03:53.141 --> 00:03:56.715
+Esses são todos números reais
+que o agente tem que processar
+
+00:03:56.749 --> 00:03:59.516
+e representar
+como parte do estado.
+
+00:03:59.550 --> 00:04:02.100
+Ações também
+podem ser contínuas.
+
+00:04:02.134 --> 00:04:05.116
+Considere, por exemplo,
+um robô que joga dardos.
+
+00:04:05.150 --> 00:04:08.987
+Ele precisa configurar a altura
+e o ângulo do dardo,
+
+00:04:09.021 --> 00:04:12.724
+escolher um nível apropriado
+de força com o qual jogar etc.
+
+00:04:13.075 --> 00:04:15.548
+Mesmo pequenas diferenças
+nesses valores
+
+00:04:15.582 --> 00:04:18.643
+podem ter um enorme impacto
+no local em que o dardo
+
+00:04:18.677 --> 00:04:20.618
+vai acertar o alvo.
+
+00:04:20.652 --> 00:04:24.795
+No geral, a maioria das ações
+que acontecem em ambiente físico
+
+00:04:24.829 --> 00:04:27.091
+são contínuas.
+
+00:04:27.125 --> 00:04:31.059
+Claramente, temos que modificar
+a representação ou os algoritmos,
+
+00:04:31.093 --> 00:04:34.283
+ou ambos para acomodar
+espaços contínuos.
+
+00:04:34.317 --> 00:04:36.811
+As duas principais estratégias
+que vamos ver
+
+00:04:36.845 --> 00:04:40.011
+são Discretização
+e Aproximação de Função.
+

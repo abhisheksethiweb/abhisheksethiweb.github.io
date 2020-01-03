@@ -1,0 +1,169 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:01.620
+As the name suggests,
+
+00:00:01.620 --> 00:00:06.810
+discretization is basically converting a continuous space into a discrete one.
+
+00:00:06.809 --> 00:00:09.959
+Remember our continuous vacuum cleaner world?
+
+00:00:09.960 --> 00:00:15.825
+All we're saying is let's bring back a grid structure with discrete positions identified.
+
+00:00:15.824 --> 00:00:18.899
+Note that we're not really forcing our agent to
+
+00:00:18.899 --> 00:00:21.704
+be in exactly the center of these positions.
+
+00:00:21.704 --> 00:00:23.759
+Since the underlying world is continuous,
+
+00:00:23.760 --> 00:00:25.685
+we don't have control over that.
+
+00:00:25.684 --> 00:00:28.419
+But in our representation of the state space,
+
+00:00:28.420 --> 00:00:31.615
+we only identify certain positions as relevant.
+
+00:00:31.614 --> 00:00:35.679
+For instance, whether the robot is at 3.1, 2.4,
+
+00:00:35.679 --> 00:00:40.329
+or 2.9, 1.8, we can round that off to three, two.
+
+00:00:40.329 --> 00:00:44.214
+Yes, this will almost always be a little incorrect,
+
+00:00:44.215 --> 00:00:45.565
+but for some environments,
+
+00:00:45.564 --> 00:00:48.504
+discretizing the state-space can work out very well.
+
+00:00:48.505 --> 00:00:53.320
+It enables us to use existing algorithms with little, or no modification.
+
+00:00:53.320 --> 00:00:55.585
+Actions can be discretized as well.
+
+00:00:55.585 --> 00:00:58.750
+For example, angles can be divided into whole degrees,
+
+00:00:58.750 --> 00:01:01.715
+or even 90 degrees increments, if appropriate.
+
+00:01:01.715 --> 00:01:05.549
+Now, let's imagine there are objects in this discretized world,
+
+00:01:05.549 --> 00:01:08.159
+obstacles that the robot may need to avoid.
+
+00:01:08.159 --> 00:01:10.064
+With our grid representation,
+
+00:01:10.064 --> 00:01:15.075
+all we can do is mark off the cells where an object is present, even by a little.
+
+00:01:15.075 --> 00:01:17.685
+This is known as an occupancy grid.
+
+00:01:17.685 --> 00:01:21.585
+But our choice of discretization may lead the agent into thinking,
+
+00:01:21.584 --> 00:01:26.204
+there is no path across these obstacles to reach some desired locations.
+
+00:01:26.204 --> 00:01:30.644
+Instead, if we could vary the grid according to these obstacles,
+
+00:01:30.644 --> 00:01:34.069
+then we could open up a feasible path for the agent.
+
+00:01:34.069 --> 00:01:39.174
+An alternate approach would be to divide up the grid into smaller cells where required.
+
+00:01:39.174 --> 00:01:41.079
+It would still be an approximation.
+
+00:01:41.079 --> 00:01:46.134
+But it'll allow us to allocate more of our state representation to where it matters.
+
+00:01:46.135 --> 00:01:49.690
+Better than dividing the entire state space into finer cells,
+
+00:01:49.689 --> 00:01:51.969
+which may increase the total number of states,
+
+00:01:51.969 --> 00:01:55.105
+and in turn, the time needed to compute value functions.
+
+00:01:55.105 --> 00:01:58.150
+If you're familiar with binary space partitioning,
+
+00:01:58.150 --> 00:02:01.525
+or quad trees, this is exactly the same idea.
+
+00:02:01.525 --> 00:02:03.565
+Now, you may be wondering.
+
+00:02:03.564 --> 00:02:07.884
+This sort of discretization makes sense in spacial domains like gridworlds.
+
+00:02:07.885 --> 00:02:10.585
+But what about other state spaces?
+
+00:02:10.585 --> 00:02:13.629
+Let's change gears and look at a different domain.
+
+00:02:13.629 --> 00:02:17.004
+Most cars these days have automatic transmission.
+
+00:02:17.004 --> 00:02:21.669
+Have you ever wondered how the car decides to pick what gear to switch to, and when?
+
+00:02:21.669 --> 00:02:24.819
+Here's a simplified plot of how fuel consumption
+
+00:02:24.819 --> 00:02:28.134
+varies with speed for different gears in a typical car.
+
+00:02:28.134 --> 00:02:32.049
+Let's assume that our state only consists of the vehicle speed,
+
+00:02:32.050 --> 00:02:33.730
+and which gear we are in.
+
+00:02:33.729 --> 00:02:37.569
+And our reward is inversely proportional to fuel consumption.
+
+00:02:37.569 --> 00:02:41.664
+The actions available to our agent are essentially switching up, or down.
+
+00:02:41.664 --> 00:02:44.694
+Now, although speed is a continuous value,
+
+00:02:44.694 --> 00:02:47.169
+it can be discretized into ranges,
+
+00:02:47.169 --> 00:02:51.684
+such that a single gear is the most optimal in each range.
+
+00:02:51.685 --> 00:02:55.134
+Note that these ranges can be of different lengths,
+
+00:02:55.134 --> 00:02:58.389
+that is, the discretization is non-uniform.
+
+00:02:58.389 --> 00:03:02.679
+If there were other dimensions to the state-space such as throttle position,
+
+00:03:02.680 --> 00:03:06.200
+then they could be subdivided non-uniformly as well.
+

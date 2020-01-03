@@ -1,0 +1,235 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:04.875
+Let us first take a look at what we mean by discrete and continuous spaces.
+
+00:00:04.875 --> 00:00:09.449
+Recall the definition of a Markov Decision Process where we assume that
+
+00:00:09.449 --> 00:00:14.429
+the environment state at any time is drawn from a set of possible states.
+
+00:00:14.429 --> 00:00:16.109
+When the set is finite,
+
+00:00:16.109 --> 00:00:18.359
+we can call it a discrete state space.
+
+00:00:18.359 --> 00:00:21.929
+Similarly with actions, if there is a finite set of them,
+
+00:00:21.929 --> 00:00:25.649
+the environment is said to have a discrete action space.
+
+00:00:25.649 --> 00:00:29.204
+Having discrete spaces simplifies things for us.
+
+00:00:29.204 --> 00:00:32.429
+For starters, it allows us to represent any function of
+
+00:00:32.429 --> 00:00:35.939
+states and actions as a dictionary or look-up table.
+
+00:00:35.939 --> 00:00:38.879
+Consider the state value function V which
+
+00:00:38.880 --> 00:00:41.835
+is a mapping from the set of states to a real number.
+
+00:00:41.835 --> 00:00:44.145
+If you encode states as integers,
+
+00:00:44.145 --> 00:00:48.915
+you can code up the value function as a dictionary using each state as a key.
+
+00:00:48.914 --> 00:00:52.274
+Similarly, consider the action value function Q
+
+00:00:52.274 --> 00:00:55.859
+that maps every state action pair to a real number.
+
+00:00:55.859 --> 00:01:01.469
+Again, you could use a dictionary here or store the value function as a table or matrix,
+
+00:01:01.469 --> 00:01:03.839
+where each row corresponds to a state,
+
+00:01:03.840 --> 00:01:06.180
+and each column to an action.
+
+00:01:06.180 --> 00:01:11.665
+Discreet spaces are also critical to a number of reinforcement learning algorithms.
+
+00:01:11.665 --> 00:01:13.835
+For instance, in value iteration,
+
+00:01:13.834 --> 00:01:18.424
+this internal four loop goes over each state as one by one,
+
+00:01:18.424 --> 00:01:21.259
+and updates the corresponding value estimate V of
+
+00:01:21.260 --> 00:01:25.564
+s. This is impossible if you have an infinite state space.
+
+00:01:25.564 --> 00:01:28.549
+The loop would go on forever even for
+
+00:01:28.549 --> 00:01:33.575
+discrete state spaces with a lot of states this can quickly become infeasible.
+
+00:01:33.575 --> 00:01:37.954
+Model-free methods like Q-learning assume discrete spaces as well.
+
+00:01:37.954 --> 00:01:42.049
+Here, this max is being computed over all possible actions from
+
+00:01:42.049 --> 00:01:46.390
+state S prime which is easy when you have a finite set of actions.
+
+00:01:46.390 --> 00:01:48.780
+But this tiny step itself becomes
+
+00:01:48.780 --> 00:01:53.700
+a full-blown optimization problem if your action space is continuous.
+
+00:01:53.700 --> 00:01:57.990
+So what do we exactly mean by continuous spaces.
+
+00:01:57.989 --> 00:02:01.394
+The term continuous is used to contrast with discrete.
+
+00:02:01.394 --> 00:02:07.274
+That is a continuous space is not restricted to a set of distinct values like integers.
+
+00:02:07.275 --> 00:02:11.610
+Instead it can take a range of values, typically real numbers.
+
+00:02:11.610 --> 00:02:15.960
+This means, quantities like state values that could be depicted as,
+
+00:02:15.960 --> 00:02:17.219
+say a bar chart,
+
+00:02:17.219 --> 00:02:18.555
+for a discrete case,
+
+00:02:18.555 --> 00:02:20.325
+one bar for every state,
+
+00:02:20.324 --> 00:02:24.959
+will now need to be thought of as a a density plot over a desired range.
+
+00:02:24.960 --> 00:02:28.650
+The same notion extends to environments where the state is no longer
+
+00:02:28.650 --> 00:02:32.760
+a single real valued number but a vector of such numbers.
+
+00:02:32.759 --> 00:02:38.054
+This is still referred to as a continuous space just with more than one dimension.
+
+00:02:38.055 --> 00:02:40.770
+Okay, before we go any further,
+
+00:02:40.770 --> 00:02:45.284
+let's try to build some intuition for why continuous state spaces are important.
+
+00:02:45.284 --> 00:02:47.302
+Where do they even come from?
+
+00:02:47.302 --> 00:02:51.764
+When you consider a high-level decision making task like playing chess,
+
+00:02:51.764 --> 00:02:55.424
+you can often think of the set of possible states as discrete.
+
+00:02:55.425 --> 00:02:58.775
+What piece is in which square on the board.
+
+00:02:58.775 --> 00:03:01.870
+You don't need to bother with precisely where
+
+00:03:01.870 --> 00:03:05.890
+each piece is located within its square or which way it is facing.
+
+00:03:05.889 --> 00:03:09.639
+Although these details are available for you to inspect and wonder about,
+
+00:03:09.639 --> 00:03:12.474
+why is your knight staring at my queen.
+
+00:03:12.474 --> 00:03:15.564
+These things are not relevant to the problem at hand
+
+00:03:15.564 --> 00:03:19.180
+and you can abstract them away in your model of the game.
+
+00:03:19.180 --> 00:03:24.069
+In general, grid-based worlds are very popular in reinforcement learning.
+
+00:03:24.069 --> 00:03:28.644
+They give you a glimpse at how agents might act in spatial environments.
+
+00:03:28.645 --> 00:03:33.715
+But real physical spaces are not always neatly divided up into grids.
+
+00:03:33.715 --> 00:03:38.335
+There is no cell 5-3 for the vacuum cleaner robot to go to.
+
+00:03:38.335 --> 00:03:42.430
+It has to chart a course from its current position to say 2.5
+
+00:03:42.430 --> 00:03:46.944
+meters from the west wall by 1.8 meters from the north wall.
+
+00:03:46.944 --> 00:03:49.780
+It also has to keep track of its heading and
+
+00:03:49.780 --> 00:03:53.020
+turn smoothly to face the direction it wants to move in.
+
+00:03:53.020 --> 00:03:56.080
+These are all real numbers that the agent may need
+
+00:03:56.080 --> 00:03:59.425
+to process and represent as part of the state.
+
+00:03:59.425 --> 00:04:02.140
+Actions too can be continuous.
+
+00:04:02.139 --> 00:04:05.064
+Take for example a robot that plays darts.
+
+00:04:05.064 --> 00:04:08.770
+It has to set the height and angle it wants to release the dart at,
+
+00:04:08.770 --> 00:04:12.850
+choose an appropriate level of power with which to throw et cetera.
+
+00:04:12.849 --> 00:04:15.969
+Even small differences in these values can have
+
+00:04:15.969 --> 00:04:20.319
+a large impact on where the dart ultimately lands on the board.
+
+00:04:20.319 --> 00:04:23.529
+In general, most actions that need to take place
+
+00:04:23.529 --> 00:04:26.904
+in a physical environment are continuous in nature.
+
+00:04:26.904 --> 00:04:30.159
+Clearly, we need to modify our representation or
+
+00:04:30.160 --> 00:04:34.270
+algorithms or both to accommodate continuous spaces.
+
+00:04:34.269 --> 00:04:37.149
+The two main strategies we'll be looking at are
+
+00:04:37.149 --> 00:04:40.829
+Discretization and Function Approximation.
+

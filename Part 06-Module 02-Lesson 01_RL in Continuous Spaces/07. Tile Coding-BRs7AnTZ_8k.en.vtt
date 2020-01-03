@@ -1,0 +1,136 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:02.654
+If you have prior knowledge about the state space,
+
+00:00:02.654 --> 00:00:06.160
+you can manually design an appropriate discretisation scheme.
+
+00:00:06.160 --> 00:00:08.359
+Like in our gears switching example,
+
+00:00:08.359 --> 00:00:11.445
+we knew the relationship between fuel consumption and speed.
+
+00:00:11.445 --> 00:00:14.595
+But in order to function in arbitrary environments,
+
+00:00:14.595 --> 00:00:16.574
+we need a more generic method.
+
+00:00:16.574 --> 00:00:20.199
+One elegant approach for this is tile coding.
+
+00:00:20.199 --> 00:00:24.989
+Here, the underlying state space is continuous and two dimensional.
+
+00:00:24.989 --> 00:00:29.039
+We overlay multiple grids or tilings on top of the space,
+
+00:00:29.039 --> 00:00:32.079
+each slightly offset from each other.
+
+00:00:32.079 --> 00:00:35.039
+Now, any position S in the state space can be
+
+00:00:35.039 --> 00:00:38.234
+coarsely identified by the tiles that it activates.
+
+00:00:38.234 --> 00:00:40.582
+If we assign a bit to each tile,
+
+00:00:40.582 --> 00:00:44.628
+then we can represent our new discretised state as a bit vector,
+
+00:00:44.628 --> 00:00:48.840
+with ones for the tiles that get activated, and zeros elsewhere.
+
+00:00:48.840 --> 00:00:52.730
+This, by itself, is a very efficient representation.
+
+00:00:52.729 --> 00:00:57.390
+But the genius lies in how the state value function is computed using the scheme.
+
+00:00:57.390 --> 00:01:01.499
+Instead of storing a separate value for each state V of S,
+
+00:01:01.499 --> 00:01:06.890
+it is defined in terms of the bit vector for that state and a weight for each tile.
+
+00:01:06.890 --> 00:01:12.025
+The tile coding algorithm in turn updates these weights iteratively.
+
+00:01:12.025 --> 00:01:18.300
+This ensures nearby locations that share tiles also share some component of state value,
+
+00:01:18.299 --> 00:01:21.995
+effectively smoothing the learned value function.
+
+00:01:21.995 --> 00:01:24.519
+Tile coding does have some drawbacks.
+
+00:01:24.519 --> 00:01:29.280
+Just like a simple grid based approach we have to manually select the tile sizes,
+
+00:01:29.280 --> 00:01:31.094
+there offsets, number of tilings,
+
+00:01:31.094 --> 00:01:33.414
+etc, ahead of time.
+
+00:01:33.415 --> 00:01:37.405
+A more flexible approach is adaptive tile coding,
+
+00:01:37.405 --> 00:01:39.754
+which starts with fairly large tiles,
+
+00:01:39.754 --> 00:01:43.744
+and divides each tile into two whenever appropriate.
+
+00:01:43.745 --> 00:01:45.650
+How do we know when to split?
+
+00:01:45.650 --> 00:01:47.905
+Well, we can use a hero stick for that.
+
+00:01:47.905 --> 00:01:51.200
+Basically, we want to split the state space when we
+
+00:01:51.200 --> 00:01:55.500
+realize that we are no longer learning much with the current representation.
+
+00:01:55.500 --> 00:01:59.230
+That is, when our value function isn't changing.
+
+00:01:59.230 --> 00:02:02.855
+We can stop when we have reached some upper limit on the number of splits,
+
+00:02:02.855 --> 00:02:04.972
+or some max iterations.
+
+00:02:04.972 --> 00:02:07.570
+In order to figure out which tile to split,
+
+00:02:07.570 --> 00:02:12.509
+we have to look at which one is likely to have the greatest effect on the value function.
+
+00:02:12.509 --> 00:02:17.264
+For this, we need to keep track of subtiles and their projected weights.
+
+00:02:17.264 --> 00:02:22.519
+Then, we can pick the tile with the greatest difference between subtile weights.
+
+00:02:22.520 --> 00:02:24.635
+There are many other heuristics you can use,
+
+00:02:24.634 --> 00:02:27.484
+but the main advantage of adaptive tile coding,
+
+00:02:27.485 --> 00:02:32.670
+is that it does not rely on a human to specify a discretisation ahead of time.
+
+00:02:32.669 --> 00:02:37.149
+The resulting state space is appropriately partitioned based on its complexity.
+
