@@ -1,0 +1,43 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:05.724
+So far, you've implemented Sarsa and Sarsamax and we'lll now discuss one more option.
+
+00:00:05.724 --> 00:00:11.137
+This new option is called expected Sarsa and it closely resembles Sarsamax,
+
+00:00:11.137 --> 00:00:14.980
+where the only difference is in the update step for the action value.
+
+00:00:14.980 --> 00:00:18.719
+Remember that Sarsamax or Q learning took the maximum
+
+00:00:18.719 --> 00:00:22.734
+over all actions of all possible next state action pairs.
+
+00:00:22.734 --> 00:00:26.129
+In other words, it chooses what value to place here by plugging in
+
+00:00:26.129 --> 00:00:32.054
+the one action that maximizes the action value estimate corresponding to the next state.
+
+00:00:32.054 --> 00:00:35.570
+Expected Sarsa does something a bit different.
+
+00:00:35.570 --> 00:00:39.210
+It uses the expected value of the next state action pair,
+
+00:00:39.210 --> 00:00:42.750
+where the expectation takes into account the probability that
+
+00:00:42.750 --> 00:00:46.445
+the agent selects each possible action from the next state.
+
+00:00:46.445 --> 00:00:48.024
+Over the next couple concepts,
+
+00:00:48.024 --> 00:00:50.730
+you'll write your own implementation of Expected Sarsa.
+

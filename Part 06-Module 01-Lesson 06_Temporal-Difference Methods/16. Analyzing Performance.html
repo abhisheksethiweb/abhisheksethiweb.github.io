@@ -1,0 +1,232 @@
+<!-- udacimak v1.2.0 -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Analyzing Performance</title>
+  <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../assets/css/plyr.css">
+  <link rel="stylesheet" href="../assets/css/katex.min.css">
+  <link rel="stylesheet" href="../assets/css/jquery.mCustomScrollbar.min.css">
+  <link rel="stylesheet" href="../assets/css/styles.css">
+  <link rel="shortcut icon" type="image/png" href="../assets/img/udacimak.png" />
+</head>
+
+<body>
+  <div class="wrapper">
+    <nav id="sidebar">
+  <div class="sidebar-header">
+    <h3>Temporal-Difference Methods</h3>
+  </div>
+
+  <ul class="sidebar-list list-unstyled CTAs">
+    <li>
+      <a href="../index.html" class="article">Back to Home</a>
+    </li>
+  </ul>
+
+  <ul class="sidebar-list list-unstyled components">
+    <li class="">
+      <a href="01. Introduction.html">01. Introduction</a>
+    </li>
+    <li class="">
+      <a href="02. OpenAI Gym CliffWalkingEnv.html">02. OpenAI Gym: CliffWalkingEnv</a>
+    </li>
+    <li class="">
+      <a href="03. TD Prediction TD(0).html">03. TD Prediction: TD(0)</a>
+    </li>
+    <li class="">
+      <a href="04. Implementation.html">04. Implementation</a>
+    </li>
+    <li class="">
+      <a href="05. Mini Project TD (Parts 0 and 1).html">05. Mini Project: TD (Parts 0 and 1)</a>
+    </li>
+    <li class="">
+      <a href="06. TD Prediction Action Values.html">06. TD Prediction: Action Values</a>
+    </li>
+    <li class="">
+      <a href="07. TD Control Sarsa(0).html">07. TD Control: Sarsa(0)</a>
+    </li>
+    <li class="">
+      <a href="08. Implementation.html">08. Implementation</a>
+    </li>
+    <li class="">
+      <a href="09. Mini Project TD (Part 2).html">09. Mini Project: TD (Part 2)</a>
+    </li>
+    <li class="">
+      <a href="10. TD Control Sarsamax.html">10. TD Control: Sarsamax</a>
+    </li>
+    <li class="">
+      <a href="11. Implementation.html">11. Implementation</a>
+    </li>
+    <li class="">
+      <a href="12. Mini Project TD (Part 3).html">12. Mini Project: TD (Part 3)</a>
+    </li>
+    <li class="">
+      <a href="13. TD Control Expected Sarsa.html">13. TD Control: Expected Sarsa</a>
+    </li>
+    <li class="">
+      <a href="14. Implementation.html">14. Implementation</a>
+    </li>
+    <li class="">
+      <a href="15. Mini Project TD (Part 4).html">15. Mini Project: TD (Part 4)</a>
+    </li>
+    <li class="">
+      <a href="16. Analyzing Performance.html">16. Analyzing Performance</a>
+    </li>
+    <li class="">
+      <a href="17. Summary.html">17. Summary</a>
+    </li>
+  </ul>
+
+  <ul class="sidebar-list list-unstyled CTAs">
+    <li>
+      <a href="../index.html" class="article">Back to Home</a>
+    </li>
+  </ul>
+</nav>
+
+    <div id="content">
+      <header class="container-fluild header">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <div class="align-items-middle">
+                <button type="button" id="sidebarCollapse" class="btn btn-toggle-sidebar">
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                </button>
+
+                <h1 style="display: inline-block">16. Analyzing Performance</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main class="container">
+        <div class="row">
+          <div class="col-12">
+            <div class="ud-atom">
+  <h3></h3>
+  <div>
+  <h1 id="analyzing-performance">Analyzing Performance</h1>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <p>All of the TD control algorithms we have examined (Sarsa, Sarsamax, Expected Sarsa) converge to the optimal action-value function <span class="mathquill ud-math">q_<em></span> (and so yield the optimal policy <span class="mathquill ud-math">\pi_</em></span>) if (1) the value of <span class="mathquill ud-math">\epsilon</span> decays in accordance with the GLIE conditions, and (2) the step-size parameter <span class="mathquill ud-math">\alpha</span> is sufficiently small.</p>
+<p>The differences between these algorithms are summarized below:</p>
+<ul>
+<li>Sarsa and Expected Sarsa are both <strong>on-policy</strong> TD control algorithms.  In this case, the same (<span class="mathquill ud-math">\epsilon</span>-greedy) policy that is evaluated and improved is also used to select actions.</li>
+<li>Sarsamax is an <strong>off-policy</strong> method, where the (greedy) policy that is evaluated and improved is different from the (<span class="mathquill ud-math">\epsilon</span>-greedy) policy that is used to select actions.</li>
+<li>On-policy TD control methods (like Expected Sarsa and Sarsa) have better online performance than off-policy TD control methods (like Sarsamax). </li>
+<li>Expected Sarsa generally achieves better performance than Sarsa.</li>
+</ul>
+<p>If you would like to learn more, you are encouraged to read Chapter 6 of the <a href="http://go.udacity.com/rl-textbook" target="_blank">textbook</a> (especially sections 6.4-6.6).</p>
+<p>As an optional exercise to deepen your understanding, you are encouraged to reproduce Figure 6.4.  (Note that this exercise is optional!)</p>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <figure class="figure">
+    <img src="img/screen-shot-2017-12-17-at-12.49.34-pm.png" alt="" class="img img-fluid">
+    <figcaption class="figure-caption">
+      
+    </figcaption>
+  </figure>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <p>The figure shows the performance of Sarsa and Q-learning on the cliff walking environment for constant <span class="mathquill ud-math">\epsilon = 0.1</span>.  As described in the textbook, in this case,</p>
+<ul>
+<li>Q-learning achieves worse online performance (where the agent collects less reward on average in each episode), but learns the optimal policy, and</li>
+<li>Sarsa achieves better online performance, but learns a sub-optimal "safe" policy.</li>
+</ul>
+<p>You should be able to reproduce the figure by making only small modifications to your existing code.  </p>
+</div>
+
+</div>
+<div class="divider"></div>
+          </div>
+        </div>
+      </main>
+
+      <footer class="footer">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <p class="text-center">
+                <a href="https://github.com/udacimak/udacimak#readme" target="_blank">udacimak v1.2.0</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </div>
+
+
+  <script src="../assets/js/jquery-3.3.1.min.js"></script>
+  <script src="../assets/js/plyr.polyfilled.min.js"></script>
+  <script src="../assets/js/bootstrap.min.js"></script>
+  <script src="../assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+  <script src="../assets/js/katex.min.js"></script>
+  <script>
+    // Initialize Plyr video players
+    const players = Array.from(document.querySelectorAll('video')).map(p => new Plyr(p));
+
+    // render math equations
+    let elMath = document.getElementsByClassName('mathquill');
+    for (let i = 0, len = elMath.length; i < len; i += 1) {
+      const el = elMath[i];
+
+      katex.render(el.textContent, el, {
+        throwOnError: false
+      });
+    }
+
+    // this hack will make sure Bootstrap tabs work when using Handlebars
+    if ($('#question-tabs').length && $('#user-answer-tabs').length) {
+      $("#question-tabs a.nav-link").on('click', function () {
+        $("#question-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+      $("#user-answer-tabs a.nav-link").on('click', function () {
+        $("#user-answer-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    } else {
+      $("a.nav-link").on('click', function () {
+        $(".tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    }
+
+    // side bar events
+    $(document).ready(function () {
+      $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+      });
+
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar, #content').toggleClass('active');
+        $('.collapse.in').toggleClass('in');
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+      });
+    });
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,85 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:02.265
+Now that we've addressed the Prediction Problem,
+
+00:00:02.265 --> 00:00:04.320
+we're ready to move on to control.
+
+00:00:04.320 --> 00:00:07.695
+So, how might an agent determine an optimal policy?
+
+00:00:07.695 --> 00:00:12.115
+Well build off the algorithm that we use to estimate the action value function.
+
+00:00:12.115 --> 00:00:14.655
+In that case, after each action is selected,
+
+00:00:14.654 --> 00:00:16.934
+the agent updates its estimate.
+
+00:00:16.934 --> 00:00:19.140
+And it's important to note that the agent uses
+
+00:00:19.140 --> 00:00:22.820
+the same policy at every time step to select the actions.
+
+00:00:22.820 --> 00:00:25.995
+But now, to adapt this to produce a control algorithm,
+
+00:00:25.995 --> 00:00:27.990
+we'll gradually change the policy,
+
+00:00:27.989 --> 00:00:31.199
+so that it becomes more optimal at every time step.
+
+00:00:31.199 --> 00:00:33.810
+One of the methods we'll use for this is pretty
+
+00:00:33.810 --> 00:00:36.480
+identical to what we did in the Monte-Carlo case,
+
+00:00:36.479 --> 00:00:41.779
+where we select the action at every time step by using a policy that's Epsilon-Greedy,
+
+00:00:41.780 --> 00:00:44.850
+with respect to the current estimate of the action values.
+
+00:00:44.850 --> 00:00:46.259
+At the initial time step,
+
+00:00:46.259 --> 00:00:48.795
+we begin by setting Epsilon to one.
+
+00:00:48.795 --> 00:00:54.734
+Then, A0 and A1 are chosen according to the equal probable random policy.
+
+00:00:54.734 --> 00:00:58.420
+Then, at all future time steps after an action is chosen,
+
+00:00:58.420 --> 00:01:00.600
+we update the action-value function and
+
+00:01:00.600 --> 00:01:03.675
+construct the corresponding Epsilon-Greedy policy.
+
+00:01:03.674 --> 00:01:07.349
+And as long as we specify appropriate values for Epsilon,
+
+00:01:07.349 --> 00:01:11.614
+the algorithm is guaranteed to converge to the optimal policy.
+
+00:01:11.614 --> 00:01:14.104
+The name of this algorithm is Sarsa 0,
+
+00:01:14.105 --> 00:01:16.424
+also known as Sarsa for short.
+
+00:01:16.424 --> 00:01:23.564
+The name comes from the fact that each action-value update uses a state-action-reward,
+
+00:01:23.564 --> 00:01:27.000
+next state, next action, tuple of interaction.
+

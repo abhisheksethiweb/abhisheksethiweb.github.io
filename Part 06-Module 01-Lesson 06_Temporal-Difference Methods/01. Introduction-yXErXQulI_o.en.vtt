@@ -1,0 +1,106 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:04.889
+In this lesson, you will learn about Temporal Difference or TD learning.
+
+00:00:04.889 --> 00:00:07.209
+In order to understand TD learning,
+
+00:00:07.209 --> 00:00:09.539
+it will help to discuss what exactly it would
+
+00:00:09.539 --> 00:00:13.739
+mean to solve this problem of learning from interaction.
+
+00:00:13.740 --> 00:00:16.740
+The solution will come many years into the future,
+
+00:00:16.739 --> 00:00:19.709
+when we've developed artificially intelligent agents
+
+00:00:19.710 --> 00:00:23.234
+that interact with the world much like the way humans do.
+
+00:00:23.234 --> 00:00:25.140
+In order to accomplish this,
+
+00:00:25.140 --> 00:00:27.390
+the agents would need to learn from the kind of
+
+00:00:27.390 --> 00:00:31.125
+online streaming data that we learn from everyday.
+
+00:00:31.125 --> 00:00:35.725
+Real life is far from an episodic task and it requires its agents,
+
+00:00:35.725 --> 00:00:40.410
+it requires us to constantly make decisions all day everyday.
+
+00:00:40.409 --> 00:00:44.454
+We get no break with our interaction with the world.
+
+00:00:44.454 --> 00:00:47.664
+Remember that Monte Carlo learning needed those breaks,
+
+00:00:47.664 --> 00:00:51.524
+it needed the episode to end so that the return could be calculated,
+
+00:00:51.524 --> 00:00:54.725
+and then used as an estimate for the action values.
+
+00:00:54.725 --> 00:00:58.079
+So, we'll need to come up with something else if we want
+
+00:00:58.079 --> 00:01:02.424
+to deal with more realistic learning in a real world setting.
+
+00:01:02.424 --> 00:01:04.259
+So, the main idea is this,
+
+00:01:04.260 --> 00:01:06.450
+if an agent is playing chess,
+
+00:01:06.450 --> 00:01:10.754
+instead of waiting until the end of an episode to see if it's won the game or not,
+
+00:01:10.754 --> 00:01:16.369
+it will at every move be able to estimate the probability that it's winning the game,
+
+00:01:16.370 --> 00:01:22.365
+or a self-driving car at every turn will be able to estimate if it's likely to crash,
+
+00:01:22.364 --> 00:01:27.209
+and if necessary, amend its strategy to avoid disaster.
+
+00:01:27.209 --> 00:01:30.119
+To emphasize, the Monte Carlo approach would have
+
+00:01:30.120 --> 00:01:33.609
+this car crash every time it wants to learn anything,
+
+00:01:33.609 --> 00:01:37.689
+and this is too expensive and also quite dangerous.
+
+00:01:37.689 --> 00:01:40.980
+TD learning will solve these problems.
+
+00:01:40.980 --> 00:01:44.939
+Instead of waiting to update values when the interaction ends,
+
+00:01:44.939 --> 00:01:47.864
+it will amend its predictions at every step,
+
+00:01:47.864 --> 00:01:53.219
+and you'll be able to use it to solve both continuous and episodic tasks.
+
+00:01:53.219 --> 00:01:57.075
+It's also widely used in reinforcement learning and lies
+
+00:01:57.075 --> 00:02:01.620
+at the heart of many state-of-the-art algorithms that you see in the news today.
+
+00:02:01.620 --> 00:02:04.000
+So, let's jump right in.
+

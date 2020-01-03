@@ -1,0 +1,103 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:01.409
+Earlier in this lesson,
+
+00:00:01.409 --> 00:00:07.044
+we detailed an algorithm to calculate the state value function corresponding to a policy.
+
+00:00:07.044 --> 00:00:09.000
+Now, we'll adopt that algorithm to
+
+00:00:09.000 --> 00:00:12.589
+instead return an estimate of the action-value function.
+
+00:00:12.589 --> 00:00:17.589
+So let's recall exactly how one-step temporal difference works.
+
+00:00:17.589 --> 00:00:20.170
+The agent interacts with the environment.
+
+00:00:20.170 --> 00:00:21.560
+At time step zero,
+
+00:00:21.559 --> 00:00:24.179
+it receives some state S_sub_zero.
+
+00:00:24.179 --> 00:00:28.045
+Then, it uses the policy to pick an action.
+
+00:00:28.045 --> 00:00:33.414
+Immediately afterwards, the agent receives a reward and next state.
+
+00:00:33.414 --> 00:00:36.659
+At this point, the agent uses its experience to
+
+00:00:36.659 --> 00:00:40.429
+update its estimate for the value of the state from time zero.
+
+00:00:40.429 --> 00:00:42.359
+At the next point in time,
+
+00:00:42.359 --> 00:00:44.714
+the agent chooses an action, again,
+
+00:00:44.715 --> 00:00:46.275
+by consulting the policy,
+
+00:00:46.274 --> 00:00:49.229
+then it receives a reward and next state.
+
+00:00:49.229 --> 00:00:54.504
+Then, it uses that information to update the value of the state from time one.
+
+00:00:54.505 --> 00:00:56.984
+Then, the process continues where the agent
+
+00:00:56.984 --> 00:01:00.339
+always consults the same policy to pick an action,
+
+00:01:00.340 --> 00:01:02.985
+receives a reward and next state,
+
+00:01:02.984 --> 00:01:05.534
+and then updates the value function.
+
+00:01:05.534 --> 00:01:07.254
+So the question is,
+
+00:01:07.254 --> 00:01:12.879
+how might we adapt this process to instead return an estimate of the action values?
+
+00:01:12.879 --> 00:01:19.194
+Well, instead of having an updated equation that relates the values of successive states,
+
+00:01:19.194 --> 00:01:22.809
+what we'll instead need to do is have an update equation
+
+00:01:22.810 --> 00:01:27.400
+that relates the values of successive state-action pairs.
+
+00:01:27.400 --> 00:01:32.658
+Then, instead of updating the values after each state is received,
+
+00:01:32.658 --> 00:01:37.215
+the agent will instead update the values after each action is chosen.
+
+00:01:37.215 --> 00:01:39.079
+But that's the only difference,
+
+00:01:39.079 --> 00:01:42.819
+and if the agent interacts with the environment for long enough,
+
+00:01:42.819 --> 00:01:46.269
+it will have a pretty good estimate of the action-value function.
+
+00:01:46.269 --> 00:01:48.034
+In the upcoming concepts,
+
+00:01:48.034 --> 00:01:53.000
+you'll learn more about how to use this algorithm in the search for an optimal policy.
+

@@ -1,0 +1,129 @@
+<!-- udacimak v1.2.0 -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Part 06-Module 01-Lesson 06_Temporal-Difference Methods</title>
+  <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../assets/css/plyr.css">
+  <link rel="stylesheet" href="../assets/css/katex.min.css">
+  <link rel="stylesheet" href="../assets/css/jquery.mCustomScrollbar.min.css">
+  <link rel="stylesheet" href="../assets/css/styles.css">
+  <link rel="shortcut icon" type="image/png" href="../assets/img/udacimak.png" />
+</head>
+
+<body>
+  <div class="">
+
+    <div id="">
+      <header class="container-fluild header">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <div class="align-items-middle">
+
+                <h1 style="">Part 06-Module 01-Lesson 06_Temporal-Difference Methods</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main class="container">
+        <div class="row">
+          <div class="col-12">
+            <ul>
+  <li><a href="01. Introduction.html">01. Introduction</a></li>
+  <li><a href="02. OpenAI Gym CliffWalkingEnv.html">02. OpenAI Gym: CliffWalkingEnv</a></li>
+  <li><a href="03. TD Prediction TD(0).html">03. TD Prediction: TD(0)</a></li>
+  <li><a href="04. Implementation.html">04. Implementation</a></li>
+  <li><a href="05. Mini Project TD (Parts 0 and 1).html">05. Mini Project: TD (Parts 0 and 1)</a></li>
+  <li><a href="06. TD Prediction Action Values.html">06. TD Prediction: Action Values</a></li>
+  <li><a href="07. TD Control Sarsa(0).html">07. TD Control: Sarsa(0)</a></li>
+  <li><a href="08. Implementation.html">08. Implementation</a></li>
+  <li><a href="09. Mini Project TD (Part 2).html">09. Mini Project: TD (Part 2)</a></li>
+  <li><a href="10. TD Control Sarsamax.html">10. TD Control: Sarsamax</a></li>
+  <li><a href="11. Implementation.html">11. Implementation</a></li>
+  <li><a href="12. Mini Project TD (Part 3).html">12. Mini Project: TD (Part 3)</a></li>
+  <li><a href="13. TD Control Expected Sarsa.html">13. TD Control: Expected Sarsa</a></li>
+  <li><a href="14. Implementation.html">14. Implementation</a></li>
+  <li><a href="15. Mini Project TD (Part 4).html">15. Mini Project: TD (Part 4)</a></li>
+  <li><a href="16. Analyzing Performance.html">16. Analyzing Performance</a></li>
+  <li><a href="17. Summary.html">17. Summary</a></li>
+
+
+</ul>
+          </div>
+        </div>
+      </main>
+
+      <footer class="footer">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <p class="text-center">
+                <a href="https://github.com/udacimak/udacimak#readme" target="_blank">udacimak v1.2.0</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </div>
+
+
+  <script src="../assets/js/jquery-3.3.1.min.js"></script>
+  <script src="../assets/js/plyr.polyfilled.min.js"></script>
+  <script src="../assets/js/bootstrap.min.js"></script>
+  <script src="../assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+  <script src="../assets/js/katex.min.js"></script>
+  <script>
+    // Initialize Plyr video players
+    const players = Array.from(document.querySelectorAll('video')).map(p => new Plyr(p));
+
+    // render math equations
+    let elMath = document.getElementsByClassName('mathquill');
+    for (let i = 0, len = elMath.length; i < len; i += 1) {
+      const el = elMath[i];
+
+      katex.render(el.textContent, el, {
+        throwOnError: false
+      });
+    }
+
+    // this hack will make sure Bootstrap tabs work when using Handlebars
+    if ($('#question-tabs').length && $('#user-answer-tabs').length) {
+      $("#question-tabs a.nav-link").on('click', function () {
+        $("#question-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+      $("#user-answer-tabs a.nav-link").on('click', function () {
+        $("#user-answer-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    } else {
+      $("a.nav-link").on('click', function () {
+        $(".tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    }
+
+    // side bar events
+    $(document).ready(function () {
+      $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+      });
+
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar, #content').toggleClass('active');
+        $('.collapse.in').toggleClass('in');
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+      });
+    });
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,166 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:05.040
+So far, you already have one algorithm for temporal difference control.
+
+00:00:05.040 --> 00:00:07.095
+Remember that in the Sarsa algorithm,
+
+00:00:07.094 --> 00:00:09.869
+we begin by initializing all action values to
+
+00:00:09.869 --> 00:00:14.625
+zero in constructing the corresponding Epsilon Greedy policy.
+
+00:00:14.625 --> 00:00:19.940
+Then, the agent begins interacting with the environment and receives the first state.
+
+00:00:19.940 --> 00:00:23.359
+Next, it uses the policy to choose it's action.
+
+00:00:23.359 --> 00:00:27.554
+Immediately after it, it receives a reward and next state.
+
+00:00:27.554 --> 00:00:32.289
+Then, the agent again uses the same policy to pick the next action.
+
+00:00:32.289 --> 00:00:34.244
+After choosing that action,
+
+00:00:34.244 --> 00:00:38.954
+it updates the action value corresponding to the previous state action pair,
+
+00:00:38.954 --> 00:00:41.850
+and improves the policy to be Epsilon Greedy with
+
+00:00:41.850 --> 00:00:45.435
+respect to the most recent estimate of the action values.
+
+00:00:45.435 --> 00:00:47.370
+For the remainder of this video,
+
+00:00:47.369 --> 00:00:49.784
+we'll build off this algorithm to design
+
+00:00:49.784 --> 00:00:53.789
+another control algorithm that works slightly differently.
+
+00:00:53.789 --> 00:00:56.100
+This algorithm is called Sarsamax,
+
+00:00:56.100 --> 00:00:58.630
+but it's also known as Q-Learning.
+
+00:00:58.630 --> 00:01:03.660
+We'll still begin with the same initial values for the action values and the policy.
+
+00:01:03.659 --> 00:01:06.420
+The agent receives the initial state,
+
+00:01:06.420 --> 00:01:09.540
+the first action is still chosen from the initial policy.
+
+00:01:09.540 --> 00:01:13.175
+But then, after receiving the reward and next state,
+
+00:01:13.174 --> 00:01:15.974
+we're going to do something else.
+
+00:01:15.974 --> 00:01:20.464
+Namely, we'll update the policy before choosing the next action.
+
+00:01:20.465 --> 00:01:24.140
+And can you guess what action makes sense to put here?
+
+00:01:24.140 --> 00:01:26.060
+Well, in the Sarsa case,
+
+00:01:26.060 --> 00:01:29.180
+our update step was one step later and plugged in
+
+00:01:29.180 --> 00:01:33.050
+the action that was selected using the Epsilon Greedy policy.
+
+00:01:33.049 --> 00:01:35.325
+And for every step of the algorithm,
+
+00:01:35.325 --> 00:01:40.245
+it was the case that all of the actions we used for updating the action values,
+
+00:01:40.245 --> 00:01:44.160
+exactly coincide with those that were experienced by the agent.
+
+00:01:44.159 --> 00:01:47.670
+But in general, this does not have to be the case.
+
+00:01:47.670 --> 00:01:52.049
+In particular, consider using the action from the Greedy policy,
+
+00:01:52.049 --> 00:01:54.894
+instead of the Epsilon Greedy policy.
+
+00:01:54.894 --> 00:01:58.664
+This is in fact what Sarsamax or Q-Learning does.
+
+00:01:58.665 --> 00:02:01.740
+And in this case, you can rewrite the equation to look
+
+00:02:01.739 --> 00:02:04.709
+like this where we rely on the fact that
+
+00:02:04.709 --> 00:02:07.439
+the greedy action corresponding to a state is
+
+00:02:07.439 --> 00:02:11.414
+just the one that maximizes the action values for that state.
+
+00:02:11.414 --> 00:02:13.769
+And so what happens is after we update
+
+00:02:13.770 --> 00:02:17.520
+the action value for time step zero using the greedy action,
+
+00:02:17.520 --> 00:02:19.620
+we then select A1 using
+
+00:02:19.620 --> 00:02:24.944
+the Epsilon greedy policy corresponding to the action values we just updated.
+
+00:02:24.944 --> 00:02:29.829
+And this continues when we received a reward and next state.
+
+00:02:29.830 --> 00:02:33.760
+Then, we do the same thing we did before where we update the value
+
+00:02:33.759 --> 00:02:38.341
+corresponding to S1 and A1 using the greedy action,
+
+00:02:38.342 --> 00:02:43.307
+then we select A2 using the corresponding Epsilon greedy policy.
+
+00:02:43.306 --> 00:02:46.424
+To understand precisely what this update stuff is doing,
+
+00:02:46.425 --> 00:02:50.155
+we'll compare it to the corresponding step in the Sarsa algorithm.
+
+00:02:50.155 --> 00:02:54.699
+And in Sarsa, the update step pushes the action values closer to
+
+00:02:54.699 --> 00:02:59.964
+evaluating whatever Epsilon greedy policy is currently being followed by the agent.
+
+00:02:59.965 --> 00:03:03.474
+And it's possible to show that Sarsamax instead,
+
+00:03:03.474 --> 00:03:08.814
+directly attempts to approximate the optimal value function at every time step.
+
+00:03:08.814 --> 00:03:11.620
+Soon, you'll have the chance to implement this yourself and
+
+00:03:11.620 --> 00:03:15.000
+directly examine the difference between these two algorithms.
+
