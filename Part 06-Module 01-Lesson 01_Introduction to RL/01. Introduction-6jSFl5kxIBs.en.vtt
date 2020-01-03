@@ -1,0 +1,91 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:02.805
+Let's talk about the nature of learning.
+
+00:00:02.805 --> 00:00:05.349
+We are not born knowing much.
+
+00:00:05.349 --> 00:00:06.899
+Over the curse of our lifetimes,
+
+00:00:06.900 --> 00:00:10.800
+we slowly gain an understanding of the world through interaction.
+
+00:00:10.800 --> 00:00:12.700
+By interacting with the world,
+
+00:00:12.699 --> 00:00:17.669
+We learn about cause and effect or how the world responds to our actions.
+
+00:00:17.670 --> 00:00:20.100
+Once we have an understanding of how the world works,
+
+00:00:20.100 --> 00:00:23.530
+we can use our knowledge to accomplish specific goals.
+
+00:00:23.530 --> 00:00:26.000
+In this course, we'll take a stab at attaining
+
+00:00:26.000 --> 00:00:30.230
+a scientific understanding of how this learning from interaction happens.
+
+00:00:30.230 --> 00:00:33.410
+Specifically, we'll take a computational approach called
+
+00:00:33.409 --> 00:00:36.794
+reinforcement learning or RL for short.
+
+00:00:36.795 --> 00:00:38.685
+Since the world is quite complicated,
+
+00:00:38.685 --> 00:00:43.620
+we'll simplify the world to study environments with well-defined rules and dynamics,
+
+00:00:43.619 --> 00:00:46.019
+we'll then construct algorithms to teach
+
+00:00:46.020 --> 00:00:50.285
+an individual in this simple world to learn from interaction.
+
+00:00:50.284 --> 00:00:56.244
+We'll study many of these algorithms to understand the strengths and limitations of each.
+
+00:00:56.244 --> 00:00:58.079
+We'll begin with the basics to attain
+
+00:00:58.079 --> 00:01:00.269
+a solid foundational understanding of
+
+00:01:00.270 --> 00:01:03.900
+the basic structure behind these learning algorithms.
+
+00:01:03.899 --> 00:01:08.394
+Of course, the simplest algorithms will have significant limitations.
+
+00:01:08.394 --> 00:01:13.509
+We will discuss these limitations to motivate the development of more complex techniques.
+
+00:01:13.510 --> 00:01:15.460
+Over the course of this content,
+
+00:01:15.459 --> 00:01:19.059
+we'll gradually add complexity making sure that you intuitively
+
+00:01:19.060 --> 00:01:24.655
+understand at each step of the way what these algorithms are designed to accomplish.
+
+00:01:24.655 --> 00:01:25.989
+Of course, we will end with
+
+00:01:25.989 --> 00:01:27.759
+the most cutting-edge techniques that are
+
+00:01:27.760 --> 00:01:30.575
+making headlines in reinforcement learning today.
+
+00:01:30.575 --> 00:01:32.219
+So let's get started.
+

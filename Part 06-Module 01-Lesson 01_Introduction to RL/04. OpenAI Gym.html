@@ -1,0 +1,196 @@
+<!-- udacimak v1.2.0 -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>OpenAI Gym</title>
+  <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../assets/css/plyr.css">
+  <link rel="stylesheet" href="../assets/css/katex.min.css">
+  <link rel="stylesheet" href="../assets/css/jquery.mCustomScrollbar.min.css">
+  <link rel="stylesheet" href="../assets/css/styles.css">
+  <link rel="shortcut icon" type="image/png" href="../assets/img/udacimak.png" />
+</head>
+
+<body>
+  <div class="wrapper">
+    <nav id="sidebar">
+  <div class="sidebar-header">
+    <h3>Introduction to RL</h3>
+  </div>
+
+  <ul class="sidebar-list list-unstyled CTAs">
+    <li>
+      <a href="../index.html" class="article">Back to Home</a>
+    </li>
+  </ul>
+
+  <ul class="sidebar-list list-unstyled components">
+    <li class="">
+      <a href="01. Introduction.html">01. Introduction</a>
+    </li>
+    <li class="">
+      <a href="02. Applications.html">02. Applications</a>
+    </li>
+    <li class="">
+      <a href="03. The Setting.html">03. The Setting</a>
+    </li>
+    <li class="">
+      <a href="04. OpenAI Gym.html">04. OpenAI Gym</a>
+    </li>
+    <li class="">
+      <a href="05. Resources.html">05. Resources</a>
+    </li>
+    <li class="">
+      <a href="06. Reference Guide.html">06. Reference Guide</a>
+    </li>
+  </ul>
+
+  <ul class="sidebar-list list-unstyled CTAs">
+    <li>
+      <a href="../index.html" class="article">Back to Home</a>
+    </li>
+  </ul>
+</nav>
+
+    <div id="content">
+      <header class="container-fluild header">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <div class="align-items-middle">
+                <button type="button" id="sidebarCollapse" class="btn btn-toggle-sidebar">
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                </button>
+
+                <h1 style="display: inline-block">04. OpenAI Gym</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main class="container">
+        <div class="row">
+          <div class="col-12">
+            <div class="ud-atom">
+  <h3><p>OpenAI Gym</p></h3>
+  <video controls>
+  <source src="04. OpenAI Gym-MktEOWp3QLg.mp4" type="video/mp4">
+
+  <track default="true" kind="subtitles" srclang="en" src="04. OpenAI Gym-MktEOWp3QLg.en.vtt" label="en">
+  <track default="false" kind="subtitles" srclang="BR" src="04. OpenAI Gym-MktEOWp3QLg.pt-BR.vtt" label="BR">
+  <track default="false" kind="subtitles" srclang="CN" src="04. OpenAI Gym-MktEOWp3QLg.zh-CN.vtt" label="CN">
+</video>
+
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <p>You are <strong>not</strong> required to install OpenAI Gym on your computer, and you will have the option to do all of your coding implementations within the classroom.  You can learn more about OpenAI Gym by perusing the <a href="https://github.com/openai/gym.git" target="_blank">GitHub repository</a>.</p>
+<p>You're encouraged to take the time to check out the <a href="https://github.com/openai/gym/wiki/Leaderboard" target="_blank">leaderboard</a>, which contains the best solutions to each task.</p>
+<p>Check out this <a href="https://blog.openai.com/openai-gym-beta/" target="_blank">blog post</a> to read more about how OpenAI Gym is used to accelerate reinforcement learning (RL) research.</p>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <h2 id="optional-installation-instructions">(Optional) Installation Instructions</h2>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <p>If you'd like to install OpenAI Gym on your machine, you are encouraged to perform a minimal install:</p>
+<pre><code class="bash language-bash">git clone https://github.com/openai/gym.git
+cd gym
+pip install -e .</code></pre>
+<p>Once you have installed OpenAI Gym, obtain the code for the classic control tasks (such as <code>'CartPole-v0'</code>):</p>
+<pre><code class="bash language-bash">pip install -e '.[classic_control]'</code></pre>
+<p>Finally, check your installation by running the <a href="https://github.com/openai/gym/blob/master/examples/agents/random_agent.py" target="_blank">simple random agent</a> provided in the <code>examples</code> directory.  </p>
+<pre><code class="bash language-bash">cd examples/agents
+python random_agent.py</code></pre>
+<p>(These instructions are derived from the README in the <a href="https://github.com/openai/gym" target="_blank">GitHub repository</a>.)</p>
+</div>
+
+</div>
+<div class="divider"></div>
+          </div>
+        </div>
+      </main>
+
+      <footer class="footer">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <p class="text-center">
+                <a href="https://github.com/udacimak/udacimak#readme" target="_blank">udacimak v1.2.0</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </div>
+
+
+  <script src="../assets/js/jquery-3.3.1.min.js"></script>
+  <script src="../assets/js/plyr.polyfilled.min.js"></script>
+  <script src="../assets/js/bootstrap.min.js"></script>
+  <script src="../assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+  <script src="../assets/js/katex.min.js"></script>
+  <script>
+    // Initialize Plyr video players
+    const players = Array.from(document.querySelectorAll('video')).map(p => new Plyr(p));
+
+    // render math equations
+    let elMath = document.getElementsByClassName('mathquill');
+    for (let i = 0, len = elMath.length; i < len; i += 1) {
+      const el = elMath[i];
+
+      katex.render(el.textContent, el, {
+        throwOnError: false
+      });
+    }
+
+    // this hack will make sure Bootstrap tabs work when using Handlebars
+    if ($('#question-tabs').length && $('#user-answer-tabs').length) {
+      $("#question-tabs a.nav-link").on('click', function () {
+        $("#question-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+      $("#user-answer-tabs a.nav-link").on('click', function () {
+        $("#user-answer-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    } else {
+      $("a.nav-link").on('click', function () {
+        $(".tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    }
+
+    // side bar events
+    $(document).ready(function () {
+      $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+      });
+
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar, #content').toggleClass('active');
+        $('.collapse.in').toggleClass('in');
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+      });
+    });
+  </script>
+</body>
+
+</html>

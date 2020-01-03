@@ -1,0 +1,124 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:04.740
+The applications of reinforcement learning are numerous and diverse.
+
+00:00:04.740 --> 00:00:07.894
+Ranging from self-driving cars to board games.
+
+00:00:07.894 --> 00:00:10.559
+For instance, one of the major breakthroughs in
+
+00:00:10.560 --> 00:00:13.290
+machine learning in the 90s was TD-Gammon.
+
+00:00:13.289 --> 00:00:16.379
+An algorithm that used RL to play Backgammon
+
+00:00:16.379 --> 00:00:20.329
+on par with the best Backgammon players at the time.
+
+00:00:20.329 --> 00:00:23.009
+This algorithm advanced the theory of Backgammon
+
+00:00:23.010 --> 00:00:26.710
+by discovering strategies that were previously unknown.
+
+00:00:26.710 --> 00:00:30.100
+You know, Backgammon is a pretty complicated game.
+
+00:00:30.100 --> 00:00:34.289
+In fact, it has over 10 to the 20th possible game states.
+
+00:00:34.289 --> 00:00:36.629
+So it's pretty amazing that it was possible to
+
+00:00:36.630 --> 00:00:40.140
+teach an artificially intelligent agent how to play.
+
+00:00:40.140 --> 00:00:45.674
+More recently, progress was made on a game that is much more complicated.
+
+00:00:45.674 --> 00:00:47.144
+Maybe you've heard of AlphaGo.
+
+00:00:47.145 --> 00:00:51.915
+An AI agent trained to beat professional Go players.
+
+00:00:51.914 --> 00:00:54.509
+It's said that there are more configurations in
+
+00:00:54.509 --> 00:00:58.125
+the game than there are atoms in the universe.
+
+00:00:58.125 --> 00:01:03.420
+RL is also used to play video games such as Atari Breakout.
+
+00:01:03.420 --> 00:01:09.284
+The AI agent is given no prior knowledge of what a ball is or what the controls do.
+
+00:01:09.284 --> 00:01:12.229
+It only sees the screen and its score.
+
+00:01:12.230 --> 00:01:13.790
+Then through interacting with the game,
+
+00:01:13.790 --> 00:01:15.695
+with testing out the various controls,
+
+00:01:15.694 --> 00:01:19.559
+it's able to devise a strategy to maximize its score.
+
+00:01:19.560 --> 00:01:22.780
+RL was also used to create a bot to beat
+
+00:01:22.780 --> 00:01:27.155
+top players in the online battle arena video game Dota.
+
+00:01:27.155 --> 00:01:28.640
+If you are an e-sports fan,
+
+00:01:28.640 --> 00:01:31.025
+you're encouraged to check it out.
+
+00:01:31.025 --> 00:01:33.765
+Jumping to a completely different domain,
+
+00:01:33.765 --> 00:01:36.165
+RL is also used in robotics.
+
+00:01:36.165 --> 00:01:39.450
+For instance, it's been used to teach robots to walk.
+
+00:01:39.450 --> 00:01:42.750
+The idea is that we can give the robot time to test out
+
+00:01:42.750 --> 00:01:47.484
+its new legs to see what works and what doesn't work for staying upright.
+
+00:01:47.484 --> 00:01:52.105
+Then we can create an algorithm to help it learn from that gained experience,
+
+00:01:52.105 --> 00:01:54.579
+so it's able to walk like a pro.
+
+00:01:54.579 --> 00:01:59.329
+But why teach a robot to walk when you can teach it to drive?
+
+00:01:59.329 --> 00:02:04.384
+RL is used successfully in self-driving cars, ships, and airplanes.
+
+00:02:04.385 --> 00:02:07.320
+It's even been used in finance, biology,
+
+00:02:07.319 --> 00:02:11.525
+telecommunication, and inventory management among other things.
+
+00:02:11.525 --> 00:02:14.455
+If any of these applications catch your interest,
+
+00:02:14.455 --> 00:02:16.000
+check out the links below.
+

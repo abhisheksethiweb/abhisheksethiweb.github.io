@@ -1,0 +1,73 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:05.339
+In this course, you'll learn about many classical algorithms in reinforcement learning.
+
+00:00:05.339 --> 00:00:11.164
+You may discover that some algorithms are initially harder to conceptualize than others.
+
+00:00:11.164 --> 00:00:15.329
+If at any point you'd like to have a conversation to deepen your understanding,
+
+00:00:15.330 --> 00:00:18.824
+we encourage you to start a thread in the slack channels.
+
+00:00:18.824 --> 00:00:21.660
+We at Udacity believe in learning by doing.
+
+00:00:21.660 --> 00:00:24.344
+So for all of the algorithms we'll discuss,
+
+00:00:24.344 --> 00:00:26.684
+you'll write your own implementations.
+
+00:00:26.684 --> 00:00:30.854
+Just watching the videos should be enough to pass the course.
+
+00:00:30.855 --> 00:00:32.744
+But if you'd like to go above and beyond,
+
+00:00:32.744 --> 00:00:35.009
+we have a few suggestions.
+
+00:00:35.009 --> 00:00:39.974
+First, the most popular textbook on reinforcement learning is available for free online.
+
+00:00:39.975 --> 00:00:42.840
+Throughout the course, we'll provide recommended readings from
+
+00:00:42.840 --> 00:00:45.930
+this book that you can use to deepen your understanding.
+
+00:00:45.929 --> 00:00:51.030
+It's a great book and highly enjoyable to read so highly recommended.
+
+00:00:51.030 --> 00:00:54.980
+Second, you'll encounter quite a few equations while learning about RL.
+
+00:00:54.979 --> 00:00:58.407
+We'll carefully discuss the meaning behind these equations,
+
+00:00:58.408 --> 00:00:59.939
+but after the lessons finish,
+
+00:00:59.939 --> 00:01:04.554
+be sure to revisit them and make sure that you can describe them in your own words.
+
+00:01:04.555 --> 00:01:06.900
+Make this content yours.
+
+00:01:06.900 --> 00:01:11.055
+It won't come easily at first but I guarantee you that if you work hard,
+
+00:01:11.055 --> 00:01:13.530
+it'll be an amazing experience.
+
+00:01:13.530 --> 00:01:18.974
+We hope you're as excited to learn about this fascinating content as we are to teach you.
+
+00:01:18.974 --> 00:01:22.219
+But that's all for now. I'll see you in the next lesson.
+

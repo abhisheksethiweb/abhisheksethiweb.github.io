@@ -1,0 +1,116 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.342 --> 00:00:02.903
+Vamos falar sobre a natureza
+da aprendizagem.
+
+00:00:02.937 --> 00:00:05.191
+Não nascemos sabendo muito.
+
+00:00:05.225 --> 00:00:09.350
+Ao longo das nossas vidas,
+aprendemos aos poucos sobre o mundo
+
+00:00:09.384 --> 00:00:10.854
+através da interação.
+
+00:00:11.164 --> 00:00:14.466
+Interagindo com o mundo aprendemos
+sobre causa e efeito,
+
+00:00:14.500 --> 00:00:17.230
+ou como o mundo
+responde às nossas ações.
+
+00:00:17.655 --> 00:00:20.207
+Quando entendemos
+como o mundo funciona,
+
+00:00:20.241 --> 00:00:23.158
+podemos usar o nosso conhecimento
+para alcançar objetivos específicos.
+
+00:00:23.950 --> 00:00:27.461
+Neste curso, vamos tentar alcançar
+um entendimento científico
+
+00:00:27.495 --> 00:00:29.974
+de como essa aprendizagem
+por interação acontece.
+
+00:00:30.476 --> 00:00:32.997
+Especificamente, vamos adotar
+uma abordagem computacional
+
+00:00:33.031 --> 00:00:36.069
+chamada de "Aprendizagem
+por Reforço", abreviada como "AR".
+
+00:00:36.854 --> 00:00:40.038
+Como o mundo é complicado,
+vamos simplificá-lo
+
+00:00:40.072 --> 00:00:43.726
+em ambientes de estudo com regras
+e dinâmicas bem definidas.
+
+00:00:44.012 --> 00:00:46.914
+Depois, vamos construir algoritmos
+para ensinar um indivíduo
+
+00:00:46.947 --> 00:00:50.270
+a aprender por interação
+nesse mundo simplificado.
+
+00:00:50.699 --> 00:00:52.644
+Vamos estudar vários
+desses algoritmos
+
+00:00:52.678 --> 00:00:56.223
+para entender os pontos fortes
+e as limitações de cada um.
+
+00:00:56.257 --> 00:01:00.027
+Vamos começar com o básico
+para obter uma base sólida
+
+00:01:00.060 --> 00:01:03.543
+da estrutura básica por trás
+desses algoritmos de aprendizagem.
+
+00:01:03.831 --> 00:01:08.158
+É claro que esses algoritmos simples
+terão limitações significantes.
+
+00:01:08.558 --> 00:01:11.286
+Vamos discutir essas limitações
+para motivar o desenvolvimento
+
+00:01:11.320 --> 00:01:13.197
+de técnicas mais complexas.
+
+00:01:13.920 --> 00:01:17.444
+Ao longo do curso, vamos adicionar
+complexidade gradualmente,
+
+00:01:17.478 --> 00:01:21.318
+garantido que você entenda
+intuitivamente a cada passo
+
+00:01:21.352 --> 00:01:24.358
+os objetivos para os quais
+esses algoritmos foram projetados.
+
+00:01:24.392 --> 00:01:27.558
+É claro que vamos terminar
+com as técnicas mais recentes
+
+00:01:27.592 --> 00:01:30.663
+que são destaques na aprendizagem
+por reforço hoje em dia.
+
+00:01:30.697 --> 00:01:32.078
+Então vamos começar!
+

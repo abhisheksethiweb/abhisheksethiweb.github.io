@@ -1,0 +1,374 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.527 --> 00:00:02.705
+Ao longo deste curso,
+vamos tratar
+
+00:00:02.739 --> 00:00:05.672
+da ideia de aprendizagem
+por interação.
+
+00:00:05.706 --> 00:00:07.879
+No campo da aprendizagem
+por reforço,
+
+00:00:07.913 --> 00:00:10.559
+nos referimos ao "learner",
+ou a quem toma as decisões,
+
+00:00:10.593 --> 00:00:12.263
+como "agente".
+
+00:00:12.297 --> 00:00:13.712
+Mas eu gosto muito
+de cachorros,
+
+00:00:13.746 --> 00:00:17.184
+então pense no agente
+como um filhotinho,
+
+00:00:17.218 --> 00:00:21.247
+que veio ao mundo sem saber
+como nada funciona.
+
+00:00:21.897 --> 00:00:26.039
+Quando ele abre os olhos,
+a primeira coisa que vê é sua dona.
+
+00:00:26.408 --> 00:00:29.785
+Imagine que a dona comunica
+ao filhote como ela quer
+
+00:00:29.819 --> 00:00:31.304
+que ele se comporte.
+
+00:00:31.680 --> 00:00:35.024
+O filhote observa o comando
+e, baseado nessa observação,
+
+00:00:35.058 --> 00:00:37.527
+esperamos que ele escolha
+como responder.
+
+00:00:38.349 --> 00:00:40.247
+É claro que ele
+não investiu interesse
+
+00:00:40.281 --> 00:00:43.815
+em responder apropriadamente,
+mais para não se encrencar,
+
+00:00:43.849 --> 00:00:46.664
+mas talvez para conseguir
+um biscoito.
+
+00:00:47.287 --> 00:00:50.408
+Mas filhotes recém-nascidos
+são criaturas complicadas,
+
+00:00:50.442 --> 00:00:53.624
+e é impossível contar o número
+de ações que ele pode realizar
+
+00:00:53.658 --> 00:00:55.247
+a qualquer momento.
+
+00:00:55.784 --> 00:00:59.031
+Além disso, ele ainda não sabe
+o que cada ação faz,
+
+00:00:59.065 --> 00:01:01.808
+ou que efeito elas terão
+no mundo.
+
+00:01:01.842 --> 00:01:04.704
+Então, temos que testá-lo
+e ver o que acontece.
+
+00:01:05.512 --> 00:01:08.424
+Como ele vai responder
+ao comando de sua dona?
+
+00:01:08.458 --> 00:01:12.752
+A essa altura, ele não tem motivos
+para favorecer uma ação às outras
+
+00:01:12.786 --> 00:01:15.576
+e, por isso, digamos que ele
+escolha uma aleatoriamente.
+
+00:01:15.976 --> 00:01:20.032
+É claro que sabemos que ele
+não faz ideia do que está fazendo.
+
+00:01:20.458 --> 00:01:22.799
+Neste caso,
+ele decide sentar.
+
+00:01:23.487 --> 00:01:26.368
+Depois de realizar essa ação,
+ele aguarda uma resposta.
+
+00:01:26.784 --> 00:01:29.423
+Eu imagino que a espera
+seja assustadora,
+
+00:01:29.457 --> 00:01:32.592
+já que ele não sabe
+o que vai acontecer em seguida.
+
+00:01:33.296 --> 00:01:36.983
+Em resposta à sua ação,
+ele recebe um feedback de sua dona.
+
+00:01:37.575 --> 00:01:40.175
+Neste caso, ele recebe
+um único biscoito.
+
+00:01:40.791 --> 00:01:44.004
+Isso é encorajador,
+e ele começa bem.
+
+00:01:45.096 --> 00:01:47.848
+Vamos assumir que, no geral,
+o único objetivo dele
+
+00:01:47.882 --> 00:01:49.807
+é maximizar a recompensa.
+
+00:01:49.841 --> 00:01:52.879
+Ele quer que ela seja
+o mais positiva possível.
+
+00:01:52.913 --> 00:01:56.647
+Isso vale para agora
+e para qualquer momento no futuro.
+
+00:01:57.240 --> 00:02:00.240
+Mas, agora, a dona
+deu um novo comando,
+
+00:02:00.274 --> 00:02:03.599
+e ele precisa escolher
+sua próxima resposta.
+
+00:02:03.935 --> 00:02:05.319
+O que você acha?
+
+00:02:05.353 --> 00:02:08.919
+Sentar parece uma boa escolha,
+mas o comando parece diferente,
+
+00:02:08.953 --> 00:02:11.975
+então talvez uma ação diferente
+seja mais apropriada.
+
+00:02:12.607 --> 00:02:15.848
+Ele decide selecionar uma ação
+aleatoriamente de novo.
+
+00:02:15.882 --> 00:02:19.951
+Neste caso, ele decide correr
+e aguarda uma resposta.
+
+00:02:20.471 --> 00:02:24.647
+Ah, não! Ele recebeu
+um feedback negativo de sua dona.
+
+00:02:25.603 --> 00:02:29.011
+Não está claro se essa
+é uma ação ruim no geral,
+
+00:02:29.045 --> 00:02:31.171
+ou se ele apenas
+não deve correr
+
+00:02:31.205 --> 00:02:33.907
+em resposta
+a esse comando específico.
+
+00:02:33.941 --> 00:02:37.939
+Ele só vai descobrir isso
+interagindo mais com a sua dona,
+
+00:02:37.973 --> 00:02:41.779
+sistematicamente propondo
+e testando hipóteses.
+
+00:02:42.507 --> 00:02:45.651
+O processo continua,
+e em cada momento
+
+00:02:45.685 --> 00:02:48.723
+o filhote realiza uma ação
+e recebe simultaneamente
+
+00:02:48.757 --> 00:02:52.211
+um feedback e uma observação
+atualizada de sua dona.
+
+00:02:52.915 --> 00:02:55.235
+Em cada momento
+ele dá o seu melhor
+
+00:02:55.269 --> 00:02:59.019
+para executar a ação apropriada
+para deixar sua dona feliz.
+
+00:03:00.227 --> 00:03:04.779
+A princípio, pode parecer
+que, vendo a interação dessa forma,
+
+00:03:04.813 --> 00:03:06.675
+tudo parece muito simples.
+
+00:03:07.091 --> 00:03:09.715
+Afinal, a forma como o filhote
+interage com sua dona
+
+00:03:09.749 --> 00:03:11.371
+é muito sistemática.
+
+00:03:11.405 --> 00:03:14.316
+Embora ele possa levar
+algum tempo para entender
+
+00:03:14.350 --> 00:03:18.179
+o que está acontecendo,
+eventualmente, ele vai entender.
+
+00:03:19.055 --> 00:03:21.019
+Mas, conforme você
+progredir neste curso,
+
+00:03:21.053 --> 00:03:24.691
+verá que essa situação com o filhote
+é surpreendentemente complexa.
+
+00:03:25.227 --> 00:03:27.475
+Por exemplo, ele terá
+que encontrar o equilíbrio
+
+00:03:27.509 --> 00:03:30.571
+para, por um lado, explorar
+hipótese em potencial
+
+00:03:30.605 --> 00:03:32.308
+para como escolher ações,
+
+00:03:32.342 --> 00:03:35.650
+e, por outro, explorar
+seu conhecimento limitado
+
+00:03:35.684 --> 00:03:38.891
+sobre o que ele já sabe
+que deve funcionar bem.
+
+00:03:38.925 --> 00:03:41.363
+Isto é, ele deve se contentar
+com um biscoito,
+
+00:03:41.397 --> 00:03:43.403
+ou deve almejar mais?
+
+00:03:43.437 --> 00:03:46.843
+Esse é um conceito muito importante
+da aprendizagem por reforço.
+
+00:03:47.402 --> 00:03:50.323
+Embora várias técnicas
+sejam adotadas para balancear
+
+00:03:50.357 --> 00:03:52.291
+esses dois requerimentos
+conflitantes,
+
+00:03:52.325 --> 00:03:56.603
+essa questão inspirou um subcampo
+da aprendizagem por reforço
+
+00:03:56.637 --> 00:03:59.995
+e permanece uma área
+com pesquisas ativas.
+
+00:04:00.029 --> 00:04:02.066
+Outra coisa importante
+de perceber
+
+00:04:02.100 --> 00:04:03.746
+é que se o nosso filhote
+é realmente
+
+00:04:03.780 --> 00:04:05.714
+um agente de aprendizagem
+por reforço,
+
+00:04:05.748 --> 00:04:09.115
+ele não está só preocupado
+com a recompensa que pode obter.
+
+00:04:09.539 --> 00:04:12.083
+Em vez disso, o objetivo dele
+é maximizar
+
+00:04:12.117 --> 00:04:15.914
+o número total de biscoitos
+que pode obter durante sua vida.
+
+00:04:16.531 --> 00:04:19.970
+Embora seja relativamente simples
+criar uma estratégia
+
+00:04:20.004 --> 00:04:22.187
+que funcione bem
+a curto prazo,
+
+00:04:22.221 --> 00:04:25.363
+ele terá que ser mais esperto
+se quiser encontrar estratégias
+
+00:04:25.397 --> 00:04:27.915
+que levem mais tempo
+para recompensar.
+
+00:04:28.307 --> 00:04:31.490
+No geral, essa ideia
+de aprender com a experiência
+
+00:04:31.524 --> 00:04:34.234
+é intelectualmente
+muito interessante.
+
+00:04:34.268 --> 00:04:36.619
+Por exemplo, se você já tentou
+adestrar um cachorro,
+
+00:04:36.653 --> 00:04:39.602
+talvez já tenha notado
+que isso não é tão fácil.
+
+00:04:39.636 --> 00:04:41.683
+O primeiro instinto dele
+pode ser:
+
+00:04:41.717 --> 00:04:44.202
+"Sempre que eu sentar,
+recebo um biscoito",
+
+00:04:44.236 --> 00:04:48.578
+em vez de: "Sempre que minha dona
+disser 'senta' e eu sentar,
+
+00:04:48.612 --> 00:04:50.274
+eu recebo um biscoito".
+
+00:04:51.138 --> 00:04:54.492
+Apesar de parecer
+um erro compreensível,
+
+00:04:54.526 --> 00:04:57.515
+garantimos que os seus agentes
+serão mais inteligentes.
+

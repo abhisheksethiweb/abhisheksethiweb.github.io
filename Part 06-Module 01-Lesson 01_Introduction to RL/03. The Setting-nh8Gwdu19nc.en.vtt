@@ -1,0 +1,265 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:02.700
+Throughout this course, we'll concern ourselves
+
+00:00:02.700 --> 00:00:05.400
+with the idea of learning from interaction.
+
+00:00:05.400 --> 00:00:07.980
+In the field of reinforcement learning,
+
+00:00:07.980 --> 00:00:12.060
+we refer to the learner or decision maker as the agent.
+
+00:00:12.060 --> 00:00:14.865
+But I really like dogs, so we'll instead,
+
+00:00:14.865 --> 00:00:17.789
+think of the agent as a small puppy born into
+
+00:00:17.789 --> 00:00:21.899
+the world without any understanding of how anything works.
+
+00:00:21.899 --> 00:00:23.324
+And when he opens his eyes,
+
+00:00:23.324 --> 00:00:26.414
+the first thing he observes is his owner.
+
+00:00:26.414 --> 00:00:31.799
+Now, say the owner communicates to the puppy how she would like it to behave.
+
+00:00:31.800 --> 00:00:34.950
+The puppy looks at the command and based on that observation,
+
+00:00:34.950 --> 00:00:38.130
+he's expected to choose how to respond.
+
+00:00:38.130 --> 00:00:42.075
+Of course, he hasn't invested interest in responding appropriately,
+
+00:00:42.075 --> 00:00:46.645
+mostly to stay out of trouble but maybe to even get a treat.
+
+00:00:46.645 --> 00:00:50.850
+Now, newborn puppies are complicated creatures and it's
+
+00:00:50.850 --> 00:00:55.649
+impossible to count the number of actions that he could take at any point in time.
+
+00:00:55.649 --> 00:00:58.409
+Furthermore, he doesn't know what any of the actions
+
+00:00:58.409 --> 00:01:01.904
+do yet or what effect will have on the world.
+
+00:01:01.905 --> 00:01:05.579
+So we'll have to try them out and see what happens.
+
+00:01:05.579 --> 00:01:08.564
+So how will he respond to his owners command?
+
+00:01:08.564 --> 00:01:12.969
+At this point, he has no reason to favor any action over the others.
+
+00:01:12.969 --> 00:01:15.659
+And so, let's say he just picks one at random.
+
+00:01:15.659 --> 00:01:20.444
+Of course, with full understanding that he has no idea what he's doing.
+
+00:01:20.444 --> 00:01:23.069
+In this case, he decides to sit.
+
+00:01:23.069 --> 00:01:24.689
+After taking this action,
+
+00:01:24.689 --> 00:01:26.500
+he waits for a response.
+
+00:01:26.500 --> 00:01:29.364
+And I have to imagine the wait is pretty scary
+
+00:01:29.364 --> 00:01:33.409
+as it's entirely uncertain what will happen next.
+
+00:01:33.409 --> 00:01:34.994
+In response to his action,
+
+00:01:34.995 --> 00:01:37.255
+he receives feedback from his owner.
+
+00:01:37.254 --> 00:01:40.799
+In this case, he receives a single treat.
+
+00:01:40.799 --> 00:01:45.129
+That's encouraging and he's off to a great start.
+
+00:01:45.129 --> 00:01:46.814
+We'll assume that in general,
+
+00:01:46.814 --> 00:01:49.829
+his only goal is to maximize reward.
+
+00:01:49.829 --> 00:01:52.974
+He'd like it to be as positive as possible.
+
+00:01:52.974 --> 00:01:57.125
+That holds for now and at every point in the future.
+
+00:01:57.125 --> 00:01:59.069
+But now the owner has given
+
+00:01:59.069 --> 00:02:04.079
+a new command and it's time for him to choose his next response.
+
+00:02:04.079 --> 00:02:06.844
+What do you think? Sitting seemed to perform well.
+
+00:02:06.844 --> 00:02:08.984
+But now, the command looks different.
+
+00:02:08.985 --> 00:02:12.660
+So maybe a different action is more appropriate.
+
+00:02:12.659 --> 00:02:15.944
+He decides to again pick an action randomly.
+
+00:02:15.944 --> 00:02:20.764
+In this case, he decides to run and waits for a response.
+
+00:02:20.764 --> 00:02:25.554
+And, oh no, he received discouraging feedback from his owner.
+
+00:02:25.555 --> 00:02:29.085
+Now, it's unclear if this is just a bad action in general
+
+00:02:29.085 --> 00:02:33.719
+or if he should just not run in response to this particular observation.
+
+00:02:33.719 --> 00:02:36.870
+He can only discover this through interacting more with
+
+00:02:36.870 --> 00:02:42.300
+his owner through systematically proposing and testing hypotheses.
+
+00:02:42.300 --> 00:02:45.689
+And so the process continues where at each point in time,
+
+00:02:45.689 --> 00:02:48.449
+the puppy takes an action and then simultaneously
+
+00:02:48.449 --> 00:02:52.909
+receives feedback and an updated observation from his owner.
+
+00:02:52.909 --> 00:02:54.210
+At each point in time,
+
+00:02:54.210 --> 00:03:00.355
+he does his best to execute the appropriate action to make his owner happy.
+
+00:03:00.354 --> 00:03:04.694
+Now at first glance, it could seem that when we view interaction along these lines,
+
+00:03:04.694 --> 00:03:07.009
+everything is pretty simple.
+
+00:03:07.009 --> 00:03:11.269
+After all, the way the puppy interacts with his owner is quite systematic.
+
+00:03:11.270 --> 00:03:15.284
+And while it may take him some time to get an idea of what's happening,
+
+00:03:15.284 --> 00:03:18.775
+he should be able to figure it out eventually.
+
+00:03:18.775 --> 00:03:20.985
+But as you progress through this course,
+
+00:03:20.985 --> 00:03:25.460
+you'll see that this puppy situation is surprisingly complex.
+
+00:03:25.460 --> 00:03:27.900
+For instance, he'll have to find the balance with on
+
+00:03:27.900 --> 00:03:32.159
+the one hand exploring potential hypotheses for how to choose actions.
+
+00:03:32.159 --> 00:03:33.750
+And on the other,
+
+00:03:33.750 --> 00:03:38.835
+exploiting his limited knowledge about what he already knows should work well.
+
+00:03:38.835 --> 00:03:43.590
+That is, should he settle for just one treat or should he aim higher?
+
+00:03:43.590 --> 00:03:47.490
+This is a very important concept in reinforcement learning.
+
+00:03:47.490 --> 00:03:49.740
+While there are some widely adopted techniques
+
+00:03:49.740 --> 00:03:52.215
+for balancing these two competing requirements,
+
+00:03:52.215 --> 00:03:56.655
+this question has inspired an entire subfield of reinforcement learning,
+
+00:03:56.655 --> 00:04:00.419
+and remains an area of active research.
+
+00:04:00.419 --> 00:04:02.549
+Another thing that's important to note is that if
+
+00:04:02.550 --> 00:04:05.700
+our puppy is truly a reinforcement learning agent,
+
+00:04:05.699 --> 00:04:09.714
+he's not just concerned with the reward he can get now.
+
+00:04:09.715 --> 00:04:12.210
+Instead, his goal is to maximize
+
+00:04:12.210 --> 00:04:16.650
+the total number of treats he can get over his entire lifetime.
+
+00:04:16.649 --> 00:04:18.929
+So while it might be relatively simple to
+
+00:04:18.930 --> 00:04:22.035
+derive a strategy that works well in the short term,
+
+00:04:22.035 --> 00:04:24.630
+he'll have to be a bit more clever if he wants to
+
+00:04:24.629 --> 00:04:28.300
+find strategies that take longer to pay off.
+
+00:04:28.300 --> 00:04:34.439
+In general, this idea of learning from experience is intellectually quite interesting.
+
+00:04:34.439 --> 00:04:36.569
+For instance, if you've ever tried to train a dog
+
+00:04:36.569 --> 00:04:39.774
+perhaps you've noticed that it's not so easy.
+
+00:04:39.774 --> 00:04:43.349
+His first instinct might be whenever I sit I receive
+
+00:04:43.350 --> 00:04:48.635
+a treat rather than whenever my owner says sit and then I sit,
+
+00:04:48.634 --> 00:04:50.687
+I receive a treat.
+
+00:04:50.687 --> 00:04:54.432
+Even though it seems like a reasonable mistake to make,
+
+00:04:54.432 --> 00:04:58.000
+we guarantee you that your agents will know better.
+

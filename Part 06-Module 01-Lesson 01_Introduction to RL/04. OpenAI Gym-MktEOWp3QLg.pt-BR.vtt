@@ -1,0 +1,129 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.402 --> 00:00:03.917
+Neste curso, vamos usar muito
+a Gym do OpenAI,
+
+00:00:03.951 --> 00:00:06.085
+um kit de ferramentas livre
+para desenvolver
+
+00:00:06.119 --> 00:00:09.092
+e comparar algoritmos de AR.
+
+00:00:09.126 --> 00:00:13.348
+Vamos usar quatro dos ambientes
+disponíveis nesse kit.
+
+00:00:13.382 --> 00:00:16.429
+O primeiro é o ambiente
+do lago congelado.
+
+00:00:16.463 --> 00:00:18.805
+Vamos escrever um agente
+que consiga navegar nesse mundo
+
+00:00:18.839 --> 00:00:21.780
+sem cair em buracos
+na água congelada.
+
+00:00:21.814 --> 00:00:24.756
+Depois, você vai escrever um agente
+que jogue Blackjack.
+
+00:00:25.098 --> 00:00:28.228
+Depois, vai trabalhar com outro
+pequeno mundo com um penhasco,
+
+00:00:28.262 --> 00:00:31.253
+e o seu objetivo
+será evitar cair nele.
+
+00:00:31.565 --> 00:00:33.989
+O último ambiente
+é um mundo de táxi.
+
+00:00:34.023 --> 00:00:36.989
+Vamos treinar um táxi para pegar
+e deixar passageiros
+
+00:00:37.023 --> 00:00:39.124
+o mais rápido possível.
+
+00:00:39.158 --> 00:00:42.173
+Uma das coisas legais
+da Gym do OpenAI
+
+00:00:42.207 --> 00:00:44.700
+é que você pode gravar
+a sua performance.
+
+00:00:44.734 --> 00:00:48.004
+O seu agente pode começar
+se comportando aleatoriamente,
+
+00:00:48.038 --> 00:00:49.764
+mas conforme ele aprende
+com a interação,
+
+00:00:49.798 --> 00:00:53.716
+você vai poder vê-lo escolhendo
+ações de forma mais inteligente.
+
+00:00:54.236 --> 00:00:56.234
+O que também é legal
+é que se você estiver feliz
+
+00:00:56.268 --> 00:00:58.125
+com o quão inteligentes
+os seus agentes estão,
+
+00:00:58.159 --> 00:00:59.829
+ou com o quão rápido
+eles aprendem,
+
+00:00:59.863 --> 00:01:01.605
+você pode fazer o upload
+das suas implementações
+
+00:01:01.639 --> 00:01:04.251
+para compartilhar o seu conhecimento
+com o mundo.
+
+00:01:04.530 --> 00:01:07.052
+Eu vou parar de enrolar.
+
+00:01:07.086 --> 00:01:09.687
+Para este laboratório,
+siga o tutorial linkado abaixo
+
+00:01:09.721 --> 00:01:11.853
+para aprender
+a sintaxe básica.
+
+00:01:11.887 --> 00:01:14.756
+Embora a gente ainda não vá usar
+a Gym do OpenAi,
+
+00:01:14.790 --> 00:01:17.532
+eu recomendo que você
+siga o tutorial agora
+
+00:01:17.566 --> 00:01:20.244
+para ficar animado com o tipo
+de implementações
+
+00:01:20.278 --> 00:01:22.468
+que você vai construir
+neste curso.
+
+00:01:22.836 --> 00:01:25.644
+Vamos ter que usar um tempo
+para desenvolver a teoria
+
+00:01:25.678 --> 00:01:29.476
+antes de mergulhar, mas eu garanto
+que vai valer muito a pena.
+

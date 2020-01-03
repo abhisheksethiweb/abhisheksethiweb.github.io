@@ -1,0 +1,79 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:03.874
+In this course, we'll make extensive use of OpenAI Gym,
+
+00:00:03.874 --> 00:00:08.765
+an open source toolkit for developing and comparing RL algorithms.
+
+00:00:08.765 --> 00:00:13.460
+We'll use four of the environments that are available as part of this toolkit.
+
+00:00:13.460 --> 00:00:16.234
+The first is the frozen lake environment.
+
+00:00:16.234 --> 00:00:18.719
+We will write an agent who can navigate a world
+
+00:00:18.719 --> 00:00:21.854
+without falling into pits of frozen water.
+
+00:00:21.855 --> 00:00:24.644
+Next, you'll write an agent to play blackjack.
+
+00:00:24.644 --> 00:00:27.169
+Then, you'll work with another small world with
+
+00:00:27.170 --> 00:00:31.085
+a large cliff where your goal is to avoid falling in.
+
+00:00:31.085 --> 00:00:33.883
+The final environment is a taxi world.
+
+00:00:33.883 --> 00:00:38.960
+We will train a taxi to pick up and drop off passengers as quickly as possible.
+
+00:00:38.960 --> 00:00:41.094
+One of the really cool things about
+
+00:00:41.094 --> 00:00:44.405
+OpenAI Gym is that you can record your performance.
+
+00:00:44.405 --> 00:00:49.730
+So your agent might start off just behaving randomly but as it learns from interaction,
+
+00:00:49.729 --> 00:00:53.979
+you'll be able to see it choose actions in a much more intelligent way.
+
+00:00:53.979 --> 00:00:56.659
+What's also really cool is that if you're happy with how
+
+00:00:56.659 --> 00:00:59.659
+smart you've made your agents or how quickly they learn,
+
+00:00:59.659 --> 00:01:04.185
+you can upload your implementations to share your knowledge with the world.
+
+00:01:04.185 --> 00:01:06.890
+But I won't keep you from it any longer.
+
+00:01:06.890 --> 00:01:11.969
+For this lab, follow the tutorial links below to learn the basic syntax.
+
+00:01:11.969 --> 00:01:14.700
+Although we won't use open agent just yet.
+
+00:01:14.700 --> 00:01:18.120
+I highly recommend following the tutorial now to build
+
+00:01:18.120 --> 00:01:22.484
+your excitement for the kind of implementations you'll build in this course.
+
+00:01:22.484 --> 00:01:27.015
+We'll have to spend a bit of time developing that theory before jumping in.
+
+00:01:27.015 --> 00:01:30.000
+But I guarantee you that it's more than worth it.
+
