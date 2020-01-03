@@ -1,0 +1,151 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:03.734
+Several concepts ago, I've mentioned that we needed to define
+
+00:00:03.734 --> 00:00:06.330
+the action value function before talking
+
+00:00:06.330 --> 00:00:09.714
+about how the agent could search for an optimal policy,
+
+00:00:09.714 --> 00:00:13.464
+and we will see most of the detail for a later lesson.
+
+00:00:13.464 --> 00:00:15.419
+The main idea is this.
+
+00:00:15.419 --> 00:00:18.765
+The agent interacts with the environment.
+
+00:00:18.765 --> 00:00:20.085
+And from that interaction,
+
+00:00:20.085 --> 00:00:23.304
+it estimates the optimal action value function.
+
+00:00:23.304 --> 00:00:28.454
+Then, the agent uses that value function to get the optimal policy.
+
+00:00:28.454 --> 00:00:31.214
+So this might all seem quite strange,
+
+00:00:31.214 --> 00:00:33.090
+but it will become much clearer in
+
+00:00:33.090 --> 00:00:36.630
+the next lesson when you implement this process yourself.
+
+00:00:36.630 --> 00:00:39.960
+So for now, please bear with me and let's further ignore
+
+00:00:39.960 --> 00:00:44.910
+the question of how the agent uses its experience to estimate the value function.
+
+00:00:44.909 --> 00:00:49.799
+In particular, let's assume it already knows the optimal action value function,
+
+00:00:49.799 --> 00:00:53.534
+but it doesn't know the corresponding optimal policy.
+
+00:00:53.534 --> 00:00:56.509
+So how does it get the optimal policy?
+
+00:00:56.509 --> 00:00:59.632
+This is what we'll explore in this video.
+
+00:00:59.633 --> 00:01:01.140
+So we already have
+
+00:01:01.140 --> 00:01:06.555
+the optimal action value function and you've seen some of the optimal policies already,
+
+00:01:06.555 --> 00:01:08.830
+but I've removed those hints here,
+
+00:01:08.829 --> 00:01:13.564
+so let's try to reconstruct an optimal policy from the value function.
+
+00:01:13.564 --> 00:01:15.855
+It's possible to show that for each state,
+
+00:01:15.855 --> 00:01:20.010
+we just need to pick the action that yields the highest expected return.
+
+00:01:20.010 --> 00:01:23.370
+So beginning with the state in the top left corner,
+
+00:01:23.370 --> 00:01:28.640
+the policy will go right instead of down since 2 is larger than zero.
+
+00:01:28.640 --> 00:01:32.674
+Moving right, we see two values of 1 and one value of 3.
+
+00:01:32.674 --> 00:01:36.944
+3 is the largest value into the policy, we'll go right here.
+
+00:01:36.944 --> 00:01:38.839
+And we can continue in this way,
+
+00:01:38.840 --> 00:01:41.689
+always picking the action with the highest value.
+
+00:01:41.689 --> 00:01:44.399
+So 4 is greater than 2,
+
+00:01:44.400 --> 00:01:47.805
+5 is higher than 1 or 3.
+
+00:01:47.805 --> 00:01:50.040
+Next, 4 is the largest.
+
+00:01:50.040 --> 00:01:52.560
+We'll skip over the state with 3 values
+
+00:01:52.560 --> 00:01:55.390
+of 1 because it's not quite clear what to do here.
+
+00:01:55.390 --> 00:01:58.215
+But then 2 is larger than 0,
+
+00:01:58.215 --> 00:02:00.840
+and 5 is larger than 1.
+
+00:02:00.840 --> 00:02:03.990
+So now back to the state with three values of 1.
+
+00:02:03.989 --> 00:02:06.959
+It turns out that to construct the optimal policy,
+
+00:02:06.959 --> 00:02:08.519
+we have our choice here.
+
+00:02:08.520 --> 00:02:14.689
+The agent could go up down or right and all three choices would yield optimal policies.
+
+00:02:14.689 --> 00:02:18.370
+So let's just say the policy decides to go right.
+
+00:02:18.370 --> 00:02:20.340
+And just like that, we've arrived at
+
+00:02:20.340 --> 00:02:24.950
+an optimal policy and it's worth summarizing what we've noticed here.
+
+00:02:24.949 --> 00:02:28.454
+If the agent has the optimal action value function,
+
+00:02:28.455 --> 00:02:31.903
+it can quickly obtain an optimal policy,
+
+00:02:31.902 --> 00:02:35.819
+which is the solution to the MDP that we're looking for.
+
+00:02:35.819 --> 00:02:40.979
+This brings us to the question of how the agent could find the optimal value function.
+
+00:02:40.979 --> 00:02:45.049
+This is in fact what we'll explore for the remainder of this course.
+

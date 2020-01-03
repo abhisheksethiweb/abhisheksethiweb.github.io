@@ -1,0 +1,145 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.328 --> 00:00:03.724
+Para entender como procurar
+pela melhor política,
+
+00:00:03.754 --> 00:00:06.131
+será útil ter um exemplo.
+
+00:00:06.636 --> 00:00:09.236
+Considere este mundo
+muito, muito pequeno
+
+00:00:09.266 --> 00:00:11.308
+e o agente que vive
+dentro dele.
+
+00:00:11.712 --> 00:00:13.692
+Imagine que o mundo seja
+principalmente composto
+
+00:00:13.722 --> 00:00:15.660
+de belas partes com grama,
+
+00:00:15.690 --> 00:00:19.795
+mas dois dos nove locais do mundo
+têm grandes montanhas.
+
+00:00:20.428 --> 00:00:24.372
+Vamos encarar cada um desses nove
+locais no mundo como estados
+
+00:00:24.402 --> 00:00:26.060
+do ambiente.
+
+00:00:26.090 --> 00:00:29.296
+A cada instante no tempo, imagine
+que o agente só possa se mover
+
+00:00:29.329 --> 00:00:31.597
+para cima ou para baixo,
+para a esquerda ou para direita,
+
+00:00:31.632 --> 00:00:35.483
+e só possa realizar ações
+que não o levem para fora da grade.
+
+00:00:35.513 --> 00:00:38.324
+Aqui, as setas mostram
+os possíveis movimentos
+
+00:00:38.354 --> 00:00:40.148
+que permitimos
+que o agente faça.
+
+00:00:40.178 --> 00:00:41.844
+Imagine também que o objetivo
+do agente
+
+00:00:41.874 --> 00:00:44.771
+seja chegar ao canto inferior
+direito do mundo
+
+00:00:44.801 --> 00:00:46.483
+o mais rápido possível.
+
+00:00:46.513 --> 00:00:48.675
+Vamos encarar isso
+como uma tarefa episódica,
+
+00:00:48.705 --> 00:00:51.955
+em que um episódio termina
+quando o agente alcança o objetivo.
+
+00:00:52.491 --> 00:00:56.467
+Então, ele não precisa se preocupar
+em sair desse estado-objetivo.
+
+00:00:56.868 --> 00:01:00.731
+Além disso, imagina que o agente
+receba uma recompensa de -1
+
+00:01:00.761 --> 00:01:02.627
+para a maioria
+das transições.
+
+00:01:03.027 --> 00:01:06.172
+Mas se uma ação levá-lo
+de encontro a uma montanha,
+
+00:01:06.202 --> 00:01:08.803
+ele recebe uma recompensa
+de -3.
+
+00:01:08.833 --> 00:01:12.163
+Se ele alcançar o estado-objetivo,
+recebe uma recompensa de 5.
+
+00:01:12.193 --> 00:01:14.011
+Então, podemos encarar
+o sinal da recompensa
+
+00:01:14.041 --> 00:01:16.211
+como uma punição para o agente
+para cada instante de tempo
+
+00:01:16.241 --> 00:01:18.388
+que ele gaste
+longe do objetivo.
+
+00:01:18.418 --> 00:01:21.747
+Encaramos as montanhas
+como algo com uma grande punição,
+
+00:01:21.777 --> 00:01:24.076
+porque ele leva ainda mais
+tempo para atravessá-las
+
+00:01:24.106 --> 00:01:25.556
+do que as partes com grama.
+
+00:01:25.900 --> 00:01:27.804
+A estrutura de recompensas
+encoraja o agente
+
+00:01:27.834 --> 00:01:30.555
+a chegar ao objetivo
+o mais rápido possível.
+
+00:01:30.585 --> 00:01:32.971
+Quando ele alcança o objetivo,
+ele recebe uma recompensa de 5
+
+00:01:33.001 --> 00:01:34.787
+e o episódio termina.
+
+00:01:35.081 --> 00:01:36.788
+Vamos usar esse exemplo
+na nossa busca
+
+00:01:36.818 --> 00:01:38.147
+pela melhor política.
+

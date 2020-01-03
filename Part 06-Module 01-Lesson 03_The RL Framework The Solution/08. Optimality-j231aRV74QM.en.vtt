@@ -1,0 +1,169 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:01.725
+So far in this lesson,
+
+00:00:01.725 --> 00:00:03.990
+we've looked at a particular policy Pi,
+
+00:00:03.990 --> 00:00:07.065
+and calculated its corresponding value function.
+
+00:00:07.065 --> 00:00:09.884
+In the quiz, you calculated the value function
+
+00:00:09.884 --> 00:00:14.115
+corresponding to a different policy which we denoted by Pi-Prime.
+
+00:00:14.115 --> 00:00:16.620
+And if you look at each of these value functions,
+
+00:00:16.620 --> 00:00:19.245
+you may notice a pattern or trend.
+
+00:00:19.245 --> 00:00:23.464
+Take the time now to compare them and pause the video if you like.
+
+00:00:23.464 --> 00:00:29.109
+So in reality, there are probably a great number of patterns in these numbers,
+
+00:00:29.109 --> 00:00:32.984
+but the most relevant trend to us now is that when we look at
+
+00:00:32.984 --> 00:00:36.990
+any state in particular and compare the two value functions,
+
+00:00:36.990 --> 00:00:40.109
+the value function for a Pi-Prime is always bigger
+
+00:00:40.109 --> 00:00:43.320
+than or equal to the value function for policy Pi.
+
+00:00:43.320 --> 00:00:47.295
+For instance, 2 is greater than negative 6,
+
+00:00:47.295 --> 00:00:50.414
+3 is greater than negative 5,
+
+00:00:50.414 --> 00:00:53.325
+4 is greater than negative 4,
+
+00:00:53.325 --> 00:00:55.905
+and 1 is equal to 1.
+
+00:00:55.905 --> 00:00:59.340
+So this says, for any state in the environment,
+
+00:00:59.340 --> 00:01:02.835
+it's better to follow policy Pi-prime, right?
+
+00:01:02.835 --> 00:01:05.894
+Because no matter where the agent starts in the grid world,
+
+00:01:05.894 --> 00:01:09.161
+they expected discounted return is larger,
+
+00:01:09.162 --> 00:01:12.795
+and remember that the goal of the agent is to maximize return.
+
+00:01:12.795 --> 00:01:17.430
+So, a greater expected return makes for a better policy.
+
+00:01:17.430 --> 00:01:20.340
+This motivates an important definition.
+
+00:01:20.340 --> 00:01:25.665
+By definition, we say that a policy Pi-Prime is better than or equal to
+
+00:01:25.665 --> 00:01:29.190
+a policy Pi if it's state-value function is greater
+
+00:01:29.189 --> 00:01:34.009
+than or equal to that of policy Pi for all states.
+
+00:01:34.010 --> 00:01:39.000
+And so there are a couple of important things to note about this definition.
+
+00:01:39.000 --> 00:01:42.015
+The first is that if you take any two policies,
+
+00:01:42.015 --> 00:01:47.305
+it's not necessarily the case that you're going to be able to decide which is better.
+
+00:01:47.305 --> 00:01:50.280
+In other words, it's possible that they can't be compared.
+
+00:01:50.280 --> 00:01:52.290
+But said, there will always be
+
+00:01:52.290 --> 00:01:56.935
+at least one policy that's better than or equal to all other policies.
+
+00:01:56.935 --> 00:01:59.700
+We call this policy an optimal policy,
+
+00:01:59.700 --> 00:02:03.510
+and it's guaranteed to exist but it may not be unique,
+
+00:02:03.510 --> 00:02:08.564
+and it's important to note that an optimal policy is what the agent is searching for.
+
+00:02:08.564 --> 00:02:13.409
+It's the solution to the MDP and the best strategy to accomplish it's goal.
+
+00:02:13.409 --> 00:02:19.615
+Finally, all optimal policies have the same value function which we denote by Vstar.
+
+00:02:19.615 --> 00:02:22.170
+You might be wondering why it's not written,
+
+00:02:22.169 --> 00:02:24.030
+V sub Pi star.
+
+00:02:24.030 --> 00:02:26.175
+The answer is by convention,
+
+00:02:26.175 --> 00:02:28.950
+and probably because it just looks nicer this way.
+
+00:02:28.949 --> 00:02:35.509
+On that note, it turns out that the policy from the quiz is actually an optimal policy.
+
+00:02:35.509 --> 00:02:40.274
+This is because if you compare it to the value function for any other possible policy,
+
+00:02:40.274 --> 00:02:43.485
+it's value function is always at least as big,
+
+00:02:43.485 --> 00:02:46.085
+but it's not the only optimal policy.
+
+00:02:46.085 --> 00:02:50.550
+For instance, here's another policy that has the same value function,
+
+00:02:50.550 --> 00:02:55.385
+and you might be wondering at this point how I found these optimal policies.
+
+00:02:55.384 --> 00:02:58.679
+Well, this example was simple enough that it was possible to make
+
+00:02:58.680 --> 00:03:02.480
+an educated guess just by staring at the dynamics,
+
+00:03:02.479 --> 00:03:05.399
+but this will often not be the case as many of
+
+00:03:05.400 --> 00:03:08.594
+the MDPs will look at will be far more complicated.
+
+00:03:08.594 --> 00:03:13.425
+So how might we determine an optimal policy for a much more complicated MDP?
+
+00:03:13.425 --> 00:03:14.505
+To answer this question,
+
+00:03:14.504 --> 00:03:17.280
+we'll need to define another type of value function.
+

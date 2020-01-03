@@ -1,0 +1,97 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:03.759
+To understand how to go about searching for the best policy,
+
+00:00:03.759 --> 00:00:06.344
+it will help to have a running example.
+
+00:00:06.344 --> 00:00:11.445
+So consider this very very small world and an agent who lives in it.
+
+00:00:11.445 --> 00:00:15.769
+Say the world is primarily composed of nice patches of grass,
+
+00:00:15.769 --> 00:00:20.094
+but two out of the nine locations in the world have large mountains.
+
+00:00:20.094 --> 00:00:21.599
+Well think of each of
+
+00:00:21.600 --> 00:00:25.760
+these nine possible locations in the world as states and the environment.
+
+00:00:25.760 --> 00:00:27.660
+At each point in time,
+
+00:00:27.660 --> 00:00:30.240
+let's say the agent can only move up, down,
+
+00:00:30.239 --> 00:00:35.600
+left or right, and can only take actions that lead it to not fall off the grid.
+
+00:00:35.600 --> 00:00:39.899
+Here, the arrows show the possible movements that will allow the agent.
+
+00:00:39.899 --> 00:00:42.420
+Let's also say, the goal of the agent is to get to
+
+00:00:42.420 --> 00:00:46.664
+the bottom right hand corner of the world as quickly as possible.
+
+00:00:46.664 --> 00:00:49.034
+Then we'll think of this as an episodic task where
+
+00:00:49.034 --> 00:00:52.369
+an episode finishes when the agent reaches the goal.
+
+00:00:52.369 --> 00:00:56.530
+So we won't have to worry about transitions away from this goal state.
+
+00:00:56.530 --> 00:01:02.590
+Furthermore, say that the agent receives a reward of negative one for most transitions.
+
+00:01:02.590 --> 00:01:06.075
+But if an action leads it to encounter a mountain,
+
+00:01:06.075 --> 00:01:08.460
+it receives some reward of negative three.
+
+00:01:08.459 --> 00:01:10.214
+And if it reaches the goal state,
+
+00:01:10.215 --> 00:01:12.125
+it gets a reward of five.
+
+00:01:12.125 --> 00:01:14.670
+So we can think of the reward signal as punishing
+
+00:01:14.670 --> 00:01:18.570
+the agent for every timestep that it spends away from the goal.
+
+00:01:18.569 --> 00:01:20.159
+You can think of the mountains as having
+
+00:01:20.159 --> 00:01:22.319
+a special larger punishment because they
+
+00:01:22.319 --> 00:01:25.494
+take even longer to cross than the patches of grass.
+
+00:01:25.495 --> 00:01:30.300
+The reward structure encourages the agent to get to the goal as quickly as possible.
+
+00:01:30.299 --> 00:01:31.769
+And when it reaches the goal,
+
+00:01:31.769 --> 00:01:33.089
+it gets a reward of five,
+
+00:01:33.090 --> 00:01:34.665
+and the episode ends.
+
+00:01:34.665 --> 00:01:38.060
+We'll use this example in our search for the best policy.
+

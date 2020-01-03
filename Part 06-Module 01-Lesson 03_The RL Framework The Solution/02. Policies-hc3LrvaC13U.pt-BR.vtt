@@ -1,0 +1,286 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.535 --> 00:00:04.839
+Vimos que usamos um Processo
+de Decisão de Markov, ou PDM,
+
+00:00:04.869 --> 00:00:07.678
+como uma definição formal
+do problema que queremos resolver
+
+00:00:07.708 --> 00:00:09.543
+com aprendizagem
+por reforço.
+
+00:00:09.573 --> 00:00:11.879
+Neste vídeo, vamos especificar
+uma definição formal
+
+00:00:11.909 --> 00:00:14.070
+para a solução
+deste problema.
+
+00:00:14.399 --> 00:00:17.655
+Podemos começar a pensar
+na solução como uma série de ações
+
+00:00:17.685 --> 00:00:19.263
+que precisam ser aprendidas
+pelo agente
+
+00:00:19.293 --> 00:00:21.646
+para que ele alcance
+um objetivo.
+
+00:00:21.676 --> 00:00:24.583
+Por exemplo, para andar,
+o robô humanoide
+
+00:00:24.613 --> 00:00:26.262
+tem que aprender
+a forma apropriada
+
+00:00:26.292 --> 00:00:28.551
+de aplicar força
+às suas articulações.
+
+00:00:29.007 --> 00:00:31.775
+Mas, como você viu,
+a ação correta muda
+
+00:00:31.805 --> 00:00:32.983
+de acordo com a situação.
+
+00:00:33.013 --> 00:00:36.287
+Se o robô encontrar uma parede,
+a melhor série de ações
+
+00:00:36.317 --> 00:00:40.079
+será diferente do que se nada
+estivesse bloqueando o caminho dele.
+
+00:00:40.543 --> 00:00:44.625
+A recompensa é sempre decidida
+no contexto no qual ela foi decidida
+
+00:00:45.111 --> 00:00:47.655
+junto com o estado seguinte.
+
+00:00:47.685 --> 00:00:50.223
+Com isso em mente,
+contanto que o agente aprenda
+
+00:00:50.253 --> 00:00:52.038
+uma forma apropriada
+de resposta e ação
+
+00:00:52.068 --> 00:00:54.959
+para qualquer estado de ambiente
+que ele possa observar,
+
+00:00:54.989 --> 00:00:57.638
+temos uma solução
+para o nosso problema.
+
+00:00:57.980 --> 00:01:00.623
+Isso motiva a ideia
+de uma política.
+
+00:01:01.199 --> 00:01:03.285
+O tipo mais simples de política
+é um mapeamento
+
+00:01:03.315 --> 00:01:05.581
+do conjunto
+de estados do ambiente
+
+00:01:05.611 --> 00:01:07.486
+para o conjunto
+de possíveis ações.
+
+00:01:07.871 --> 00:01:10.310
+Caso a ideia de mapeamento
+seja novidade para você,
+
+00:01:10.340 --> 00:01:12.843
+encare a política
+como uma fábrica
+
+00:01:12.862 --> 00:01:15.275
+que recebe qualquer estado
+do ambiente como valor de entrada
+
+00:01:15.309 --> 00:01:19.199
+e gera a ação correspondente
+que o agente vai tomar.
+
+00:01:19.229 --> 00:01:22.006
+Se o agente quiser monitorar
+sua estratégia,
+
+00:01:22.234 --> 00:01:24.598
+ele só precisa construir
+essa fábrica
+
+00:01:24.628 --> 00:01:26.814
+ou especificar
+esse mapeamento.
+
+00:01:26.844 --> 00:01:30.302
+Chamamos esse tipo de política
+de política determinista.
+
+00:01:30.707 --> 00:01:34.190
+Ela recebe o estado
+e gera a ação a ser tomada.
+
+00:01:34.918 --> 00:01:38.254
+Como você pode ver,
+é mais comum denotar a política
+
+00:01:38.284 --> 00:01:40.327
+com a letra grega pi.
+
+00:01:40.357 --> 00:01:42.654
+Outro tipo de política
+que vamos examinar
+
+00:01:42.684 --> 00:01:44.567
+é a política estocástica.
+
+00:01:44.597 --> 00:01:49.302
+Ela vai permitir que o agente
+escolha ações aleatoriamente.
+
+00:01:49.332 --> 00:01:52.190
+Definimos a política estocástica
+como um mapeamento
+
+00:01:52.622 --> 00:01:56.230
+que aceita um estado de ambiente S
+e uma ação A,
+
+00:01:56.260 --> 00:01:59.870
+e retorna uma probabilidade
+de que o agente realize uma ação A
+
+00:01:59.918 --> 00:02:02.390
+enquanto estiver
+no estado S.
+
+00:02:02.420 --> 00:02:05.462
+Para deixar claro, vamos revisitar
+o exemplo do robô de reciclagem
+
+00:02:05.492 --> 00:02:07.142
+da aula anterior.
+
+00:02:07.486 --> 00:02:10.830
+A política determinista
+especificaria algo como:
+
+00:02:11.183 --> 00:02:13.790
+"Sempre que a bateria
+estiver fraca, recarregue-a,
+
+00:02:13.820 --> 00:02:16.591
+e sempre que ela estiver
+com a carga alta,
+
+00:02:16.621 --> 00:02:17.893
+procure por latas".
+
+00:02:17.923 --> 00:02:21.118
+Já a política estocástica
+diria algo como:
+
+00:02:21.148 --> 00:02:23.238
+"Sempre que a bateria
+estiver fraca,
+
+00:02:23.268 --> 00:02:25.686
+recarregue-a com uma probabilidade
+de 50%,
+
+00:02:25.716 --> 00:02:28.615
+aguarde onde você estiver
+com probabilidade de 40%,
+
+00:02:28.645 --> 00:02:30.503
+e, do contrário,
+procure por latas.
+
+00:02:30.898 --> 00:02:32.478
+Sempre que a bateria
+estiver alta,
+
+00:02:32.508 --> 00:02:35.222
+procure por latas
+com probabilidade de 90%,
+
+00:02:35.252 --> 00:02:37.518
+e, do contrário,
+espere por uma lata".
+
+00:02:37.998 --> 00:02:40.630
+É importante notar
+que qualquer política determinista
+
+00:02:40.660 --> 00:02:44.071
+pode ser expressa usando
+a mesma denotação que geralmente
+
+00:02:44.101 --> 00:02:46.462
+reservamos
+às políticas estocásticas.
+
+00:02:46.492 --> 00:02:50.254
+Por exemplo, esta política
+pode ser expressa como:
+
+00:02:50.284 --> 00:02:52.270
+"Sempre que a bateria
+estiver fraca,
+
+00:02:52.300 --> 00:02:55.639
+recarregue-a com uma probabilidade
+de 100%.
+
+00:02:55.669 --> 00:02:58.150
+Sempre que a bateria
+estiver com a carga alta,
+
+00:02:58.180 --> 00:03:01.398
+procure por latas
+com probabilidade de 100%".
+
+00:03:01.428 --> 00:03:04.462
+Vamos explorar políticas
+com níveis variantes
+
+00:03:04.492 --> 00:03:07.487
+de aleatoriedade ou probabilidade
+estocástica neste curso.
+
+00:03:07.870 --> 00:03:10.798
+A esta altura,
+você deve se perguntar,
+
+00:03:10.828 --> 00:03:14.038
+agora que sabemos
+como especificar uma política,
+
+00:03:14.068 --> 00:03:16.797
+quais passos podemos dar
+para garantir
+
+00:03:16.830 --> 00:03:19.685
+que a política do agente
+é a melhor?
+
+00:03:19.715 --> 00:03:23.734
+Vamos trabalhar nessa questão
+nos próximos conceitos.
+

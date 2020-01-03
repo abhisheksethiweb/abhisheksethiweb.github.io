@@ -1,0 +1,169 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:03.209
+So we're working with this grid world example and looking for
+
+00:00:03.209 --> 00:00:08.164
+the best policy that leads us to a goal state as quickly as possible.
+
+00:00:08.164 --> 00:00:09.689
+So, let's start with a very,
+
+00:00:09.689 --> 00:00:13.064
+very bad policy so that we can understand why it's bad,
+
+00:00:13.064 --> 00:00:14.824
+and then work to improve it.
+
+00:00:14.824 --> 00:00:17.925
+Specifically, we'll look at a policy where the agent
+
+00:00:17.925 --> 00:00:21.449
+visits every state in this very roundabout manner,
+
+00:00:21.449 --> 00:00:26.219
+and we can ignore the transition that the agent will never take under the policy.
+
+00:00:26.219 --> 00:00:30.390
+So now, towards understanding why this policy is bad,
+
+00:00:30.390 --> 00:00:33.750
+let's calculate the cumulative reward that will result.
+
+00:00:33.750 --> 00:00:36.750
+If the agent starts in the top left corner of
+
+00:00:36.750 --> 00:00:40.215
+the world and follows this policy to get to the goal state,
+
+00:00:40.215 --> 00:00:43.470
+it just collects all of the reward along the way.
+
+00:00:43.469 --> 00:00:46.185
+So that's negative one plus negative one,
+
+00:00:46.185 --> 00:00:47.655
+plus negative one again,
+
+00:00:47.655 --> 00:00:51.509
+and so on, where if I add up all the rewards along the way,
+
+00:00:51.509 --> 00:00:53.189
+I get negative six.
+
+00:00:53.189 --> 00:00:56.963
+Let's say we're not discounting or that the discount rate is one,
+
+00:00:56.963 --> 00:01:00.570
+we'll keep track of this negative six and remember,
+
+00:01:00.570 --> 00:01:05.394
+that it represents the fact that if we start at the state at the top left corner,
+
+00:01:05.394 --> 00:01:08.474
+and then just follow the policy for all time steps,
+
+00:01:08.474 --> 00:01:11.459
+that results in a return of negative six.
+
+00:01:11.459 --> 00:01:17.009
+But now, say, instead the agent started one location over to the right.
+
+00:01:17.010 --> 00:01:20.910
+Then, what return would be likely to follow under the same policy?
+
+00:01:20.909 --> 00:01:25.706
+Again, we just sum up all the rewards that the agent receives along the way,
+
+00:01:25.706 --> 00:01:26.880
+and when we do that,
+
+00:01:26.879 --> 00:01:28.793
+we get a return of negative five,
+
+00:01:28.793 --> 00:01:31.534
+and let's also keep track of that.
+
+00:01:31.534 --> 00:01:35.819
+We can continue and do this for every state in the world.
+
+00:01:35.819 --> 00:01:41.219
+It makes sense to think of the goal state as resulting in the return of zero.
+
+00:01:41.219 --> 00:01:43.590
+After all, if the agent starts at the goal
+
+00:01:43.590 --> 00:01:47.609
+the episode ends immediately and no reward is received.
+
+00:01:47.609 --> 00:01:51.170
+In this way, no matter where the agent starts in the world,
+
+00:01:51.171 --> 00:01:54.465
+we have a way of keeping track of the return that follows.
+
+00:01:54.465 --> 00:01:58.680
+This way of analyzing this horrible policy will help us to improve it.
+
+00:01:58.680 --> 00:02:01.590
+But before we get into exactly how to do that,
+
+00:02:01.590 --> 00:02:07.064
+let's attach a bit of notation and terminology to this process we just followed.
+
+00:02:07.064 --> 00:02:11.775
+You can think of this grid of numbers as a function of the environment state.
+
+00:02:11.775 --> 00:02:15.060
+For each state, it has a corresponding number,
+
+00:02:15.060 --> 00:02:19.004
+and we refer to this function as the state-value function.
+
+00:02:19.004 --> 00:02:23.340
+For each state, it yields the return that's likely to follow if
+
+00:02:23.340 --> 00:02:28.509
+the agent starts in that state and then follows the policy for all time steps,
+
+00:02:28.509 --> 00:02:33.969
+but it's more common to see it equivalently expressed but with a bit more notation.
+
+00:02:33.969 --> 00:02:35.939
+Before I show you that notation,
+
+00:02:35.939 --> 00:02:38.620
+I warn you that it looks a bit complicated,
+
+00:02:38.620 --> 00:02:44.539
+but it's equivalent to what we've already discussed. And here it is.
+
+00:02:44.539 --> 00:02:49.949
+The state-value function for a policy pi is a function of the environment state.
+
+00:02:49.949 --> 00:02:55.049
+For each state s, it tells us the expected discounted return,
+
+00:02:55.050 --> 00:02:57.465
+if the agent started in that state s,
+
+00:02:57.465 --> 00:03:01.694
+and then use the policy to choose its actions for all time steps,
+
+00:03:01.694 --> 00:03:06.344
+the state value function will always correspond to a particular policy.
+
+00:03:06.344 --> 00:03:08.219
+So if we change the policy,
+
+00:03:08.219 --> 00:03:10.574
+we change the state-value function,
+
+00:03:10.574 --> 00:03:13.394
+and we typically did note the function with the lowercase
+
+00:03:13.395 --> 00:03:17.000
+v with the corresponding policy in the subscript.
+

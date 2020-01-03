@@ -1,0 +1,274 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.636 --> 00:00:02.036
+Até agora,
+viemos trabalhando
+
+00:00:02.066 --> 00:00:04.492
+com a função de valor de estado
+para uma política.
+
+00:00:05.156 --> 00:00:09.444
+Para cada estado s, ela produz
+o retorno com desconto esperado
+
+00:00:09.474 --> 00:00:11.580
+caso o agente inicie
+no estado s,
+
+00:00:11.610 --> 00:00:14.357
+e usa a política para escolher
+suas ações
+
+00:00:14.387 --> 00:00:16.124
+para todos
+os instantes de tempo.
+
+00:00:16.154 --> 00:00:19.004
+Você viu alguns exemplos
+e sabe como calcular
+
+00:00:19.034 --> 00:00:21.771
+a função de estado de valor
+correspondente a uma política.
+
+00:00:22.204 --> 00:00:24.748
+Neste conceito, vamos definir
+um novo tipo de função de valor,
+
+00:00:24.778 --> 00:00:27.580
+conhecida como "função
+de valor de ação".
+
+00:00:27.610 --> 00:00:31.942
+Essa função de valor é representada
+por um q minúsculo, em vez de um v.
+
+00:00:31.978 --> 00:00:35.190
+Enquanto as funções de valores
+de estado são do estado de ambiente,
+
+00:00:35.220 --> 00:00:38.420
+as de valor de ação são funções
+do estado de ambiente
+
+00:00:38.450 --> 00:00:40.564
+e das ações do agente.
+
+00:00:40.594 --> 00:00:43.125
+Para cada estado s e ação a,
+
+00:00:43.155 --> 00:00:47.660
+a função de valor de ação produz
+o retorno com desconto esperado
+
+00:00:47.690 --> 00:00:50.483
+caso o agente inicie
+no estado s,
+
+00:00:50.513 --> 00:00:54.636
+escolha a ação a
+e, depois, use a política
+
+00:00:54.666 --> 00:00:57.836
+para escolher suas ações para todos
+os instantes de tempo futuros.
+
+00:00:57.866 --> 00:01:00.365
+Assim como com as funções
+de valor de estado,
+
+00:01:00.395 --> 00:01:03.747
+calcular isso sozinho
+vai ajudar a sua intuição.
+
+00:01:04.140 --> 00:01:06.155
+No caso da função
+de valor de estado,
+
+00:01:06.185 --> 00:01:10.324
+monitoramos o valor de cada estado
+com um número na grade.
+
+00:01:10.657 --> 00:01:13.356
+Faremos algo parecido
+com a função de valor de estado,
+
+00:01:13.804 --> 00:01:16.772
+mas agora precisamos de até
+quatro valores para cada estado,
+
+00:01:16.802 --> 00:01:19.500
+em que cada um corresponda
+a uma ação diferente.
+
+00:01:20.252 --> 00:01:22.875
+Esses quatro números
+correspondem ao mesmo estado,
+
+00:01:22.905 --> 00:01:26.124
+mas o de cima corresponde
+a ação "mover-se para cima",
+
+00:01:26.154 --> 00:01:28.755
+o da direita corresponde
+ao movimento para a direita
+
+00:01:28.789 --> 00:01:31.379
+antes de seguir a política
+e por aí vai.
+
+00:01:31.803 --> 00:01:33.339
+Você verá isso em breve.
+
+00:01:33.732 --> 00:01:37.588
+Com exceção do último estado,
+eu dividi a imagem
+
+00:01:37.618 --> 00:01:40.476
+para deixar um espaço
+para monitorar o valor
+
+00:01:40.506 --> 00:01:43.420
+correspondente a cada estado
+e ação possíveis.
+
+00:01:44.124 --> 00:01:46.627
+Vamos tentar calcular
+alguns valores de ação.
+
+00:01:47.387 --> 00:01:49.571
+Vamos começar
+com este estado aqui.
+
+00:01:49.601 --> 00:01:52.300
+Vamos calcular o valor
+correspondente a esse estado
+
+00:01:52.330 --> 00:01:54.123
+e à ação
+de mover-se para baixo.
+
+00:01:54.153 --> 00:01:58.011
+O agente começa nesse estado,
+move-se para baixo
+
+00:01:58.041 --> 00:02:00.667
+e recebe uma recompensa
+de -1.
+
+00:02:00.697 --> 00:02:03.092
+Depois, para cada instante
+de tempo no futuro,
+
+00:02:03.122 --> 00:02:07.283
+ele apenas segue a política
+até chegar ao último estado.
+
+00:02:07.313 --> 00:02:09.148
+Podemos, então, somar
+todas as recompensas
+
+00:02:09.178 --> 00:02:11.211
+encontradas
+ao longo do caminho
+
+00:02:11.241 --> 00:02:13.507
+e, ao fazer isso,
+obtemos zero.
+
+00:02:13.537 --> 00:02:16.644
+Esse zero corresponde
+ao valor de ação
+
+00:02:16.674 --> 00:02:18.836
+para esse estado
+em que o agente iniciou
+
+00:02:18.866 --> 00:02:20.691
+e para a ação
+de mover-se para baixo.
+
+00:02:21.235 --> 00:02:24.308
+Vamos tentar calcular
+outro valor de ação.
+
+00:02:24.338 --> 00:02:26.099
+Dessa vez, correspondendo
+a esse estado
+
+00:02:26.129 --> 00:02:27.931
+e à ação de mover-se
+para cima.
+
+00:02:27.961 --> 00:02:31.451
+O agente começa nesse estado
+e move-se para cima,
+
+00:02:32.227 --> 00:02:35.515
+e recebe uma recompensa
+de -1.
+
+00:02:35.545 --> 00:02:37.076
+Depois, ele só segue
+a política
+
+00:02:37.106 --> 00:02:39.204
+para todos os instantes
+de tempo futuros.
+
+00:02:39.636 --> 00:02:43.219
+Somamos as recompensas que ele
+coletou no caminho,
+
+00:02:43.249 --> 00:02:46.057
+e isso produz uma recompensa
+cumulativa de 1.
+
+00:02:46.087 --> 00:02:49.819
+Então, esse 1 corresponde
+ao valor de ação para esse estado
+
+00:02:49.849 --> 00:02:51.275
+e para ação
+de mover-se para cima.
+
+00:02:51.305 --> 00:02:55.004
+Podemos continuar fazendo isso
+para cada par de estado-ação
+
+00:02:55.034 --> 00:02:56.299
+que faça sentido.
+
+00:02:56.329 --> 00:02:59.643
+Ao fazer isso, obtemos
+essa função de valor de ação.
+
+00:03:00.163 --> 00:03:04.035
+Eu aconselho que você calcule
+e examine esses valores sozinho.
+
+00:03:04.065 --> 00:03:07.644
+Antes de prosseguir,
+é importante revisitar informações
+
+00:03:07.674 --> 00:03:09.644
+que você aprendeu mais cedo.
+
+00:03:09.674 --> 00:03:12.930
+Lembre-se de que temos a fórmula
+v com asterisco para nos referir
+
+00:03:12.960 --> 00:03:15.827
+à função de valor
+de estado ótima.
+
+00:03:16.731 --> 00:03:21.012
+De forma parecida, nos referimos
+à função de valor de ação ótima
+
+00:03:21.042 --> 00:03:22.281
+como q com asterisco.
+

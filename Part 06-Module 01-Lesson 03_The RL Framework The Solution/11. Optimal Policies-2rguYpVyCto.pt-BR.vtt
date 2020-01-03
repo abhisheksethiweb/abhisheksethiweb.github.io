@@ -1,0 +1,218 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.303 --> 00:00:03.689
+Vários conceitos atrás, eu mencionei
+que precisávamos definir
+
+00:00:03.719 --> 00:00:06.226
+a função de valor de ação
+antes de falar
+
+00:00:06.256 --> 00:00:09.442
+sobre como o agente consegue
+procurar por uma política ótima.
+
+00:00:10.113 --> 00:00:13.426
+Nós vamos guardar os detalhes
+para uma próxima aula,
+
+00:00:13.456 --> 00:00:15.233
+mas a ideia
+principal é a seguinte.
+
+00:00:15.686 --> 00:00:20.089
+O agente interage com o ambiente
+e, a partir dessa interação,
+
+00:00:20.119 --> 00:00:23.473
+ele estima a função de valor
+de ação ótima.
+
+00:00:23.503 --> 00:00:26.665
+Depois, o agente usa essa função
+de valor de ação para obter
+
+00:00:26.695 --> 00:00:28.729
+a política ótima.
+
+00:00:28.759 --> 00:00:31.129
+Isso tudo pode parecer
+muito estranho,
+
+00:00:31.159 --> 00:00:33.881
+mas vai ficar mais claro
+na próxima aula,
+
+00:00:33.911 --> 00:00:36.369
+quando você implementar
+esse processo por conta própria.
+
+00:00:36.399 --> 00:00:40.441
+Por ora, tenha paciência,
+e vamos ignorar a pergunta
+
+00:00:40.471 --> 00:00:44.666
+de como o agente usa sua experiência
+para estimar a função de valor.
+
+00:00:45.241 --> 00:00:47.617
+Em particular, vamos supor
+que ele já conheça
+
+00:00:47.647 --> 00:00:49.874
+a função de valor
+de ação ótima,
+
+00:00:49.904 --> 00:00:53.458
+mas que não conheça a política
+ótima correspondente.
+
+00:00:53.801 --> 00:00:56.362
+Mas como ele obtém
+a política ótima?
+
+00:00:56.392 --> 00:00:58.744
+É isso que vamos explorar
+neste vídeo.
+
+00:00:59.960 --> 00:01:03.400
+Nós já temos a função
+de valor de ação ótima,
+
+00:01:03.728 --> 00:01:06.329
+e você já viu algumas
+das políticas ótimas,
+
+00:01:06.359 --> 00:01:08.617
+mas eu removi
+essas dicas daqui.
+
+00:01:08.922 --> 00:01:11.450
+Vamos tentar reconstruir
+uma política ótima
+
+00:01:11.480 --> 00:01:13.337
+a partir da função de valor.
+
+00:01:13.367 --> 00:01:15.777
+É possível mostrar
+que, para cada estado,
+
+00:01:15.807 --> 00:01:17.905
+só temos que selecionar
+a ação que produza
+
+00:01:17.935 --> 00:01:19.809
+o retorno esperado
+mais alto.
+
+00:01:20.345 --> 00:01:23.146
+Começando com esse estado
+no canto superior esquerdo,
+
+00:01:23.176 --> 00:01:26.097
+a política vai para a direita
+em vez de ir para baixo,
+
+00:01:26.127 --> 00:01:28.433
+já que 2 é maior
+do que zero.
+
+00:01:28.792 --> 00:01:32.305
+À direita, vemos dois
+valores de 1 e um valor de 3.
+
+00:01:33.025 --> 00:01:36.633
+3 é o valor maior,
+então a política vai para direita.
+
+00:01:37.201 --> 00:01:38.799
+E continuamos fazendo isso,
+
+00:01:38.832 --> 00:01:41.481
+sempre escolhendo a ação
+com o maior valor.
+
+00:01:42.088 --> 00:01:44.433
+4 é maior do que 2,
+
+00:01:44.463 --> 00:01:48.033
+5 é maior do que 1 ou 3.
+
+00:01:48.063 --> 00:01:50.209
+Em seguida, 4 é o maior.
+
+00:01:50.239 --> 00:01:52.934
+Vamos pular esse estado
+com três valores de 1,
+
+00:01:52.964 --> 00:01:55.640
+porque não está claro
+o que fazer aqui,
+
+00:01:55.670 --> 00:01:57.880
+mas, depois, 2 é maior
+do que zero
+
+00:01:58.697 --> 00:02:00.529
+e 5 é maior do que 1.
+
+00:02:01.257 --> 00:02:04.073
+Agora, voltemos ao estado
+com três valores de 1.
+
+00:02:04.103 --> 00:02:06.945
+Acontece que para construir
+a política ótima,
+
+00:02:06.975 --> 00:02:08.745
+temos uma escolha aqui.
+
+00:02:08.775 --> 00:02:11.528
+O agente poderia ir para cima,
+para baixo ou para a direita,
+
+00:02:11.558 --> 00:02:14.752
+e todas as três opções produziriam
+políticas ótimas.
+
+00:02:14.782 --> 00:02:18.305
+Digamos que a política
+decida ir para a direita.
+
+00:02:18.761 --> 00:02:21.897
+E, assim, chegamos
+em uma política ótima.
+
+00:02:21.927 --> 00:02:24.656
+Vale a pena resumir
+o que observamos aqui.
+
+00:02:24.686 --> 00:02:28.304
+Se o agente tiver
+a função de valor de ação ótima,
+
+00:02:28.793 --> 00:02:31.696
+ele pode obter rapidamente
+uma política ótima,
+
+00:02:31.726 --> 00:02:34.920
+que é a solução para o PDM
+que estamos procurando.
+
+00:02:35.617 --> 00:02:38.833
+Isso nos leva à pergunta
+de como o agente conseguiu encontrar
+
+00:02:38.863 --> 00:02:40.881
+a função de valor ótima.
+
+00:02:40.911 --> 00:02:43.073
+Na verdade,
+isso é o que vamos explorar
+
+00:02:43.103 --> 00:02:45.075
+no restante deste curso.
+

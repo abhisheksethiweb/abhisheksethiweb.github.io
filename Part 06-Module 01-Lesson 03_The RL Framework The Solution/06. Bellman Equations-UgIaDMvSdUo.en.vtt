@@ -1,0 +1,139 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:04.349
+If you take the time yourself to calculate the value function for this policy,
+
+00:00:04.349 --> 00:00:09.379
+you might notice that you don't need to start your calculations from scratch every time.
+
+00:00:09.380 --> 00:00:11.400
+In particular, you don't need to look at
+
+00:00:11.400 --> 00:00:15.275
+the first state then add up all the rewards along the way.
+
+00:00:15.275 --> 00:00:16.615
+Then look at the second state,
+
+00:00:16.614 --> 00:00:17.979
+add up all those rewards.
+
+00:00:17.980 --> 00:00:21.105
+Then the third, add up all those and so on.
+
+00:00:21.105 --> 00:00:23.685
+It turns out to be redundant effort.
+
+00:00:23.684 --> 00:00:26.989
+Instead there's something much faster that you can do.
+
+00:00:26.989 --> 00:00:32.614
+So, let's erase most of these values with the exception of the ones at the bottom.
+
+00:00:32.615 --> 00:00:36.920
+And let's see how we might work backwards to recalculate those values.
+
+00:00:36.920 --> 00:00:42.030
+And along the way we'll discover that the value function has a nice recursive property.
+
+00:00:42.030 --> 00:00:44.730
+To see that, let's say we're trying
+
+00:00:44.729 --> 00:00:48.015
+to calculate the value of the state that I've highlighted here.
+
+00:00:48.015 --> 00:00:53.320
+And, that's just the sum reward that follows until we reach the terminal state.
+
+00:00:53.320 --> 00:00:55.844
+And in this case, the agent starts in the state,
+
+00:00:55.844 --> 00:00:57.369
+then follows the policy,
+
+00:00:57.369 --> 00:00:59.909
+gets a reward of negative one,
+
+00:00:59.909 --> 00:01:02.724
+and lands at this next state with the value of two.
+
+00:01:02.725 --> 00:01:06.629
+And what's important to notice here is that this two already corresponds
+
+00:01:06.629 --> 00:01:11.509
+to the sum of all the rewards that follow all the way to the end.
+
+00:01:11.510 --> 00:01:13.650
+So, instead of recalculating that sum,
+
+00:01:13.650 --> 00:01:16.890
+we could just use that value of two to get the value of
+
+00:01:16.890 --> 00:01:20.834
+the state as negative one plus two or one.
+
+00:01:20.834 --> 00:01:22.364
+For the same reason,
+
+00:01:22.364 --> 00:01:27.134
+the value of the next state is negative one plus one or zero,
+
+00:01:27.135 --> 00:01:33.540
+then negative three plus zero or negative three and so on.
+
+00:01:33.540 --> 00:01:38.370
+In this way, we see that we can express the value of any state
+
+00:01:38.370 --> 00:01:44.734
+as the sum of the immediate reward plus the value of the state that follows.
+
+00:01:44.734 --> 00:01:45.974
+And what's important to note,
+
+00:01:45.974 --> 00:01:47.234
+is that for simplicity,
+
+00:01:47.234 --> 00:01:50.670
+I set the discount rate in this example to one but
+
+00:01:50.670 --> 00:01:54.629
+in general we want to have a framework that takes discounting into account.
+
+00:01:54.629 --> 00:01:59.109
+So, we'll need to use the discounted value of the state that follows.
+
+00:01:59.109 --> 00:02:02.250
+We can express this idea in terms of what's known as
+
+00:02:02.250 --> 00:02:05.900
+the Bellman expectation equation where for
+
+00:02:05.900 --> 00:02:11.175
+a general MDP we have to calculate the expected value of the sum.
+
+00:02:11.175 --> 00:02:12.855
+This is because, in general,
+
+00:02:12.854 --> 00:02:14.534
+with more complicated worlds,
+
+00:02:14.534 --> 00:02:19.094
+the immediate reward and next state cannot be known with certainty.
+
+00:02:19.094 --> 00:02:23.805
+This equation is very important and we'll use it extensively in future lessons.
+
+00:02:23.805 --> 00:02:28.568
+But for now, all that's important to remember is the main idea.
+
+00:02:28.568 --> 00:02:30.260
+And that idea is,
+
+00:02:30.259 --> 00:02:34.199
+we can express the value of any state in the MDP in terms
+
+00:02:34.199 --> 00:02:38.299
+of the immediate reward and the discounted value of the state that follows.
+

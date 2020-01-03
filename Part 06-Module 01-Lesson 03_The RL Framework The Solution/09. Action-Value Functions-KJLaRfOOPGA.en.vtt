@@ -1,0 +1,169 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:04.799
+So far we've been working with the state value function for a policy.
+
+00:00:04.799 --> 00:00:06.689
+For each state s,
+
+00:00:06.690 --> 00:00:11.160
+it yields the expected discounted return If the agent starts in state
+
+00:00:11.160 --> 00:00:16.065
+as and then uses the policy to choose its actions for all time steps.
+
+00:00:16.065 --> 00:00:18.540
+You've seen a few examples and know how to
+
+00:00:18.539 --> 00:00:22.030
+calculate the state value function corresponding to a policy.
+
+00:00:22.030 --> 00:00:24.100
+In this concept, we'll define a new type of
+
+00:00:24.100 --> 00:00:27.810
+value function known as the action-value function.
+
+00:00:27.809 --> 00:00:31.550
+This value function is denoted with a lowercase q instead of v.
+
+00:00:31.550 --> 00:00:35.317
+While the state values are a function of the environment state,
+
+00:00:35.317 --> 00:00:40.695
+the action values are a function of the environment state and the agent's action.
+
+00:00:40.695 --> 00:00:43.149
+For each state s and action a,
+
+00:00:43.149 --> 00:00:45.600
+the action value function yields
+
+00:00:45.600 --> 00:00:49.740
+the expected discounted return If the agent starts in state
+
+00:00:49.740 --> 00:00:53.190
+s then chooses action a and
+
+00:00:53.189 --> 00:00:58.000
+then uses a policy to choose its actions for all future time steps.
+
+00:00:58.000 --> 00:00:59.479
+Just like with the state value function,
+
+00:00:59.479 --> 00:01:04.149
+it will help your intuition If you calculate this yourself.
+
+00:01:04.150 --> 00:01:06.180
+In the case of the state value function,
+
+00:01:06.180 --> 00:01:10.650
+we kept track of the value of each state with the number on the grid.
+
+00:01:10.650 --> 00:01:13.725
+We'll do something similar with the action-value function,
+
+00:01:13.724 --> 00:01:17.153
+where we now need up to four values for each state,
+
+00:01:17.153 --> 00:01:20.159
+each corresponding to a different action.
+
+00:01:20.159 --> 00:01:21.840
+These four numbers correspond to
+
+00:01:21.840 --> 00:01:26.130
+the same state but the one on top corresponds to action up;
+
+00:01:26.129 --> 00:01:31.829
+the one on the right, corresponds to moving right before following the policy and so on.
+
+00:01:31.829 --> 00:01:33.359
+You'll see this soon.
+
+00:01:33.359 --> 00:01:36.194
+So with the exception of the terminal state,
+
+00:01:36.194 --> 00:01:39.479
+I've broken up the figure to leave a space for keeping
+
+00:01:39.480 --> 00:01:43.795
+track of the value corresponding to each possible state and action.
+
+00:01:43.795 --> 00:01:47.212
+And let's see if we can calculate some action values.
+
+00:01:47.212 --> 00:01:49.575
+We'll begin with the state here.
+
+00:01:49.575 --> 00:01:54.034
+Let's calculate the value corresponding to this state and action down.
+
+00:01:54.034 --> 00:01:56.295
+So the agent starts in this state,
+
+00:01:56.295 --> 00:02:00.615
+takes action down and receives a reward of negative one.
+
+00:02:00.614 --> 00:02:03.045
+Then for every time step in the future,
+
+00:02:03.045 --> 00:02:07.320
+it just follows the policy until it reaches the terminal state.
+
+00:02:07.319 --> 00:02:10.004
+We can then add up all the rewards that it encountered
+
+00:02:10.004 --> 00:02:13.319
+along the way and when we do that, we get zero.
+
+00:02:13.319 --> 00:02:16.769
+So this zero corresponds to the action value
+
+00:02:16.770 --> 00:02:21.110
+for this state where the agent started and action down.
+
+00:02:21.110 --> 00:02:23.985
+Let's try calculating another actual value,
+
+00:02:23.985 --> 00:02:28.020
+this time corresponding to this state and action up.
+
+00:02:28.020 --> 00:02:31.890
+So the agent starts in the state and takes action up,
+
+00:02:31.889 --> 00:02:35.454
+and it received a reward of negative one.
+
+00:02:35.455 --> 00:02:39.830
+Then it just follows a policy for all future time steps.
+
+00:02:39.830 --> 00:02:42.210
+We add up the reward it collected along
+
+00:02:42.210 --> 00:02:46.055
+the way and this yields a cumulative reward of one.
+
+00:02:46.055 --> 00:02:51.115
+So this one corresponds to the action value for this state and action up.
+
+00:02:51.115 --> 00:02:56.439
+So you can continue and do this for every state-action pair that makes sense.
+
+00:02:56.439 --> 00:02:59.775
+And when you do this, you get this action-value function.
+
+00:02:59.775 --> 00:03:04.204
+I highly encourage you to calculate and check these values yourself.
+
+00:03:04.204 --> 00:03:09.780
+Before moving on, it's important to revisit some information that you learned earlier.
+
+00:03:09.780 --> 00:03:16.862
+Remember that we have the notation v_star to refer to the optimal state value function.
+
+00:03:16.862 --> 00:03:22.080
+Similarly, we'll refer to the optimal action value function as q_star.
+

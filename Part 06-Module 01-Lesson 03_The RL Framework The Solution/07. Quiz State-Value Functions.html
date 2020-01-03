@@ -1,0 +1,399 @@
+<!-- udacimak v1.2.0 -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Quiz: State-Value Functions</title>
+  <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../assets/css/plyr.css">
+  <link rel="stylesheet" href="../assets/css/katex.min.css">
+  <link rel="stylesheet" href="../assets/css/jquery.mCustomScrollbar.min.css">
+  <link rel="stylesheet" href="../assets/css/styles.css">
+  <link rel="shortcut icon" type="image/png" href="../assets/img/udacimak.png" />
+</head>
+
+<body>
+  <div class="wrapper">
+    <nav id="sidebar">
+  <div class="sidebar-header">
+    <h3>The RL Framework: The Solution</h3>
+  </div>
+
+  <ul class="sidebar-list list-unstyled CTAs">
+    <li>
+      <a href="../index.html" class="article">Back to Home</a>
+    </li>
+  </ul>
+
+  <ul class="sidebar-list list-unstyled components">
+    <li class="">
+      <a href="01. Introduction.html">01. Introduction</a>
+    </li>
+    <li class="">
+      <a href="02. Policies.html">02. Policies</a>
+    </li>
+    <li class="">
+      <a href="03. Quiz Interpret the Policy.html">03. Quiz: Interpret the Policy</a>
+    </li>
+    <li class="">
+      <a href="04. Gridworld Example.html">04. Gridworld Example</a>
+    </li>
+    <li class="">
+      <a href="05. State-Value Functions.html">05. State-Value Functions</a>
+    </li>
+    <li class="">
+      <a href="06. Bellman Equations.html">06. Bellman Equations</a>
+    </li>
+    <li class="">
+      <a href="07. Quiz State-Value Functions.html">07. Quiz: State-Value Functions</a>
+    </li>
+    <li class="">
+      <a href="08. Optimality.html">08. Optimality</a>
+    </li>
+    <li class="">
+      <a href="09. Action-Value Functions.html">09. Action-Value Functions</a>
+    </li>
+    <li class="">
+      <a href="10. Quiz Action-Value Functions.html">10. Quiz: Action-Value Functions</a>
+    </li>
+    <li class="">
+      <a href="11. Optimal Policies.html">11. Optimal Policies</a>
+    </li>
+    <li class="">
+      <a href="12. Quiz Optimal Policies.html">12. Quiz: Optimal Policies</a>
+    </li>
+    <li class="">
+      <a href="13. Summary.html">13. Summary</a>
+    </li>
+  </ul>
+
+  <ul class="sidebar-list list-unstyled CTAs">
+    <li>
+      <a href="../index.html" class="article">Back to Home</a>
+    </li>
+  </ul>
+</nav>
+
+    <div id="content">
+      <header class="container-fluild header">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <div class="align-items-middle">
+                <button type="button" id="sidebarCollapse" class="btn btn-toggle-sidebar">
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                </button>
+
+                <h1 style="display: inline-block">07. Quiz: State-Value Functions</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main class="container">
+        <div class="row">
+          <div class="col-12">
+            <div class="ud-atom">
+  <h3></h3>
+  <div>
+  <h1 id="quiz-state-value-functions">Quiz: State-Value Functions</h1>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <p>In this quiz, you will calculate the value function corresponding to a particular policy. </p>
+<p>Each of the nine states in the MDP is labeled as one of <span class="mathquill ud-math">\mathcal{S}^+ = {s_1, s_2, \ldots, s_9 } </span>, where <span class="mathquill ud-math">s_9</span> is a terminal state.</p>
+<p>Consider the (deterministic) policy that is indicated (in orange) in the figure below.</p>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <figure class="figure">
+    <img src="img/screen-shot-2017-09-24-at-4.28.04-pm.png" alt="" class="img img-fluid">
+    <figcaption class="figure-caption">
+      
+    </figcaption>
+  </figure>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <p>The policy <span class="mathquill ud-math">\pi</span> is given by:</p>
+<blockquote>
+  <p><span class="mathquill ud-math">\pi(s_1) = \text{right}</span></p>
+</blockquote>
+<blockquote>
+  <p><span class="mathquill ud-math">\pi(s_2) = \text{right}</span></p>
+</blockquote>
+<blockquote>
+  <p><span class="mathquill ud-math">\pi(s_3) = \text{down}</span></p>
+</blockquote>
+<blockquote>
+  <p><span class="mathquill ud-math">\pi(s_4) = \text{up}</span></p>
+</blockquote>
+<blockquote>
+  <p><span class="mathquill ud-math">\pi(s_5) = \text{right}</span></p>
+</blockquote>
+<blockquote>
+  <p><span class="mathquill ud-math">\pi(s_6) = \text{down}</span></p>
+</blockquote>
+<blockquote>
+  <p><span class="mathquill ud-math">\pi(s_7) = \text{right}</span></p>
+</blockquote>
+<blockquote>
+  <p><span class="mathquill ud-math">\pi(s_8) = \text{right}</span></p>
+</blockquote>
+<p>Recall that since <span class="mathquill ud-math">s_9</span> is a terminal state, the episode ends immediately if the agent begins in this state.  So, the agent will not have to choose an action (so, we won't include <span class="mathquill ud-math">s_9</span> in the domain of the policy), and <span class="mathquill ud-math">v_\pi(s_9) = 0</span>.</p>
+<p>Take the time now to calculate the state-value function <span class="mathquill ud-math">v_\pi</span> that corresponds to the policy.  (<em>You may find that the Bellman expectation equation saves you a lot of work!</em>)  </p>
+<p><strong>Assume <span class="mathquill ud-math">\gamma = 1</span>.</strong></p>
+<p>Once you have finished, use <span class="mathquill ud-math">v_\pi</span> to answer the questions below.</p>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <h2 id="question-1">Question 1</h2>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <p>What is <span class="mathquill ud-math">v_\pi(s_4)</span>?</p>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <form>
+    <fieldset>
+      <legend><p>Select the appropriate numerical value.</p></legend>
+    </fieldset>
+
+      <div>
+        <input type="radio" value="a1510071223596" name="457510" id="a1510071223596">
+        <label for="a1510071223596"><p>-2</p></label>
+      </div>
+      <div>
+        <input type="radio" value="a1510071251325" name="457510" id="a1510071251325">
+        <label for="a1510071251325"><p>-1</p></label>
+      </div>
+      <div>
+        <input type="radio" value="a1510071253053" name="457510" id="a1510071253053">
+        <label for="a1510071253053"><p>0</p></label>
+      </div>
+      <div>
+        <input type="radio" value="a1510071256019" name="457510" id="a1510071256019">
+        <label for="a1510071256019"><p>1</p></label>
+      </div>
+      <div>
+        <input type="radio" value="a1510071257182" name="457510" id="a1510071257182">
+        <label for="a1510071257182"><p>2</p></label>
+      </div>
+  </form>
+
+  <details>
+    <summary><strong>SOLUTION:</strong></summary>
+    1
+  </details>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <h2 id="question-2">Question 2</h2>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <p>What is <span class="mathquill ud-math">v_\pi(s_1)</span>?</p>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <form>
+    <fieldset>
+      <legend><p>Select the appropriate numerical value. </p></legend>
+    </fieldset>
+
+      <div>
+        <input type="radio" value="a1510071412903" name="457511" id="a1510071412903">
+        <label for="a1510071412903"><p>-2</p></label>
+      </div>
+      <div>
+        <input type="radio" value="a1510071426330" name="457511" id="a1510071426330">
+        <label for="a1510071426330"><p>-1</p></label>
+      </div>
+      <div>
+        <input type="radio" value="a1510071428386" name="457511" id="a1510071428386">
+        <label for="a1510071428386"><p>0</p></label>
+      </div>
+      <div>
+        <input type="radio" value="a1510071430664" name="457511" id="a1510071430664">
+        <label for="a1510071430664"><p>1</p></label>
+      </div>
+      <div>
+        <input type="radio" value="a1510071431937" name="457511" id="a1510071431937">
+        <label for="a1510071431937"><p>2</p></label>
+      </div>
+  </form>
+
+  <details>
+    <summary><strong>SOLUTION:</strong></summary>
+    2
+  </details>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <h2 id="question-3">Question 3</h2>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <p>Consider the following statements:</p>
+<ul>
+<li>(1) <span class="mathquill ud-math">v_\pi(s_6) = -1 + v_\pi(s_5)</span> </li>
+<li>(2) <span class="mathquill ud-math">v_\pi(s_7) = -3 + v_\pi(s_8)</span> </li>
+<li>(3) <span class="mathquill ud-math">v_\pi(s_1) = -1 + v_\pi(s_2)</span> </li>
+<li>(4) <span class="mathquill ud-math">v_\pi(s_4) = -3 + v_\pi(s_7)</span> </li>
+<li>(5) <span class="mathquill ud-math">v_\pi(s_8) = -3 + v_\pi(s_5)</span></li>
+</ul>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <form>
+    <fieldset>
+      <legend><p>Select the statements (listed above) that are true.  (Select all that apply.)</p></legend>
+    </fieldset>
+
+    <div>
+      <input type="checkbox" value="a1506351586848" name="409577" id="a1506351586848">
+      <label for="a1506351586848"><p>(1)</p></label>
+    </div>
+    <div>
+      <input type="checkbox" value="a1506351626150" name="409577" id="a1506351626150">
+      <label for="a1506351626150"><p>(2)</p></label>
+    </div>
+    <div>
+      <input type="checkbox" value="a1506351628536" name="409577" id="a1506351628536">
+      <label for="a1506351628536"><p>(3)</p></label>
+    </div>
+    <div>
+      <input type="checkbox" value="a1506351630830" name="409577" id="a1506351630830">
+      <label for="a1506351630830"><p>(4)</p></label>
+    </div>
+    <div>
+      <input type="checkbox" value="a1506351633216" name="409577" id="a1506351633216">
+      <label for="a1506351633216"><p>(5)</p></label>
+    </div>
+  </form>
+
+  <details>
+    <summary><strong>SOLUTION:</strong></summary>
+    <ul>
+      <li>(2)</li>
+      <li>(3)</li>
+  </ul>
+  </details>
+</div>
+
+</div>
+<div class="divider"></div>
+          </div>
+        </div>
+      </main>
+
+      <footer class="footer">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <p class="text-center">
+                <a href="https://github.com/udacimak/udacimak#readme" target="_blank">udacimak v1.2.0</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </div>
+
+
+  <script src="../assets/js/jquery-3.3.1.min.js"></script>
+  <script src="../assets/js/plyr.polyfilled.min.js"></script>
+  <script src="../assets/js/bootstrap.min.js"></script>
+  <script src="../assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+  <script src="../assets/js/katex.min.js"></script>
+  <script>
+    // Initialize Plyr video players
+    const players = Array.from(document.querySelectorAll('video')).map(p => new Plyr(p));
+
+    // render math equations
+    let elMath = document.getElementsByClassName('mathquill');
+    for (let i = 0, len = elMath.length; i < len; i += 1) {
+      const el = elMath[i];
+
+      katex.render(el.textContent, el, {
+        throwOnError: false
+      });
+    }
+
+    // this hack will make sure Bootstrap tabs work when using Handlebars
+    if ($('#question-tabs').length && $('#user-answer-tabs').length) {
+      $("#question-tabs a.nav-link").on('click', function () {
+        $("#question-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+      $("#user-answer-tabs a.nav-link").on('click', function () {
+        $("#user-answer-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    } else {
+      $("a.nav-link").on('click', function () {
+        $(".tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    }
+
+    // side bar events
+    $(document).ready(function () {
+      $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+      });
+
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar, #content').toggleClass('active');
+        $('.collapse.in').toggleClass('in');
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+      });
+    });
+  </script>
+</body>
+
+</html>

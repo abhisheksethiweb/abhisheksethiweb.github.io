@@ -1,0 +1,265 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.474 --> 00:00:04.001
+Até agora nesta aula, examinamos
+uma política pi específica
+
+00:00:04.031 --> 00:00:07.090
+e calculamos as funções de valores
+correspondentes dela.
+
+00:00:07.513 --> 00:00:09.706
+No quiz, você calculou
+a função de valor
+
+00:00:09.736 --> 00:00:11.897
+correspondente
+a uma política diferente,
+
+00:00:11.927 --> 00:00:14.226
+que representamos
+como pi primordial.
+
+00:00:14.562 --> 00:00:16.594
+Se você observar cada uma
+dessas funções de valores,
+
+00:00:16.624 --> 00:00:19.025
+vai notar um padrão,
+ou uma tendência.
+
+00:00:19.665 --> 00:00:21.225
+Agora, reserve um tempo
+para compará-las
+
+00:00:21.255 --> 00:00:23.081
+e pause o vídeo se preferir.
+
+00:00:23.881 --> 00:00:26.449
+Certo, na verdade,
+provavelmente há
+
+00:00:26.479 --> 00:00:29.130
+um grande número de padrões
+entre esses números,
+
+00:00:29.160 --> 00:00:31.378
+mas a tendência mais relevante
+para a gente agora
+
+00:00:31.769 --> 00:00:34.729
+é que, quando observamos
+qualquer estado em particular
+
+00:00:34.759 --> 00:00:37.154
+e comparamos
+as duas funções de valor,
+
+00:00:37.184 --> 00:00:41.361
+a função de valor para pi primordial
+é sempre maior ou igual
+
+00:00:41.391 --> 00:00:43.729
+à função de valor
+da política pi.
+
+00:00:43.759 --> 00:00:47.193
+Por exemplo, 2 é maior
+do que -6,
+
+00:00:47.577 --> 00:00:50.522
+3 é maior do que -5,
+
+00:00:50.552 --> 00:00:53.201
+4 é maior do que -4
+
+00:00:53.577 --> 00:00:55.841
+e 1 é igual a 1.
+
+00:00:56.297 --> 00:00:59.329
+Isto é, para cada estado
+do ambiente,
+
+00:00:59.359 --> 00:01:03.009
+é melhor seguir
+a política pi primordial, certo?
+
+00:01:03.039 --> 00:01:05.929
+Porque independente de onde o agente
+iniciar no gridworld,
+
+00:01:05.959 --> 00:01:08.881
+o retorno com desconto
+esperado é maior.
+
+00:01:09.489 --> 00:01:12.770
+Lembre-se de que o objetivo
+do agente é maximizar o retorno.
+
+00:01:12.800 --> 00:01:17.218
+Então, um retorno esperado maior
+faz uma política melhor.
+
+00:01:17.248 --> 00:01:20.073
+Isso embasa
+uma definição importante.
+
+00:01:20.318 --> 00:01:23.593
+Por definição, dizemos
+que uma política pi primordial
+
+00:01:23.623 --> 00:01:27.009
+é melhor ou igual
+uma política pi
+
+00:01:27.039 --> 00:01:30.641
+se a função de valor dela
+for maior ou igual
+
+00:01:30.671 --> 00:01:33.465
+àquela da política pi
+para todos os estados.
+
+00:01:34.161 --> 00:01:38.706
+Há pontos importantes
+nessa definição.
+
+00:01:38.736 --> 00:01:41.913
+O primeiro é que se você pegar
+duas políticas quaisquer,
+
+00:01:41.943 --> 00:01:46.857
+você não conseguirá necessariamente
+decidir qual é a melhor.
+
+00:01:47.321 --> 00:01:50.161
+Isto é, pode ser que elas
+não possam ser comparadas.
+
+00:01:50.561 --> 00:01:53.474
+Dito isso, sempre haverá
+ao menos uma política
+
+00:01:53.504 --> 00:01:56.761
+que é melhor ou igual
+a todas as outras políticas.
+
+00:01:56.791 --> 00:01:59.841
+Chamamos essa política
+de política ótima,
+
+00:01:59.871 --> 00:02:03.560
+e a existência dela é garantida,
+mas ela pode não ser única.
+
+00:02:03.590 --> 00:02:06.217
+É importante notar
+que uma política ótima
+
+00:02:06.247 --> 00:02:08.473
+é o que o agente
+está procurando.
+
+00:02:08.503 --> 00:02:10.578
+Ela é a solução para o PDM
+
+00:02:10.608 --> 00:02:13.153
+e a melhor estratégia
+para alcançar o objetivo dele.
+
+00:02:13.183 --> 00:02:17.009
+Por fim, todas as políticas ótimas
+têm a mesma função de valor,
+
+00:02:17.368 --> 00:02:19.368
+que representamos como v*.
+
+00:02:19.841 --> 00:02:23.881
+Você deve estar se perguntando
+por que não é v com pi* subscrito.
+
+00:02:23.911 --> 00:02:26.080
+A resposta é que isso
+é uma convenção
+
+00:02:26.110 --> 00:02:28.873
+e provavelmente porque
+a aparência é melhor assim.
+
+00:02:28.903 --> 00:02:32.452
+Dito isso, a política
+do quiz mostrou-se,
+
+00:02:32.486 --> 00:02:34.788
+na verdade,
+uma política ótima.
+
+00:02:35.569 --> 00:02:38.025
+Isso é porque se você compará-la
+com a função de valor
+
+00:02:38.058 --> 00:02:40.192
+de qualquer outra
+política possível,
+
+00:02:40.222 --> 00:02:43.488
+a função de valor dela é sempre
+ao menos igualmente grande.
+
+00:02:43.518 --> 00:02:45.929
+Mas essa não é a única
+política ótima.
+
+00:02:45.959 --> 00:02:48.313
+Por exemplo,
+esta é outra política
+
+00:02:48.343 --> 00:02:50.657
+que tem a mesma
+função de valor.
+
+00:02:50.687 --> 00:02:55.656
+Você deve se perguntar como descobri
+essas políticas ótimas.
+
+00:02:55.686 --> 00:02:57.448
+Esse exemplo foi tão simples
+
+00:02:57.478 --> 00:03:00.025
+que foi possível levantar
+uma hipótese factível
+
+00:03:00.055 --> 00:03:02.433
+apenas observando
+a dinâmica.
+
+00:03:02.785 --> 00:03:04.625
+Mas os casos não costumarão
+ser assim,
+
+00:03:04.655 --> 00:03:06.632
+já que muitos dos PDMs
+que vamos observar
+
+00:03:06.662 --> 00:03:08.625
+serão muito
+mais complicados.
+
+00:03:08.655 --> 00:03:11.225
+Então, como podemos determinar
+uma política ótima
+
+00:03:11.258 --> 00:03:13.502
+para um PDM
+muito mais complicado?
+
+00:03:13.532 --> 00:03:15.409
+Para responder essa pergunta,
+temos que definir
+
+00:03:15.439 --> 00:03:17.389
+um outro tipo
+de função de valor.
+

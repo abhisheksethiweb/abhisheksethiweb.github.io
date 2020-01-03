@@ -1,0 +1,175 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:03.875
+We've seen that we use a Markov decision process or
+
+00:00:03.875 --> 00:00:06.150
+MDP as a formal definition of
+
+00:00:06.150 --> 00:00:09.144
+the problem that we'd like to solve with reinforcement learning.
+
+00:00:09.144 --> 00:00:14.394
+In this video, we specify a formal definition for the solution to this problem.
+
+00:00:14.394 --> 00:00:17.730
+We can start to think of the solution as a series of actions
+
+00:00:17.730 --> 00:00:21.725
+that need to be learned by the agent towards the pursuit of a goal.
+
+00:00:21.725 --> 00:00:23.550
+For instance, in order to walk,
+
+00:00:23.550 --> 00:00:28.675
+the humanoid robot needs to learn the appropriate way to apply forces to its joint.
+
+00:00:28.675 --> 00:00:32.924
+But as we've seen, the correct action changes the situation.
+
+00:00:32.924 --> 00:00:34.949
+If a robot encounters a wall,
+
+00:00:34.950 --> 00:00:40.505
+the best series of actions will be different than if it had nothing blocking its path.
+
+00:00:40.505 --> 00:00:43.859
+Reward is always decided in the context of the state that it
+
+00:00:43.859 --> 00:00:47.879
+was decided in along with the state that follows.
+
+00:00:47.880 --> 00:00:50.310
+With this in mind, as long as the agent learns
+
+00:00:50.310 --> 00:00:55.109
+an appropriate action response to any environment state that it can observe,
+
+00:00:55.109 --> 00:00:58.045
+we have a solution to our problem.
+
+00:00:58.045 --> 00:01:00.825
+This motivates the idea of a policy.
+
+00:01:00.825 --> 00:01:04.125
+The simplest kind of policy is a mapping from the set
+
+00:01:04.125 --> 00:01:07.885
+of environment states to the set of possible actions.
+
+00:01:07.885 --> 00:01:10.335
+In case you're new to the idea of a mapping,
+
+00:01:10.334 --> 00:01:14.599
+you can think of a policy as a factory that takes any environment state
+
+00:01:14.599 --> 00:01:19.259
+as input and outputs the corresponding action that the agent will take.
+
+00:01:19.260 --> 00:01:22.065
+If the agent wants to keep track of its strategy,
+
+00:01:22.064 --> 00:01:27.034
+all it needs to do is to build this factory or to specify this mapping.
+
+00:01:27.034 --> 00:01:30.259
+We call this kind of policy a deterministic policy.
+
+00:01:30.260 --> 00:01:32.085
+Income is the state,
+
+00:01:32.084 --> 00:01:34.500
+outcome is the action to take.
+
+00:01:34.500 --> 00:01:36.135
+And as you can see,
+
+00:01:36.135 --> 00:01:40.435
+it's most common to denote the policy with the Greek letter pi.
+
+00:01:40.435 --> 00:01:44.644
+Another type of policy that we we'll examine is a stochastic policy.
+
+00:01:44.644 --> 00:01:49.414
+The stochastic policy will allow the agent to choose actions randomly.
+
+00:01:49.415 --> 00:01:55.094
+We define a stochastic policy as a mapping that accepts an environment state S and
+
+00:01:55.094 --> 00:01:58.950
+action A and returns the probability that the agent takes
+
+00:01:58.950 --> 00:02:03.000
+action A while in state S. For clarity,
+
+00:02:03.000 --> 00:02:07.370
+let's revisit the recycling robot example from the previous lesson.
+
+00:02:07.370 --> 00:02:10.289
+The deterministic policy would specify something
+
+00:02:10.289 --> 00:02:14.054
+like whenever the battery is low, recharge it.
+
+00:02:14.055 --> 00:02:17.800
+And whenever the battery has a high amount of charge, search for cans.
+
+00:02:17.800 --> 00:02:23.140
+The stochastic policy does something more like whenever the battery is low,
+
+00:02:23.139 --> 00:02:25.439
+recharge it with 50 percent probability,
+
+00:02:25.439 --> 00:02:28.650
+wait where you are with 40 percent probability.
+
+00:02:28.650 --> 00:02:30.210
+And otherwise, search for cans.
+
+00:02:30.210 --> 00:02:32.310
+Whenever the battery is high,
+
+00:02:32.310 --> 00:02:35.219
+search for cans with 90 percent probability.
+
+00:02:35.219 --> 00:02:37.634
+And otherwise, wait for a can.
+
+00:02:37.634 --> 00:02:41.804
+It's important to note that any deterministic policy can be expressed
+
+00:02:41.805 --> 00:02:46.319
+using the same notation that we generally reserve for a stochastic policy.
+
+00:02:46.319 --> 00:02:50.204
+For instance, this policy can be expressed as,
+
+00:02:50.205 --> 00:02:52.415
+whenever the battery is low,
+
+00:02:52.414 --> 00:02:55.469
+recharge it with 100 percent probability.
+
+00:02:55.469 --> 00:02:58.129
+Whenever the battery has a high amount of charge,
+
+00:02:58.129 --> 00:03:02.460
+search for cans with 100 percent probability we will explore
+
+00:03:02.460 --> 00:03:07.945
+policies with varying levels of randomness or stochasticity in this course.
+
+00:03:07.944 --> 00:03:10.889
+Now, at this point you might be wondering.
+
+00:03:10.889 --> 00:03:14.084
+Now that we know how to specify a policy,
+
+00:03:14.085 --> 00:03:19.189
+what steps can we take to make sure that the agent's policy is the best one.
+
+00:03:19.189 --> 00:03:24.000
+We will work towards answering this question in the next few concepts.
+

@@ -1,0 +1,206 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.336 --> 00:00:02.435
+Se você tiver dedicado
+um tempo a calcular
+
+00:00:02.465 --> 00:00:04.371
+a função de valor
+para esta política,
+
+00:00:04.401 --> 00:00:06.987
+deve ter notado que não precisa
+começar o seu cálculo
+
+00:00:07.017 --> 00:00:08.796
+do zero todas as vezes.
+
+00:00:09.283 --> 00:00:12.106
+Em particular, você não precisa
+olhar o primeiro estado
+
+00:00:12.136 --> 00:00:15.123
+somar todas as recompensas
+ao longo do caminho
+
+00:00:15.153 --> 00:00:17.783
+depois, olhar o segundo estado,
+somar todas as recompensas dele,
+
+00:00:17.817 --> 00:00:21.027
+depois do terceiro,
+e por aí vai.
+
+00:00:21.057 --> 00:00:23.675
+Esse é um esforço
+redundante.
+
+00:00:23.705 --> 00:00:26.363
+Em vez disso, você pode fazer
+algo muito mais rápido.
+
+00:00:27.067 --> 00:00:29.682
+Vamos apagar a maioria
+desses valores
+
+00:00:29.712 --> 00:00:32.747
+com exceção
+dos que estão embaixo.
+
+00:00:32.777 --> 00:00:36.395
+Vamos ver como podemos recalcular
+esses valores de trás para frente.
+
+00:00:36.931 --> 00:00:40.034
+Ao longo do caminho, vamos descobrir
+que a função de valor
+
+00:00:40.064 --> 00:00:42.347
+tem uma ótima
+propriedade recursiva.
+
+00:00:43.090 --> 00:00:45.355
+Para isso, imagine
+que estamos tentando calcular
+
+00:00:45.385 --> 00:00:47.699
+o valor do estado
+que eu destaquei aqui.
+
+00:00:48.315 --> 00:00:50.930
+E essa é só a soma das recompensas
+que obtemos
+
+00:00:50.960 --> 00:00:52.867
+até alcançarmos
+o último estado.
+
+00:00:53.467 --> 00:00:55.691
+Neste caso, o agente
+começa neste estado
+
+00:00:55.721 --> 00:00:59.467
+segue a política,
+obtém uma recompensa de -1
+
+00:00:59.497 --> 00:01:02.555
+e para neste próximo estado
+com o valor de 2.
+
+00:01:02.585 --> 00:01:07.331
+É importante notar que esse 2
+já corresponde à soma
+
+00:01:07.361 --> 00:01:10.804
+de todas as recompensas
+que seguem até o final.
+
+00:01:11.394 --> 00:01:13.666
+Em vez de recalcular
+essa soma,
+
+00:01:13.696 --> 00:01:17.339
+podemos usar esse valor de 2
+para obter o valor do estado
+
+00:01:17.369 --> 00:01:20.619
+como -1 mais 2, ou 1.
+
+00:01:21.210 --> 00:01:23.748
+Pelo mesmo motivo,
+o valor do estado seguinte
+
+00:01:23.778 --> 00:01:27.162
+é -1 mais 1, ou 0.
+
+00:01:27.192 --> 00:01:31.667
+Depois, -3 mais 0,
+ou -3.
+
+00:01:32.490 --> 00:01:33.875
+E assim por diante.
+
+00:01:33.905 --> 00:01:37.859
+Dessa forma, vimos que podemos
+expressar o valor de cada estado
+
+00:01:38.443 --> 00:01:41.114
+como a soma
+da recompensa imediata
+
+00:01:41.144 --> 00:01:44.090
+mais o valor do estado
+seguinte.
+
+00:01:44.658 --> 00:01:47.130
+É importante notar que,
+para simplificar,
+
+00:01:47.160 --> 00:01:50.027
+eu estabeleci a taxa de desconto
+deste exemplo como 1,
+
+00:01:50.434 --> 00:01:54.794
+mas, no geral, teremos uma estrutura
+que leve o desconto em consideração.
+
+00:01:54.824 --> 00:01:58.906
+Então, teremos que usar o valor
+descontado do estado seguinte.
+
+00:01:59.347 --> 00:02:02.026
+Podemos expressar essa ideia
+em termos do que é conhecido
+
+00:02:02.056 --> 00:02:04.787
+como a "equação
+de expectativa de Bellman",
+
+00:02:05.203 --> 00:02:10.042
+em que, para um PDM geral,
+temos que calcular o valor esperado
+
+00:02:10.072 --> 00:02:11.227
+da soma.
+
+00:02:11.257 --> 00:02:14.507
+Isso porque, no geral,
+em mundos mais complicados,
+
+00:02:14.537 --> 00:02:16.578
+a recompensa imediata
+e o estado seguinte
+
+00:02:16.608 --> 00:02:18.395
+podem não ser conhecidos
+com precisão.
+
+00:02:19.002 --> 00:02:20.739
+Essa equação
+é muito importante,
+
+00:02:20.769 --> 00:02:23.538
+e vamos usá-la bastante
+em aulas futuras.
+
+00:02:24.170 --> 00:02:27.730
+Por ora, é importante se lembrar
+da ideia principal.
+
+00:02:28.530 --> 00:02:30.131
+E essa ideia é:
+
+00:02:30.161 --> 00:02:33.707
+podemos expressar o valor
+de qualquer estado no PDM
+
+00:02:33.737 --> 00:02:35.635
+em termos
+da recompensa imediata
+
+00:02:35.665 --> 00:02:38.282
+e do valor descontado
+do estado seguinte.
+

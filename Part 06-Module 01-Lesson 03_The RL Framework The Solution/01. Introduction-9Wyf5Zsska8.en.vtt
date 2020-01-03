@@ -1,0 +1,49 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:02.865
+You've already learned about how to formulate
+
+00:00:02.865 --> 00:00:06.815
+a real world problem so it can be solved with reinforcement learning.
+
+00:00:06.815 --> 00:00:11.785
+In this lesson, you'll begin to think about ways to solve this problem.
+
+00:00:11.785 --> 00:00:13.859
+It's important to note that this lesson is
+
+00:00:13.859 --> 00:00:17.309
+significantly more technical than the previous one.
+
+00:00:17.309 --> 00:00:19.529
+If this is initially uncomfortable to you,
+
+00:00:19.530 --> 00:00:24.645
+don't worry and feel free to take the videos at your own pace.
+
+00:00:24.644 --> 00:00:27.300
+We've added extensive examples and quizzes
+
+00:00:27.300 --> 00:00:30.390
+to help you through this relatively difficult content,
+
+00:00:30.390 --> 00:00:33.299
+but you'll likely still need to take your own notes
+
+00:00:33.299 --> 00:00:37.314
+to make sure that the terminology becomes natural to you.
+
+00:00:37.314 --> 00:00:42.112
+You should think of reinforcement learning as a language that takes time to learn.
+
+00:00:42.112 --> 00:00:45.789
+So, don't be too hard on yourself and you could always collaborate with
+
+00:00:45.789 --> 00:00:50.079
+their classmates on Slack or ask questions in office hours.
+
+00:00:50.079 --> 00:00:53.000
+With all of this in mind, let's get started.
+
