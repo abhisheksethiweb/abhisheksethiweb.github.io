@@ -1,0 +1,310 @@
+<!-- udacimak v1.2.0 -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>More on Sensitivity and Specificity</title>
+  <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../assets/css/plyr.css">
+  <link rel="stylesheet" href="../assets/css/katex.min.css">
+  <link rel="stylesheet" href="../assets/css/jquery.mCustomScrollbar.min.css">
+  <link rel="stylesheet" href="../assets/css/styles.css">
+  <link rel="shortcut icon" type="image/png" href="../assets/img/udacimak.png" />
+</head>
+
+<body>
+  <div class="wrapper">
+    <nav id="sidebar">
+  <div class="sidebar-header">
+    <h3>Deep Learning for Cancer Detection with Sebastian Thrun</h3>
+  </div>
+
+  <ul class="sidebar-list list-unstyled CTAs">
+    <li>
+      <a href="../index.html" class="article">Back to Home</a>
+    </li>
+  </ul>
+
+  <ul class="sidebar-list list-unstyled components">
+    <li class="">
+      <a href="01. Intro.html">01. Intro</a>
+    </li>
+    <li class="">
+      <a href="02. Skin Cancer.html">02. Skin Cancer</a>
+    </li>
+    <li class="">
+      <a href="03. Survival Probability of Skin Cancer.html">03. Survival Probability of Skin Cancer</a>
+    </li>
+    <li class="">
+      <a href="04. Medical Classification.html">04. Medical Classification</a>
+    </li>
+    <li class="">
+      <a href="05. The data.html">05. The data</a>
+    </li>
+    <li class="">
+      <a href="06. Image Challenges.html">06. Image Challenges</a>
+    </li>
+    <li class="">
+      <a href="07. Quiz Data Challenges.html">07. Quiz: Data Challenges</a>
+    </li>
+    <li class="">
+      <a href="08. Solution Data Challenges.html">08. Solution: Data Challenges</a>
+    </li>
+    <li class="">
+      <a href="09. Training the  Neural Network.html">09. Training the  Neural Network</a>
+    </li>
+    <li class="">
+      <a href="10. Quiz Random vs Pre-initialized Weights.html">10. Quiz: Random vs Pre-initialized Weights</a>
+    </li>
+    <li class="">
+      <a href="11. Solution Random vs Pre-initialized Weight.html">11. Solution: Random vs Pre-initialized Weight</a>
+    </li>
+    <li class="">
+      <a href="12. Validating the Training.html">12. Validating the Training</a>
+    </li>
+    <li class="">
+      <a href="13. Quiz Sensitivity and Specificity.html">13. Quiz: Sensitivity and Specificity</a>
+    </li>
+    <li class="">
+      <a href="14. Solution Sensitivity and Specificity.html">14. Solution: Sensitivity and Specificity</a>
+    </li>
+    <li class="">
+      <a href="15. More on Sensitivity and Specificity.html">15. More on Sensitivity and Specificity</a>
+    </li>
+    <li class="">
+      <a href="16. Quiz Diagnosing Cancer.html">16. Quiz: Diagnosing Cancer</a>
+    </li>
+    <li class="">
+      <a href="17. Solution Diagnosing Cancer.html">17. Solution: Diagnosing Cancer</a>
+    </li>
+    <li class="">
+      <a href="18. Refresh on ROC Curves.html">18. Refresh on ROC Curves</a>
+    </li>
+    <li class="">
+      <a href="19. Quiz ROC Curve.html">19. Quiz: ROC Curve</a>
+    </li>
+    <li class="">
+      <a href="20. Solution ROC Curve.html">20. Solution: ROC Curve</a>
+    </li>
+    <li class="">
+      <a href="21. Comparing our Results with Doctors.html">21. Comparing our Results with Doctors</a>
+    </li>
+    <li class="">
+      <a href="22. Visualization.html">22. Visualization</a>
+    </li>
+    <li class="">
+      <a href="23. What is the network looking at.html">23. What is the network looking at?</a>
+    </li>
+    <li class="">
+      <a href="24. Refresh on Confusion Matrices.html">24. Refresh on Confusion Matrices</a>
+    </li>
+    <li class="">
+      <a href="25. Confusion Matrix.html">25. Confusion Matrix</a>
+    </li>
+    <li class="">
+      <a href="26. Conclusion.html">26. Conclusion</a>
+    </li>
+    <li class="">
+      <a href="27. Useful Resources.html">27. Useful Resources</a>
+    </li>
+    <li class="">
+      <a href="28. Mini Project Introduction.html">28. Mini Project Introduction</a>
+    </li>
+    <li class="">
+      <a href="29. Mini Project Dermatologist AI.html">29. Mini Project: Dermatologist AI</a>
+    </li>
+  </ul>
+
+  <ul class="sidebar-list list-unstyled CTAs">
+    <li>
+      <a href="../index.html" class="article">Back to Home</a>
+    </li>
+  </ul>
+</nav>
+
+    <div id="content">
+      <header class="container-fluild header">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <div class="align-items-middle">
+                <button type="button" id="sidebarCollapse" class="btn btn-toggle-sidebar">
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                </button>
+
+                <h1 style="display: inline-block">15. More on Sensitivity and Specificity</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main class="container">
+        <div class="row">
+          <div class="col-12">
+            <div class="ud-atom">
+  <h3></h3>
+  <div>
+  <h1 id="sensitivity-and-specificity">Sensitivity and Specificity</h1>
+<p>Although similar, <em>sensitivity</em> and <em>specificity</em> are not the same as <em>precision</em> and <em>recall</em>. Here are the definitions:</p>
+<p>In the cancer example, sensitivity and specificity are the following:</p>
+<ul>
+<li>Sensitivity: Of all the people <strong>with</strong> cancer, how many were correctly diagnosed?</li>
+<li>Specificity: Of all the people <strong>without</strong> cancer, how many were correctly diagnosed?</li>
+</ul>
+<p>And precision and recall are the following:</p>
+<ul>
+<li>Recall: Of all the people who <strong>have cancer</strong>, how many did <strong>we diagnose</strong> as having cancer?</li>
+<li>Precision: Of all the people <strong>we diagnosed</strong> with cancer, how many actually <strong>had cancer</strong>?</li>
+</ul>
+<p>From here we can see that Sensitivity is Recall, and the other two are not the same thing.</p>
+<p>Trust me, we also have a hard time remembering which one is which, so here's a little trick. If you remember from Luis's Evaluation Metrics section, here is the [confusion matrix](- <a href="https://classroom.udacity.com/nanodegrees/nd101/parts/73a7fe8e-4354-4362-939d-a8bf2bae870d/modules/e6a4e4a1-98a9-4afe-a744-7ae6a59c01b8/lessons/9ac722df-8191-44df-b7f5-ef1732b2d053/concepts/2034dd12-8ffc-4753-b8f4-c6042487ea5d" target="_blank">Confusion Matrix</a>:</p>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <figure class="figure">
+    <img src="img/confusion-matrix.png" alt="" class="img img-fluid">
+    <figcaption class="figure-caption">
+      
+    </figcaption>
+  </figure>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <p>Now, sensitivity and specificity are the rows of this matrix. More specifically, if we label</p>
+<ul>
+<li>TP: (True Positives) Sick people that we <strong>correctly</strong> diagnosed as sick.</li>
+<li>TN: (True Negatives) Healthy people that we <strong>correctly</strong> diagnosed as healthy.</li>
+<li>FP: (False Positives) Healthy people that we <strong>incorrectly</strong> diagnosed as sick.</li>
+<li>FN: (False Negatives) Sick people that we <strong>incorrectly</strong> diagnosed as healthy.</li>
+</ul>
+<p>then:</p>
+<p>Sensitivity <span class="mathquill ud-math">= \frac{TP}{TP + FN}</span></p>
+<p>and</p>
+<p>Specificity <span class="mathquill ud-math">= \frac{TN}{TN + FP}</span>.</p>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <figure class="figure">
+    <img src="img/sensitivity-specificity.png" alt="Sensitivity and Specificity" class="img img-fluid">
+    <figcaption class="figure-caption">
+      <p>Sensitivity and Specificity</p>
+    </figcaption>
+  </figure>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <p>And precision and recall are the top row and the left column of the matrix:</p>
+<p>Recall <span class="mathquill ud-math">= \frac{TP}{TP + FN}</span></p>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <p>and</p>
+<p>Precision <span class="mathquill ud-math">= \frac{TP}{TP + FP} </span>.</p>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <figure class="figure">
+    <img src="img/precision-recall.png" alt="Precision and Recall" class="img img-fluid">
+    <figcaption class="figure-caption">
+      <p>Precision and Recall</p>
+    </figcaption>
+  </figure>
+</div>
+
+</div>
+<div class="divider"></div>
+          </div>
+        </div>
+      </main>
+
+      <footer class="footer">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <p class="text-center">
+                <a href="https://github.com/udacimak/udacimak#readme" target="_blank">udacimak v1.2.0</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </div>
+
+
+  <script src="../assets/js/jquery-3.3.1.min.js"></script>
+  <script src="../assets/js/plyr.polyfilled.min.js"></script>
+  <script src="../assets/js/bootstrap.min.js"></script>
+  <script src="../assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+  <script src="../assets/js/katex.min.js"></script>
+  <script>
+    // Initialize Plyr video players
+    const players = Array.from(document.querySelectorAll('video')).map(p => new Plyr(p));
+
+    // render math equations
+    let elMath = document.getElementsByClassName('mathquill');
+    for (let i = 0, len = elMath.length; i < len; i += 1) {
+      const el = elMath[i];
+
+      katex.render(el.textContent, el, {
+        throwOnError: false
+      });
+    }
+
+    // this hack will make sure Bootstrap tabs work when using Handlebars
+    if ($('#question-tabs').length && $('#user-answer-tabs').length) {
+      $("#question-tabs a.nav-link").on('click', function () {
+        $("#question-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+      $("#user-answer-tabs a.nav-link").on('click', function () {
+        $("#user-answer-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    } else {
+      $("a.nav-link").on('click', function () {
+        $(".tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    }
+
+    // side bar events
+    $(document).ready(function () {
+      $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+      });
+
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar, #content').toggleClass('active');
+        $('.collapse.in').toggleClass('in');
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+      });
+    });
+  </script>
+</body>
+
+</html>

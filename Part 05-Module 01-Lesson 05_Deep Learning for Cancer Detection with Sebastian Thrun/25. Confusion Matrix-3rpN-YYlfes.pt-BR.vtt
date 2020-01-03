@@ -1,0 +1,81 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.234 --> 00:00:03.534
+A rede também classificou errado
+numa experiência
+
+00:00:03.567 --> 00:00:06.434
+com uma classificação de nove
+para doenças de pele,
+
+00:00:06.467 --> 00:00:09.334
+inclusive o câncer,
+que são a classe 7 e 8.
+
+00:00:09.367 --> 00:00:12.334
+Criamos
+uma matriz de confusão.
+
+00:00:12.367 --> 00:00:14.968
+Se algo for da classe A,
+
+00:00:15.000 --> 00:00:19.067
+qual é a probabilidade de a rede
+dizer é que da classe B?
+
+00:00:19.100 --> 00:00:23.667
+Então seria A, B, C, D, E, F, G
+ou, no caso, de zero a oito.
+
+00:00:23.701 --> 00:00:26.467
+Temos a probabilidade
+da confusão.
+
+00:00:26.501 --> 00:00:29.667
+A diagonal principal significa
+que nada foi confundido.
+
+00:00:29.701 --> 00:00:32.934
+Qualquer valor fora
+da diagonal principal
+
+00:00:32.968 --> 00:00:34.901
+revela uma grande confusão.
+
+00:00:34.934 --> 00:00:38.167
+Percebemos
+que os dermatologistas
+
+00:00:38.200 --> 00:00:41.601
+têm um fator de confusão
+mais alto do que as redes neurais.
+
+00:00:41.634 --> 00:00:43.601
+A rede é mais consistente.
+
+00:00:43.634 --> 00:00:47.534
+Existem maneiras sistemáticas
+nas quais as redes erram,
+
+00:00:47.567 --> 00:00:51.267
+mas se você analisar
+a matriz de confusão,
+
+00:00:51.300 --> 00:00:55.801
+os dermatologistas tendem mais
+a classificar errado os casos
+
+00:00:55.834 --> 00:00:59.367
+do que a rede neural.
+É interessante.
+
+00:00:59.400 --> 00:01:03.834
+É por isso que a nossa curva
+de sensibilidade e especificidade
+
+00:01:03.868 --> 00:01:05.701
+é melhor
+do que os dermatologistas.
+

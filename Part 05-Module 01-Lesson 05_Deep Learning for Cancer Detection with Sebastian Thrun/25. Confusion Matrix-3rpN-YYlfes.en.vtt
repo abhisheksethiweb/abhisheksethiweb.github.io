@@ -1,0 +1,64 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:02.580
+And it was also misclassify in
+
+00:00:02.580 --> 00:00:03.860
+an experiment where we looked at
+
+00:00:03.859 --> 00:00:06.224
+nine various classification for different types of disease,
+
+00:00:06.224 --> 00:00:09.044
+including cancers which is class seven and class eight.
+
+00:00:09.044 --> 00:00:10.800
+The bit of what's called a confusion matrix.
+
+00:00:10.800 --> 00:00:12.470
+A confusion matrix is,
+
+00:00:12.470 --> 00:00:14.990
+suppose something is of class A,
+
+00:00:14.990 --> 00:00:18.445
+what is the probability of the network saying class B?
+
+00:00:18.445 --> 00:00:23.475
+Okay. So we eat a b c d e f g 0 - 8 in this case,
+
+00:00:23.475 --> 00:00:26.220
+you get a probability of confusion.
+
+00:00:26.219 --> 00:00:29.486
+The main diagonal means nothing is confused.
+
+00:00:29.486 --> 00:00:34.310
+In any value of the main diagonal, shows high confusion.
+
+00:00:34.310 --> 00:00:36.135
+And what we find is,
+
+00:00:36.134 --> 00:00:39.804
+that dermatologists have a higher confusion factor
+
+00:00:39.804 --> 00:00:43.630
+than known volts that represents what consistent in its assessment.
+
+00:00:43.630 --> 00:00:47.245
+There's very systematic ways in which many of us might get a result wrong.
+
+00:00:47.244 --> 00:00:52.320
+But if you look just visually at the confusion matrix here,
+
+00:00:52.320 --> 00:00:57.634
+dermatologist are much more inclined to misclassifying cases than the normal.
+
+00:00:57.634 --> 00:01:02.074
+There's an interesting side finding and that's one of the reasons why our C curve,
+
+00:01:02.075 --> 00:01:06.000
+our sensitivity specificity ends up to be so much better than most dermatologist.
+

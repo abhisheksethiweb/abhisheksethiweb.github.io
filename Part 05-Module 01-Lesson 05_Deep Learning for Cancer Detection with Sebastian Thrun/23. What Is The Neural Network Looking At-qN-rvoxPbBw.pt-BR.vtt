@@ -1,0 +1,91 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.100 --> 00:00:04.200
+No que a rede está se fixando?
+O que está olhando?
+
+00:00:04.234 --> 00:00:06.567
+Você pode fazer
+uma análise de sensibilidade,
+
+00:00:06.601 --> 00:00:10.267
+distorcendo a imagem de entrada
+e ver como fica a classe de saída.
+
+00:00:10.300 --> 00:00:13.567
+Se distorcermos um pouco,
+a saída não muda muito,
+
+00:00:13.601 --> 00:00:15.501
+mas outras vezes
+muda muito.
+
+00:00:15.534 --> 00:00:20.267
+A análise de sensibilidade
+revela o foco da rede neural.
+
+00:00:20.300 --> 00:00:24.501
+Que fatores foram usados
+para chegar a essa conclusão?
+
+00:00:24.534 --> 00:00:25.968
+Aqui está o melanoma.
+
+00:00:26.000 --> 00:00:28.467
+Do lado direito,
+
+00:00:28.501 --> 00:00:32.167
+quanto mais escuro for o ponto,
+mais importante é a característica.
+
+00:00:32.200 --> 00:00:33.901
+Se olharmos bem,
+
+00:00:33.934 --> 00:00:37.067
+vemos que o melanoma
+se espalhou um pouco
+
+00:00:37.100 --> 00:00:39.868
+e há vários pontos negros.
+
+00:00:39.901 --> 00:00:44.934
+Esse fato parece ter um impacto
+no voto da rede neural,
+
+00:00:44.968 --> 00:00:48.801
+como visto pelas áreas escuras
+na imagem da direita.
+
+00:00:49.634 --> 00:00:52.501
+Analise esta imagem.
+
+00:00:52.534 --> 00:00:55.667
+Veja tipos diferentes
+de amostras de pele
+
+00:00:55.701 --> 00:00:58.067
+e que regiões
+são mais importantes.
+
+00:00:58.100 --> 00:01:01.033
+Todas as imagens foram
+classificadas corretamente.
+
+00:01:01.067 --> 00:01:03.634
+Em alguns casos,
+a imagem inteira importa,
+
+00:01:03.667 --> 00:01:07.400
+em outros, características
+específicas são enfatizadas.
+
+00:01:07.434 --> 00:01:09.534
+A rede é inteligente
+e entende
+
+00:01:09.567 --> 00:01:13.200
+que parte da imagem é essencial
+para achar o câncer.
+

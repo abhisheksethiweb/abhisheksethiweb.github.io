@@ -1,0 +1,82 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:02.150
+Finally, we ask the question, what is network fixating on?
+
+00:00:02.150 --> 00:00:03.375
+What is that you look at?
+
+00:00:03.375 --> 00:00:05.618
+And you can do a sensitivity analysis.
+
+00:00:05.618 --> 00:00:07.679
+You can wiggle your input image
+
+00:00:07.679 --> 00:00:10.019
+a little bit and see how much the output class of wiggles.
+
+00:00:10.019 --> 00:00:11.070
+And for some wiggles,
+
+00:00:11.070 --> 00:00:13.490
+if you wiggle them a little bit the output does not change very much.
+
+00:00:13.490 --> 00:00:15.160
+But for others it changes a lot.
+
+00:00:15.160 --> 00:00:17.160
+That is called a sensitivity analysis and that gives you
+
+00:00:17.160 --> 00:00:20.160
+a feeling for why does no one ever pay attention.
+
+00:00:20.160 --> 00:00:24.341
+What factors are the images normally used to arrive at its conclusion.
+
+00:00:24.341 --> 00:00:28.545
+Here is a melanoma and you can see on the right side in this diagram,
+
+00:00:28.545 --> 00:00:31.704
+the darker dot the more important that feature is.
+
+00:00:31.704 --> 00:00:33.494
+If you look in detail here,
+
+00:00:33.494 --> 00:00:36.359
+you will see that this melanoma has already
+
+00:00:36.359 --> 00:00:39.674
+spread a little bit and is comprised of multiple black dots.
+
+00:00:39.674 --> 00:00:41.820
+And the fact that there are multiple black dots
+
+00:00:41.820 --> 00:00:44.179
+seems to have a big impact on the vote of the
+
+00:00:44.179 --> 00:00:49.854
+[inaudible] as shown by the corresponding dark areas in the right image.
+
+00:00:49.854 --> 00:00:53.684
+Take some time and study this image over here and look at the different types
+
+00:00:53.685 --> 00:00:57.794
+of skin patches and what region of those patches play a big role.
+
+00:00:57.793 --> 00:01:00.674
+All these images were classified correctly,
+
+00:01:00.674 --> 00:01:04.034
+and in some cases you will see that the entire image matters; in others,
+
+00:01:04.034 --> 00:01:07.349
+very specific features of being emphasis with an [inaudible] classification.
+
+00:01:07.349 --> 00:01:09.809
+The network is smart enough to really understand
+
+00:01:09.810 --> 00:01:13.230
+what part of the image is essential for finding cancer.
+
