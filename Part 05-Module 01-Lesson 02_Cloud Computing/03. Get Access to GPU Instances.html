@@ -1,0 +1,245 @@
+<!-- udacimak v1.2.0 -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Get Access to GPU Instances</title>
+  <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../assets/css/plyr.css">
+  <link rel="stylesheet" href="../assets/css/katex.min.css">
+  <link rel="stylesheet" href="../assets/css/jquery.mCustomScrollbar.min.css">
+  <link rel="stylesheet" href="../assets/css/styles.css">
+  <link rel="shortcut icon" type="image/png" href="../assets/img/udacimak.png" />
+</head>
+
+<body>
+  <div class="wrapper">
+    <nav id="sidebar">
+  <div class="sidebar-header">
+    <h3>Cloud Computing</h3>
+  </div>
+
+  <ul class="sidebar-list list-unstyled CTAs">
+    <li>
+      <a href="../index.html" class="article">Back to Home</a>
+    </li>
+  </ul>
+
+  <ul class="sidebar-list list-unstyled components">
+    <li class="">
+      <a href="01. Overview.html">01. Overview</a>
+    </li>
+    <li class="">
+      <a href="02. Create an AWS Account.html">02. Create an AWS Account</a>
+    </li>
+    <li class="">
+      <a href="03. Get Access to GPU Instances.html">03. Get Access to GPU Instances</a>
+    </li>
+    <li class="">
+      <a href="04. Apply Credits.html">04. Apply Credits</a>
+    </li>
+    <li class="">
+      <a href="05. Launch an Instance.html">05. Launch an Instance</a>
+    </li>
+    <li class="">
+      <a href="06. Login to the Instance.html">06. Login to the Instance</a>
+    </li>
+    <li class="">
+      <a href="07. More Resources.html">07. More Resources</a>
+    </li>
+  </ul>
+
+  <ul class="sidebar-list list-unstyled CTAs">
+    <li>
+      <a href="../index.html" class="article">Back to Home</a>
+    </li>
+  </ul>
+</nav>
+
+    <div id="content">
+      <header class="container-fluild header">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <div class="align-items-middle">
+                <button type="button" id="sidebarCollapse" class="btn btn-toggle-sidebar">
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                </button>
+
+                <h1 style="display: inline-block">03. Get Access to GPU Instances</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main class="container">
+        <div class="row">
+          <div class="col-12">
+            <div class="ud-atom">
+  <h3></h3>
+  <div>
+  <h3 id="view-your-current-limit">View Your Current Limit</h3>
+<p>Amazon Web Services has a service called <a href="https://aws.amazon.com/ec2" target="_blank">Elastic Compute Cloud (EC2)</a>, which allows you to launch virtual servers (or “instances”), including instances with attached GPUs. The specific type of GPU instance you should launch for this tutorial is called “p2.xlarge”.</p>
+<p>We will use <a href="https://aws.amazon.com/marketplace/pp/B077GF11NF" target="_blank">this AMI (Amazon Machine Image)</a> to define the operating system for your instance, and to make use of its pre-installed software.  In order to use this AMI, you <strong>must</strong> change your AWS region to one of the following (and you are encouraged to select the region in the list that is closest to you):</p>
+<ul>
+<li>EU (Ireland)</li>
+<li>Asia Pacific (Seoul)</li>
+<li>Asia Pacific (Tokyo)</li>
+<li>Asia Pacific (Sydney)</li>
+<li>US East (N. Virginia)</li>
+<li>US East (Ohio)</li>
+<li>US West (Oregon)</li>
+</ul>
+<p><strong>After</strong> changing your AWS region, view your EC2 Service Limit report at: <a href="https://console.aws.amazon.com/ec2/v2/home?#Limits" target="_blank">https://console.aws.amazon.com/ec2/v2/home?#Limits</a>, and find your "Current Limit" for the p2.xlarge instance type.</p>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <figure class="figure">
+    <img src="img/p2xlarge-limit-request.png" alt="" class="img img-fluid">
+    <figcaption class="figure-caption">
+      
+    </figcaption>
+  </figure>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <p>By default, AWS sets a limit of 0 on the number of p2.xlarge instances a user can run, which effectively prevents you from launching this instance.</p>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <h3 id="submit-a-limit-increase-request">Submit a Limit Increase Request</h3>
+<p>If your limit of p2.xlarge instances is 0, you'll need to increase the limit before you can launch an instance.  From the EC2 Service Limits page, click on “Request limit increase” next to “p2.xlarge”.</p>
+<p>You will not be charged for requesting a limit increase. You will only be charged once you actually launch an instance.  </p>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <figure class="figure">
+    <img src="img/p2xlarge-limit-request.png" alt="" class="img img-fluid">
+    <figcaption class="figure-caption">
+      
+    </figcaption>
+  </figure>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <p>On the service request form, you will need to complete several fields.</p>
+<p>For the “Region” field, select the AWS region you chose in <strong>Step 2</strong>.</p>
+<p>For the “New limit value”,  enter a value of 1 (or more, if you wish).</p>
+<p>For the “Use Case Description”, you can simply state: “I would like to use GPU instances for deep learning.”</p>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <figure class="figure">
+    <img src="img/p2-limit-increase.png" alt="" class="img img-fluid">
+    <figcaption class="figure-caption">
+      
+    </figcaption>
+  </figure>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <p>Note: If you have never launched an instance of any type on AWS, you might receive an email from AWS Support asking you to initialize your account by creating an instance before they approve the limit increase.</p>
+<h3 id="wait-for-approval">Wait for Approval</h3>
+<p>You must wait until AWS approves your Limit Increase Request. AWS typically approves these requests within 48 hours.  </p>
+</div>
+
+</div>
+<div class="divider"></div>
+          </div>
+        </div>
+      </main>
+
+      <footer class="footer">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <p class="text-center">
+                <a href="https://github.com/udacimak/udacimak#readme" target="_blank">udacimak v1.2.0</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </div>
+
+
+  <script src="../assets/js/jquery-3.3.1.min.js"></script>
+  <script src="../assets/js/plyr.polyfilled.min.js"></script>
+  <script src="../assets/js/bootstrap.min.js"></script>
+  <script src="../assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+  <script src="../assets/js/katex.min.js"></script>
+  <script>
+    // Initialize Plyr video players
+    const players = Array.from(document.querySelectorAll('video')).map(p => new Plyr(p));
+
+    // render math equations
+    let elMath = document.getElementsByClassName('mathquill');
+    for (let i = 0, len = elMath.length; i < len; i += 1) {
+      const el = elMath[i];
+
+      katex.render(el.textContent, el, {
+        throwOnError: false
+      });
+    }
+
+    // this hack will make sure Bootstrap tabs work when using Handlebars
+    if ($('#question-tabs').length && $('#user-answer-tabs').length) {
+      $("#question-tabs a.nav-link").on('click', function () {
+        $("#question-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+      $("#user-answer-tabs a.nav-link").on('click', function () {
+        $("#user-answer-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    } else {
+      $("a.nav-link").on('click', function () {
+        $(".tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    }
+
+    // side bar events
+    $(document).ready(function () {
+      $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+      });
+
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar, #content').toggleClass('active');
+        $('.collapse.in').toggleClass('in');
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+      });
+    });
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,227 @@
+<!-- udacimak v1.2.0 -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Login to the Instance</title>
+  <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../assets/css/plyr.css">
+  <link rel="stylesheet" href="../assets/css/katex.min.css">
+  <link rel="stylesheet" href="../assets/css/jquery.mCustomScrollbar.min.css">
+  <link rel="stylesheet" href="../assets/css/styles.css">
+  <link rel="shortcut icon" type="image/png" href="../assets/img/udacimak.png" />
+</head>
+
+<body>
+  <div class="wrapper">
+    <nav id="sidebar">
+  <div class="sidebar-header">
+    <h3>Cloud Computing</h3>
+  </div>
+
+  <ul class="sidebar-list list-unstyled CTAs">
+    <li>
+      <a href="../index.html" class="article">Back to Home</a>
+    </li>
+  </ul>
+
+  <ul class="sidebar-list list-unstyled components">
+    <li class="">
+      <a href="01. Overview.html">01. Overview</a>
+    </li>
+    <li class="">
+      <a href="02. Create an AWS Account.html">02. Create an AWS Account</a>
+    </li>
+    <li class="">
+      <a href="03. Get Access to GPU Instances.html">03. Get Access to GPU Instances</a>
+    </li>
+    <li class="">
+      <a href="04. Apply Credits.html">04. Apply Credits</a>
+    </li>
+    <li class="">
+      <a href="05. Launch an Instance.html">05. Launch an Instance</a>
+    </li>
+    <li class="">
+      <a href="06. Login to the Instance.html">06. Login to the Instance</a>
+    </li>
+    <li class="">
+      <a href="07. More Resources.html">07. More Resources</a>
+    </li>
+  </ul>
+
+  <ul class="sidebar-list list-unstyled CTAs">
+    <li>
+      <a href="../index.html" class="article">Back to Home</a>
+    </li>
+  </ul>
+</nav>
+
+    <div id="content">
+      <header class="container-fluild header">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <div class="align-items-middle">
+                <button type="button" id="sidebarCollapse" class="btn btn-toggle-sidebar">
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                </button>
+
+                <h1 style="display: inline-block">06. Login to the Instance</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main class="container">
+        <div class="row">
+          <div class="col-12">
+            <div class="ud-atom">
+  <h3></h3>
+  <div>
+  <h3 id="login-to-the-instance">Login to the Instance</h3>
+<p>After launch, your instance may take a few minutes to initialize. </p>
+<p>Once you see “2/2 checks passed” on the EC2 Management Console, your instance is ready for you to log in.</p>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <figure class="figure">
+    <img src="img/screen-shot-2018-07-19-at-5.39.37-pm.png" alt="Instance Status Check and Public IP" class="img img-fluid">
+    <figcaption class="figure-caption">
+      <p>Instance Status Check and Public IP</p>
+    </figcaption>
+  </figure>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <p>Note the "IPv4 Public IP" address (in the format of “X.X.X.X”) on the EC2 Dashboard.</p>
+<p>From a terminal, navigate to the location where you stored your .pem file.  (For example, if you put your .pem file on your Desktop, <code>cd ~/Desktop/</code> will move you to the correct directory.)</p>
+<p>Type <code>ssh -i YourKeyName.pem ubuntu@X.X.X.X</code>, where:</p>
+<ul>
+<li><code>X.X.X.X</code> is the IPv4 Public IP found in AWS, and</li>
+<li><code>YourKeyName.pem</code> is the name of your .pem file.</li>
+</ul>
+<p>Note that if you've used a different AMI or specified a username, <code>ubuntu</code> will be replaced with the username, such as <code>ec2-user</code> for some Amazon AMI's.  You would then instead enter <code>ssh -i YourKeyName.pem ec2-user@X.X.X.X</code></p>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <h3 id="configure-jupyter-notebook-settings">Configure Jupyter notebook settings</h3>
+<p>In your instance, in order to create a config file for your Jupyter notebook settings, type: <code>jupyter notebook --generate-config</code>.</p>
+<p>Then, to change the IP address config setting for notebooks (this is just a fancy one-line command to perform an exact string match replacement; you could do the same thing manually using vi/vim/nano/etc.), type: <code>sed -ie "s/#c.NotebookApp.ip = 'localhost'/#c.NotebookApp.ip = '*'/g" ~/.jupyter/jupyter_notebook_config.py</code></p>
+<h3 id="test-the-instance">Test the Instance</h3>
+<p>Make sure everything is working properly by verifying that the instance can run a Keras notebook.</p>
+<h5 id="on-the-ec2-instance">On the EC2 instance</h5>
+<ul>
+<li>Clone a GitHub repository<ul>
+<li><code>git clone https://github.com/udacity/aind2-cnn.git</code></li></ul></li>
+<li>Enter the repo directory<ul>
+<li><code>cd aind2-cnn</code></li></ul></li>
+<li>Install the requirements<ul>
+<li><code>sudo python3 -m pip install -r requirements/requirements.txt</code></li></ul></li>
+<li>Start Jupyter notebook<ul>
+<li><code>jupyter notebook --ip=0.0.0.0 --no-browser</code></li></ul></li>
+</ul>
+<h5 id="from-your-local-machine">From your local machine</h5>
+<ul>
+<li>You will need the token generated by your jupyter notebook to access it.  On your instance terminal, there will be the following line:<br />
+<code>Copy/paste this URL into your browser when you connect for the first time, to login with a token:</code>.  Copy everything starting with the <code>:8888/?token=</code>.</li>
+<li>Access the Jupyter notebook index from your web browser by visiting: <code>X.X.X.X:8888/?token=...</code> (where X.X.X.X is the IP address of your EC2 instance and everything starting with <code>:8888/?token=</code> is what you just copied).</li>
+<li>Click on a folder, like "mnist", to enter it and select a notebook, such as the "mnist_mlp.ipynb" notebook.</li>
+<li>Run each cell in the notebook.</li>
+</ul>
+<p>For some notebooks, you should see a marked decrease in training time when compared to running the same cells using a typical CPU!</p>
+<p><strong>NOTE:</strong> Windows users may prefer connecting via the GUI utility PuTTY, by following <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/putty.html?icmpid=docs_ec2_console" target="_blank">these instructions</a>.</p>
+<hr />
+<h5 id="important-cost">Important: Cost</h5>
+<p>**From this point on, AWS will charge you for a running an EC2 instance. ** You can find the details on the <a href="https://aws.amazon.com/ec2/pricing/on-demand/" target="_blank">EC2 On-Demand Pricing page</a>.</p>
+<p>Most importantly, remember to <code>stop</code> (i.e. shutdown) your instances when you are not using them. Otherwise, your instances might run for a day or a week or a month without you remembering, and you’ll wind up with a large bill!</p>
+<p>AWS charges primarily for running instances, so most of the charges will cease once you stop the instance. However, there are smaller storage charges that continue to accrue until you “terminate” (i.e. delete) the instance.</p>
+</div>
+
+</div>
+<div class="divider"></div>
+          </div>
+        </div>
+      </main>
+
+      <footer class="footer">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <p class="text-center">
+                <a href="https://github.com/udacimak/udacimak#readme" target="_blank">udacimak v1.2.0</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </div>
+
+
+  <script src="../assets/js/jquery-3.3.1.min.js"></script>
+  <script src="../assets/js/plyr.polyfilled.min.js"></script>
+  <script src="../assets/js/bootstrap.min.js"></script>
+  <script src="../assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+  <script src="../assets/js/katex.min.js"></script>
+  <script>
+    // Initialize Plyr video players
+    const players = Array.from(document.querySelectorAll('video')).map(p => new Plyr(p));
+
+    // render math equations
+    let elMath = document.getElementsByClassName('mathquill');
+    for (let i = 0, len = elMath.length; i < len; i += 1) {
+      const el = elMath[i];
+
+      katex.render(el.textContent, el, {
+        throwOnError: false
+      });
+    }
+
+    // this hack will make sure Bootstrap tabs work when using Handlebars
+    if ($('#question-tabs').length && $('#user-answer-tabs').length) {
+      $("#question-tabs a.nav-link").on('click', function () {
+        $("#question-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+      $("#user-answer-tabs a.nav-link").on('click', function () {
+        $("#user-answer-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    } else {
+      $("a.nav-link").on('click', function () {
+        $(".tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    }
+
+    // side bar events
+    $(document).ready(function () {
+      $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+      });
+
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar, #content').toggleClass('active');
+        $('.collapse.in').toggleClass('in');
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+      });
+    });
+  </script>
+</body>
+
+</html>
