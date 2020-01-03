@@ -1,0 +1,232 @@
+<!-- udacimak v1.2.0 -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Introduction</title>
+  <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../assets/css/plyr.css">
+  <link rel="stylesheet" href="../assets/css/katex.min.css">
+  <link rel="stylesheet" href="../assets/css/jquery.mCustomScrollbar.min.css">
+  <link rel="stylesheet" href="../assets/css/styles.css">
+  <link rel="shortcut icon" type="image/png" href="../assets/img/udacimak.png" />
+</head>
+
+<body>
+  <div class="wrapper">
+    <nav id="sidebar">
+  <div class="sidebar-header">
+    <h3>Solve OpenAI Gym&#x27;s Taxi-v2 Task</h3>
+  </div>
+
+  <ul class="sidebar-list list-unstyled CTAs">
+    <li>
+      <a href="../index.html" class="article">Back to Home</a>
+    </li>
+  </ul>
+
+  <ul class="sidebar-list list-unstyled components">
+    <li class="">
+      <a href="01. Introduction.html">01. Introduction</a>
+    </li>
+    <li class="">
+      <a href="02. Instructions.html">02. Instructions</a>
+    </li>
+    <li class="">
+      <a href="03. Mini Project.html">03. Mini Project</a>
+    </li>
+  </ul>
+
+  <ul class="sidebar-list list-unstyled CTAs">
+    <li>
+      <a href="../index.html" class="article">Back to Home</a>
+    </li>
+  </ul>
+</nav>
+
+    <div id="content">
+      <header class="container-fluild header">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <div class="align-items-middle">
+                <button type="button" id="sidebarCollapse" class="btn btn-toggle-sidebar">
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                </button>
+
+                <h1 style="display: inline-block">01. Introduction</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main class="container">
+        <div class="row">
+          <div class="col-12">
+            <div class="ud-atom">
+  <h3></h3>
+  <div>
+  <figure class="figure">
+    <img src="img/screen-shot-2018-04-14-at-3.13.15-pm.png" alt="" class="img img-fluid">
+    <figcaption class="figure-caption">
+      
+    </figcaption>
+  </figure>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <h1 id="introduction">Introduction</h1>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <p>For this coding exercise, you will use OpenAI Gym's <code>Taxi-v2</code> environment to design an algorithm to teach a taxi agent to navigate a small gridworld.  The goal is to adapt all that you've learned in the previous lessons to solve a new environment!  </p>
+<p>Before proceeding, read the description of the environment in subsection 3.1 of <a href="https://arxiv.org/pdf/cs/9905014.pdf" target="_blank">this paper</a>.</p>
+<p>You can verify that the description in the paper matches the OpenAI Gym environment by peeking at the code <a href="https://github.com/openai/gym/blob/master/gym/envs/toy_text/taxi.py" target="_blank">here</a>.</p>
+<p>Answer the quiz questions below to check your understanding of the environment.</p>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3><p>Question 1</p></h3>
+  <div>
+  <form>
+    <fieldset>
+      <legend><p>How large is the state space?</p></legend>
+    </fieldset>
+
+      <div>
+        <input type="radio" value="a1523735885135" name="598977" id="a1523735885135">
+        <label for="a1523735885135"><p>There are 25 possible states, corresponding to each grid in the 5x5 grid world.</p></label>
+      </div>
+      <div>
+        <input type="radio" value="a1523735940504" name="598977" id="a1523735940504">
+        <label for="a1523735940504"><p>There are 100 possible states, corresponding to each grid in the 5x5 grid world and each of the four possible starting locations.</p></label>
+      </div>
+      <div>
+        <input type="radio" value="a1523736030046" name="598977" id="a1523736030046">
+        <label for="a1523736030046"><p>There are 500 possible states, corresponding to 25 possible grid locations, 5 locations for the passenger, and 4 destinations.</p></label>
+      </div>
+  </form>
+
+  <details>
+    <summary><strong>SOLUTION:</strong></summary>
+    There are 500 possible states, corresponding to 25 possible grid locations, 5 locations for the passenger, and 4 destinations.
+  </details>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <form>
+    <fieldset>
+      <legend><p>How many actions are available to the agent?</p></legend>
+    </fieldset>
+
+    <div>
+      <input type="checkbox" value="a1523736247351" name="598978" id="a1523736247351">
+      <label for="a1523736247351"><p>There are 4 possible actions, corresponding to moving North, East, South, or West.</p></label>
+    </div>
+    <div>
+      <input type="checkbox" value="a1523736275314" name="598978" id="a1523736275314">
+      <label for="a1523736275314"><p>There are 6 possible actions, corresponding to moving North, East, South, or West, picking up the passenger, and dropping off the passenger.</p></label>
+    </div>
+    <div>
+      <input type="checkbox" value="a1523736343628" name="598978" id="a1523736343628">
+      <label for="a1523736343628"><p>There are 4 possible actions, corresponding to increasing or decreasing the speed of the taxi, dropping off the passenger, and picking up the passenger.</p></label>
+    </div>
+  </form>
+
+  <details>
+    <summary><strong>SOLUTION:</strong></summary>
+    <ul>
+      <li>There are 6 possible actions, corresponding to moving North, East, South, or West, picking up the passenger, and dropping off the passenger.</li>
+  </ul>
+  </details>
+</div>
+
+</div>
+<div class="divider"></div>
+          </div>
+        </div>
+      </main>
+
+      <footer class="footer">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <p class="text-center">
+                <a href="https://github.com/udacimak/udacimak#readme" target="_blank">udacimak v1.2.0</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </div>
+
+
+  <script src="../assets/js/jquery-3.3.1.min.js"></script>
+  <script src="../assets/js/plyr.polyfilled.min.js"></script>
+  <script src="../assets/js/bootstrap.min.js"></script>
+  <script src="../assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+  <script src="../assets/js/katex.min.js"></script>
+  <script>
+    // Initialize Plyr video players
+    const players = Array.from(document.querySelectorAll('video')).map(p => new Plyr(p));
+
+    // render math equations
+    let elMath = document.getElementsByClassName('mathquill');
+    for (let i = 0, len = elMath.length; i < len; i += 1) {
+      const el = elMath[i];
+
+      katex.render(el.textContent, el, {
+        throwOnError: false
+      });
+    }
+
+    // this hack will make sure Bootstrap tabs work when using Handlebars
+    if ($('#question-tabs').length && $('#user-answer-tabs').length) {
+      $("#question-tabs a.nav-link").on('click', function () {
+        $("#question-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+      $("#user-answer-tabs a.nav-link").on('click', function () {
+        $("#user-answer-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    } else {
+      $("a.nav-link").on('click', function () {
+        $(".tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    }
+
+    // side bar events
+    $(document).ready(function () {
+      $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+      });
+
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar, #content').toggleClass('active');
+        $('.collapse.in').toggleClass('in');
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+      });
+    });
+  </script>
+</body>
+
+</html>

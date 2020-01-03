@@ -1,0 +1,265 @@
+<!-- udacimak v1.2.0 -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Instructions</title>
+  <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../assets/css/plyr.css">
+  <link rel="stylesheet" href="../assets/css/katex.min.css">
+  <link rel="stylesheet" href="../assets/css/jquery.mCustomScrollbar.min.css">
+  <link rel="stylesheet" href="../assets/css/styles.css">
+  <link rel="shortcut icon" type="image/png" href="../assets/img/udacimak.png" />
+</head>
+
+<body>
+  <div class="wrapper">
+    <nav id="sidebar">
+  <div class="sidebar-header">
+    <h3>Solve OpenAI Gym&#x27;s Taxi-v2 Task</h3>
+  </div>
+
+  <ul class="sidebar-list list-unstyled CTAs">
+    <li>
+      <a href="../index.html" class="article">Back to Home</a>
+    </li>
+  </ul>
+
+  <ul class="sidebar-list list-unstyled components">
+    <li class="">
+      <a href="01. Introduction.html">01. Introduction</a>
+    </li>
+    <li class="">
+      <a href="02. Instructions.html">02. Instructions</a>
+    </li>
+    <li class="">
+      <a href="03. Mini Project.html">03. Mini Project</a>
+    </li>
+  </ul>
+
+  <ul class="sidebar-list list-unstyled CTAs">
+    <li>
+      <a href="../index.html" class="article">Back to Home</a>
+    </li>
+  </ul>
+</nav>
+
+    <div id="content">
+      <header class="container-fluild header">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <div class="align-items-middle">
+                <button type="button" id="sidebarCollapse" class="btn btn-toggle-sidebar">
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                </button>
+
+                <h1 style="display: inline-block">02. Instructions</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main class="container">
+        <div class="row">
+          <div class="col-12">
+            <div class="ud-atom">
+  <h3></h3>
+  <div>
+  <h1 id="instructions">Instructions</h1>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <p>Open the workspace in the next concept in a new window.</p>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <figure class="figure">
+    <img src="img/new-tab.gif" alt="Open the workspace in a new window." class="img img-fluid">
+    <figcaption class="figure-caption">
+      <p>Open the workspace in a new window.</p>
+    </figcaption>
+  </figure>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <p>Next, open a terminal by clicking on <strong>NEW TERMINAL</strong>.  You will notice some output as the environment is configured.</p>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <figure class="figure">
+    <img src="img/open-terminal.gif" alt="Open a new terminal." class="img img-fluid">
+    <figcaption class="figure-caption">
+      <p>Open a new terminal.</p>
+    </figcaption>
+  </figure>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <p>The workspace contains three files:</p>
+<ul>
+<li><code>agent.py</code>: Develop your reinforcement learning agent here.  This is the only file that you should modify.</li>
+<li><code>monitor.py</code>: The <code>interact</code> function tests how well your agent learns from interaction with the environment.</li>
+<li><code>main.py</code>: Run this file in the terminal to check the performance of your agent.</li>
+</ul>
+<p>Open all three of these files in the workspace.</p>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <figure class="figure">
+    <img src="img/open-agent-monitor-main.gif" alt="Open &#x60;agent.py&#x60;, &#x60;Monitor.py&#x60;, and &#x60;main.py&#x60;." class="img img-fluid">
+    <figcaption class="figure-caption">
+      <p>Open <code>agent.py</code>, <code>Monitor.py</code>, and <code>main.py</code>.</p>
+    </figcaption>
+  </figure>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <p>Next, run <code>main.py</code> by executing <code>python main.py</code> in the terminal.</p>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <figure class="figure">
+    <img src="img/run-main.gif" alt="Run &#x60;python main.py&#x60; in the terminal." class="img img-fluid">
+    <figcaption class="figure-caption">
+      <p>Run <code>python main.py</code> in the terminal.</p>
+    </figcaption>
+  </figure>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <p>When you run <code>main.py</code>, the agent that you specify in <code>agent.py</code> interacts with the environment for 20,000 episodes.  The details of the interaction are specified in <code>monitor.py</code>, which returns two variables: <code>avg_rewards</code> and <code>best_avg_reward</code>.</p>
+<ul>
+<li><code>avg_rewards</code> is a deque where <code>avg_rewards[i]</code> is the average (undiscounted) return collected by the agent from episodes <code>i+1</code> to episode <code>i+100</code>, inclusive.  So, for instance, <code>avg_rewards[0]</code> is the average return collected by the agent over the first 100 episodes.</li>
+<li><code>best_avg_reward</code> is the largest entry in <code>avg_rewards</code>.  This is the final score that you should use when determining how well your agent performed in the task.</li>
+</ul>
+<p>Your assignment is to modify the <code>agents.py</code> file to improve the agent's performance.</p>
+<ul>
+<li>Use the <code>__init__()</code> method to define any needed instance variables.  Currently, we define the number of actions available to the agent (<code>nA</code>) and initialize the action values (<code>Q</code>) to an empty dictionary of arrays.  Feel free to add more instance variables; for example, you may find it useful to define the value of epsilon if the agent uses an epsilon-greedy policy for selecting actions.</li>
+<li>The <code>select_action()</code> method accepts the environment state as input and returns the agent's choice of action.  The default code that we have provided randomly selects an action.</li>
+<li>The <code>step()</code> method accepts a (<code>state</code>, <code>action</code>, <code>reward</code>, <code>next_state</code>) tuple as input, along with the <code>done</code> variable, which is <code>True</code> if the episode has ended.  The default code (which you should certainly change!) increments the action value of the previous state-action pair by 1.  You should change this method to use the sampled tuple of experience to update the agent's knowledge of the problem.</li>
+</ul>
+<p>Once you have modified the function, you need only run <code>python main.py</code> to test your new agent.</p>
+<p>While you are welcome to implement any algorithm of your choosing, note that it is possible to achieve satisfactory performance using some of the approaches that we have covered in the lessons.</p>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <h2 id="-evaluate-your-performance">### Evaluate your Performance</h2>
+<p>OpenAI Gym <a href="https://gym.openai.com/envs/Taxi-v1/" target="_blank">defines "solving"</a> this task as getting average return of 9.7 over 100 consecutive trials.  </p>
+<p>While this coding exercise is ungraded, we recommend that you try to attain an average return of at least 9.1 over 100 consecutive trials (<code>best_avg_reward</code> &gt; 9.1).  </p>
+<h2 id="-not-sure-where-to-start">### Not sure where to start?</h2>
+<p><em>Note that this exercise is intentionally open-ended, and we won't provide an official solution</em>.  For help with this exercise, please reach out to your instructors and fellow students!  As a first step, you should figure out how to adapt your implementation in the <strong>Temporal-Difference Methods</strong> lesson to implement an agent to learn in this new environment. The code will likely be very similar to the notebook from the <strong>Temporal-Difference Methods</strong> lesson, where you need only modify very few things to fit this slightly different format.</p>
+<h2 id="-share-your-results">### Share your Results</h2>
+<p>If you arrive at an implementation that you are proud of, please share your results with the student community!  You can also reach out to ask questions, get implementation hints, share ideas, or find collaborators! </p>
+<p>As a final step, towards sharing your ideas with the wider RL community, you may like to create a write-up and submit it to the <a href="https://github.com/openai/gym/wiki/Leaderboard" target="_blank">OpenAI Gym Leaderboard</a>!</p>
+</div>
+
+</div>
+<div class="divider"></div>
+          </div>
+        </div>
+      </main>
+
+      <footer class="footer">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <p class="text-center">
+                <a href="https://github.com/udacimak/udacimak#readme" target="_blank">udacimak v1.2.0</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </div>
+
+
+  <script src="../assets/js/jquery-3.3.1.min.js"></script>
+  <script src="../assets/js/plyr.polyfilled.min.js"></script>
+  <script src="../assets/js/bootstrap.min.js"></script>
+  <script src="../assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+  <script src="../assets/js/katex.min.js"></script>
+  <script>
+    // Initialize Plyr video players
+    const players = Array.from(document.querySelectorAll('video')).map(p => new Plyr(p));
+
+    // render math equations
+    let elMath = document.getElementsByClassName('mathquill');
+    for (let i = 0, len = elMath.length; i < len; i += 1) {
+      const el = elMath[i];
+
+      katex.render(el.textContent, el, {
+        throwOnError: false
+      });
+    }
+
+    // this hack will make sure Bootstrap tabs work when using Handlebars
+    if ($('#question-tabs').length && $('#user-answer-tabs').length) {
+      $("#question-tabs a.nav-link").on('click', function () {
+        $("#question-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+      $("#user-answer-tabs a.nav-link").on('click', function () {
+        $("#user-answer-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    } else {
+      $("a.nav-link").on('click', function () {
+        $(".tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    }
+
+    // side bar events
+    $(document).ready(function () {
+      $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+      });
+
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar, #content').toggleClass('active');
+        $('.collapse.in').toggleClass('in');
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+      });
+    });
+  </script>
+</body>
+
+</html>
